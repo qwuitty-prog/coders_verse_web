@@ -1,1 +1,43 @@
+/* Basic styles for the body */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa; /* Light gray background */
+  color: #333; /* Text color */
+}
 
+/* Navbar styles */
+.navbar {
+  background-color: #1a1a1a; /* Dark navbar */
+  padding: 1rem;
+}
+
+.navbar ul {
+  list-style: none; /* Remove bullets */
+  display: flex; /* Horizontal menu */
+  gap: 2rem; /* Space between links */
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none; /* Remove underline */
+  font-weight: bold;
+}
+
+.navbar a.active {
+  color: #4CAF50; /* Green for current page */
+}
+
+/* Hero section */
+.hero {
+  text-align: center;
+  padding: 5rem 1rem;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
