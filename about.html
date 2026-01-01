@@ -14,7 +14,7 @@
     --bg-light: #f4f6f8;
 }
 
-* { box-sizing: border-box; margin:0; padding:0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: "Segoe UI", Arial, sans-serif; background: linear-gradient(180deg, #f4f6f8, #eef1f4); color: var(--text-dark); }
 
 /* NAVBAR */
@@ -26,12 +26,12 @@ nav ul { list-style: none; display: flex; gap: 28px; }
 nav a { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--text-dark); transition: 0.3s; }
 nav a.active, nav a:hover { color: var(--primary); }
 
-/* HEADER */
+/* PAGE HEADER */
 .page-header { max-width: 960px; margin: 100px auto 50px; padding: 0 20px; text-align: center; }
 .page-header h1 { font-size: 48px; font-weight: 800; margin-bottom: 18px; line-height: 1.2; }
-.page-header p { font-size: 18px; color: var(--text-muted); max-width: 720px; margin: 0 auto; line-height: 1.6; }
+.page-header p { font-size: 18px; color: var(--text-muted); max-width: 720px; margin: 0 auto 36px; line-height: 1.6; }
 
-/* CONTENT */
+/* ABOUT CARD */
 .about-container { max-width: 1024px; margin: 0 auto 80px; padding: 0 20px; }
 .about-card { background: #fff; padding: 32px; border-radius: 16px; box-shadow: 0 10px 28px rgba(0,0,0,0.12); }
 .about-card h2 { font-size: 24px; margin-bottom: 16px; color: var(--primary); }
@@ -39,9 +39,10 @@ nav a.active, nav a:hover { color: var(--primary); }
 
 /* INFO GRID */
 .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; margin-top: 36px; }
-.info-box { background: #f9fafb; padding: 22px; border-radius: 16px; border-left: 5px solid var(--primary); }
+.info-box { background: #fff; padding: 28px; border-radius: 16px; box-shadow: 0 10px 28px rgba(0,0,0,0.12); border-left: 5px solid var(--primary); transition: 0.3s; }
+.info-box:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(0,0,0,0.15); }
 .info-box h3 { font-size: 18px; margin-bottom: 10px; color: var(--primary); }
-.info-box p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+.info-box p { font-size: 15px; color: var(--text-muted); line-height: 1.6; }
 
 /* FOOTER */
 footer { margin-top: 100px; padding: 32px; text-align: center; font-size: 14px; color: var(--text-muted); background: #fff; }
@@ -51,6 +52,7 @@ footer a:hover { text-decoration: underline; }
 /* RESPONSIVE */
 @media(max-width:768px) {
     .page-header h1 { font-size: 36px; }
+    .page-header p { font-size: 16px; }
     .about-grid { grid-template-columns: 1fr; gap: 20px; }
     nav ul { gap: 16px; }
 }
@@ -67,27 +69,27 @@ footer a:hover { text-decoration: underline; }
     </div>
     <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" class="active">About Us</a></li>
         <li><a href="courses.html">Courses</a></li>
+        <li><a href="about.html" class="active">About Us</a></li>
         <li><a href="verify.html">Verify Certificate</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
 </nav>
 
-<!-- HEADER -->
+<!-- PAGE HEADER -->
 <section class="page-header">
     <h1>About Coders Verse</h1>
     <p>
-        Coders Verse is a modern educational institute focused on delivering industry-ready technical skills with transparency, credibility, and trust.
+        Coders Verse is a modern educational institute delivering industry-ready technical skills with transparency, credibility, and trust.
     </p>
 </section>
 
-<!-- CONTENT -->
+<!-- ABOUT CONTENT -->
 <section class="about-container">
     <div class="about-card">
         <h2>Who We Are</h2>
         <p>
-            Coders Verse is an emerging technology education institute based in Mumbai, India. We specialize in professional training programs designed to bridge the gap between academic learning and real-world industry requirements.
+            Coders Verse is an emerging technology education institute based in Mumbai, India. We specialize in professional training programs bridging academic learning and real-world industry needs.
         </p>
         <p>
             Our certificate verification system ensures authenticity, builds employer trust, and provides students with verifiable credentials backed by official records.
@@ -96,23 +98,17 @@ footer a:hover { text-decoration: underline; }
         <div class="about-grid">
             <div class="info-box">
                 <h3>🎯 Our Mission</h3>
-                <p>
-                    To empower students and professionals with practical, job-ready technical skills through structured learning and verified certification.
-                </p>
+                <p>Empowering students and professionals with practical, job-ready skills through structured learning and verified certification.</p>
             </div>
 
             <div class="info-box">
                 <h3>👁️ Our Vision</h3>
-                <p>
-                    To become a trusted global name in technical education and digital credential verification.
-                </p>
+                <p>To become a trusted global name in technical education and digital credential verification.</p>
             </div>
 
             <div class="info-box">
                 <h3>🔐 Trust & Verification</h3>
-                <p>
-                    Every certificate issued by Coders Verse is digitally verifiable using our official verification portal, ensuring complete transparency.
-                </p>
+                <p>Every certificate issued is digitally verifiable via our official portal, ensuring complete transparency.</p>
             </div>
 
             <div class="info-box">
@@ -130,7 +126,8 @@ footer a:hover { text-decoration: underline; }
 <!-- FOOTER -->
 <footer>
     © 2025 Coders Verse. All rights reserved.<br>
-    <a href="mailto:careers.codersverse@gmail.com">careers.codersverse@gmail.com</a> |
+    Contact: +91 9876543210 |
+    <a href="mailto:careers.codersverse@gmail.com">Email</a> |
     <a href="https://instagram.com/coders.verse" target="_blank">Instagram</a>
 </footer>
 
