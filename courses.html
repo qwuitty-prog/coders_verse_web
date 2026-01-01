@@ -14,30 +14,35 @@
     --bg-light: #f4f6f8;
 }
 
-* { box-sizing: border-box; margin:0; padding:0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: "Segoe UI", Arial, sans-serif; background: linear-gradient(180deg, #f4f6f8, #eef1f4); color: var(--text-dark); }
 
 /* NAVBAR */
 nav {
     background: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     padding: 16px 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
-.logo { display: flex; align-items: center; gap: 16px; }
-.logo img { height: 60px; }
-.logo span { font-size: 22px; font-weight: 700; color: var(--primary); }
+.nav-left { display: flex; align-items: center; gap: 16px; }
+.nav-left img { height: 60px; }
+.nav-left span { font-size: 22px; font-weight: 700; color: var(--primary); }
 nav ul { list-style: none; display: flex; gap: 28px; }
 nav a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: 0.3s; }
-nav a:hover, nav a.active { color: var(--primary); }
+nav a.active, nav a:hover { color: var(--primary); }
 
 /* HEADER */
-.header { text-align: center; padding: 0 20px; margin: 100px auto 50px; }
+.header {
+    text-align: center;
+    margin: 100px auto 50px;
+    padding: 0 20px;
+    max-width: 960px;
+}
 .header h1 { font-size: 48px; font-weight: 800; margin-bottom: 18px; line-height: 1.2; }
 .header p { font-size: 18px; color: var(--text-muted); max-width: 720px; margin: 0 auto 36px; line-height: 1.6; }
 
@@ -60,7 +65,13 @@ nav a:hover, nav a.active { color: var(--primary); }
 .badge { display: inline-block; padding: 6px 14px; font-size: 13px; border-radius: 20px; background: #e0ecff; color: var(--primary); font-weight: 600; }
 
 /* FOOTER */
-footer { background: #fff; padding: 32px 20px; text-align: center; font-size: 14px; color: var(--text-muted); }
+footer {
+    background: #fff;
+    padding: 32px 20px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-muted);
+}
 footer strong { color: var(--text-dark); }
 
 /* RESPONSIVE */
@@ -76,7 +87,7 @@ footer strong { color: var(--text-dark); }
 
 <!-- NAVBAR -->
 <nav>
-  <div class="logo">
+  <div class="nav-left">
     <img src="assets/images/logo.png" alt="Coders Verse Logo">
     <span>Coders Verse</span>
   </div>
@@ -118,10 +129,10 @@ footer strong { color: var(--text-dark); }
     </div>
 
     <div class="course-card">
-      <img src="https://images.unsplash.com/photo-1612831455541-8283e24c8f59?auto=format&fit=crop&w=800&q=80" alt="AI & ML Engineering">
+      <img src="https://images.unsplash.com/photo-1591696331114-adef4b51f73a?auto=format&fit=crop&w=800&q=80" alt="Cybersecurity Fundamentals">
       <div class="course-body">
-        <h3>AI & ML Engineering</h3>
-        <p>Machine learning models, algorithms, and real-world applications.</p>
+        <h3>Cybersecurity Fundamentals</h3>
+        <p>Learn essential security practices to protect applications and data.</p>
         <span class="badge">Certification Included</span>
       </div>
     </div>
