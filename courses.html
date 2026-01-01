@@ -14,6 +14,9 @@
     --bg-light: #f4f6f8;
 }
 
+/* FIX 1: Prevents the page from jumping when switching tabs */
+html { overflow-y: scroll; }
+
 * { box-sizing: border-box; margin:0; padding:0; }
 body { font-family: "Segoe UI", Arial, sans-serif; background: linear-gradient(180deg, #f4f6f8, #eef1f4); color: var(--text-dark); }
 
@@ -33,7 +36,9 @@ nav {
 .nav-left img { height: 60px; }
 .nav-left span { font-size: 22px; font-weight: 700; color: var(--primary); }
 nav ul { list-style: none; display: flex; gap: 28px; }
-nav a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: 0.3s; }
+
+/* FIX 2: Added 'font-size: 15px' to match your Home page exactly */
+nav a { text-decoration: none; color: var(--text-dark); font-size: 15px; font-weight: 500; transition: 0.3s; }
 nav a.active, nav a:hover { color: var(--primary); }
 
 /* HEADER */
@@ -76,7 +81,6 @@ footer strong { color: var(--text-dark); }
 
 <body>
 
-<!-- NAVBAR -->
 <nav>
   <div class="nav-left">
     <img src="assets/images/logo.png" alt="Coders Verse Logo">
@@ -91,13 +95,11 @@ footer strong { color: var(--text-dark); }
   </ul>
 </nav>
 
-<!-- HEADER -->
 <section class="header">
   <h1>Our Programs</h1>
   <p>Industry-aligned programs with verifiable certification</p>
 </section>
 
-<!-- COURSES GRID -->
 <section class="container">
   <div class="courses">
 
@@ -119,9 +121,8 @@ footer strong { color: var(--text-dark); }
       </div>
     </div>
 
-    <!-- FIXED COURSE: Cybersecurity -->
     <div class="course-card">
-      <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="Data Engineering">
+      <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80" alt="Cybersecurity Fundamentals">
       <div class="course-body">
         <h3>Cybersecurity Fundamentals</h3>
         <p>Learn essential security practices to protect applications and data.</p>
@@ -159,7 +160,6 @@ footer strong { color: var(--text-dark); }
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <strong>Coders Verse</strong><br>
   3rd Floor, Knowledge Park Tower, Sector 18, Vashi, Navi Mumbai – 400703<br>
