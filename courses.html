@@ -14,17 +14,17 @@
     --bg-light: #f4f6f8;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin:0; padding:0; }
 body { font-family: "Segoe UI", Arial, sans-serif; background: linear-gradient(180deg, #f4f6f8, #eef1f4); color: var(--text-dark); }
 
 /* NAVBAR */
 nav {
     background: #fff;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     padding: 16px 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -37,12 +37,7 @@ nav a { text-decoration: none; color: var(--text-dark); font-weight: 500; transi
 nav a.active, nav a:hover { color: var(--primary); }
 
 /* HEADER */
-.header {
-    text-align: center;
-    margin: 100px auto 50px;
-    padding: 0 20px;
-    max-width: 960px;
-}
+.header { text-align: center; padding: 0 20px; margin: 100px auto 50px; max-width: 960px; }
 .header h1 { font-size: 48px; font-weight: 800; margin-bottom: 18px; line-height: 1.2; }
 .header p { font-size: 18px; color: var(--text-muted); max-width: 720px; margin: 0 auto 36px; line-height: 1.6; }
 
@@ -56,22 +51,18 @@ nav a.active, nav a:hover { color: var(--primary); }
     overflow: hidden;
     box-shadow: 0 10px 28px rgba(0,0,0,0.12);
     transition: 0.3s;
+    display: flex;
+    flex-direction: column;
 }
 .course-card:hover { transform: translateY(-6px); box-shadow: 0 14px 36px rgba(0,0,0,0.15); }
-.course-card img { width: 100%; height: 180px; object-fit: cover; }
-.course-body { padding: 32px; }
+.course-card img { width: 100%; height: 180px; object-fit: cover; display: block; }
+.course-body { padding: 32px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
 .course-body h3 { margin: 0 0 12px; font-size: 20px; color: var(--primary); }
 .course-body p { font-size: 15px; color: var(--text-muted); margin-bottom: 14px; }
 .badge { display: inline-block; padding: 6px 14px; font-size: 13px; border-radius: 20px; background: #e0ecff; color: var(--primary); font-weight: 600; }
 
 /* FOOTER */
-footer {
-    background: #fff;
-    padding: 32px 20px;
-    text-align: center;
-    font-size: 14px;
-    color: var(--text-muted);
-}
+footer { background: #fff; padding: 32px 20px; text-align: center; font-size: 14px; color: var(--text-muted); }
 footer strong { color: var(--text-dark); }
 
 /* RESPONSIVE */
@@ -128,8 +119,9 @@ footer strong { color: var(--text-dark); }
       </div>
     </div>
 
+    <!-- FIXED COURSE: Cybersecurity -->
     <div class="course-card">
-      <img src="https://images.unsplash.com/photo-1591696331114-adef4b51f73a?auto=format&fit=crop&w=800&q=80" alt="Cybersecurity Fundamentals">
+      <img src="https://images.unsplash.com/photo-1581091870625-93f9b6aa3c25?auto=format&fit=crop&w=800&q=80" alt="Cybersecurity Fundamentals">
       <div class="course-body">
         <h3>Cybersecurity Fundamentals</h3>
         <p>Learn essential security practices to protect applications and data.</p>
