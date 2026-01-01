@@ -7,159 +7,67 @@
 
 <style>
 :root {
-  --primary: #2563eb;
-  --primary-dark: #1e40af;
-  --text-dark: #1f2937;
-  --text-muted: #6b7280;
-  --bg-light: #f4f6f8;
+    --primary: #2563eb;
+    --primary-dark: #1e40af;
+    --text-dark: #1f2937;
+    --text-muted: #6b7280;
+    --bg-light: #f4f6f8;
 }
 
 * { box-sizing: border-box; margin:0; padding:0; }
-
-body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: var(--bg-light);
-  color: var(--text-dark);
-}
+body { font-family: "Segoe UI", Arial, sans-serif; background: var(--bg-light); color: var(--text-dark); }
 
 /* NAVBAR */
 nav {
-  background: #fff;
-  padding: 18px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+    background: #fff;
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
+.logo { display: flex; align-items: center; gap: 16px; }
+.logo img { height: 60px; }
+.logo span { font-size: 22px; font-weight: 700; color: var(--primary); }
+nav ul { list-style: none; display: flex; gap: 28px; }
+nav a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: 0.3s; }
+nav a:hover, nav a.active { color: var(--primary); }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.logo img {
-  height: 60px;
-}
-
-.logo span {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--primary);
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 28px;
-}
-
-nav a {
-  text-decoration: none;
-  color: var(--text-dark);
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-nav a:hover,
-nav a.active {
-  color: var(--primary);
-}
-
-/* PAGE HEADER */
-.header {
-  text-align: center;
-  padding: 60px 20px 40px;
-}
-
-.header h1 {
-  font-size: 38px;
-  margin-bottom: 12px;
-}
-
-.header p {
-  color: var(--text-muted);
-  font-size: 16px;
-}
+/* HEADER */
+.header { text-align: center; padding: 100px 20px 50px; }
+.header h1 { font-size: 48px; font-weight: 800; margin-bottom: 18px; line-height: 1.2; }
+.header p { font-size: 18px; color: var(--text-muted); max-width: 720px; margin: 0 auto; line-height: 1.6; }
 
 /* COURSES GRID */
-.container {
-  max-width: 1200px;
-  margin: 0 auto 60px;
-  padding: 0 20px;
-}
-
-.courses {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 28px;
-}
+.container { max-width: 1024px; margin: 0 auto 80px; padding: 0 20px; }
+.courses { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
 
 .course-card {
-  background: #fff;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 10px 26px rgba(0,0,0,0.12);
-  transition: 0.3s;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+    transition: 0.3s;
 }
-
-.course-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 34px rgba(0,0,0,0.14);
-}
-
-.course-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.course-body {
-  padding: 22px;
-}
-
-.course-body h3 {
-  margin: 0 0 10px;
-  font-size: 20px;
-}
-
-.course-body p {
-  font-size: 14px;
-  color: var(--text-muted);
-  margin-bottom: 14px;
-}
-
-.badge {
-  display: inline-block;
-  padding: 6px 14px;
-  font-size: 13px;
-  border-radius: 20px;
-  background: #e0ecff;
-  color: var(--primary);
-  font-weight: 600;
-}
+.course-card:hover { transform: translateY(-6px); box-shadow: 0 14px 36px rgba(0,0,0,0.15); }
+.course-card img { width: 100%; height: 180px; object-fit: cover; }
+.course-body { padding: 22px; }
+.course-body h3 { margin: 0 0 10px; font-size: 20px; color: var(--primary); }
+.course-body p { font-size: 15px; color: var(--text-muted); margin-bottom: 14px; }
+.badge { display: inline-block; padding: 6px 14px; font-size: 13px; border-radius: 20px; background: #e0ecff; color: var(--primary); font-weight: 600; }
 
 /* FOOTER */
-footer {
-  background: #fff;
-  padding: 32px 20px;
-  text-align: center;
-  font-size: 13px;
-  color: var(--text-muted);
-}
-
-footer strong {
-  color: var(--text-dark);
-}
+footer { background: #fff; padding: 32px 20px; text-align: center; font-size: 14px; color: var(--text-muted); }
+footer strong { color: var(--text-dark); }
 
 /* RESPONSIVE */
 @media(max-width:768px) {
-  .header h1 { font-size: 32px; }
-  .courses { grid-template-columns: 1fr; gap: 20px; }
-  nav ul { gap: 16px; }
+    .header h1 { font-size: 36px; }
+    .courses { grid-template-columns: 1fr; gap: 20px; }
+    nav ul { gap: 16px; }
 }
 </style>
 </head>
@@ -169,7 +77,7 @@ footer strong {
 <!-- NAVBAR -->
 <nav>
   <div class="logo">
-    <img src="assets/images/logo.png" alt="Coders Verse">
+    <img src="assets/images/logo.png" alt="Coders Verse Logo">
     <span>Coders Verse</span>
   </div>
   <ul>
@@ -210,7 +118,7 @@ footer strong {
     </div>
 
     <div class="course-card">
-      <img src="https://images.unsplash.com/photo-1581091215361-234fca9c1f24?auto=format&fit=crop&w=800&q=80" alt="AI & ML Engineering">
+      <img src="https://images.unsplash.com/photo-1612831455541-8283e24c8f59?auto=format&fit=crop&w=800&q=80" alt="AI & ML Engineering">
       <div class="course-body">
         <h3>AI & ML Engineering</h3>
         <p>Machine learning models, algorithms, and real-world applications.</p>
