@@ -28,21 +28,25 @@ nav {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
 }
 
 .logo img {
-  height: 72px;
+  height: 60px;
 }
 
 .logo span {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
+  color: var(--primary);
 }
 
 nav ul {
@@ -55,6 +59,7 @@ nav a {
   text-decoration: none;
   color: var(--text-dark);
   font-weight: 500;
+  transition: 0.3s;
 }
 
 nav a:hover,
@@ -65,12 +70,12 @@ nav a.active {
 /* PAGE HEADER */
 .header {
   text-align: center;
-  padding: 60px 20px 30px;
+  padding: 60px 20px 40px;
 }
 
 .header h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
+  font-size: 38px;
+  margin-bottom: 12px;
 }
 
 .header p {
@@ -87,7 +92,7 @@ nav a.active {
 
 .courses {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 28px;
 }
 
@@ -96,6 +101,12 @@ nav a.active {
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+  transition: 0.3s;
+}
+
+.course-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.14);
 }
 
 .course-card img {
@@ -132,7 +143,7 @@ nav a.active {
 /* FOOTER */
 footer {
   background: #fff;
-  padding: 30px 20px;
+  padding: 32px 20px;
   text-align: center;
   font-size: 13px;
   color: var(--text-muted);
@@ -141,11 +152,19 @@ footer {
 footer strong {
   color: var(--text-dark);
 }
+
+/* RESPONSIVE */
+@media(max-width:768px) {
+  .header h1 { font-size: 32px; }
+  .courses { grid-template-columns: 1fr; gap: 20px; }
+  nav ul { gap: 16px; }
+}
 </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <nav>
   <div class="logo">
     <img src="assets/images/logo.png" alt="Coders Verse">
@@ -160,16 +179,18 @@ footer strong {
   </ul>
 </nav>
 
+<!-- HEADER -->
 <section class="header">
   <h1>Our Programs</h1>
   <p>Industry-aligned programs with verifiable certification</p>
 </section>
 
+<!-- COURSES GRID -->
 <section class="container">
   <div class="courses">
 
     <div class="course-card">
-      <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c" alt="">
+      <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c" alt="Data Science & Analytics">
       <div class="course-body">
         <h3>Data Science & Analytics</h3>
         <p>Hands-on training in data analysis, visualization, and statistics.</p>
@@ -178,7 +199,7 @@ footer strong {
     </div>
 
     <div class="course-card">
-      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="Web Development">
       <div class="course-body">
         <h3>Web Development</h3>
         <p>Build modern, responsive websites using industry standards.</p>
@@ -187,7 +208,7 @@ footer strong {
     </div>
 
     <div class="course-card">
-      <img src="https://images.unsplash.com/photo-1581091012184-5c5d9b5c65b4" alt="">
+      <img src="https://images.unsplash.com/photo-1581091215361-234fca9c1f24" alt="AI & ML Engineering">
       <div class="course-body">
         <h3>AI & ML Engineering</h3>
         <p>Machine learning models, algorithms, and real-world applications.</p>
@@ -196,7 +217,7 @@ footer strong {
     </div>
 
     <div class="course-card">
-      <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31" alt="">
+      <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31" alt="Data Engineering">
       <div class="course-body">
         <h3>Data Engineering</h3>
         <p>Design scalable data pipelines and warehouse systems.</p>
@@ -205,7 +226,7 @@ footer strong {
     </div>
 
     <div class="course-card">
-      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c" alt="">
+      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c" alt="Full Stack Development">
       <div class="course-body">
         <h3>Full Stack Development</h3>
         <p>Frontend and backend development with real-world projects.</p>
@@ -214,7 +235,7 @@ footer strong {
     </div>
 
     <div class="course-card">
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="">
+      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="Business Intelligence & SQL">
       <div class="course-body">
         <h3>Business Intelligence & SQL</h3>
         <p>Data querying, dashboards, and decision-making analytics.</p>
@@ -225,6 +246,7 @@ footer strong {
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <strong>Coders Verse</strong><br>
   3rd Floor, Knowledge Park Tower, Sector 18, Vashi, Navi Mumbai – 400703<br>
