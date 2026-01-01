@@ -14,157 +14,45 @@
             --bg-light: #f4f6f8;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: "Segoe UI", Arial, sans-serif;
-            background: linear-gradient(180deg, #f4f6f8, #eef1f4);
-            color: var(--text-dark);
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: "Segoe UI", Arial, sans-serif; background: linear-gradient(180deg, #f4f6f8, #eef1f4); color: var(--text-dark); }
 
         /* NAVBAR */
-        nav {
-            background: #ffffff;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-            padding: 14px 28px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .nav-left img {
-            height: 44px;
-        }
-
-        .nav-left span {
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 26px;
-        }
-
-        nav a {
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-
-        nav a:hover {
-            color: var(--primary);
-        }
+        nav { background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .nav-left { display: flex; align-items: center; gap: 16px; }
+        .nav-left img { height: 60px; } /* Increased logo size */
+        .nav-left span { font-size: 22px; font-weight: 700; color: var(--primary); }
+        nav ul { list-style: none; display: flex; gap: 28px; }
+        nav a { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--text-dark); transition: 0.3s; }
+        nav a.active, nav a:hover { color: var(--primary); }
 
         /* HERO */
-        .hero {
-            max-width: 960px;
-            margin: 90px auto 40px;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 18px;
-        }
-
-        .hero p {
-            font-size: 17px;
-            color: var(--text-muted);
-            max-width: 640px;
-            margin: 0 auto 36px;
-            line-height: 1.6;
-        }
-
-        .hero-actions {
-            display: flex;
-            justify-content: center;
-            gap: 18px;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            padding: 14px 28px;
-            font-size: 15px;
-            font-weight: 600;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-            color: #fff;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            text-decoration: none;
-        }
-
-        .btn-secondary {
-            padding: 14px 28px;
-            font-size: 15px;
-            font-weight: 600;
-            border-radius: 8px;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            background: transparent;
-            text-decoration: none;
-        }
+        .hero { max-width: 960px; margin: 100px auto 50px; padding: 0 20px; text-align: center; }
+        .hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 18px; line-height: 1.2; }
+        .hero p { font-size: 18px; color: var(--text-muted); max-width: 720px; margin: 0 auto 36px; line-height: 1.6; }
+        .hero-actions { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .btn-primary { padding: 16px 32px; font-size: 16px; font-weight: 600; border-radius: 8px; border: none; cursor: pointer; color: #fff; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); text-decoration: none; transition: 0.3s; }
+        .btn-primary:hover { opacity: 0.95; }
+        .btn-secondary { padding: 16px 32px; font-size: 16px; font-weight: 600; border-radius: 8px; border: 2px solid var(--primary); color: var(--primary); background: transparent; text-decoration: none; transition: 0.3s; }
+        .btn-secondary:hover { background: var(--primary); color: #fff; }
 
         /* FEATURES */
-        .features {
-            max-width: 1000px;
-            margin: 70px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 26px;
-        }
-
-        .feature-card {
-            background: #fff;
-            padding: 28px;
-            border-radius: 14px;
-            box-shadow: 0 8px 22px rgba(0,0,0,0.08);
-        }
-
-        .feature-card h3 {
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-
-        .feature-card p {
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
+        .features { max-width: 1024px; margin: 80px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+        .feature-card { background: #fff; padding: 32px; border-radius: 16px; box-shadow: 0 10px 28px rgba(0,0,0,0.12); transition: 0.3s; }
+        .feature-card:hover { transform: translateY(-6px); box-shadow: 0 14px 36px rgba(0,0,0,0.15); }
+        .feature-card h3 { margin-bottom: 12px; font-size: 20px; color: var(--primary); }
+        .feature-card p { font-size: 15px; color: var(--text-muted); line-height: 1.6; }
 
         /* FOOTER */
-        footer {
-            margin-top: 80px;
-            padding: 24px;
-            text-align: center;
-            font-size: 13px;
-            color: var(--text-muted);
-        }
+        footer { margin-top: 100px; padding: 32px; text-align: center; font-size: 14px; color: var(--text-muted); background: #fff; }
+        footer a { color: var(--text-muted); text-decoration: none; margin: 0 8px; }
+        footer a:hover { text-decoration: underline; }
 
-        footer a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin: 0 8px;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
+        /* RESPONSIVE */
+        @media(max-width:768px) {
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 16px; }
+            nav ul { gap: 16px; }
         }
     </style>
 </head>
@@ -178,7 +66,9 @@
         <span>Coders Verse</span>
     </div>
     <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="verify.html">Verify Certificate</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -202,31 +92,23 @@
 <section class="features">
     <div class="feature-card">
         <h3>Authentic Records</h3>
-        <p>
-            All certificates are validated directly against official issuance data maintained by Coders Verse.
-        </p>
+        <p>All certificates are validated directly against official issuance data maintained by Coders Verse.</p>
     </div>
-
     <div class="feature-card">
         <h3>Instant Verification</h3>
-        <p>
-            Get real-time verification results in seconds with a simple Certificate ID lookup.
-        </p>
+        <p>Get real-time verification results in seconds with a simple Certificate ID lookup.</p>
     </div>
-
     <div class="feature-card">
         <h3>Secure & Reliable</h3>
-        <p>
-            Powered by secure cloud infrastructure to ensure reliability and data integrity.
-        </p>
+        <p>Powered by secure cloud infrastructure to ensure reliability and data integrity.</p>
     </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-    © 2025 Coders Verse. All rights reserved.
-    <br>
-    <a href="mailto:careers.coders.verse">Email</a> |
+    © 2025 Coders Verse. All rights reserved. <br>
+    Contact: +91 9876543210 | 
+    <a href="mailto:careers.codersverse@gmail.com">Email</a> |
     <a href="https://instagram.com/coders.verse" target="_blank">Instagram</a>
 </footer>
 
