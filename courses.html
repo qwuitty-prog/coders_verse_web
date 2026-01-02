@@ -613,7 +613,10 @@
             transform: translateY(-4px);
         }
 
-        /* MOBILE RESPONSIVE */
+        /* ===================================================
+           MOBILE RESPONSIVE - OPTIMIZED FOR MOBILE VIEW
+           =================================================== */
+        
         @media (max-width: 768px) {
             nav {
                 padding: 16px 20px;
@@ -632,65 +635,193 @@
             }
 
             .header {
-                margin: 80px auto 60px;
+                margin: 60px auto 50px;
                 padding: 0 20px;
             }
 
+            .header-badge {
+                font-size: 12px;
+                padding: 6px 16px;
+                margin-bottom: 20px;
+            }
+
             .header h1 {
-                font-size: 40px;
+                font-size: 36px;
+                line-height: 1.2;
             }
 
             .header p {
-                font-size: 17px;
+                font-size: 16px;
             }
 
             .container {
                 padding: 0 20px;
+                margin-bottom: 60px;
             }
 
-            .courses {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
+            /* STATS BANNER - 2 PER ROW, COMPACT */
             .stats-banner {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
-                padding: 40px 30px;
-                margin: 0 20px 60px;
+                gap: 12px;
+                padding: 30px 20px;
+                margin: 0 20px 50px;
+                border-radius: 20px;
+            }
+
+            .stat-item {
+                padding: 10px 5px;
             }
 
             .stat-number {
-                font-size: 36px;
+                font-size: 28px;
+                margin-bottom: 4px;
             }
 
+            .stat-label {
+                font-size: 11px;
+                line-height: 1.3;
+            }
+
+            /* COURSE CARDS - 2 PER ROW, COMPACT */
+            .courses {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .course-card {
+                border-radius: 16px;
+            }
+
+            .course-image {
+                height: 120px;
+            }
+
+            .course-overlay {
+                padding: 10px;
+                display: none; /* Hide overlay on mobile for cleaner look */
+            }
+
+            .course-duration {
+                font-size: 11px;
+            }
+
+            .course-body {
+                padding: 16px 12px;
+                gap: 10px;
+            }
+
+            .course-body h3 {
+                font-size: 15px;
+                margin-bottom: 6px;
+                line-height: 1.3;
+            }
+
+            .course-body p {
+                font-size: 11px;
+                line-height: 1.5;
+            }
+
+            .course-meta {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+                margin-top: 8px;
+            }
+
+            .badge {
+                padding: 6px 10px;
+                font-size: 10px;
+                justify-content: center;
+            }
+
+            .course-cta {
+                padding: 10px 16px;
+                font-size: 12px;
+                width: 100%;
+            }
+
+            /* CTA SECTION */
             .cta-section {
-                padding: 60px 30px;
-                margin: 60px 20px 80px;
+                padding: 50px 24px;
+                margin: 50px 20px 60px;
+                border-radius: 24px;
             }
 
             .cta-section h2 {
-                font-size: 32px;
+                font-size: 28px;
+                margin-bottom: 16px;
+            }
+
+            .cta-section p {
+                font-size: 15px;
+                margin-bottom: 32px;
+            }
+
+            .btn-primary {
+                padding: 16px 32px;
+                font-size: 15px;
+            }
+
+            /* FOOTER */
+            footer {
+                padding: 50px 20px 30px;
             }
 
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 30px;
-                padding: 0 20px;
             }
         }
 
+        /* EXTRA SMALL MOBILE - FALLBACK TO 1 COLUMN IF NEEDED */
         @media (max-width: 480px) {
             .header h1 {
-                font-size: 32px;
+                font-size: 30px;
             }
 
+            /* Keep stats at 2 columns */
             .stats-banner {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-number {
+                font-size: 24px;
+            }
+
+            .stat-label {
+                font-size: 10px;
+            }
+
+            /* Courses go to 1 column on very small screens for readability */
+            .courses {
                 grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .course-image {
+                height: 160px;
             }
 
             .course-body {
-                padding: 24px;
+                padding: 20px 16px;
+            }
+
+            .course-body h3 {
+                font-size: 18px;
+            }
+
+            .course-body p {
+                font-size: 14px;
+            }
+
+            .badge {
+                font-size: 12px;
+                padding: 8px 14px;
+            }
+
+            .course-cta {
+                font-size: 14px;
+                padding: 12px 20px;
             }
         }
     </style>
@@ -958,4 +1089,4 @@
 </script>
 
 </body>
-</html
+</html>
