@@ -567,22 +567,38 @@
             box-shadow: var(--shadow-lg);
         }
 
-        .team-image {
+        .team-avatar {
             width: 100%;
             height: 320px;
-            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            font-weight: 900;
+            color: white;
             position: relative;
+            overflow: hidden;
         }
 
-        .team-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .team-avatar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-2);
             transition: transform 0.5s ease;
         }
 
-        .team-card:hover .team-image img {
+        .team-card:hover .team-avatar::before {
             transform: scale(1.1);
+        }
+
+        .team-avatar span {
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
 
         .team-info {
@@ -641,8 +657,14 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+            background: var(--gradient-2);
+            flex-shrink: 0;
         }
 
         .testimonial-info h4 {
@@ -931,6 +953,71 @@
     </ul>
 </div>
 
+<section class="hero">
+    <div class="hero-badge">🎓 Mumbai's Leading Tech Education Institute</div>
+    <h1>Transform Your Career with <span class="highlight">Industry-Ready Skills</span></h1>
+    <p>
+        Join 15,000+ students who have launched successful tech careers through our hands-on training programs, expert mentorship, and industry-recognized certifications.
+    </p>
+
+    <div class="hero-actions">
+        <a href="courses.html" class="btn-primary">Explore Our Courses</a>
+        <a href="contact.html" class="btn-secondary">Schedule a Campus Visit</a>
+    </div>
+</section>
+
+<section class="stats">
+    <div class="stat-card">
+        <div class="stat-number">15K+</div>
+        <div class="stat-label">Students Trained</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Hiring Partners</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">95%</div>
+        <div class="stat-label">Placement Success</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">4.8/5</div>
+        <div class="stat-label">Student Rating</div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-header">
+        <h2>Our Learning Environment</h2>
+        <p>State-of-the-art facilities designed to inspire innovation and collaboration</p>
+    </div>
+
+    <div class="campus-grid">
+        <div class="campus-card">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Modern Classrooms">
+            <div class="campus-overlay">
+                <h3>Modern Classrooms</h3>
+                <p>Interactive learning spaces equipped with latest technology</p>
+            </div>
+        </div>
+
+        <div class="campus-card">
+            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" alt="Computer Labs">
+            <div class="campus-overlay">
+                <h3>Advanced Computer Labs</h3>
+                <p>High-performance workstations for hands-on practice</p>
+            </div>
+        </div>
+
+        <div class="campus-card">
+            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt="Collaborative Spaces">
+            <div class="campus-overlay">
+                <h3>Collaborative Workspaces</h3>
+                <p>Team project areas fostering peer learning</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="section">
     <div class="section-header">
         <h2>Why Choose Coders Verse?</h2>
@@ -984,8 +1071,8 @@
 
     <div class="team-grid">
         <div class="team-card">
-            <div class="team-image">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80" alt="Instructor">
+            <div class="team-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <span>R</span>
             </div>
             <div class="team-info">
                 <h3>Rajesh Kumar</h3>
@@ -995,8 +1082,8 @@
         </div>
 
         <div class="team-card">
-            <div class="team-image">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80" alt="Instructor">
+            <div class="team-avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                <span>P</span>
             </div>
             <div class="team-info">
                 <h3>Priya Sharma</h3>
@@ -1006,8 +1093,8 @@
         </div>
 
         <div class="team-card">
-            <div class="team-image">
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=500&q=80" alt="Instructor">
+            <div class="team-avatar" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                <span>A</span>
             </div>
             <div class="team-info">
                 <h3>Amit Patel</h3>
@@ -1017,8 +1104,8 @@
         </div>
 
         <div class="team-card">
-            <div class="team-image">
-                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=80" alt="Instructor">
+            <div class="team-avatar" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                <span>S</span>
             </div>
             <div class="team-info">
                 <h3>Sneha Desai</h3>
@@ -1039,7 +1126,7 @@
         <div class="testimonial-card">
             <div class="stars">★★★★★</div>
             <div class="testimonial-header">
-                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=100&q=80" alt="Student" class="testimonial-avatar">
+                <div class="testimonial-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">A</div>
                 <div class="testimonial-info">
                     <h4>Arjun Mehta</h4>
                     <p>Data Science Graduate • Now at Flipkart</p>
@@ -1051,7 +1138,7 @@
         <div class="testimonial-card">
             <div class="stars">★★★★★</div>
             <div class="testimonial-header">
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80" alt="Student" class="testimonial-avatar">
+                <div class="testimonial-avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">N</div>
                 <div class="testimonial-info">
                     <h4>Neha Singh</h4>
                     <p>Web Development Graduate • Now at Zomato</p>
@@ -1063,7 +1150,7 @@
         <div class="testimonial-card">
             <div class="stars">★★★★★</div>
             <div class="testimonial-header">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Student" class="testimonial-avatar">
+                <div class="testimonial-avatar" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">V</div>
                 <div class="testimonial-info">
                     <h4>Vikram Rao</h4>
                     <p>Full Stack Graduate • Now at PayTM</p>
@@ -1158,69 +1245,4 @@ document.querySelectorAll('.feature-card, .team-card, .testimonial-card, .campus
 </script>
 
 </body>
-</html>hero">
-    <div class="hero-badge">🎓 Mumbai's Leading Tech Education Institute</div>
-    <h1>Transform Your Career with <span class="highlight">Industry-Ready Skills</span></h1>
-    <p>
-        Join 15,000+ students who have launched successful tech careers through our hands-on training programs, expert mentorship, and industry-recognized certifications.
-    </p>
-
-    <div class="hero-actions">
-        <a href="courses.html" class="btn-primary">Explore Our Courses</a>
-        <a href="contact.html" class="btn-secondary">Schedule a Campus Visit</a>
-    </div>
-</section>
-
-<section class="stats">
-    <div class="stat-card">
-        <div class="stat-number">15K+</div>
-        <div class="stat-label">Students Trained</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-number">500+</div>
-        <div class="stat-label">Hiring Partners</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-number">95%</div>
-        <div class="stat-label">Placement Success</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-number">4.8/5</div>
-        <div class="stat-label">Student Rating</div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="section-header">
-        <h2>Our Learning Environment</h2>
-        <p>State-of-the-art facilities designed to inspire innovation and collaboration</p>
-    </div>
-
-    <div class="campus-grid">
-        <div class="campus-card">
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Modern Classrooms">
-            <div class="campus-overlay">
-                <h3>Modern Classrooms</h3>
-                <p>Interactive learning spaces equipped with latest technology</p>
-            </div>
-        </div>
-
-        <div class="campus-card">
-            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" alt="Computer Labs">
-            <div class="campus-overlay">
-                <h3>Advanced Computer Labs</h3>
-                <p>High-performance workstations for hands-on practice</p>
-            </div>
-        </div>
-
-        <div class="campus-card">
-            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt="Collaborative Spaces">
-            <div class="campus-overlay">
-                <h3>Collaborative Workspaces</h3>
-                <p>Team project areas fostering peer learning</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="
+</html
