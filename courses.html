@@ -14,11 +14,15 @@
     --bg-light: #f4f6f8;
 }
 
-/* FIX 1: Prevents the page from jumping when switching tabs */
 html { overflow-y: scroll; }
 
 * { box-sizing: border-box; margin:0; padding:0; }
-body { font-family: "Segoe UI", Arial, sans-serif; background: linear-gradient(180deg, #f4f6f8, #eef1f4); color: var(--text-dark); }
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(180deg, #f4f6f8, #eef1f4);
+    color: var(--text-dark);
+}
 
 /* NAVBAR */
 nav {
@@ -32,23 +36,77 @@ nav {
     top: 0;
     z-index: 1000;
 }
-.nav-left { display: flex; align-items: center; gap: 16px; }
-.nav-left img { height: 60px; }
-.nav-left span { font-size: 22px; font-weight: 700; color: var(--primary); }
-nav ul { list-style: none; display: flex; gap: 28px; }
 
-/* FIX 2: Added 'font-size: 15px' to match your Home page exactly */
-nav a { text-decoration: none; color: var(--text-dark); font-size: 15px; font-weight: 500; transition: 0.3s; }
-nav a.active, nav a:hover { color: var(--primary); }
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-left img {
+    height: 60px;
+}
+
+.nav-left span {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a.active,
+nav a:hover {
+    color: var(--primary);
+}
 
 /* HEADER */
-.header { text-align: center; padding: 0 20px; margin: 100px auto 50px; max-width: 960px; }
-.header h1 { font-size: 48px; font-weight: 800; margin-bottom: 18px; line-height: 1.2; }
-.header p { font-size: 18px; color: var(--text-muted); max-width: 720px; margin: 0 auto 36px; line-height: 1.6; }
+.header {
+    text-align: center;
+    padding: 0 20px;
+    margin: 100px auto 50px;
+    max-width: 960px;
+}
+
+.header h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 18px;
+    line-height: 1.2;
+}
+
+.header p {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 720px;
+    margin: 0 auto 36px;
+    line-height: 1.6;
+}
 
 /* COURSES GRID */
-.container { max-width: 1024px; margin: 0 auto 80px; padding: 0 20px; }
-.courses { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+.container {
+    max-width: 1024px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
+}
+
+.courses {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
 
 .course-card {
     background: #fff;
@@ -59,22 +117,104 @@ nav a.active, nav a:hover { color: var(--primary); }
     display: flex;
     flex-direction: column;
 }
-.course-card:hover { transform: translateY(-6px); box-shadow: 0 14px 36px rgba(0,0,0,0.15); }
-.course-card img { width: 100%; height: 180px; object-fit: cover; display: block; }
-.course-body { padding: 32px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
-.course-body h3 { margin: 0 0 12px; font-size: 20px; color: var(--primary); }
-.course-body p { font-size: 15px; color: var(--text-muted); margin-bottom: 14px; }
-.badge { display: inline-block; padding: 6px 14px; font-size: 13px; border-radius: 20px; background: #e0ecff; color: var(--primary); font-weight: 600; }
+
+.course-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 36px rgba(0,0,0,0.15);
+}
+
+.course-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.course-body {
+    padding: 32px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.course-body h3 {
+    margin-bottom: 12px;
+    font-size: 20px;
+    color: var(--primary);
+}
+
+.course-body p {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 13px;
+    border-radius: 20px;
+    background: #e0ecff;
+    color: var(--primary);
+    font-weight: 600;
+}
 
 /* FOOTER */
-footer { background: #fff; padding: 32px 20px; text-align: center; font-size: 14px; color: var(--text-muted); }
-footer strong { color: var(--text-dark); }
+footer {
+    background: #fff;
+    padding: 32px 20px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-muted);
+}
 
-/* RESPONSIVE */
-@media(max-width:768px) {
-    .header h1 { font-size: 36px; }
-    .courses { grid-template-columns: 1fr; gap: 20px; }
-    nav ul { gap: 16px; }
+footer strong {
+    color: var(--text-dark);
+}
+
+/* ==========================
+   MOBILE FIXES
+========================== */
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .nav-left img {
+        height: 48px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    nav ul li a {
+        display: block;
+        width: 100%;
+    }
+
+    .header {
+        margin: 40px auto 30px;
+    }
+
+    .header h1 {
+        font-size: 36px;
+    }
+
+    .header p {
+        font-size: 16px;
+    }
+
+    .courses {
+        gap: 20px;
+    }
 }
 </style>
 </head>
@@ -104,7 +244,7 @@ footer strong { color: var(--text-dark); }
   <div class="courses">
 
     <div class="course-card">
-      <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=800&q=80" alt="Data Science & Analytics">
+      <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=800&q=80">
       <div class="course-body">
         <h3>Data Science & Analytics</h3>
         <p>Hands-on training in data analysis, visualization, and statistics.</p>
@@ -113,7 +253,7 @@ footer strong { color: var(--text-dark); }
     </div>
 
     <div class="course-card">
-      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Web Development">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80">
       <div class="course-body">
         <h3>Web Development</h3>
         <p>Build modern, responsive websites using industry standards.</p>
@@ -122,7 +262,7 @@ footer strong { color: var(--text-dark); }
     </div>
 
     <div class="course-card">
-      <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80" alt="Cybersecurity Fundamentals">
+      <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=800&q=80">
       <div class="course-body">
         <h3>Cybersecurity Fundamentals</h3>
         <p>Learn essential security practices to protect applications and data.</p>
@@ -131,7 +271,7 @@ footer strong { color: var(--text-dark); }
     </div>
 
     <div class="course-card">
-      <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="Data Engineering">
+      <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80">
       <div class="course-body">
         <h3>Data Engineering</h3>
         <p>Design scalable data pipelines and warehouse systems.</p>
@@ -140,7 +280,7 @@ footer strong { color: var(--text-dark); }
     </div>
 
     <div class="course-card">
-      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Full Stack Development">
+      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80">
       <div class="course-body">
         <h3>Full Stack Development</h3>
         <p>Frontend and backend development with real-world projects.</p>
@@ -149,7 +289,7 @@ footer strong { color: var(--text-dark); }
     </div>
 
     <div class="course-card">
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Business Intelligence & SQL">
+      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80">
       <div class="course-body">
         <h3>Business Intelligence & SQL</h3>
         <p>Data querying, dashboards, and decision-making analytics.</p>
@@ -169,3 +309,4 @@ footer strong { color: var(--text-dark); }
 
 </body>
 </html>
+
