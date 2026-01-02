@@ -173,35 +173,25 @@ footer strong {
     color: var(--text-dark);
 }
 
-/* ==========================
-   MOBILE FIXES
-========================== */
+/* MOBILE FIXES */
 @media (max-width: 768px) {
 
+    /* NAVBAR FIX */
     nav {
         flex-direction: column;
-        align-items: flex-start;
-        padding: 16px;
-        gap: 12px;
-    }
-
-    .nav-left img {
-        height: 48px;
+        gap: 14px;
+        padding: 16px 20px;
     }
 
     nav ul {
-        flex-direction: column;
-        width: 100%;
-        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
     }
 
-    nav ul li a {
-        display: block;
-        width: 100%;
-    }
-
+    /* HEADER SPACING FIX */
     .header {
-        margin: 40px auto 30px;
+        margin: 60px auto 30px;
     }
 
     .header h1 {
@@ -212,8 +202,27 @@ footer strong {
         font-size: 16px;
     }
 
+    /* COURSES GRID - 2 COLUMNS ON MOBILE */
     .courses {
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .course-body {
+        padding: 20px;
+    }
+
+    .course-body h3 {
+        font-size: 16px;
+    }
+
+    .course-body p {
+        font-size: 13px;
+    }
+
+    .badge {
+        font-size: 11px;
+        padding: 4px 10px;
     }
 }
 </style>
@@ -309,4 +318,3 @@ footer strong {
 
 </body>
 </html>
-
