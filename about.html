@@ -39,7 +39,6 @@
             overflow-x: hidden;
         }
 
-        /* ANIMATED BACKGROUND */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -85,7 +84,6 @@
             66% { transform: translate(-100px, 100px) scale(0.9); }
         }
 
-        /* NAVBAR */
         nav {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -106,6 +104,7 @@
             gap: 14px;
             cursor: pointer;
             transition: transform 0.3s ease;
+            text-decoration: none;
         }
 
         .nav-left:hover {
@@ -168,7 +167,6 @@
             color: var(--primary);
         }
 
-        /* MOBILE MENU */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -219,7 +217,6 @@
             color: var(--text-dark);
         }
 
-        /* HEADER */
         .header {
             text-align: center;
             padding: 0 40px;
@@ -272,7 +269,6 @@
             }
         }
 
-        /* ABOUT SECTION */
         .about-container {
             max-width: 1200px;
             margin: 0 auto 80px;
@@ -305,7 +301,6 @@
             margin-bottom: 20px;
         }
 
-        /* INFO GRID */
         .about-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -365,7 +360,6 @@
             margin-bottom: 0;
         }
 
-        /* STATS BANNER */
         .stats-banner {
             max-width: 1200px;
             margin: 0 auto 80px;
@@ -415,7 +409,6 @@
             font-weight: 600;
         }
 
-        /* VALUES SECTION */
         .values-section {
             max-width: 1200px;
             margin: 0 auto 80px;
@@ -512,7 +505,6 @@
             line-height: 1.7;
         }
 
-        /* LOCATION SECTION */
         .location-section {
             max-width: 1200px;
             margin: 0 auto 80px;
@@ -548,7 +540,6 @@
             font-weight: 700;
         }
 
-        /* FOOTER */
         footer {
             margin-top: 100px;
             padding: 60px 40px 40px;
@@ -617,7 +608,6 @@
             transform: translateY(-4px);
         }
 
-        /* MOBILE RESPONSIVE */
         @media (max-width: 768px) {
             nav {
                 padding: 16px 20px;
@@ -783,12 +773,8 @@
 
     <div class="about-card">
         <h2>Who We Are</h2>
-        <p>
-            Coders Verse is an emerging technology education institute based in Mumbai, India. We specialize in professional training programs bridging academic learning and real-world industry needs.
-        </p>
-        <p>
-            Our certificate verification system ensures authenticity, builds employer trust, and provides students with verifiable credentials backed by official records.
-        </p>
+        <p>Coders Verse is an emerging technology education institute based in Mumbai, India. We specialize in professional training programs bridging academic learning and real-world industry needs.</p>
+        <p>Our certificate verification system ensures authenticity, builds employer trust, and provides students with verifiable credentials backed by official records.</p>
     </div>
 
     <div class="about-grid">
@@ -906,39 +892,22 @@
 </footer>
 
 <script>
-    function openMobileMenu() {
-        document.getElementById('mobileMenu').classList.add('active');
+function openMobileMenu() {
+    document.getElementById('mobileMenu').classList.add('active');
+}
+
+function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('active');
+}
+
+document.addEventListener('click', function(event) {
+    const menu = document.getElementById('mobileMenu');
+    const btn = document.querySelector('.mobile-menu-btn');
+    if (!menu.contains(event.target) && !btn.contains(event.target)) {
+        menu.classList.remove('active');
     }
+});
+</script>
 
-    function closeMobileMenu() {
-        document.getElementById('mobileMenu').classList.remove('active');
-    }
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(event) {
-        const menu = document.getElementById('mobileMenu');
-        const btn = document.querySelector('.mobile-menu-btn');
-        
-        if (!menu.contains(event.target) && !btn.contains(event.target)) {
-            menu.classList.remove('active');
-        }
-    });
-
-    // Add scroll animation to elements
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // Observe cards
-    document.querySelectorAll('.info-box, .value-card, .stat-item').forEach(el => {
-        el.
+</body>
+</html>
