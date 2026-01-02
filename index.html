@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Coders Verse | Our Official Website</title>
+    <title>Coders Verse | Leading Tech Education Institute in Mumbai</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +39,6 @@
             overflow-x: hidden;
         }
 
-        /* ANIMATED BACKGROUND */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -85,7 +84,6 @@
             66% { transform: translate(-100px, 100px) scale(0.9); }
         }
 
-        /* NAVBAR */
         nav {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -106,6 +104,7 @@
             gap: 14px;
             cursor: pointer;
             transition: transform 0.3s ease;
+            text-decoration: none;
         }
 
         .nav-left:hover {
@@ -168,7 +167,6 @@
             color: var(--primary);
         }
 
-        /* MOBILE MENU */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -219,13 +217,11 @@
             color: var(--text-dark);
         }
 
-        /* HERO SECTION */
         .hero {
             max-width: 1200px;
             margin: 120px auto 80px;
             padding: 0 40px;
             text-align: center;
-            position: relative;
         }
 
         .hero-badge {
@@ -288,7 +284,6 @@
             }
         }
 
-        /* BUTTONS */
         .btn-primary {
             padding: 18px 40px;
             font-size: 16px;
@@ -303,6 +298,7 @@
             box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
             position: relative;
             overflow: hidden;
+            display: inline-block;
         }
 
         .btn-primary::before {
@@ -337,6 +333,7 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            display: inline-block;
         }
 
         .btn-secondary::before {
@@ -361,7 +358,6 @@
             transform: translateY(-2px);
         }
 
-        /* STATS SECTION */
         .stats {
             max-width: 1200px;
             margin: 80px auto;
@@ -403,8 +399,7 @@
             font-weight: 600;
         }
 
-        /* FEATURES */
-        .features {
+        .section {
             max-width: 1200px;
             margin: 100px auto;
             padding: 0 40px;
@@ -430,6 +425,58 @@
             color: var(--text-muted);
             max-width: 600px;
             margin: 0 auto;
+        }
+
+        .campus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .campus-card {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            position: relative;
+            height: 400px;
+        }
+
+        .campus-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .campus-card:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .campus-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .campus-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+            padding: 30px;
+            color: white;
+        }
+
+        .campus-overlay h3 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .campus-overlay p {
+            font-size: 15px;
+            opacity: 0.9;
         }
 
         .features-grid {
@@ -500,7 +547,129 @@
             line-height: 1.7;
         }
 
-        /* CTA SECTION */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .team-card {
+            background: var(--bg-white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .team-image {
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .team-card:hover .team-image img {
+            transform: scale(1.1);
+        }
+
+        .team-info {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .team-info h3 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .team-role {
+            font-size: 15px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .team-info p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-white);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-light);
+        }
+
+        .testimonial-info h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .testimonial-info p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
         .cta-section {
             max-width: 1200px;
             margin: 120px auto;
@@ -556,7 +725,6 @@
             background: #f8fafc;
         }
 
-        /* FOOTER */
         footer {
             margin-top: 100px;
             padding: 60px 40px 40px;
@@ -625,7 +793,6 @@
             transform: translateY(-4px);
         }
 
-        /* MOBILE RESPONSIVE */
         @media (max-width: 768px) {
             nav {
                 padding: 16px 20px;
@@ -677,8 +844,12 @@
                 font-size: 36px;
             }
 
-            .features {
+            .section {
                 padding: 0 20px;
+            }
+
+            .campus-grid {
+                grid-template-columns: 1fr;
             }
 
             .features-grid {
@@ -688,6 +859,14 @@
 
             .feature-card {
                 padding: 30px 24px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
             }
 
             .section-header h2 {
@@ -753,175 +932,68 @@
 </div>
 
 <section class="hero">
-    <div class="hero-badge">🎓 Official Certificate Verification</div>
-    <h1>Verify Your <span class="highlight">Certificates</span> Instantly</h1>
+    <div class="hero-badge">🎓 Mumbai's Leading Tech Education Institute</div>
+    <h1>Transform Your Career with <span class="highlight">Industry-Ready Skills</span></h1>
     <p>
-        The most trusted platform for verifying internship and program certificates issued by Coders Verse. 
-        Secure, fast, and reliable verification powered by official records.
+        Join 15,000+ students who have launched successful tech careers through our hands-on training programs, expert mentorship, and industry-recognized certifications.
     </p>
 
     <div class="hero-actions">
-        <a href="verify.html" class="btn-primary">Verify Certificate Now</a>
-        <a href="contact.html" class="btn-secondary">Contact Institute</a>
+        <a href="courses.html" class="btn-primary">Explore Our Courses</a>
+        <a href="contact.html" class="btn-secondary">Schedule a Campus Visit</a>
     </div>
 </section>
 
 <section class="stats">
     <div class="stat-card">
-        <div class="stat-number">10K+</div>
-        <div class="stat-label">Certificates Verified</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-number">99.9%</div>
-        <div class="stat-label">Accuracy Rate</div>
+        <div class="stat-number">15K+</div>
+        <div class="stat-label">Students Trained</div>
     </div>
     <div class="stat-card">
         <div class="stat-number">500+</div>
-        <div class="stat-label">Partner Institutes</div>
+        <div class="stat-label">Hiring Partners</div>
     </div>
     <div class="stat-card">
-        <div class="stat-number">24/7</div>
-        <div class="stat-label">Support Available</div>
+        <div class="stat-number">95%</div>
+        <div class="stat-label">Placement Success</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">4.8/5</div>
+        <div class="stat-label">Student Rating</div>
     </div>
 </section>
 
-<section class="features">
+<section class="section">
     <div class="section-header">
-        <h2>Why Choose Our Platform?</h2>
-        <p>Experience the most advanced certificate verification system with unmatched security and reliability</p>
+        <h2>Our Learning Environment</h2>
+        <p>State-of-the-art facilities designed to inspire innovation and collaboration</p>
     </div>
 
-    <div class="features-grid">
-        <div class="feature-card">
-            <div class="feature-icon">🔐</div>
-            <h3>Authentic Records</h3>
-            <p>All certificates are validated directly against official issuance data maintained by Coders Verse. Our blockchain-secured database ensures no tampering or forgery.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <h3>Instant Verification</h3>
-            <p>Get real-time verification results in seconds with a simple Certificate ID lookup. No waiting, no hassle—just instant peace of mind.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🛡️</div>
-            <h3>Secure & Reliable</h3>
-            <p>Powered by secure cloud infrastructure hosted on Cloudflare to ensure 99.9% uptime, data integrity, and lightning-fast performance worldwide.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">📱</div>
-            <h3>Mobile Friendly</h3>
-            <p>Verify certificates on any device—desktop, tablet, or mobile. Our responsive design ensures a seamless experience across all platforms.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">🌍</div>
-            <h3>Global Access</h3>
-            <p>Access our verification system from anywhere in the world, 24/7. No geographical restrictions or time zone limitations.</p>
-        </div>
-        <div class="feature-card">
-            <div class="feature-icon">📊</div>
-            <h3>Detailed Reports</h3>
-            <p>Receive comprehensive verification reports with all certificate details, issuance dates, and authenticity confirmation for your records.</p>
-        </div>
-    </div>
-</section>
-
-<section class="cta-section">
-    <h2>Ready to Verify Your Certificate?</h2>
-    <p>Join thousands of verified professionals and institutes trusting our platform</p>
-    <a href="verify.html" class="btn-primary">Start Verification</a>
-</section>
-
-<footer>
-    <div class="footer-content">
-        <div class="footer-section">
-            <h4>Coders Verse</h4>
-            <p>Leading the future of certificate verification with cutting-edge technology and uncompromising security.</p>
-            <div class="social-links">
-                <a href="https://instagram.com/coders.verse" target="_blank" title="Instagram">📷</a>
-                <a href="mailto:careers.codersverse@gmail.com" title="Email">📧</a>
-                <a href="#" title="LinkedIn">💼</a>
+    <div class="campus-grid">
+        <div class="campus-card">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Modern Classrooms">
+            <div class="campus-overlay">
+                <h3>Modern Classrooms</h3>
+                <p>Interactive learning spaces equipped with latest technology</p>
             </div>
         </div>
-        <div class="footer-section">
-            <h4>Quick Links</h4>
-            <a href="index.html">Home</a>
-            <a href="courses.html">Courses</a>
-            <a href="about.html">About Us</a>
-            <a href="verify.html">Verify Certificate</a>
-            <a href="contact.html">Contact</a>
+
+        <div class="campus-card">
+            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" alt="Computer Labs">
+            <div class="campus-overlay">
+                <h3>Advanced Computer Labs</h3>
+                <p>High-performance workstations for hands-on practice</p>
+            </div>
         </div>
-        <div class="footer-section">
-            <h4>Support</h4>
-            <a href="#">Help Center</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">FAQs</a>
-        </div>
-        <div class="footer-section">
-            <h4>Contact Us</h4>
-            <p>📞 +91 9876543210</p>
-            <p>📧 careers.codersverse@gmail.com</p>
-            <p>📍 Mumbai, Maharashtra, India</p>
+
+        <div class="campus-card">
+            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt="Collaborative Spaces">
+            <div class="campus-overlay">
+                <h3>Collaborative Workspaces</h3>
+                <p>Team project areas fostering peer learning</p>
+            </div>
         </div>
     </div>
-    <div class="footer-bottom">
-        © 2025 Coders Verse. All rights reserved. Built with ❤️ in India
-    </div>
-</footer>
+</section>
 
-<script>
-    function openMobileMenu() {
-        document.getElementById('mobileMenu').classList.add('active');
-    }
-
-    function closeMobileMenu() {
-        document.getElementById('mobileMenu').classList.remove('active');
-    }
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(event) {
-        const menu = document.getElementById('mobileMenu');
-        const btn = document.querySelector('.mobile-menu-btn');
-        
-        if (!menu.contains(event.target) && !btn.contains(event.target)) {
-            menu.classList.remove('active');
-        }
-    });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
-
-    // Add scroll animation to elements
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // Observe feature cards and stats
-    document.querySelectorAll('.feature-card, .stat-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.6s ease';
-        observer.observe(el);
-    });
-</script>
-
-</body>
-</html>
+<section class="
