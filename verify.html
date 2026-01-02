@@ -2,91 +2,586 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Coders Verse | Certificate Verification</title>
+    <title>Certificate Verification | Coders Verse</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1e40af;
-            --text-dark: #1f2937;
-            --text-muted: #6b7280;
-            --bg-light: #f4f6f8;
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --primary-light: #60a5fa;
+            --accent: #8b5cf6;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 20px 40px rgba(0,0,0,0.12);
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: "Segoe UI", Arial, sans-serif; background: linear-gradient(180deg, #f4f6f8, #eef1f4); color: var(--text-dark); }
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ANIMATED BACKGROUND */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(180deg, #f8fafc 0%, #e0e7ff 100%);
+            overflow: hidden;
+        }
+
+        .animated-bg::before,
+        .animated-bg::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .animated-bg::before {
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            top: -200px;
+            right: -200px;
+            animation-delay: 0s;
+        }
+
+        .animated-bg::after {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            bottom: -150px;
+            left: -150px;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(100px, -100px) scale(1.1); }
+            66% { transform: translate(-100px, 100px) scale(0.9); }
+        }
 
         /* NAVBAR */
-        nav { background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-        .nav-left { display: flex; align-items: center; gap: 16px; }
-        .nav-left img { height: 60px; }
-        .nav-left span { font-size: 22px; font-weight: 700; color: var(--primary); }
-        nav ul { list-style: none; display: flex; gap: 28px; }
-        nav a { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--text-dark); transition: 0.3s; }
-        nav a.active, nav a:hover { color: var(--primary); }
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-md);
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
 
-        /* PAGE HEADER */
-        .page-header { max-width: 800px; margin: 90px auto 40px; text-align: center; padding: 0 20px; }
-        .page-header h1 { font-size: 40px; font-weight: 800; margin-bottom: 14px; }
-        .page-header p { font-size: 17px; color: var(--text-muted); }
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
 
-        /* VERIFICATION CARD */
-        .verify-section { max-width: 640px; margin: 0 auto 50px; padding: 0 20px; }
-        .verify-card { background: #fff; padding: 40px; border-radius: 16px; box-shadow: 0 14px 32px rgba(0,0,0,0.14); transition: 0.3s; }
-        .verify-card:hover { transform: translateY(-4px); box-shadow: 0 18px 42px rgba(0,0,0,0.16); }
+        .nav-left:hover {
+            transform: scale(1.02);
+        }
 
-        .verify-card label { font-size: 15px; font-weight: 600; display: block; margin-bottom: 10px; }
-        .verify-card input { width: 100%; padding: 16px; font-size: 16px; border-radius: 8px; border: 1px solid #cbd5e1; margin-bottom: 20px; }
-        .verify-card input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(37,99,235,0.15); }
+        .nav-left img {
+            height: 50px;
+            transition: transform 0.3s ease;
+        }
 
-        .verify-card button { width: 100%; padding: 16px; font-size: 16px; font-weight: 600; border-radius: 8px; border: none; cursor: pointer; color: #fff; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); transition: 0.3s; }
-        .verify-card button:hover { opacity: 0.95; }
+        .nav-left:hover img {
+            transform: rotate(5deg);
+        }
+
+        .nav-left span {
+            font-size: 24px;
+            font-weight: 800;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 6px 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-2);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+        nav a.active,
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* MOBILE MENU */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--text-dark);
+            padding: 8px;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: var(--bg-white);
+            box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+            z-index: 2000;
+            transition: right 0.3s ease;
+            padding: 80px 30px 30px;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu ul {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mobile-menu a {
+            font-size: 18px;
+            display: block;
+            padding: 12px 0;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 32px;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            padding: 0 40px;
+            margin: 120px auto 80px;
+            max-width: 1200px;
+        }
+
+        .header-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 30px;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .header h1 {
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.6s ease 0.2s both;
+        }
+
+        .header p {
+            font-size: 20px;
+            color: var(--text-muted);
+            max-width: 720px;
+            margin: 0 auto;
+            line-height: 1.7;
+            animation: fadeInUp 0.6s ease 0.4s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* VERIFICATION SECTION */
+        .verify-section {
+            max-width: 700px;
+            margin: 0 auto 100px;
+            padding: 0 40px;
+        }
+
+        .verify-card {
+            background: var(--bg-white);
+            padding: 50px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .verify-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-2);
+        }
+
+        .verify-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg), 0 0 0 1px rgba(59, 130, 246, 0.1);
+        }
+
+        .verify-card label {
+            font-size: 16px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .verify-card input {
+            width: 100%;
+            padding: 18px 20px;
+            font-size: 16px;
+            border-radius: 12px;
+            border: 2px solid #e2e8f0;
+            margin-bottom: 24px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            background: var(--bg-light);
+        }
+
+        .verify-card input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: var(--bg-white);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
+
+        .verify-card button {
+            width: 100%;
+            padding: 18px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            background: var(--gradient-2);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .verify-card button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .verify-card button:hover::before {
+            left: 100%;
+        }
+
+        .verify-card button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        .verify-card button:active {
+            transform: translateY(0);
+        }
 
         /* RESULT */
-        .result { margin-top: 28px; animation: fadeIn 0.35s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .result {
+            margin-top: 32px;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
         /* INFO NOTE */
-        .info-note { margin-top: 24px; font-size: 13px; color: var(--text-muted); text-align: center; }
+        .info-note {
+            margin-top: 28px;
+            padding: 16px;
+            font-size: 14px;
+            color: var(--text-muted);
+            text-align: center;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            border-radius: 12px;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .info-note strong {
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        /* FEATURES GRID */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 40px;
+        }
+
+        .feature-box {
+            background: var(--bg-white);
+            padding: 32px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .feature-box h3 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .feature-box p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
 
         /* FOOTER */
-        footer { margin-top: 80px; padding: 32px; text-align: center; font-size: 14px; color: var(--text-muted); background: #fff; }
-        footer a { color: var(--text-muted); text-decoration: none; margin: 0 8px; }
-        footer a:hover { text-decoration: underline; }
+        footer {
+            margin-top: 100px;
+            padding: 60px 40px 40px;
+            background: var(--bg-white);
+            border-top: 1px solid rgba(0,0,0,0.08);
+        }
 
-        /* MOBILE FIXES */
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-4px);
+        }
+
+        /* MOBILE RESPONSIVE */
         @media (max-width: 768px) {
-
-            /* NAVBAR FIX */
             nav {
-                flex-direction: column;
-                gap: 14px;
                 padding: 16px 20px;
             }
 
             nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 14px;
+                display: none;
             }
 
-            /* HEADER SPACING FIX */
-            .page-header {
-                margin: 60px auto 30px;
+            .mobile-menu-btn {
+                display: block;
             }
 
-            .page-header h1 {
-                font-size: 36px;
+            .mobile-menu {
+                display: block;
             }
 
-            .page-header p {
-                font-size: 16px;
+            .header {
+                margin: 80px auto 60px;
+                padding: 0 20px;
             }
 
-            /* CARD PADDING OPTIMIZATION */
+            .header h1 {
+                font-size: 40px;
+            }
+
+            .header p {
+                font-size: 17px;
+            }
+
+            .verify-section {
+                padding: 0 20px;
+            }
+
             .verify-card {
-                padding: 28px;
+                padding: 32px 24px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                padding: 0 20px;
+            }
+
+            .feature-box {
+                padding: 28px 24px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 0 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .verify-card {
+                padding: 28px 20px;
             }
         }
     </style>
@@ -94,12 +589,13 @@
 
 <body>
 
-<!-- NAVBAR -->
+<div class="animated-bg"></div>
+
 <nav>
-    <div class="nav-left">
+    <a href="index.html" class="nav-left">
         <img src="assets/images/logo.png" alt="Coders Verse Logo">
         <span>Coders Verse</span>
-    </div>
+    </a>
     <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="courses.html">Courses</a></li>
@@ -107,42 +603,121 @@
         <li><a href="verify.html" class="active">Verify Certificate</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
+    <button class="mobile-menu-btn" onclick="openMobileMenu()">☰</button>
 </nav>
 
-<!-- PAGE HEADER -->
-<section class="page-header">
+<div class="mobile-menu" id="mobileMenu">
+    <button class="close-menu" onclick="closeMobileMenu()">×</button>
+    <ul>
+        <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
+        <li><a href="courses.html" onclick="closeMobileMenu()">Courses</a></li>
+        <li><a href="about.html" onclick="closeMobileMenu()">About Us</a></li>
+        <li><a href="verify.html" class="active" onclick="closeMobileMenu()">Verify Certificate</a></li>
+        <li><a href="contact.html" onclick="closeMobileMenu()">Contact</a></li>
+    </ul>
+</div>
+
+<section class="header">
+    <div class="header-badge">🔐 Secure Verification System</div>
     <h1>Certificate Verification</h1>
-    <p>
-        Enter your Certificate ID to verify authenticity. All certificates issued by Coders Verse are securely validated.
-    </p>
+    <p>Enter your Certificate ID to verify authenticity. All certificates issued by Coders Verse are securely validated against official records.</p>
 </section>
 
-<!-- VERIFICATION CARD -->
 <section class="verify-section">
     <div class="verify-card">
         <label for="certIdInput">Certificate ID</label>
-        <input type="text" id="certIdInput" placeholder="Enter Certificate ID exactly as issued">
+        <input type="text" id="certIdInput" placeholder="Enter Certificate ID exactly as issued" autocomplete="off">
 
-        <button id="verifyBtn">Verify Certificate</button>
+        <button id="verifyBtn">🔍 Verify Certificate</button>
 
         <div id="result" class="result"></div>
 
         <div class="info-note">
-            Certificate IDs are case-sensitive and validated against official records.
+            <strong>Important:</strong> Certificate IDs are case-sensitive and validated against official records.
         </div>
     </div>
 </section>
 
-<!-- FOOTER -->
+<section class="features-grid">
+    <div class="feature-box">
+        <span class="feature-icon">⚡</span>
+        <h3>Instant Verification</h3>
+        <p>Get real-time results in seconds with our advanced verification system</p>
+    </div>
+
+    <div class="feature-box">
+        <span class="feature-icon">🔒</span>
+        <h3>100% Secure</h3>
+        <p>All data is encrypted and verified against blockchain-secured records</p>
+    </div>
+
+    <div class="feature-box">
+        <span class="feature-icon">✓</span>
+        <h3>Authentic Records</h3>
+        <p>Direct validation from official Coders Verse certificate database</p>
+    </div>
+</section>
+
 <footer>
-    © 2025 Coders Verse. All rights reserved. <br>
-    Contact: +91 9876543210 |
-    <a href="mailto:careers.codersverse@gmail.com">Email</a> |
-    <a href="https://instagram.com/coders.verse" target="_blank">Instagram</a>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Coders Verse</h4>
+            <p>Leading the future of certificate verification with cutting-edge technology and uncompromising security.</p>
+            <div class="social-links">
+                <a href="https://instagram.com/coders.verse" target="_blank" title="Instagram">📷</a>
+                <a href="mailto:careers.codersverse@gmail.com" title="Email">📧</a>
+                <a href="#" title="LinkedIn">💼</a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="about.html">About Us</a>
+            <a href="verify.html">Verify Certificate</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-section">
+            <h4>Support</h4>
+            <a href="#">Help Center</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">FAQ</a>
+        </div>
+        <div class="footer-section">
+            <h4>Contact Us</h4>
+            <p>📞 +91 9876543210</p>
+            <p>📧 careers.codersverse@gmail.com</p>
+            <p>📍 Mumbai, Maharashtra, India</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2025 Coders Verse. All rights reserved. Built with ❤️ in India
+    </div>
 </footer>
 
 <!-- Firebase Verification Script -->
 <script type="module" src="assets/js/verify.js"></script>
+
+<script>
+    function openMobileMenu() {
+        document.getElementById('mobileMenu').classList.add('active');
+    }
+
+    function closeMobileMenu() {
+        document.getElementById('mobileMenu').classList.remove('active');
+    }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const menu = document.getElementById('mobileMenu');
+        const btn = document.querySelector('.mobile-menu-btn');
+        
+        if (!menu.contains(event.target) && !btn.contains(event.target)) {
+            menu.classList.remove('active');
+        }
+    });
+</script>
 
 </body>
 </html>
