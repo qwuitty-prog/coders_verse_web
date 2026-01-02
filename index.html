@@ -871,24 +871,90 @@
             }
 
             .campus-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .campus-card {
+                height: 250px;
             }
 
             .features-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
             }
 
             .feature-card {
-                padding: 30px 24px;
+                padding: 24px 16px;
+            }
+
+            .feature-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                margin-bottom: 16px;
+            }
+
+            .feature-card h3 {
+                font-size: 18px;
+                margin-bottom: 12px;
+            }
+
+            .feature-card p {
+                font-size: 13px;
             }
 
             .team-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .team-avatar {
+                height: 200px;
+                font-size: 80px;
+            }
+
+            .team-info {
+                padding: 20px;
+            }
+
+            .team-info h3 {
+                font-size: 18px;
+            }
+
+            .team-role {
+                font-size: 13px;
+            }
+
+            .team-info p {
+                font-size: 12px;
             }
 
             .testimonials-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .testimonial-card {
+                padding: 24px;
+            }
+
+            .testimonial-avatar {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .testimonial-info h4 {
+                font-size: 16px;
+            }
+
+            .testimonial-info p {
+                font-size: 12px;
+            }
+
+            .testimonial-text {
+                font-size: 14px;
             }
 
             .section-header h2 {
@@ -905,7 +971,7 @@
             }
 
             .footer-content {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
                 gap: 30px;
                 padding: 0 20px;
             }
@@ -917,7 +983,27 @@
             }
 
             .stats {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .campus-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
