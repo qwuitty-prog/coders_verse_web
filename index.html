@@ -2,27 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Coders Verse | Leading Tech Education Institute in Mumbai</title>
+    <title>CodersVerse | Premium Website Development & Branding Services</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Transform your digital presence with CodersVerse. Professional websites, branding, and marketing solutions that drive results.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --primary: #3b82f6;
-            --primary-dark: #2563eb;
-            --primary-light: #60a5fa;
-            --accent: #8b5cf6;
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --accent: #ec4899;
+            --secondary: #06b6d4;
             --text-dark: #0f172a;
             --text-muted: #64748b;
             --bg-light: #f8fafc;
             --bg-white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+            --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
             --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
             --shadow-lg: 0 20px 40px rgba(0,0,0,0.12);
-            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            --shadow-xl: 0 25px 50px rgba(99, 102, 241, 0.15);
         }
 
         * { 
@@ -63,7 +68,7 @@
         .animated-bg::before {
             width: 600px;
             height: 600px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
             top: -200px;
             right: -200px;
             animation-delay: 0s;
@@ -72,7 +77,7 @@
         .animated-bg::after {
             width: 500px;
             height: 500px;
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #ec4899 0%, #06b6d4 100%);
             bottom: -150px;
             left: -150px;
             animation-delay: 10s;
@@ -84,8 +89,9 @@
             66% { transform: translate(-100px, 100px) scale(0.9); }
         }
 
+        /* Navigation */
         nav {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             box-shadow: var(--shadow-md);
             padding: 16px 40px;
@@ -123,7 +129,7 @@
         .nav-left span {
             font-size: 24px;
             font-weight: 800;
-            background: var(--gradient-2);
+            background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -153,7 +159,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--gradient-2);
+            background: var(--gradient-primary);
             transition: width 0.3s ease;
         }
 
@@ -165,6 +171,20 @@
         nav a.active,
         nav a:hover {
             color: var(--primary);
+        }
+
+        .cta-nav {
+            background: var(--gradient-primary);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            margin-left: 20px;
+        }
+
+        .cta-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
         }
 
         .mobile-menu-btn {
@@ -217,6 +237,7 @@
             color: var(--text-dark);
         }
 
+        /* Hero Section */
         .hero {
             max-width: 1200px;
             margin: 120px auto 80px;
@@ -227,8 +248,8 @@
         .hero-badge {
             display: inline-block;
             padding: 8px 20px;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-            border: 1px solid rgba(59, 130, 246, 0.2);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.2);
             border-radius: 50px;
             font-size: 14px;
             font-weight: 600;
@@ -250,7 +271,7 @@
         }
 
         .hero .highlight {
-            background: var(--gradient-2);
+            background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -292,10 +313,10 @@
             border: none;
             cursor: pointer;
             color: #fff;
-            background: var(--gradient-2);
+            background: var(--gradient-primary);
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            box-shadow: var(--shadow-xl);
             position: relative;
             overflow: hidden;
             display: inline-block;
@@ -317,8 +338,8 @@
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.4);
         }
 
         .btn-secondary {
@@ -343,7 +364,7 @@
             left: 0;
             width: 0;
             height: 100%;
-            background: var(--gradient-2);
+            background: var(--gradient-primary);
             transition: width 0.4s ease;
             z-index: -1;
         }
@@ -358,47 +379,7 @@
             transform: translateY(-2px);
         }
 
-        .stats {
-            max-width: 1200px;
-            margin: 80px auto;
-            padding: 0 40px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            background: rgba(255, 255, 255, 0.9);
-        }
-
-        .stat-number {
-            font-size: 48px;
-            font-weight: 900;
-            background: var(--gradient-2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            font-size: 16px;
-            color: var(--text-muted);
-            font-weight: 600;
-        }
-
+        /* Services Section */
         .section {
             max-width: 1200px;
             margin: 100px auto;
@@ -427,205 +408,226 @@
             margin: 0 auto;
         }
 
-        .campus-grid {
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
-            margin-bottom: 40px;
         }
 
-        .campus-card {
+        .service-card {
+            background: var(--bg-white);
             border-radius: 24px;
             overflow: hidden;
             box-shadow: var(--shadow-md);
             transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.05);
             position: relative;
-            height: 400px;
         }
 
-        .campus-card img {
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-primary);
+            opacity: 0.9;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-icon::before {
+            transform: scale(1.1);
+        }
+
+        .service-icon i {
+            position: relative;
+            z-index: 1;
+            color: white;
+        }
+
+        .service-content {
+            padding: 30px;
+        }
+
+        .service-content h3 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .service-content p {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .service-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            color: var(--text-muted);
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-features li i {
+            color: var(--primary);
+            font-size: 14px;
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-card {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s ease;
+            position: relative;
+            height: 300px;
+        }
+
+        .portfolio-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
 
-        .campus-card:hover {
+        .portfolio-card:hover {
             box-shadow: var(--shadow-lg);
         }
 
-        .campus-card:hover img {
+        .portfolio-card:hover img {
             transform: scale(1.1);
         }
 
-        .campus-overlay {
+        .portfolio-overlay {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, transparent 100%);
             padding: 30px;
             color: white;
+            transform: translateY(10px);
+            transition: transform 0.3s ease;
         }
 
-        .campus-overlay h3 {
-            font-size: 24px;
+        .portfolio-card:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 20px;
             font-weight: 800;
             margin-bottom: 8px;
         }
 
-        .campus-overlay p {
-            font-size: 15px;
+        .portfolio-overlay p {
+            font-size: 14px;
             opacity: 0.9;
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-        }
-
-        .feature-card {
-            background: var(--bg-white);
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: var(--shadow-md);
-            transition: all 0.4s ease;
-            border: 1px solid rgba(0,0,0,0.05);
+        /* Process Section */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
             position: relative;
-            overflow: hidden;
+            margin: 60px 0;
         }
 
-        .feature-card::before {
+        .process-steps::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient-2);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: var(--gradient-primary);
+            z-index: 0;
         }
 
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-2);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            margin-bottom: 24px;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover .feature-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .feature-card h3 {
-            margin-bottom: 16px;
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--text-dark);
-        }
-
-        .feature-card p {
-            font-size: 16px;
-            color: var(--text-muted);
-            line-height: 1.7;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-        }
-
-        .team-card {
-            background: var(--bg-white);
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: all 0.4s ease;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .team-avatar {
-            width: 100%;
-            height: 320px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 120px;
-            font-weight: 900;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .team-avatar::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--gradient-2);
-            transition: transform 0.5s ease;
-        }
-
-        .team-card:hover .team-avatar::before {
-            transform: scale(1.1);
-        }
-
-        .team-avatar span {
+        .step {
+            text-align: center;
             position: relative;
             z-index: 1;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            flex: 1;
+            padding: 0 20px;
         }
 
-        .team-info {
-            padding: 30px;
-            text-align: center;
-        }
-
-        .team-info h3 {
-            font-size: 22px;
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
             font-weight: 800;
-            margin-bottom: 8px;
+            color: var(--primary);
+            margin: 0 auto 20px;
+            box-shadow: var(--shadow-md);
+            border: 3px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+
+        .step-number::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .step h3 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 12px;
             color: var(--text-dark);
         }
 
-        .team-role {
+        .step p {
             font-size: 15px;
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .team-info p {
-            font-size: 14px;
             color: var(--text-muted);
             line-height: 1.6;
         }
 
+        /* Testimonials */
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -663,7 +665,7 @@
             font-size: 24px;
             font-weight: 800;
             color: white;
-            background: var(--gradient-2);
+            background: var(--gradient-primary);
             flex-shrink: 0;
         }
 
@@ -692,11 +694,12 @@
             margin-bottom: 16px;
         }
 
+        /* CTA Section */
         .cta-section {
             max-width: 1200px;
             margin: 120px auto;
             padding: 80px 40px;
-            background: var(--gradient-2);
+            background: var(--gradient-dark);
             border-radius: 32px;
             text-align: center;
             position: relative;
@@ -710,7 +713,7 @@
             right: -50%;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
             animation: pulse 4s infinite;
         }
 
@@ -747,6 +750,7 @@
             background: #f8fafc;
         }
 
+        /* Footer */
         footer {
             margin-top: 100px;
             padding: 60px 40px 40px;
@@ -801,7 +805,7 @@
         .social-links a {
             width: 40px;
             height: 40px;
-            background: var(--gradient-2);
+            background: var(--gradient-primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -815,16 +819,17 @@
             transform: translateY(-4px);
         }
 
-        /* ===================================================
-           MOBILE RESPONSIVE STYLES - OPTIMIZED
-           =================================================== */
-        
+        /* Mobile Responsive Styles */
         @media (max-width: 768px) {
             nav {
                 padding: 16px 20px;
             }
 
             nav ul {
+                display: none;
+            }
+
+            .cta-nav {
                 display: none;
             }
 
@@ -837,7 +842,7 @@
             }
 
             .hero {
-                margin: 60px auto 50px;
+                margin: 80px auto 50px;
                 padding: 0 20px;
             }
 
@@ -871,30 +876,6 @@
                 font-size: 15px;
             }
 
-            /* STATS - 2 PER ROW, COMPACT */
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-                padding: 0 20px;
-                margin: 50px auto;
-            }
-
-            .stat-card {
-                padding: 18px 10px;
-                border-radius: 16px;
-            }
-
-            .stat-number {
-                font-size: 28px;
-                margin-bottom: 4px;
-            }
-
-            .stat-label {
-                font-size: 11px;
-                line-height: 1.3;
-            }
-
-            /* SECTIONS */
             .section {
                 padding: 0 20px;
                 margin: 60px auto;
@@ -912,128 +893,32 @@
                 font-size: 15px;
             }
 
-            /* CAMPUS - 1 PER ROW */
-            .campus-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .campus-card {
-                height: 280px;
-                border-radius: 20px;
-            }
-
-            .campus-overlay {
-                padding: 20px;
-            }
-
-            .campus-overlay h3 {
-                font-size: 20px;
-            }
-
-            .campus-overlay p {
-                font-size: 14px;
-            }
-
-            /* FEATURES - 2 PER ROW, COMPACT */
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-            }
-
-            .feature-card {
-                padding: 20px 16px;
-                border-radius: 16px;
-            }
-
-            .feature-icon {
-                width: 44px;
-                height: 44px;
-                font-size: 22px;
-                margin-bottom: 14px;
-                border-radius: 12px;
-            }
-
-            .feature-card h3 {
-                font-size: 15px;
-                margin-bottom: 10px;
-                line-height: 1.3;
-            }
-
-            .feature-card p {
-                font-size: 12px;
-                line-height: 1.5;
-            }
-
-            /* TEAM - 2 PER ROW, COMPACT */
-            .team-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
-            }
-
-            .team-card {
-                border-radius: 16px;
-            }
-
-            .team-avatar {
-                height: 180px;
-                font-size: 70px;
-            }
-
-            .team-info {
-                padding: 16px 12px;
-            }
-
-            .team-info h3 {
-                font-size: 15px;
-                margin-bottom: 4px;
-            }
-
-            .team-role {
-                font-size: 12px;
-                margin-bottom: 8px;
-            }
-
-            .team-info p {
-                font-size: 11px;
-                line-height: 1.4;
-            }
-
-            /* TESTIMONIALS - 1 PER ROW (READABLE) */
+            .services-grid,
+            .portfolio-grid,
             .testimonials-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
 
+            .process-steps {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .service-card,
+            .portfolio-card,
             .testimonial-card {
-                padding: 24px;
                 border-radius: 18px;
             }
 
-            .testimonial-avatar {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
+            .portfolio-card {
+                height: 250px;
             }
 
-            .testimonial-info h4 {
-                font-size: 16px;
-            }
-
-            .testimonial-info p {
-                font-size: 13px;
-            }
-
-            .testimonial-text {
-                font-size: 14px;
-            }
-
-            .stars {
-                font-size: 16px;
-                margin-bottom: 12px;
-            }
-
-            /* CTA */
             .cta-section {
                 margin: 60px 20px;
                 padding: 50px 24px;
@@ -1050,7 +935,6 @@
                 margin-bottom: 32px;
             }
 
-            /* FOOTER */
             footer {
                 padding: 50px 20px 30px;
             }
@@ -1061,7 +945,6 @@
             }
         }
 
-        /* EXTRA SMALL MOBILE */
         @media (max-width: 480px) {
             .hero h1 {
                 font-size: 30px;
@@ -1069,37 +952,6 @@
 
             .hero p {
                 font-size: 15px;
-            }
-
-            /* Keep stats at 2 columns even on smallest screens */
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .stat-number {
-                font-size: 24px;
-            }
-
-            .stat-label {
-                font-size: 10px;
-            }
-
-            /* Features might go to 1 column on very small screens */
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-
-            .feature-card {
-                padding: 24px 20px;
-            }
-
-            .feature-card h3 {
-                font-size: 17px;
-            }
-
-            .feature-card p {
-                font-size: 14px;
             }
         }
     </style>
@@ -1111,15 +963,14 @@
 
 <nav>
     <a href="index.html" class="nav-left">
-        <img src="assets/images/logo.png" alt="Coders Verse Logo">
-        <span>Coders Verse</span>
+        <div style="width: 50px; height: 50px; background: var(--gradient-primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 22px; font-weight: 800;">CV</div>
+        <span>CodersVerse</span>
     </a>
     <ul>
         <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="courses.html">Courses</a></li>
         <li><a href="about.html">About Us</a></li>
-        <li><a href="verify.html">Verify Certificate</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="cta-nav">Get Quote</a></li>
     </ul>
     <button class="mobile-menu-btn" onclick="openMobileMenu()">☰</button>
 </nav>
@@ -1128,171 +979,77 @@
     <button class="close-menu" onclick="closeMobileMenu()">×</button>
     <ul>
         <li><a href="index.html" class="active" onclick="closeMobileMenu()">Home</a></li>
-        <li><a href="courses.html" onclick="closeMobileMenu()">Courses</a></li>
         <li><a href="about.html" onclick="closeMobileMenu()">About Us</a></li>
-        <li><a href="verify.html" onclick="closeMobileMenu()">Verify Certificate</a></li>
         <li><a href="contact.html" onclick="closeMobileMenu()">Contact</a></li>
+        <li><a href="contact.html" class="cta-nav" onclick="closeMobileMenu()">Get Quote</a></li>
     </ul>
 </div>
 
 <section class="hero">
-    <div class="hero-badge">🎓 Mumbai's Leading Tech Education Institute</div>
-    <h1>Transform Your Career with <span class="highlight">Industry-Ready Skills</span></h1>
+    <div class="hero-badge">🚀 Premium Digital Solutions</div>
+    <h1>Transform Your <span class="highlight">Digital Presence</span> with Expert Craftsmanship</h1>
     <p>
-        Join 15,000+ students who have launched successful tech careers through our hands-on training programs, expert mentorship, and industry-recognized certifications.
+        We build stunning websites, create compelling brands, and deliver marketing materials that help your business stand out. From concept to launch, we're with you every step of the way.
     </p>
 
     <div class="hero-actions">
-        <a href="courses.html" class="btn-primary">Explore Our Courses</a>
-        <a href="contact.html" class="btn-secondary">Schedule a Campus Visit</a>
-    </div>
-</section>
-
-<section class="stats">
-    <div class="stat-card">
-        <div class="stat-number">15K+</div>
-        <div class="stat-label">Students Trained</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-number">500+</div>
-        <div class="stat-label">Hiring Partners</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-number">95%</div>
-        <div class="stat-label">Placement Success</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-number">4.8/5</div>
-        <div class="stat-label">Student Rating</div>
+        <a href="contact.html" class="btn-primary">Start Your Project</a>
+        <a href="#portfolio" class="btn-secondary">View Our Work</a>
     </div>
 </section>
 
 <section class="section">
     <div class="section-header">
-        <h2>Our Learning Environment</h2>
-        <p>State-of-the-art facilities designed to inspire innovation and collaboration</p>
+        <h2>Our Services</h2>
+        <p>Comprehensive digital solutions tailored to your business needs</p>
     </div>
 
-    <div class="campus-grid">
-        <div class="campus-card">
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Modern Classrooms">
-            <div class="campus-overlay">
-                <h3>Modern Classrooms</h3>
-                <p>Interactive learning spaces equipped with latest technology</p>
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="service-content">
+                <h3>Website Development</h3>
+                <p>Custom, responsive websites built with modern technologies that engage visitors and drive conversions.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Responsive Design</li>
+                    <li><i class="fas fa-check"></i> E-commerce Solutions</li>
+                    <li><i class="fas fa-check"></i> SEO Optimized</li>
+                    <li><i class="fas fa-check"></i> CMS Integration</li>
+                </ul>
             </div>
         </div>
 
-        <div class="campus-card">
-            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" alt="Computer Labs">
-            <div class="campus-overlay">
-                <h3>Advanced Computer Labs</h3>
-                <p>High-performance workstations for hands-on practice</p>
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-palette"></i>
+            </div>
+            <div class="service-content">
+                <h3>Branding & Logo Design</h3>
+                <p>Memorable logos and comprehensive brand identities that communicate your values and attract your target audience.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Logo Design</li>
+                    <li><i class="fas fa-check"></i> Brand Guidelines</li>
+                    <li><i class="fas fa-check"></i> Business Cards</li>
+                    <li><i class="fas fa-check"></i> Social Media Kits</li>
+                </ul>
             </div>
         </div>
 
-        <div class="campus-card">
-            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt="Collaborative Spaces">
-            <div class="campus-overlay">
-                <h3>Collaborative Workspaces</h3>
-                <p>Team project areas fostering peer learning</p>
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fas fa-bullhorn"></i>
             </div>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="section-header">
-        <h2>Why Choose Coders Verse?</h2>
-        <p>Experience the advantage of learning with industry leaders</p>
-    </div>
-
-    <div class="features-grid">
-        <div class="feature-card">
-            <div class="feature-icon">🎯</div>
-            <h3>Industry-Relevant Curriculum</h3>
-            <p>Courses designed by tech professionals, updated regularly to match current industry demands and emerging technologies.</p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">👨‍💼</div>
-            <h3>Expert Instructors</h3>
-            <p>Learn from experienced professionals with 10+ years in the industry, bringing real-world insights to the classroom.</p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">💼</div>
-            <h3>Placement Assistance</h3>
-            <p>Dedicated career services team connecting students with 500+ hiring partners for internships and full-time positions.</p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">🤝</div>
-            <h3>Hands-On Projects</h3>
-            <p>Build real-world projects and portfolio pieces that demonstrate your skills to potential employers.</p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">📜</div>
-            <h3>Verified Certifications</h3>
-            <p>Industry-recognized certificates with blockchain verification, trusted by employers nationwide.</p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">⏰</div>
-            <h3>Flexible Schedules</h3>
-            <p>Weekend and evening batches available to accommodate working professionals and students.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="section-header">
-        <h2>Meet Our Expert Instructors</h2>
-        <p>Learn from industry veterans who are passionate about your success</p>
-    </div>
-
-    <div class="team-grid">
-        <div class="team-card">
-            <div class="team-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                <span>R</span>
-            </div>
-            <div class="team-info">
-                <h3>Rajesh Kumar</h3>
-                <div class="team-role">Senior Data Science Instructor</div>
-                <p>15+ years at Google & Microsoft. Specializes in ML and AI technologies.</p>
-            </div>
-        </div>
-
-        <div class="team-card">
-            <div class="team-avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                <span>P</span>
-            </div>
-            <div class="team-info">
-                <h3>Priya Sharma</h3>
-                <div class="team-role">Full Stack Development Lead</div>
-                <p>Ex-Amazon engineer. Expert in modern web technologies and cloud architecture.</p>
-            </div>
-        </div>
-
-        <div class="team-card">
-            <div class="team-avatar" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                <span>A</span>
-            </div>
-            <div class="team-info">
-                <h3>Amit Patel</h3>
-                <div class="team-role">Cybersecurity Specialist</div>
-                <p>Former security consultant at Deloitte. Certified ethical hacker with 12 years experience.</p>
-            </div>
-        </div>
-
-        <div class="team-card">
-            <div class="team-avatar" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                <span>S</span>
-            </div>
-            <div class="team-info">
-                <h3>Sneha Desai</h3>
-                <div class="team-role">Business Intelligence Expert</div>
-                <p>10+ years in data analytics. Previously worked with TCS and Infosys on enterprise BI solutions.</p>
+            <div class="service-content">
+                <h3>Marketing Materials</h3>
+                <p>Professional brochures, flyers, and digital assets that effectively promote your products and services.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Brochures & Flyers</li>
+                    <li><i class="fas fa-check"></i> Business Presentations</li>
+                    <li><i class="fas fa-check"></i> Digital Ads</li>
+                    <li><i class="fas fa-check"></i> Email Templates</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -1300,90 +1057,155 @@
 
 <section class="section">
     <div class="section-header">
-        <h2>What Our Students Say</h2>
-        <p>Real stories from students who transformed their careers with us</p>
+        <h2>Our Work Process</h2>
+        <p>A streamlined approach to delivering exceptional results</p>
+    </div>
+
+    <div class="process-steps">
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Discovery</h3>
+            <p>We learn about your business, goals, and target audience to create a tailored strategy.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>Design</h3>
+            <p>Creative concepts and prototypes that bring your vision to life with modern aesthetics.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">3</div>
+            <h3>Development</h3>
+            <p>Building your solution with clean code and best practices for optimal performance.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">4</div>
+            <h3>Delivery</h3>
+            <p>Launching your project and providing support to ensure ongoing success.</p>
+        </div>
+    </div>
+</section>
+
+<section id="portfolio" class="section">
+    <div class="section-header">
+        <h2>Recent Projects</h2>
+        <p>A glimpse of our work across different industries</p>
+    </div>
+
+    <div class="portfolio-grid">
+        <div class="portfolio-card">
+            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80" alt="E-commerce Website">
+            <div class="portfolio-overlay">
+                <h3>Modern E-commerce Platform</h3>
+                <p>Full-featured online store with custom cart and payment integration</p>
+            </div>
+        </div>
+
+        <div class="portfolio-card">
+            <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?auto=format&fit=crop&w=800&q=80" alt="Corporate Branding">
+            <div class="portfolio-overlay">
+                <h3>Corporate Brand Identity</h3>
+                <p>Complete branding package for a tech startup</p>
+            </div>
+        </div>
+
+        <div class="portfolio-card">
+            <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=800&q=80" alt="Marketing Brochures">
+            <div class="portfolio-overlay">
+                <h3>Marketing Campaign Suite</h3>
+                <p>Brochures, flyers, and digital ads for product launch</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-header">
+        <h2>Client Success Stories</h2>
+        <p>Businesses that transformed with our digital solutions</p>
     </div>
 
     <div class="testimonials-grid">
         <div class="testimonial-card">
             <div class="stars">★★★★★</div>
             <div class="testimonial-header">
-                <div class="testimonial-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">A</div>
+                <div class="testimonial-avatar">S</div>
                 <div class="testimonial-info">
-                    <h4>Arjun Mehta</h4>
-                    <p>Data Science Graduate • Now at Flipkart</p>
+                    <h4>Sarah Chen</h4>
+                    <p>CEO, TechInnovate Solutions</p>
                 </div>
             </div>
-            <p class="testimonial-text">"The hands-on approach and industry projects gave me the confidence to crack my dream job. The instructors genuinely care about your growth."</p>
+            <p class="testimonial-text">"CodersVerse transformed our outdated website into a modern lead generation machine. Our inquiries increased by 300% within the first month!"</p>
         </div>
 
         <div class="testimonial-card">
             <div class="stars">★★★★★</div>
             <div class="testimonial-header">
-                <div class="testimonial-avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">N</div>
+                <div class="testimonial-avatar">R</div>
                 <div class="testimonial-info">
-                    <h4>Neha Singh</h4>
-                    <p>Web Development Graduate • Now at Zomato</p>
+                    <h4>Raj Patel</h4>
+                    <p>Founder, UrbanBrew Coffee</p>
                 </div>
             </div>
-            <p class="testimonial-text">"Best decision of my career! The placement support was exceptional, and I landed a job within 2 months of completing the course."</p>
+            <p class="testimonial-text">"The branding package they created perfectly captured our essence. Our new identity helped us stand out in a crowded market."</p>
         </div>
 
         <div class="testimonial-card">
             <div class="stars">★★★★★</div>
             <div class="testimonial-header">
-                <div class="testimonial-avatar" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">V</div>
+                <div class="testimonial-avatar">M</div>
                 <div class="testimonial-info">
-                    <h4>Vikram Rao</h4>
-                    <p>Full Stack Graduate • Now at PayTM</p>
+                    <h4>Maria Gonzalez</h4>
+                    <p>Marketing Director, GreenLife Organics</p>
                 </div>
             </div>
-            <p class="testimonial-text">"The curriculum is perfectly aligned with what companies are looking for. Real-world projects made all the difference in my interviews."</p>
+            <p class="testimonial-text">"From website to brochures, every piece was professionally executed. Their attention to detail and communication were outstanding."</p>
         </div>
     </div>
 </section>
 
 <section class="cta-section">
-    <h2>Ready to Start Your Tech Journey?</h2>
-    <p>Join the next batch starting this month. Limited seats available!</p>
-    <a href="contact.html" class="btn-primary">Enroll Now</a>
+    <h2>Ready to Elevate Your Business?</h2>
+    <p>Let's discuss how we can help you achieve your digital goals</p>
+    <a href="contact.html" class="btn-primary">Get Your Free Consultation</a>
 </section>
 
 <footer>
     <div class="footer-content">
         <div class="footer-section">
-            <h4>Coders Verse</h4>
-            <p>Empowering the next generation of tech professionals with cutting-edge education and industry connections.</p>
+            <h4>CodersVerse</h4>
+            <p>Transforming businesses through exceptional digital design and development. We create solutions that drive growth and make an impact.</p>
             <div class="social-links">
-                <a href="https://instagram.com/coders.verse" target="_blank" title="Instagram">📷</a>
-                <a href="mailto:careers.codersverse@gmail.com" title="Email">📧</a>
-                <a href="#" title="LinkedIn">💼</a>
+                <a href="https://instagram.com/codersverse" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:info@codersverse.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/company/codersverse" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://twitter.com/codersverse" title="Twitter"><i class="fab fa-twitter"></i></a>
             </div>
+        </div>
+        <div class="footer-section">
+            <h4>Services</h4>
+            <a href="#services">Website Development</a>
+            <a href="#services">Branding & Logo Design</a>
+            <a href="#services">Marketing Materials</a>
+            <a href="#services">E-commerce Solutions</a>
+            <a href="#services">UI/UX Design</a>
         </div>
         <div class="footer-section">
             <h4>Quick Links</h4>
             <a href="index.html">Home</a>
-            <a href="courses.html">Courses</a>
             <a href="about.html">About Us</a>
-            <a href="verify.html">Verify Certificate</a>
             <a href="contact.html">Contact</a>
-        </div>
-        <div class="footer-section">
-            <h4>Popular Courses</h4>
-            <a href="courses.html">Data Science & Analytics</a>
-            <a href="courses.html">Full Stack Development</a>
-            <a href="courses.html">Cybersecurity</a>
-            <a href="courses.html">Business Intelligence</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="contact.html">Get Quote</a>
         </div>
         <div class="footer-section">
             <h4>Contact Us</h4>
-            <p>📞 +91 9876543210</p>
-            <p>📧 careers.codersverse@gmail.com</p>
-            <p>📍 Mumbai, Maharashtra, India</p>
+            <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+            <p><i class="fas fa-envelope"></i> info@codersverse.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> Serving Clients Worldwide</p>
         </div>
     </div>
     <div class="footer-bottom">
-        © 2025 Coders Verse. All rights reserved. Built with ❤️ in India
+        © 2025 CodersVerse. All rights reserved. Crafting digital excellence.
     </div>
 </footer>
 
@@ -1418,7 +1240,7 @@ const observer = new IntersectionObserver(function(entries) {
     });
 }, observerOptions);
 
-document.querySelectorAll('.feature-card, .team-card, .testimonial-card, .campus-card').forEach(el => {
+document.querySelectorAll('.service-card, .portfolio-card, .testimonial-card, .step').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'all 0.6s ease';
