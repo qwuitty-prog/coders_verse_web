@@ -2,27 +2,79 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contact Us | Coders Verse</title>
+    <title>Contact CodersVerse | Get Your Free Consultation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact CodersVerse for website development, branding, and marketing solutions. Get a free consultation today.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
     <style>
+        /* Reuse all CSS variables and base styles */
         :root {
-            --primary: #3b82f6;
-            --primary-dark: #2563eb;
-            --primary-light: #60a5fa;
-            --accent: #8b5cf6;
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --primary-ultralight: #e0e7ff;
+            --accent: #ec4899;
+            --accent-light: #f472b6;
+            --secondary: #06b6d4;
+            --secondary-light: #22d3ee;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            
             --text-dark: #0f172a;
+            --text-dark-muted: #334155;
             --text-muted: #64748b;
-            --bg-light: #f8fafc;
+            --text-light: #94a3b8;
             --bg-white: #ffffff;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --bg-light: #f8fafc;
+            --bg-lighter: #f1f5f9;
+            --border-light: #e2e8f0;
+            --border-medium: #cbd5e1;
+            
+            --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+            --gradient-primary-reverse: linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #6366f1 100%);
+            --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --gradient-dark-reverse: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            --gradient-success: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
             --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-            --shadow-lg: 0 20px 40px rgba(0,0,0,0.12);
-            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.12);
+            --shadow-xl: 0 20px 40px rgba(0,0,0,0.15);
+            --shadow-xxl: 0 30px 60px rgba(0,0,0,0.2);
+            --shadow-primary: 0 10px 30px rgba(99, 102, 241, 0.3);
+            --shadow-primary-lg: 0 20px 50px rgba(99, 102, 241, 0.4);
+            
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --radius-full: 9999px;
+            
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            --space-3xl: 64px;
+            --space-4xl: 80px;
+            --space-5xl: 96px;
+            
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-secondary: 'Space Grotesk', monospace;
         }
 
         * { 
@@ -31,22 +83,150 @@
             padding: 0; 
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            font-family: var(--font-primary);
             background: var(--bg-light);
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
+            font-weight: 400;
         }
 
-        /* ANIMATED BACKGROUND */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-secondary);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--space-lg);
+        }
+
+        h1 { font-size: 4rem; }
+        h2 { font-size: 3rem; }
+        h3 { font-size: 2rem; }
+        h4 { font-size: 1.5rem; }
+        h5 { font-size: 1.25rem; }
+        h6 { font-size: 1rem; }
+
+        p {
+            margin-bottom: var(--space-md);
+            font-size: 1.125rem;
+            color: var(--text-dark-muted);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all var(--transition-normal);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+        }
+
+        .container-wide {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+        }
+
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        .text-right { text-align: right; }
+
+        .gradient-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-padding {
+            padding: var(--space-4xl) 0;
+        }
+
+        .section-margin {
+            margin: var(--space-4xl) 0;
+        }
+
+        .mb-0 { margin-bottom: 0 !important; }
+        .mb-xs { margin-bottom: var(--space-xs) !important; }
+        .mb-sm { margin-bottom: var(--space-sm) !important; }
+        .mb-md { margin-bottom: var(--space-md) !important; }
+        .mb-lg { margin-bottom: var(--space-lg) !important; }
+        .mb-xl { margin-bottom: var(--space-xl) !important; }
+        .mb-2xl { margin-bottom: var(--space-2xl) !important; }
+        .mb-3xl { margin-bottom: var(--space-3xl) !important; }
+
+        .mt-0 { margin-top: 0 !important; }
+        .mt-xs { margin-top: var(--space-xs) !important; }
+        .mt-sm { margin-top: var(--space-sm) !important; }
+        .mt-md { margin-top: var(--space-md) !important; }
+        .mt-lg { margin-top: var(--space-lg) !important; }
+        .mt-xl { margin-top: var(--space-xl) !important; }
+        .mt-2xl { margin-top: var(--space-2xl) !important; }
+        .mt-3xl { margin-top: var(--space-3xl) !important; }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flex-between {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .flex-column {
+            flex-direction: column;
+        }
+
+        .grid {
+            display: grid;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .gap-sm { gap: var(--space-sm); }
+        .gap-md { gap: var(--space-md); }
+        .gap-lg { gap: var(--space-lg); }
+        .gap-xl { gap: var(--space-xl); }
+        .gap-2xl { gap: var(--space-2xl); }
+
+        /* Animated Background */
         .animated-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
+            z-index: -2;
             background: linear-gradient(180deg, #f8fafc 0%, #e0e7ff 100%);
             overflow: hidden;
         }
@@ -64,7 +244,7 @@
         .animated-bg::before {
             width: 600px;
             height: 600px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
             top: -200px;
             right: -200px;
             animation-delay: 0s;
@@ -73,7 +253,7 @@
         .animated-bg::after {
             width: 500px;
             height: 500px;
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #ec4899 0%, #06b6d4 100%);
             bottom: -150px;
             left: -150px;
             animation-delay: 10s;
@@ -85,510 +265,1004 @@
             66% { transform: translate(-100px, 100px) scale(0.9); }
         }
 
-        /* NAVBAR */
-        nav {
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             box-shadow: var(--shadow-md);
-            padding: 16px 40px;
+            transition: all var(--transition-normal);
+            padding: var(--space-md) 0;
+        }
+
+        .navbar.scrolled {
+            padding: var(--space-sm) 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-container {
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
         }
 
-        .nav-left {
+        .logo {
             display: flex;
             align-items: center;
-            gap: 14px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
+            gap: var(--space-sm);
+            font-weight: 900;
+            font-size: 1.75rem;
+            text-decoration: none;
+            transition: transform var(--transition-normal);
         }
 
-        .nav-left:hover {
-            transform: scale(1.02);
+        .logo:hover {
+            transform: scale(1.05);
         }
 
-        .nav-left img {
+        .logo-icon {
+            width: 50px;
             height: 50px;
-            transition: transform 0.3s ease;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 900;
+            box-shadow: var(--shadow-primary);
         }
 
-        .nav-left:hover img {
-            transform: rotate(5deg);
-        }
-
-        .nav-left span {
-            font-size: 24px;
+        .logo-text {
+            font-family: var(--font-secondary);
             font-weight: 800;
-            background: var(--gradient-2);
+            background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        nav ul {
-            list-style: none;
+        .nav-menu {
             display: flex;
-            gap: 32px;
             align-items: center;
+            gap: var(--space-xl);
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
-        nav a {
-            text-decoration: none;
-            font-size: 15px;
+        .nav-link {
             font-weight: 600;
-            color: var(--text-dark);
-            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            color: var(--text-dark-muted);
+            padding: var(--space-sm) var(--space-md);
             position: relative;
-            padding: 6px 0;
+            transition: color var(--transition-normal);
         }
 
-        nav a::after {
+        .nav-link::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            left: 50%;
             width: 0;
             height: 2px;
-            background: var(--gradient-2);
-            transition: width 0.3s ease;
+            background: var(--gradient-primary);
+            transition: all var(--transition-normal);
+            transform: translateX(-50%);
         }
 
-        nav a:hover::after,
-        nav a.active::after {
-            width: 100%;
-        }
-
-        nav a.active,
-        nav a:hover {
+        .nav-link:hover,
+        .nav-link.active {
             color: var(--primary);
         }
 
-        /* MOBILE MENU */
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--gradient-primary);
+            color: white !important;
+            padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            box-shadow: var(--shadow-primary);
+            transition: all var(--transition-normal);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary-lg);
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            font-size: 28px;
-            cursor: pointer;
+            font-size: 1.5rem;
             color: var(--text-dark);
-            padding: 8px;
+            cursor: pointer;
+            padding: var(--space-sm);
+            z-index: 1001;
         }
 
+        /* Mobile Menu */
         .mobile-menu {
-            display: none;
             position: fixed;
             top: 0;
             right: -100%;
-            width: 280px;
+            width: 100%;
+            max-width: 400px;
             height: 100vh;
             background: var(--bg-white);
-            box-shadow: -4px 0 20px rgba(0,0,0,0.15);
-            z-index: 2000;
-            transition: right 0.3s ease;
-            padding: 80px 30px 30px;
+            z-index: 1002;
+            transition: right var(--transition-normal);
+            padding: var(--space-3xl);
+            box-shadow: var(--shadow-xxl);
+            overflow-y: auto;
         }
 
         .mobile-menu.active {
             right: 0;
         }
 
-        .mobile-menu ul {
-            flex-direction: column;
-            gap: 20px;
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-3xl);
         }
 
-        .mobile-menu a {
-            font-size: 18px;
-            display: block;
-            padding: 12px 0;
+        .mobile-menu-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
         }
 
-        .close-menu {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+        .mobile-close {
             background: none;
             border: none;
-            font-size: 32px;
-            cursor: pointer;
+            font-size: 1.5rem;
             color: var(--text-dark);
+            cursor: pointer;
+            padding: var(--space-sm);
         }
 
-        /* HEADER */
-        .header {
-            text-align: center;
-            padding: 0 40px;
-            margin: 120px auto 80px;
-            max-width: 1200px;
+        .mobile-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 var(--space-3xl) 0;
         }
 
-        .header-badge {
-            display: inline-block;
-            padding: 8px 20px;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            border-radius: 50px;
-            font-size: 14px;
+        .mobile-nav li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: var(--space-md) var(--space-lg);
+            font-size: 1.125rem;
             font-weight: 600;
+            color: var(--text-dark);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-normal);
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            background: var(--primary-ultralight);
             color: var(--primary);
-            margin-bottom: 30px;
-            animation: fadeInUp 0.6s ease;
         }
 
-        .header h1 {
-            font-size: 56px;
-            font-weight: 900;
-            margin-bottom: 24px;
-            line-height: 1.1;
-            background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 0.6s ease 0.2s both;
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
         }
 
-        .header p {
-            font-size: 20px;
-            color: var(--text-muted);
-            max-width: 720px;
-            margin: 0 auto;
-            line-height: 1.7;
-            animation: fadeInUp 0.6s ease 0.4s both;
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* CONTACT SECTION */
-        .contact-section {
-            max-width: 1200px;
-            margin: 0 auto 100px;
-            padding: 0 40px;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        .contact-card {
-            background: var(--bg-white);
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: var(--shadow-md);
-            border: 1px solid rgba(0,0,0,0.05);
-            transition: all 0.4s ease;
+        /* Contact Hero */
+        .contact-hero {
+            padding: var(--space-5xl) 0 var(--space-4xl);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
             position: relative;
             overflow: hidden;
-            text-align: center;
         }
 
-        .contact-card::before {
+        .contact-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-lg);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .contact-hero h1 {
+            font-size: 4rem;
+            margin-bottom: var(--space-xl);
+            line-height: 1.1;
+        }
+
+        .contact-hero p {
+            font-size: 1.25rem;
+            color: var(--text-dark-muted);
+            max-width: 700px;
+            margin: 0 auto var(--space-2xl);
+        }
+
+        /* Contact Methods */
+        .contact-methods {
+            padding: var(--space-4xl) 0;
+            background: var(--bg-white);
+        }
+
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-2xl);
+        }
+
+        .method-card {
+            background: var(--bg-white);
+            padding: var(--space-2xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-light);
+            text-align: center;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .method-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xxl);
+            border-color: transparent;
+        }
+
+        .method-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
-            background: var(--gradient-2);
+            height: 4px;
+            background: var(--gradient-primary);
             transform: scaleX(0);
-            transition: transform 0.4s ease;
+            transition: transform var(--transition-normal);
         }
 
-        .contact-card:hover::before {
+        .method-card:hover::before {
             transform: scaleX(1);
         }
 
-        .contact-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-lg);
+        .method-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto var(--space-xl);
+            box-shadow: var(--shadow-primary);
+            transition: all var(--transition-normal);
         }
 
-        .contact-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient-2);
+        .method-card:hover .method-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .method-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .method-card p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: var(--space-lg);
+        }
+
+        .method-contact {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .method-hours {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0;
+        }
+
+        /* Contact Form Section */
+        .contact-form-section {
+            padding: var(--space-4xl) 0;
+            background: var(--bg-light);
+        }
+
+        .form-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--bg-white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xxl);
+            overflow: hidden;
+        }
+
+        .form-header {
+            padding: var(--space-3xl);
+            background: var(--gradient-primary);
+            text-align: center;
+            color: white;
+        }
+
+        .form-header h2 {
+            color: white;
+            margin-bottom: var(--space-md);
+        }
+
+        .form-header p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0;
+        }
+
+        .form-body {
+            padding: var(--space-3xl);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-xl);
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-sm);
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .form-label span {
+            color: var(--error);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: var(--space-md) var(--space-lg);
+            font-size: 1rem;
+            font-family: var(--font-primary);
+            background: var(--bg-light);
+            border: 1px solid var(--border-medium);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-normal);
+            color: var(--text-dark);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+            background: var(--bg-white);
+        }
+
+        .form-control::placeholder {
+            color: var(--text-light);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364728B'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.25rem;
+            padding-right: 3rem;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+        }
+
+        .form-checkbox input {
+            margin-top: 0.25rem;
+        }
+
+        .form-checkbox label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .form-checkbox a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        /* Form Steps */
+        .form-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--space-3xl);
+            position: relative;
+        }
+
+        .form-steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--border-light);
+            z-index: 0;
+        }
+
+        .form-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+        }
+
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-white);
+            border: 2px solid var(--border-medium);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
-            margin: 0 auto 24px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-card:hover .contact-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .contact-card h3 {
-            font-size: 22px;
-            font-weight: 800;
-            margin-bottom: 12px;
-            color: var(--text-dark);
-        }
-
-        .contact-card p {
-            font-size: 16px;
+            font-weight: 700;
             color: var(--text-muted);
-            line-height: 1.7;
-            margin-bottom: 0;
+            margin: 0 auto var(--space-sm);
+            transition: all var(--transition-normal);
         }
 
-        .contact-card a {
-            color: var(--text-dark);
-            text-decoration: none;
+        .form-step.active .step-circle {
+            background: var(--gradient-primary);
+            border-color: transparent;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .step-label {
+            font-size: 0.875rem;
             font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-block;
+            color: var(--text-muted);
         }
 
-        .contact-card a:hover {
+        .form-step.active .step-label {
+            color: var(--primary);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-2xl);
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: var(--radius-lg);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            font-family: var(--font-primary);
+        }
+
+        .btn i {
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary-lg);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(99, 102, 241, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .btn-dark {
+            background: var(--gradient-dark);
+            color: white;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-dark:hover {
+            background: var(--gradient-dark-reverse);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xxl);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-dark);
+            border: 2px solid var(--border-medium);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
             color: var(--primary);
             transform: translateY(-2px);
         }
 
-        /* INFO BANNER */
-        .info-banner {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
-            padding: 40px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: var(--shadow-md);
+        .btn-lg {
+            padding: var(--space-xl) var(--space-3xl);
+            font-size: 1.125rem;
+        }
+
+        .btn-block {
+            width: 100%;
+            display: flex;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: var(--space-md);
+            margin-top: var(--space-2xl);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: var(--space-4xl) 0;
+            background: var(--bg-white);
+        }
+
+        .faq-container {
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .info-banner h2 {
-            font-size: 24px;
-            font-weight: 800;
-            margin-bottom: 12px;
-            background: var(--gradient-2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .faq-item {
+            margin-bottom: var(--space-md);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-normal);
         }
 
-        .info-banner p {
-            font-size: 16px;
+        .faq-item.active {
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+
+        .faq-question {
+            padding: var(--space-xl);
+            background: var(--bg-light);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all var(--transition-normal);
+        }
+
+        .faq-item.active .faq-question {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .faq-question h3 {
+            margin: 0;
+            font-size: 1.125rem;
+        }
+
+        .faq-icon {
+            transition: transform var(--transition-normal);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+            color: white;
+        }
+
+        .faq-answer {
+            padding: 0 var(--space-xl);
+            max-height: 0;
+            overflow: hidden;
+            transition: all var(--transition-normal);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: var(--space-xl);
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            margin: 0;
             color: var(--text-muted);
-            line-height: 1.7;
         }
 
-        .info-banner strong {
-            color: var(--text-dark);
-            font-weight: 700;
-        }
-
-        /* MAP SECTION */
+        /* Map Section */
         .map-section {
-            max-width: 1200px;
-            margin: 80px auto 0;
-            padding: 0 40px;
+            padding: var(--space-4xl) 0 0;
         }
 
-        .map-card {
-            background: var(--bg-white);
-            padding: 50px;
-            border-radius: 24px;
-            box-shadow: var(--shadow-md);
-            border: 1px solid rgba(0,0,0,0.05);
+        .map-container {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xxl);
+            height: 500px;
+            position: relative;
+        }
+
+        .map-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: var(--space-2xl);
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, transparent 100%);
+            color: white;
+        }
+
+        .map-overlay h3 {
+            color: white;
+            margin-bottom: var(--space-sm);
+        }
+
+        .map-overlay p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0;
+        }
+
+        /* Contact CTA */
+        .contact-cta {
+            padding: var(--space-5xl) 0;
+            background: var(--gradient-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-cta-content {
             text-align: center;
-        }
-
-        .map-card h2 {
-            font-size: 32px;
-            font-weight: 900;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .map-card p {
-            font-size: 18px;
-            color: var(--text-muted);
-            line-height: 1.8;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
-        .address-highlight {
-            margin-top: 24px;
-            padding: 24px;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
-            border-radius: 16px;
-            border: 1px solid rgba(59, 130, 246, 0.1);
+        .contact-cta h2 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: var(--space-xl);
         }
 
-        .address-highlight strong {
-            color: var(--text-dark);
-            font-size: 17px;
+        .contact-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.25rem;
+            margin-bottom: var(--space-3xl);
         }
 
-        /* FOOTER */
-        footer {
-            margin-top: 100px;
-            padding: 60px 40px 40px;
-            background: var(--bg-white);
-            border-top: 1px solid rgba(0,0,0,0.08);
+        /* Footer */
+        .footer {
+            background: var(--gradient-dark);
+            color: white;
+            padding: var(--space-5xl) 0 var(--space-2xl);
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
         }
 
         .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-3xl);
+            margin-bottom: var(--space-4xl);
         }
 
-        .footer-section h4 {
-            font-size: 18px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            color: var(--text-dark);
-        }
-
-        .footer-section p,
-        .footer-section a {
-            font-size: 14px;
-            color: var(--text-muted);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 12px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: var(--primary);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(0,0,0,0.08);
-            color: var(--text-muted);
-            font-size: 14px;
-        }
-
-        .social-links {
+        .footer-logo {
             display: flex;
-            gap: 16px;
-            margin-top: 16px;
+            flex-direction: column;
+            gap: var(--space-lg);
         }
 
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-2);
+        .footer-logo .logo-text {
+            background: linear-gradient(135deg, white 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .footer-links h4 {
+            color: white;
+            font-size: 1.125rem;
+            margin-bottom: var(--space-xl);
+            font-family: var(--font-primary);
+            font-weight: 700;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(4px);
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .contact-item i {
+            color: var(--primary-light);
+            width: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
-            font-size: 18px;
-            transition: transform 0.3s ease;
+            color: white;
+            font-size: 1.125rem;
+            transition: all var(--transition-normal);
         }
 
-        .social-links a:hover {
+        .social-link:hover {
+            background: var(--gradient-primary);
             transform: translateY(-4px);
+        }.footer-bottom {
+            padding-top: var(--space-2xl);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.875rem;
         }
 
-        /* MOBILE RESPONSIVE */
-        @media (max-width: 768px) {
-            nav {
-                padding: 16px 20px;
-            }
+        /* Form Success Message */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: var(--space-3xl);
+        }
 
-            nav ul {
+        .form-success.active {
+            display: block;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto var(--space-xl);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container, .container-wide {
+                padding: 0 var(--space-lg);
+            }
+            
+            .methods-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-2xl);
+            }
+        }
+
+        @media (max-width: 992px) {
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.5rem; }
+            
+            .contact-hero h1 { font-size: 3.5rem; }
+            .contact-cta h2 { font-size: 2.5rem; }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
                 display: none;
             }
-
+            
             .mobile-menu-btn {
                 display: block;
             }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .header {
-                margin: 80px auto 60px;
-                padding: 0 20px;
-            }
-
-            .header h1 {
-                font-size: 40px;
-            }
-
-            .header p {
-                font-size: 17px;
-            }
-
-            .contact-section {
-                padding: 0 20px;
-            }
-
-            .contact-grid {
+            
+            .contact-hero h1 { font-size: 2.5rem; }
+            .contact-hero p { font-size: 1.125rem; }
+            
+            .methods-grid {
                 grid-template-columns: 1fr;
-                gap: 24px;
             }
-
-            .contact-card {
-                padding: 32px 24px;
+            
+            .form-header,
+            .form-body {
+                padding: var(--space-xl);
             }
-
-            .info-banner {
-                padding: 32px 24px;
-            }
-
-            .map-section {
-                padding: 0 20px;
-            }
-
-            .map-card {
-                padding: 32px 24px;
-            }
-
-            .map-card h2 {
-                font-size: 28px;
-            }
-
+            
             .footer-content {
                 grid-template-columns: 1fr;
-                gap: 30px;
-                padding: 0 20px;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+            }
+            
+            .form-actions .btn {
+                width: 100%;
             }
         }
 
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 32px;
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 var(--space-md);
             }
-
-            .contact-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 28px;
+            
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            
+            .section-padding {
+                padding: var(--space-3xl) 0;
+            }
+            
+            .btn {
+                padding: var(--space-md) var(--space-xl);
+            }
+            
+            .contact-cta h2 {
+                font-size: 2rem;
+            }
+            
+            .map-container {
+                height: 350px;
             }
         }
     </style>
@@ -596,182 +1270,763 @@
 
 <body>
 
+<!-- Animated Background -->
 <div class="animated-bg"></div>
 
-<nav>
-    <a href="index.html" class="nav-left">
-        <img src="assets/images/logo.png" alt="Coders Verse Logo">
-        <span>Coders Verse</span>
-    </a>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="courses.html">Courses</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="verify.html">Verify Certificate</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
-    </ul>
-    <button class="mobile-menu-btn" onclick="openMobileMenu()">☰</button>
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">CV</div>
+            <span class="logo-text">CodersVerse</span>
+        </a>
+        
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            <li><a href="contact.html" class="nav-link nav-cta">Get Free Quote <i class="fas fa-arrow-right"></i></a></li>
+        </ul>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
 </nav>
 
+<!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
-    <button class="close-menu" onclick="closeMobileMenu()">×</button>
-    <ul>
-        <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
-        <li><a href="courses.html" onclick="closeMobileMenu()">Courses</a></li>
-        <li><a href="about.html" onclick="closeMobileMenu()">About Us</a></li>
-        <li><a href="verify.html" onclick="closeMobileMenu()">Verify Certificate</a></li>
-        <li><a href="contact.html" class="active" onclick="closeMobileMenu()">Contact</a></li>
+    <div class="mobile-menu-header">
+        <div class="mobile-menu-logo">
+            <div class="logo-icon" style="width: 40px; height: 40px; font-size: 1.25rem;">CV</div>
+            <span class="logo-text">CodersVerse</span>
+        </div>
+        <button class="mobile-close" id="mobileClose">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    
+    <ul class="mobile-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
+    
+    <a href="#contact-form" class="btn btn-primary mobile-cta">Get Free Quote <i class="fas fa-arrow-right"></i></a>
+    
+    <div class="mobile-contact">
+        <h4>Contact Info</h4>
+        <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+1 (555) 123-4567</span>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>info@codersverse.com</span>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-clock"></i>
+            <span>Mon-Fri 9:00-18:00</span>
+        </div>
+    </div>
 </div>
 
-<section class="header">
-    <div class="header-badge">📞 Get In Touch</div>
-    <h1>Contact Us</h1>
-    <p>Reach out to Coders Verse for certificate verification queries, program details, or official support. We're here to help!</p>
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<!-- Contact Hero Section -->
+<section class="contact-hero">
+    <div class="container">
+        <div class="contact-hero-content">
+            <div class="contact-hero-badge animate__animated animate__fadeInUp">
+                <i class="fas fa-comments"></i>
+                <span>Let's Start Your Project</span>
+            </div>
+            
+            <h1 class="animate__animated animate__fadeInUp">
+                Let's Create Something <span class="gradient-text">Amazing Together</span>
+            </h1>
+            
+            <p class="animate__animated animate__fadeInUp">
+                Ready to transform your digital presence? Contact us today for a free consultation. Our team is ready to help you achieve your business goals with innovative digital solutions.
+            </p>
+            
+            <a href="#contact-form" class="btn btn-primary btn-lg animate__animated animate__fadeInUp">
+                Start Your Project <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
 </section>
 
-<section class="contact-section">
-    <div class="contact-grid">
-        <div class="contact-card">
-            <div class="contact-icon">📍</div>
-            <h3>Address</h3>
-            <p>
-                3rd Floor, Knowledge Park Tower,<br>
-                Sector 18, Vashi,<br>
-                Navi Mumbai – 400703
-            </p>
-        </div>
-
-        <div class="contact-card">
-            <div class="contact-icon">📞</div>
-            <h3>Phone Support</h3>
-            <p>
-                <a href="tel:+919876543210">+91 9876543210</a>
-            </p>
-        </div>
-
-        <div class="contact-card">
-            <div class="contact-icon">📧</div>
-            <h3>Official Email</h3>
-            <p>
-                <a href="mailto:careers.codersverse@gmail.com">
-                    careers.codersverse@gmail.com
+<!-- Contact Methods -->
+<section class="contact-methods">
+    <div class="container">
+        <div class="methods-grid">
+            <!-- Method 1: Phone -->
+            <div class="method-card animate__animated animate__fadeInUp">
+                <div class="method-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <h3>Call Us</h3>
+                <p>Speak directly with our team for immediate assistance</p>
+                <div class="method-contact">+1 (555) 123-4567</div>
+                <p class="method-hours">Mon-Fri: 9:00 AM - 6:00 PM EST</p>
+                <a href="tel:+15551234567" class="btn btn-secondary btn-sm">
+                    <i class="fas fa-phone"></i> Call Now
                 </a>
-            </p>
-        </div>
-
-        <div class="contact-card">
-            <div class="contact-icon">📱</div>
-            <h3>Social Media</h3>
-            <p>
-                <a href="https://instagram.com/coders.verse" target="_blank">
-                    Follow us on Instagram<br>@coders.verse
+            </div>
+            
+            <!-- Method 2: Email -->
+            <div class="method-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                <div class="method-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email Us</h3>
+                <p>Send us your project details and get a detailed quote</p>
+                <div class="method-contact">info@codersverse.com</div>
+                <p class="method-hours">Response within 24 hours</p>
+                <a href="mailto:info@codersverse.com" class="btn btn-secondary btn-sm">
+                    <i class="fas fa-envelope"></i> Send Email
                 </a>
-            </p>
-        </div>
-    </div>
-
-    <div class="info-banner">
-        <h2>💡 Quick Tip</h2>
-        <p>
-            For faster resolution regarding certificates, please include your <strong>Certificate ID</strong> in your message. This helps us serve you better!
-        </p>
-    </div>
-</section>
-
-<section class="map-section">
-    <div class="map-card">
-        <h2>Visit Our Office</h2>
-        <p>
-            We're located in the heart of Navi Mumbai, easily accessible by public transport and with ample parking facilities.
-        </p>
-        <div class="address-highlight">
-            <strong>Coders Verse Learning Center</strong><br>
-            3rd Floor, Knowledge Park Tower<br>
-            Sector 18, Vashi, Navi Mumbai – 400703<br>
-            Maharashtra, India
-        </div>
-    </div>
-</section>
-
-<footer>
-    <div class="footer-content">
-        <div class="footer-section">
-            <h4>Coders Verse</h4>
-            <p>Leading the future of certificate verification with cutting-edge technology and uncompromising security.</p>
-            <div class="social-links">
-                <a href="https://instagram.com/coders.verse" target="_blank" title="Instagram">📷</a>
-                <a href="mailto:careers.codersverse@gmail.com" title="Email">📧</a>
-                <a href="#" title="LinkedIn">💼</a>
+            </div>
+            
+            <!-- Method 3: Live Chat -->
+            <div class="method-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                <div class="method-icon">
+                    <i class="fas fa-comment-dots"></i>
+                </div>
+                <h3>Live Chat</h3>
+                <p>Get instant answers from our support team</p>
+                <div class="method-contact">Available Now</div>
+                <p class="method-hours">Click to start conversation</p>
+                <button class="btn btn-secondary btn-sm" id="liveChatBtn">
+                    <i class="fas fa-comment"></i> Start Chat
+                </button>
             </div>
         </div>
-        <div class="footer-section">
-            <h4>Quick Links</h4>
-            <a href="index.html">Home</a>
-            <a href="courses.html">Courses</a>
-            <a href="about.html">About Us</a>
-            <a href="verify.html">Verify Certificate</a>
-            <a href="contact.html">Contact</a>
-        </div>
-        <div class="footer-section">
-            <h4>Support</h4>
-            <a href="#">Help Center</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">FAQ</a>
-        </div>
-        <div class="footer-section">
-            <h4>Contact Us</h4>
-            <p>📞 +91 9876543210</p>
-            <p>📧 careers.codersverse@gmail.com</p>
-            <p>📍 Mumbai, Maharashtra, India</p>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="contact-form-section" id="contact-form">
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h2>Get Your Free Consultation</h2>
+                <p>Fill out the form below and we'll get back to you within 24 hours</p>
+            </div>
+            
+            <div class="form-body">
+                <!-- Form Steps -->
+                <div class="form-steps">
+                    <div class="form-step active">
+                        <div class="step-circle">1</div>
+                        <div class="step-label">Contact Info</div>
+                    </div>
+                    <div class="form-step">
+                        <div class="step-circle">2</div>
+                        <div class="step-label">Project Details</div>
+                    </div>
+                    <div class="form-step">
+                        <div class="step-circle">3</div>
+                        <div class="step-label">Review & Submit</div>
+                    </div>
+                </div>
+                
+                <!-- Multi-Step Form -->
+                <form id="consultationForm">
+                    <!-- Step 1: Contact Information -->
+                    <div class="form-step-content active" id="step1">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label" for="firstName">First Name <span>*</span></label>
+                                <input type="text" id="firstName" class="form-control" placeholder="Enter your first name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="lastName">Last Name <span>*</span></label>
+                                <input type="text" id="lastName" class="form-control" placeholder="Enter your last name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email Address <span>*</span></label>
+                                <input type="email" id="email" class="form-control" placeholder="your.email@example.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Phone Number</label>
+                                <input type="tel" id="phone" class="form-control" placeholder="+1 (555) 123-4567">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="company">Company Name</label>
+                                <input type="text" id="company" class="form-control" placeholder="Your company name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="website">Website URL</label>
+                                <input type="url" id="website" class="form-control" placeholder="https://example.com">
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-primary" id="nextStep1">
+                                Next Step <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: Project Details -->
+                    <div class="form-step-content" id="step2">
+                        <div class="form-grid">
+                            <div class="form-group full-width">
+                                <label class="form-label" for="projectType">Project Type <span>*</span></label>
+                                <select id="projectType" class="form-control form-select" required>
+                                    <option value="" disabled selected>Select your project type</option>
+                                    <option value="website">Website Development</option>
+                                    <option value="ecommerce">E-commerce Website</option>
+                                    <option value="branding">Branding & Logo Design</option>
+                                    <option value="marketing">Marketing Materials</option>
+                                    <option value="redesign">Website Redesign</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label class="form-label" for="budget">Project Budget <span>*</span></label>
+                                <select id="budget" class="form-control form-select" required>
+                                    <option value="" disabled selected>Select your budget range</option>
+                                    <option value="under-2k">Under $2,000</option>
+                                    <option value="2k-5k">$2,000 - $5,000</option>
+                                    <option value="5k-10k">$5,000 - $10,000</option>
+                                    <option value="10k-25k">$10,000 - $25,000</option>
+                                    <option value="25k-plus">$25,000+</option>
+                                    <option value="not-sure">Not Sure</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label class="form-label" for="timeline">Project Timeline <span>*</span></label>
+                                <select id="timeline" class="form-control form-select" required>
+                                    <option value="" disabled selected>Select your timeline</option>
+                                    <option value="asap">ASAP (1-2 weeks)</option>
+                                    <option value="1month">Within 1 month</option>
+                                    <option value="3months">1-3 months</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label class="form-label" for="projectDetails">Project Details <span>*</span></label>
+                                <textarea id="projectDetails" class="form-control" placeholder="Tell us about your project, goals, and requirements..." required></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline" id="prevStep2">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </button>
+                            <button type="button" class="btn btn-primary" id="nextStep2">
+                                Next Step <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Review & Submit -->
+                    <div class="form-step-content" id="step3">
+                        <div class="form-group">
+                            <h4>Review Your Information</h4>
+                            <div id="formReview" style="background: var(--bg-light); padding: var(--space-xl); border-radius: var(--radius-md); margin-bottom: var(--space-xl);">
+                                <p><strong>Name:</strong> <span id="reviewName"></span></p>
+                                <p><strong>Email:</strong> <span id="reviewEmail"></span></p>
+                                <p><strong>Company:</strong> <span id="reviewCompany"></span></p>
+                                <p><strong>Project Type:</strong> <span id="reviewProjectType"></span></p>
+                                <p><strong>Budget:</strong> <span id="reviewBudget"></span></p>
+                                <p><strong>Timeline:</strong> <span id="reviewTimeline"></span></p>
+                                <p><strong>Project Details:</strong> <span id="reviewDetails"></span></p>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="form-checkbox">
+                                <input type="checkbox" id="newsletter" checked>
+                                <label for="newsletter">Subscribe to our newsletter for tips, updates, and special offers.</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="form-checkbox">
+                                <input type="checkbox" id="privacy" required>
+                                <label for="privacy">I agree to the <a href="#">Privacy Policy</a> and consent to CodersVerse contacting me about my inquiry.</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline" id="prevStep3">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </button>
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-paper-plane"></i> Submit Request
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                
+                <!-- Success Message -->
+                <div class="form-success" id="formSuccess">
+                    <div class="success-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h3>Thank You!</h3>
+                    <p>Your consultation request has been submitted successfully. Our team will contact you within 24 hours.</p>
+                    <p>In the meantime, feel free to browse our <a href="index.html#portfolio">portfolio</a> or check out our <a href="about.html">company story</a>.</p>
+                    <a href="index.html" class="btn btn-primary">
+                        <i class="fas fa-home"></i> Back to Home
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="footer-bottom">
-        © 2025 Coders Verse. All rights reserved. Built with ❤️ in India
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2>Frequently Asked Questions</h2>
+            <p>Find answers to common questions about working with CodersVerse</p>
+        </div>
+        
+        <div class="faq-container">
+            <!-- FAQ 1 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How long does a typical website project take?</h3>
+                    <div class="faq-icon">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <p>The timeline varies based on project complexity. A basic website takes 2-4 weeks, while complex e-commerce platforms may take 6-10 weeks. We provide a detailed timeline during our initial consultation.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ 2 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What is your pricing structure?</h3>
+                    <div class="faq-icon">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer transparent, project-based pricing. Costs depend on the scope, features, and complexity. Website projects start at $1,500, branding at $800, and marketing materials at $600. We provide detailed quotes after understanding your requirements.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ 3 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you provide ongoing support after launch?</h3>
+                    <div class="faq-icon">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We offer maintenance packages starting at $150/month, including updates, security monitoring, and minor content changes. All our projects come with 30 days of free post-launch support.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ 4 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What information do you need to start my project?</h3>
+                    <div class="faq-icon">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <p>We'll need to understand your business goals, target audience, design preferences, and functional requirements. During our consultation, we'll gather all necessary information to create a tailored solution.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ 5 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do you work with clients outside your local area?</h3>
+                    <div class="faq-icon">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! We work with clients worldwide. Our team is experienced in remote collaboration using video calls, project management tools, and regular communication to ensure seamless collaboration regardless of location.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="map-section">
+    <div class="container-wide">
+        <div class="map-container">
+            <!-- Google Map Embed -->
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.177858804427!2d-73.98784468459418!3d40.70556577933208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a315cdf4c9b%3A0x8b934de5cae6f7a!2sWall%20St%2C%20New%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1641234567890!5m2!1sen!2s" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            
+            <div class="map-overlay">
+                <h3>Our Headquarters</h3>
+                <p>123 Digital Street, Suite 500<br>San Francisco, CA 94107</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact CTA -->
+<section class="contact-cta">
+    <div class="container">
+        <div class="contact-cta-content">
+            <h2 class="animate__animated animate__fadeInUp">Still Have Questions?</h2>
+            <p class="animate__animated animate__fadeInUp">
+                Don't hesitate to reach out. Our team is here to help you navigate your digital transformation journey.
+            </p>
+            
+            <div class="flex-center gap-lg" style="flex-wrap: wrap;">
+                <a href="#contact-form" class="btn btn-primary btn-lg">
+                    Get Free Quote <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="tel:+15551234567" class="btn btn-outline btn-lg">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo">
+                    <div class="logo-icon">CV</div>
+                    <span class="logo-text">CodersVerse</span>
+                </div>
+                <p class="footer-description">
+                    Transforming businesses through exceptional digital design and development. We create solutions that drive growth and make an impact.
+                </p>
+                <div class="footer-social">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-dribbble"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="index.html#services">Website Development</a></li>
+                    <li><a href="index.html#services">Branding & Logo Design</a></li>
+                    <li><a href="index.html#services">Marketing Materials</a></li>
+                    <li><a href="index.html#services">E-commerce Solutions</a></li>
+                    <li><a href="index.html#services">UI/UX Design</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="index.html#portfolio">Portfolio</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+1 (555) 123-4567</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@codersverse.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>123 Digital Street, Suite 500<br>San Francisco, CA 94107</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Mon-Fri: 9:00 AM - 6:00 PM</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 CodersVerse. All rights reserved. | <a href="#" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.7);">Terms of Service</a></p>
+        </div>
     </div>
 </footer>
 
 <script>
-    function openMobileMenu() {
-        document.getElementById('mobileMenu').classList.add('active');
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
     }
+});
 
-    function closeMobileMenu() {
-        document.getElementById('mobileMenu').classList.remove('active');
-    }
+// Mobile menu
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+const menuOverlay = document.getElementById('menuOverlay');
 
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(event) {
-        const menu = document.getElementById('mobileMenu');
-        const btn = document.querySelector('.mobile-menu-btn');
+mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.add('active');
+    menuOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+});
+
+mobileClose.addEventListener('click', closeMobileMenu);
+menuOverlay.addEventListener('click', closeMobileMenu);
+
+function closeMobileMenu() {
+    mobileMenu.classList.remove('active');
+    menuOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
         
-        if (!menu.contains(event.target) && !btn.contains(event.target)) {
-            menu.classList.remove('active');
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+            
+            // Close mobile menu if open
+            closeMobileMenu();
         }
     });
+});
 
-    // Add scroll animation to contact cards
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
+// Multi-step form functionality
+let currentStep = 1;
+const totalSteps = 3;
+
+function updateFormSteps() {
+    // Update step indicators
+    document.querySelectorAll('.form-step').forEach((step, index) => {
+        if (index + 1 === currentStep) {
+            step.classList.add('active');
+        } else {
+            step.classList.remove('active');
+        }
+    });
+    
+    // Show current step content
+    document.querySelectorAll('.form-step-content').forEach((content, index) => {
+        if (index + 1 === currentStep) {
+            content.classList.add('active');
+        } else {
+            content.classList.remove('active');
+        }
+    });
+}
+
+// Next step buttons
+document.getElementById('nextStep1').addEventListener('click', () => {
+    // Validate step 1
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    
+    if (!firstName || !lastName || !email) {
+        alert('Please fill in all required fields');
+        return;
+    }
+    
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address');
+        return;
+    }
+    
+    currentStep = 2;
+    updateFormSteps();
+});
+
+document.getElementById('nextStep2').addEventListener('click', () => {
+    // Validate step 2
+    const projectType = document.getElementById('projectType').value;
+    const budget = document.getElementById('budget').value;
+    const timeline = document.getElementById('timeline').value;
+    const projectDetails = document.getElementById('projectDetails').value.trim();
+    
+    if (!projectType || !budget || !timeline || !projectDetails) {
+        alert('Please fill in all required fields');
+        return;
+    }
+    
+    // Update review section
+    document.getElementById('reviewName').textContent = 
+        `${document.getElementById('firstName').value} ${document.getElementById('lastName').value}`;
+    document.getElementById('reviewEmail').textContent = document.getElementById('email').value;
+    document.getElementById('reviewCompany').textContent = document.getElementById('company').value || 'Not provided';
+    
+    // Map values to readable text
+    const projectTypeMap = {
+        'website': 'Website Development',
+        'ecommerce': 'E-commerce Website',
+        'branding': 'Branding & Logo Design',
+        'marketing': 'Marketing Materials',
+        'redesign': 'Website Redesign',
+        'other': 'Other'
     };
+    
+    const budgetMap = {
+        'under-2k': 'Under $2,000',
+        '2k-5k': '$2,000 - $5,000',
+        '5k-10k': '$5,000 - $10,000',
+        '10k-25k': '$10,000 - $25,000',
+        '25k-plus': '$25,000+',
+        'not-sure': 'Not Sure'
+    };
+    
+    const timelineMap = {
+        'asap': 'ASAP (1-2 weeks)',
+        '1month': 'Within 1 month',
+        '3months': '1-3 months',
+        'flexible': 'Flexible'
+    };
+    
+    document.getElementById('reviewProjectType').textContent = projectTypeMap[projectType] || projectType;
+    document.getElementById('reviewBudget').textContent = budgetMap[budget] || budget;
+    document.getElementById('reviewTimeline').textContent = timelineMap[timeline] || timeline;
+    document.getElementById('reviewDetails').textContent = projectDetails;
+    
+    currentStep = 3;
+    updateFormSteps();
+});
 
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+// Previous step buttons
+document.getElementById('prevStep2').addEventListener('click', () => {
+    currentStep = 1;
+    updateFormSteps();
+});
+
+document.getElementById('prevStep3').addEventListener('click', () => {
+    currentStep = 2;
+    updateFormSteps();
+});
+
+// Form submission
+document.getElementById('consultationForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Check privacy policy agreement
+    const privacyCheckbox = document.getElementById('privacy');
+    if (!privacyCheckbox.checked) {
+        alert('Please agree to the Privacy Policy');
+        return;
+    }
+    
+    // In a real application, you would send the form data to a server here
+    // For demo purposes, we'll simulate a successful submission
+    
+    // Show success message
+    document.getElementById('consultationForm').style.display = 'none';
+    document.getElementById('formSuccess').classList.add('active');
+    
+    // Reset form after 5 seconds (optional)
+    setTimeout(() => {
+        // Reset form
+        document.getElementById('consultationForm').reset();
+        currentStep = 1;
+        updateFormSteps();
+        document.getElementById('consultationForm').style.display = 'block';
+        document.getElementById('formSuccess').classList.remove('active');
+        
+        // Scroll to top of form
+        document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });
+    }, 5000);
+});
+
+// FAQ Accordion
+document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        faqItem.classList.toggle('active');
+        
+        // Close other FAQ items
+        document.querySelectorAll('.faq-item').forEach(item => {
+            if (item !== faqItem && item.classList.contains('active')) {
+                item.classList.remove('active');
             }
         });
-    }, observerOptions);
-
-    document.querySelectorAll('.contact-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.6s ease';
-        observer.observe(el);
     });
+});
+
+// Live Chat Simulation
+document.getElementById('liveChatBtn').addEventListener('click', () => {
+    const chatMessage = "Hello! Welcome to CodersVerse. How can we help you today?";
+    alert(`Live Chat: ${chatMessage}\n\n(In a real implementation, this would open a live chat widget)`);
+});
+
+// Animation on scroll
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+        }
+    });
+}, observerOptions);
+
+// Observe elements
+document.querySelectorAll('.method-card, .faq-item').forEach(el => {
+    observer.observe(el);
+});
+
+// Initialize form steps
+updateFormSteps();
 </script>
 
 </body>
