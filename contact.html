@@ -2,87 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contact CodersVerse | WhatsApp: +91 9004329806</title>
+    <title>Contact Coders Verse | Web Development & Digital Solutions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact CodersVerse on WhatsApp +91 9004324321 for website development, branding, and marketing solutions.">
+    <meta name="description" content="Contact Coders Verse for professional web development, branding, and digital solutions. WhatsApp: +91 9004329806">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-
+    
     <style>
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --primary-light: #818cf8;
-            --primary-ultralight: #e0e7ff;
-            --accent: #ec4899;
-            --accent-light: #f472b6;
-            --secondary: #06b6d4;
-            --secondary-light: #22d3ee;
-            --whatsapp: #25D366;
-            --whatsapp-light: #5ae37c;
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --primary-light: #60a5fa;
+            --accent: #7c3aed;
+            --accent-light: #a78bfa;
             --success: #10b981;
-            --warning: #f59e0b;
-            --error: #ef4444;
-            
-            --text-dark: #0f172a;
-            --text-dark-muted: #334155;
-            --text-muted: #64748b;
-            --text-light: #94a3b8;
-            --bg-white: #ffffff;
-            --bg-light: #f8fafc;
-            --bg-lighter: #f1f5f9;
-            --border-light: #e2e8f0;
-            --border-medium: #cbd5e1;
-            
-            --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
-            --gradient-primary-reverse: linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #6366f1 100%);
-            --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            --gradient-dark-reverse: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-            --gradient-success: linear-gradient(135deg, #10b981 0%, #34d399 100%);
-            --gradient-whatsapp: linear-gradient(135deg, #25D366 0%, #5ae37c 100%);
-            
-            --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-            --shadow-lg: 0 10px 25px rgba(0,0,0,0.12);
-            --shadow-xl: 0 20px 40px rgba(0,0,0,0.15);
-            --shadow-xxl: 0 30px 60px rgba(0,0,0,0.2);
-            --shadow-primary: 0 10px 30px rgba(99, 102, 241, 0.3);
-            --shadow-primary-lg: 0 20px 50px rgba(99, 102, 241, 0.4);
-            --shadow-whatsapp: 0 10px 30px rgba(37, 211, 102, 0.3);
-            
-            --transition-fast: 0.2s ease;
-            --transition-normal: 0.3s ease;
-            --transition-slow: 0.5s ease;
-            --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            
-            --radius-sm: 8px;
-            --radius-md: 16px;
-            --radius-lg: 24px;
-            --radius-xl: 32px;
-            --radius-full: 9999px;
-            
-            --space-xs: 4px;
-            --space-sm: 8px;
-            --space-md: 16px;
-            --space-lg: 24px;
-            --space-xl: 32px;
-            --space-2xl: 48px;
-            --space-3xl: 64px;
-            --space-4xl: 80px;
-            --space-5xl: 96px;
-            
-            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-secondary: 'Space Grotesk', monospace;
+            --whatsapp: #25D366;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --text: #334155;
+            --text-light: #64748b;
+            --text-lighter: #94a3b8;
+            --bg: #ffffff;
+            --bg-alt: #f8fafc;
+            --bg-accent: #f1f5f9;
+            --border: #e2e8f0;
+            --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+            --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.08);
+            --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.12);
+            --shadow-xl: 0 20px 48px rgba(15, 23, 42, 0.16);
         }
 
-        * { 
-            box-sizing: border-box; 
-            margin: 0; 
-            padding: 0; 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         html {
@@ -90,169 +45,39 @@
         }
 
         body {
-            font-family: var(--font-primary);
-            background: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
             overflow-x: hidden;
-            font-weight: 400;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-secondary);
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: var(--space-lg);
-        }
-
-        h1 { font-size: 4rem; }
-        h2 { font-size: 3rem; }
-        h3 { font-size: 2rem; }
-        h4 { font-size: 1.5rem; }
-        h5 { font-size: 1.25rem; }
-        h6 { font-size: 1rem; }
-
-        p {
-            margin-bottom: var(--space-md);
-            font-size: 1.125rem;
-            color: var(--text-dark-muted);
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all var(--transition-normal);
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 var(--space-xl);
-        }
-
-        .text-center { text-align: center; }
-        .text-left { text-align: left; }
-        .text-right { text-align: right; }
-
-        .gradient-text {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .whatsapp-text {
-            background: var(--gradient-whatsapp);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-padding {
-            padding: var(--space-4xl) 0;
-        }
-
-        .mb-0 { margin-bottom: 0 !important; }
-        .mb-xs { margin-bottom: var(--space-xs) !important; }
-        .mb-sm { margin-bottom: var(--space-sm) !important; }
-        .mb-md { margin-bottom: var(--space-md) !important; }
-        .mb-lg { margin-bottom: var(--space-lg) !important; }
-        .mb-xl { margin-bottom: var(--space-xl) !important; }
-        .mb-2xl { margin-bottom: var(--space-2xl) !important; }
-        .mb-3xl { margin-bottom: var(--space-3xl) !important; }
-
-        .flex {
-            display: flex;
-        }
-
-        .flex-center {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .flex-between {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .flex-column {
-            flex-direction: column;
-        }
-
-        .grid {
-            display: grid;
-        }
-
-        .grid-2 {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .grid-3 {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        .grid-4 {
-            grid-template-columns: repeat(4, 1fr);
-        }
-
-        .gap-sm { gap: var(--space-sm); }
-        .gap-md { gap: var(--space-md); }
-        .gap-lg { gap: var(--space-lg); }
-        .gap-xl { gap: var(--space-xl); }
-        .gap-2xl { gap: var(--space-2xl); }
-
-        /* Animated Background */
-        .animated-bg {
+        /* Animated Background Patterns */
+        .bg-pattern {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -2;
-            background: linear-gradient(180deg, #f8fafc 0%, #e0e7ff 100%);
-            overflow: hidden;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(124, 58, 237, 0.08) 0%, transparent 50%),
+                linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
         }
 
-        .animated-bg::before,
-        .animated-bg::after {
-            content: '';
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
+        .grid-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                linear-gradient(rgba(37, 99, 235, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
             opacity: 0.5;
-            animation: float 20s infinite ease-in-out;
-        }
-
-        .animated-bg::before {
-            width: 600px;
-            height: 600px;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            top: -200px;
-            right: -200px;
-            animation-delay: 0s;
-        }
-
-        .animated-bg::after {
-            width: 500px;
-            height: 500px;
-            background: linear-gradient(135deg, #ec4899 0%, #06b6d4 100%);
-            bottom: -150px;
-            left: -150px;
-            animation-delay: 10s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(100px, -100px) scale(1.1); }
-            66% { transform: translate(-100px, 100px) scale(0.9); }
         }
 
         /* Navigation */
@@ -260,62 +85,79 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
+            right: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: var(--shadow-md);
-            transition: all var(--transition-normal);
-            padding: var(--space-md) 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+            transition: all 0.3s ease;
         }
 
         .navbar.scrolled {
-            padding: var(--space-sm) 0;
-            box-shadow: var(--shadow-lg);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-md);
         }
 
         .nav-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 1280px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 var(--space-xl);
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: var(--space-sm);
-            font-weight: 900;
-            font-size: 1.75rem;
+            gap: 0.75rem;
             text-decoration: none;
-            transition: transform var(--transition-normal);
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--dark);
+            transition: transform 0.3s ease;
         }
 
         .logo:hover {
-            transform: scale(1.05);
+            transform: translateY(-2px);
         }
 
         .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-primary);
-            border-radius: var(--radius-md);
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
-            font-weight: 900;
-            box-shadow: var(--shadow-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
 
         .logo-text {
-            font-family: var(--font-secondary);
-            font-weight: 800;
-            background: var(--gradient-primary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -323,766 +165,794 @@
 
         .nav-menu {
             display: flex;
-            align-items: center;
-            gap: var(--space-xl);
             list-style: none;
-            margin: 0;
-            padding: 0;
+            gap: 0.5rem;
+            align-items: center;
         }
 
         .nav-link {
+            padding: 0.75rem 1.25rem;
+            text-decoration: none;
+            color: var(--text);
             font-weight: 600;
             font-size: 0.95rem;
-            color: var(--text-dark-muted);
-            padding: var(--space-sm) var(--space-md);
+            border-radius: 10px;
+            transition: all 0.3s ease;
             position: relative;
-            transition: color var(--transition-normal);
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-primary);
-            transition: all var(--transition-normal);
-            transform: translateX(-50%);
         }
 
         .nav-link:hover,
         .nav-link.active {
             color: var(--primary);
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
+            background: rgba(37, 99, 235, 0.05);
         }
 
         .nav-cta {
-            background: var(--gradient-primary);
+            background: linear-gradient(135deg, var(--whatsapp) 0%, #20b15a 100%);
             color: white !important;
-            padding: var(--space-sm) var(--space-xl);
-            border-radius: var(--radius-full);
-            font-weight: 700;
-            box-shadow: var(--shadow-primary);
-            transition: all var(--transition-normal);
+            padding: 0.75rem 1.75rem;
+            margin-left: 1rem;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
         }
 
         .nav-cta:hover {
             transform: translateY(-2px);
-            box-shadow: var(--shadow-primary-lg);
+            box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
         }
 
-        .nav-cta::after {
-            display: none;
-        }
-
-        .mobile-menu-btn {
+        .mobile-toggle {
             display: none;
             background: none;
             border: none;
             font-size: 1.5rem;
-            color: var(--text-dark);
+            color: var(--dark);
             cursor: pointer;
-            padding: var(--space-sm);
-            z-index: 1001;
+            padding: 0.5rem;
         }
 
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 100%;
-            max-width: 400px;
-            height: 100vh;
-            background: var(--bg-white);
-            z-index: 1002;
-            transition: right var(--transition-normal);
-            padding: var(--space-3xl);
-            box-shadow: var(--shadow-xxl);
-            overflow-y: auto;
-        }
-
-        .mobile-menu.active {
-            right: 0;
-        }
-
-        .mobile-menu-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: var(--space-3xl);
-        }
-
-        .mobile-menu-logo {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-        }
-
-        .mobile-close {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--text-dark);
-            cursor: pointer;
-            padding: var(--space-sm);
-        }
-
-        .mobile-nav {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 var(--space-3xl) 0;
-        }
-
-        .mobile-nav li {
-            margin-bottom: var(--space-sm);
-        }
-
-        .mobile-nav a {
-            display: block;
-            padding: var(--space-md) var(--space-lg);
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            border-radius: var(--radius-md);
-            transition: all var(--transition-normal);
-        }
-
-        .mobile-nav a:hover,
-        .mobile-nav a.active {
-            background: var(--primary-ultralight);
-            color: var(--primary);
-        }
-
-        .menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1001;
-            opacity: 0;
-            visibility: hidden;
-            transition: all var(--transition-normal);
-        }
-
-        .menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Contact Hero */
-        .contact-hero {
-            padding: var(--space-5xl) 0 var(--space-4xl);
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+        /* Hero Section */
+        .hero {
+            padding: 140px 2rem 80px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.03) 0%, rgba(124, 58, 237, 0.03) 100%);
             position: relative;
             overflow: hidden;
         }
 
-        .contact-hero-content {
-            max-width: 800px;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-50px, 50px) scale(1.1); }
+        }
+
+        .hero-container {
+            max-width: 1400px;
             margin: 0 auto;
             text-align: center;
             position: relative;
             z-index: 1;
         }
 
-        .contact-hero-badge {
+        .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: var(--space-sm);
-            padding: var(--space-sm) var(--space-lg);
-            background: linear-gradient(135deg, rgba(37, 211, 102, 0.1) 0%, rgba(90, 227, 124, 0.1) 100%);
-            border: 1px solid rgba(37, 211, 102, 0.2);
-            border-radius: var(--radius-full);
+            gap: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            background: white;
+            border: 2px solid rgba(37, 211, 102, 0.2);
+            border-radius: 50px;
             font-size: 0.875rem;
             font-weight: 600;
             color: var(--whatsapp);
-            margin-bottom: var(--space-2xl);
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
         }
 
-        .contact-hero h1 {
-            font-size: 4rem;
-            margin-bottom: var(--space-xl);
+        .hero-badge i {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
             line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
         }
 
-        .contact-hero p {
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
             font-size: 1.25rem;
-            color: var(--text-dark-muted);
+            color: var(--text-light);
             max-width: 700px;
-            margin: 0 auto var(--space-2xl);
+            margin: 0 auto 3rem;
+            line-height: 1.8;
         }
 
-        .whatsapp-direct {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-sm);
-            padding: var(--space-md) var(--space-xl);
-            background: var(--gradient-whatsapp);
-            color: white;
-            border-radius: var(--radius-full);
-            font-weight: 700;
-            text-decoration: none;
-            box-shadow: var(--shadow-whatsapp);
-            transition: all var(--transition-normal);
-            margin-top: var(--space-xl);
-        }
-
-        .whatsapp-direct:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
-        }
-
-        /* Quick Contact */
-        .quick-contact {
-            padding: var(--space-4xl) 0;
-            background: var(--bg-white);
-        }
-
-        .quick-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-2xl);
-        }
-
-        .quick-card {
-            background: var(--bg-white);
-            padding: var(--space-2xl);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border-light);
-            text-align: center;
-            transition: all var(--transition-normal);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .quick-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-xxl);
-            border-color: transparent;
-        }
-
-        .quick-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient-primary);
-            transform: scaleX(0);
-            transition: transform var(--transition-normal);
-        }
-
-        .quick-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .quick-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-primary);
-            border-radius: var(--radius-lg);
+        .hero-cta {
             display: flex;
-            align-items: center;
+            gap: 1rem;
             justify-content: center;
-            font-size: 2rem;
-            color: white;
-            margin: 0 auto var(--space-xl);
-            box-shadow: var(--shadow-primary);
-            transition: all var(--transition-normal);
-        }
-
-        .quick-card:hover .quick-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .quick-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: var(--space-md);
-        }
-
-        .quick-card p {
-            font-size: 1rem;
-            color: var(--text-muted);
-            margin-bottom: var(--space-lg);
-        }
-
-        .quick-contact-info {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: var(--space-sm);
-        }
-
-        .whatsapp-card .quick-icon {
-            background: var(--gradient-whatsapp);
-            box-shadow: var(--shadow-whatsapp);
-        }
-
-        .whatsapp-card .quick-contact-info {
-            color: var(--whatsapp);
+            flex-wrap: wrap;
         }
 
         /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: var(--space-sm);
-            padding: var(--space-lg) var(--space-2xl);
+            gap: 0.75rem;
+            padding: 1rem 2rem;
             font-size: 1rem;
             font-weight: 700;
-            border-radius: var(--radius-lg);
+            border-radius: 12px;
+            text-decoration: none;
             border: none;
             cursor: pointer;
-            text-decoration: none;
-            transition: all var(--transition-normal);
+            transition: all 0.3s ease;
+            font-family: 'Outfit', sans-serif;
             position: relative;
             overflow: hidden;
-            font-family: var(--font-primary);
-        }
-
-        .btn i {
-            font-size: 1.1rem;
         }
 
         .btn-primary {
-            background: var(--gradient-primary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             color: white;
-            box-shadow: var(--shadow-primary);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
         }
 
         .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-primary-lg);
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.7s;
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(37, 99, 235, 0.4);
         }
 
         .btn-whatsapp {
-            background: var(--gradient-whatsapp);
+            background: linear-gradient(135deg, var(--whatsapp) 0%, #20b15a 100%);
             color: white;
-            box-shadow: var(--shadow-whatsapp);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
         }
 
         .btn-whatsapp:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(37, 211, 102, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);
         }
 
-        .btn-secondary {
-            background: transparent;
+        .btn-outline {
+            background: white;
+            color: var(--dark);
+            border: 2px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
             color: var(--primary);
-            border: 2px solid var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
         }
 
-        .btn-secondary:hover {
-            background: rgba(99, 102, 241, 0.05);
-            transform: translateY(-2px);
+        /* Contact Cards */
+        .contact-grid {
+            max-width: 1400px;
+            margin: -60px auto 80px;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 10;
         }
 
-        .btn-lg {
-            padding: var(--space-xl) var(--space-3xl);
-            font-size: 1.125rem;
+        .contact-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .btn-block {
-            width: 100%;
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+            border-color: transparent;
+        }
+
+        .contact-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 16px;
             display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
+            transition: transform 0.4s ease;
         }
 
-        /* WhatsApp Form Section */
-        .whatsapp-form-section {
-            padding: var(--space-4xl) 0;
-            background: var(--bg-light);
+        .contact-card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .contact-card.whatsapp .card-icon {
+            background: linear-gradient(135deg, var(--whatsapp) 0%, #20b15a 100%);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+        }
+
+        .contact-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-info {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .contact-card.whatsapp .contact-info {
+            color: var(--whatsapp);
+        }
+
+        .contact-meta {
+            font-size: 0.875rem;
+            color: var(--text-lighter);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 80px 2rem;
+            background: var(--bg-alt);
+        }
+
+        .form-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .form-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: var(--bg-white);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-xxl);
+            background: white;
+            border-radius: 32px;
+            box-shadow: var(--shadow-xl);
             overflow: hidden;
         }
 
         .form-header {
-            padding: var(--space-3xl);
-            background: var(--gradient-whatsapp);
+            background: linear-gradient(135deg, var(--whatsapp) 0%, #20b15a 100%);
+            padding: 3rem;
             text-align: center;
             color: white;
-        }
-
-        .form-header h2 {
-            color: white;
-            margin-bottom: var(--space-md);
-        }
-
-        .form-header p {
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 0;
-        }
-
-        .form-body {
-            padding: var(--space-3xl);
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-xl);
-            margin-bottom: var(--space-2xl);
-        }
-
-        .form-group {
-            margin-bottom: var(--space-xl);
-        }
-
-        .form-group.full-width {
-            grid-column: 1 / -1;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: var(--space-sm);
-            font-weight: 600;
-            color: var(--text-dark);
-            font-size: 0.95rem;
-        }
-
-        .form-label span {
-            color: var(--error);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: var(--space-md) var(--space-lg);
-            font-size: 1rem;
-            font-family: var(--font-primary);
-            background: var(--bg-light);
-            border: 1px solid var(--border-medium);
-            border-radius: var(--radius-md);
-            transition: all var(--transition-normal);
-            color: var(--text-dark);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--whatsapp);
-            box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.1);
-            background: var(--bg-white);
-        }
-
-        .form-control::placeholder {
-            color: var(--text-light);
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .form-select {
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364728B'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 1rem center;
-            background-size: 1.25rem;
-            padding-right: 3rem;
-        }
-
-        .form-checkbox {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--space-sm);
-        }
-
-        .form-checkbox input {
-            margin-top: 0.25rem;
-        }
-
-        .form-checkbox label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        .form-checkbox a {
-            color: var(--primary);
-            text-decoration: underline;
-        }
-
-        /* WhatsApp Preview */
-        .whatsapp-preview {
-            background: #E5DDD5;
-            padding: var(--space-xl);
-            border-radius: var(--radius-lg);
-            margin-bottom: var(--space-2xl);
-            border: 1px solid #D1CBC1;
-        }
-
-        .whatsapp-header {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-            margin-bottom: var(--space-xl);
-            padding-bottom: var(--space-md);
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-
-        .whatsapp-avatar {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-whatsapp);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .whatsapp-info h4 {
-            margin: 0;
-            color: var(--text-dark);
-        }
-
-        .whatsapp-info p {
-            margin: 0;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .whatsapp-message {
-            background: white;
-            padding: var(--space-lg);
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        .whatsapp-message h5 {
-            color: var(--whatsapp);
-            margin-bottom: var(--space-lg);
-            border-bottom: 2px solid var(--whatsapp-light);
-            padding-bottom: var(--space-sm);
-        }
-
-        .message-content {
-            line-height: 1.6;
-        }
-
-        .message-content p {
-            margin-bottom: var(--space-sm);
-        }
-
-        .form-actions {
-            display: flex;
-            gap: var(--space-md);
-            margin-top: var(--space-2xl);
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            padding: var(--space-4xl) 0;
-            background: var(--bg-white);
-        }
-
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            margin-bottom: var(--space-md);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            transition: all var(--transition-normal);
-        }
-
-        .faq-item.active {
-            box-shadow: var(--shadow-lg);
-            border-color: transparent;
-        }
-
-        .faq-question {
-            padding: var(--space-xl);
-            background: var(--bg-light);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all var(--transition-normal);
-        }
-
-        .faq-item.active .faq-question {
-            background: var(--gradient-primary);
-            color: white;
-        }
-
-        .faq-question h3 {
-            margin: 0;
-            font-size: 1.125rem;
-        }
-
-        .faq-icon {
-            transition: transform var(--transition-normal);
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
-            color: white;
-        }
-
-        .faq-answer {
-            padding: 0 var(--space-xl);
-            max-height: 0;
-            overflow: hidden;
-            transition: all var(--transition-normal);
-        }
-
-        .faq-item.active .faq-answer {
-            padding: var(--space-xl);
-            max-height: 500px;
-        }
-
-        .faq-answer p {
-            margin: 0;
-            color: var(--text-muted);
-        }
-
-        /* WhatsApp CTA */
-        .whatsapp-cta {
-            padding: var(--space-5xl) 0;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             position: relative;
             overflow: hidden;
         }
 
-        .whatsapp-cta::before {
+        .form-header::before {
             content: '';
             position: absolute;
             top: -50%;
             right: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(37, 211, 102, 0.1) 0%, transparent 70%);
-            animation: pulse 8s infinite;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
         }
 
-        .whatsapp-cta-content {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .form-header h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
             position: relative;
             z-index: 1;
         }
 
-        .whatsapp-cta h2 {
-            color: white;
-            font-size: 3.5rem;
-            margin-bottom: var(--space-xl);
+        .form-header p {
+            font-size: 1.125rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
         }
 
-        .whatsapp-cta p {
-            color: rgba(255, 255, 255, 0.9);
+        .form-body {
+            padding: 3rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+
+        .required {
+            color: #ef4444;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            font-size: 1rem;
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-alt);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            color: var(--dark);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--whatsapp);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.25rem;
+            padding-right: 3rem;
+        }
+
+        /* WhatsApp Preview */
+        .whatsapp-preview {
+            background: #ECE5DD;
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+            border: 2px solid #D1D7DB;
+        }
+
+        .wp-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+        }
+
+        .wp-avatar {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--whatsapp), #20b15a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.75rem;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+        }
+
+        .wp-info h4 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .wp-info p {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .wp-message {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .wp-message h5 {
+            color: var(--whatsapp);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid rgba(37, 211, 102, 0.2);
+        }
+
+        .message-content {
+            line-height: 1.8;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        .message-content p {
+            margin-bottom: 0.5rem;
+        }
+
+        .message-content strong {
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .form-checkbox input[type="checkbox"] {
+            margin-top: 0.25rem;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .form-checkbox label {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn-full {
+            flex: 1;
+        }
+
+        /* Success State */
+        .success-state {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .success-state.active {
+            display: block;
+        }
+
+        .success-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--whatsapp), #20b15a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            margin: 0 auto 2rem;
+            box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);
+            animation: successBounce 0.6s ease;
+        }
+
+        @keyframes successBounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        .success-state h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .success-state p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 2rem;
+            background: white;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            background: var(--bg-alt);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-question {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+        }
+
+        .faq-question h4 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin: 0;
+        }
+
+        .faq-item.active .faq-question h4 {
+            color: white;
+        }
+
+        .faq-toggle {
+            width: 32px;
+            height: 32px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 1.5rem 2rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 2rem;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(37, 211, 102, 0.1) 0%, transparent 70%);
+            animation: pulse-slow 10s ease-in-out infinite;
+        }
+
+        @keyframes pulse-slow {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .cta-content p {
             font-size: 1.25rem;
-            margin-bottom: var(--space-3xl);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
         }
 
         /* Footer */
         .footer {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: var(--dark);
             color: white;
-            padding: var(--space-5xl) 0 var(--space-2xl);
-            position: relative;
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            padding: 80px 2rem 2rem;
         }
 
         .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: var(--space-3xl);
-            margin-bottom: var(--space-4xl);
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
         }
 
-        .footer-logo {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-lg);
-        }
-
-        .footer-logo .logo-text {
-            background: linear-gradient(135deg, white 0%, #cbd5e1 100%);
+        .footer-brand h3 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, white, #94a3b8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .footer-description {
+        .footer-brand p {
             color: rgba(255, 255, 255, 0.7);
-            font-size: 0.95rem;
-            line-height: 1.7;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .social-link {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            transform: translateY(-4px);
         }
 
         .footer-links h4 {
-            color: white;
             font-size: 1.125rem;
-            margin-bottom: var(--space-xl);
-            font-family: var(--font-primary);
             font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
         }
 
         .footer-links ul {
             list-style: none;
-            padding: 0;
-            margin: 0;
         }
 
         .footer-links li {
-            margin-bottom: var(--space-md);
+            margin-bottom: 0.75rem;
         }
 
         .footer-links a {
             color: rgba(255, 255, 255, 0.7);
-            font-size: 0.95rem;
-            transition: all var(--transition-normal);
-            display: flex;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
             align-items: center;
-            gap: var(--space-sm);
+            gap: 0.5rem;
         }
 
         .footer-links a:hover {
@@ -1090,105 +960,39 @@
             transform: translateX(4px);
         }
 
-        .footer-contact {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-md);
-        }
-
-        .contact-item {
+        .footer-contact .contact-item {
             display: flex;
             align-items: center;
-            gap: var(--space-sm);
+            gap: 0.75rem;
+            margin-bottom: 1rem;
             color: rgba(255, 255, 255, 0.7);
-            font-size: 0.95rem;
         }
 
-        .contact-item i {
+        .footer-contact .contact-item i {
             color: var(--primary-light);
             width: 20px;
         }
 
-        .footer-social {
-            display: flex;
-            gap: var(--space-md);
-            margin-top: var(--space-lg);
-        }
-
-        .social-link {
-            width: 44px;
-            height: 44px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.125rem;
-            transition: all var(--transition-normal);
-        }
-
-        .social-link:hover {
-            background: var(--gradient-primary);
-            transform: translateY(-4px);
-        }
-
         .footer-bottom {
-            padding-top: var(--space-2xl);
+            padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
             color: rgba(255, 255, 255, 0.5);
-            font-size: 0.875rem;
         }
 
-        /* Success Message */
-        .success-message {
-            text-align: center;
-            padding: var(--space-4xl);
-        }
-
-        .success-icon {
-            width: 100px;
-            height: 100px;
-            background: var(--gradient-whatsapp);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-            margin: 0 auto var(--space-2xl);
-            box-shadow: var(--shadow-whatsapp);
-            animation: bounce 1s ease;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .container {
-                padding: 0 var(--space-lg);
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3.5rem;
             }
-            
-            .quick-grid,
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-                gap: var(--space-2xl);
-            }
-        }
 
-        @media (max-width: 992px) {
-            h1 { font-size: 3.5rem; }
-            h2 { font-size: 2.5rem; }
-            
-            .contact-hero h1 { font-size: 3.5rem; }
-            .whatsapp-cta h2 { font-size: 2.5rem; }
-            
+            .contact-grid,
             .form-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -1196,461 +1000,432 @@
             .nav-menu {
                 display: none;
             }
-            
-            .mobile-menu-btn {
+
+            .mobile-toggle {
                 display: block;
             }
-            
-            .contact-hero h1 { font-size: 2.5rem; }
-            .contact-hero p { font-size: 1.125rem; }
-            
-            .quick-grid,
-            .footer-content {
-                grid-template-columns: 1fr;
+
+            .hero {
+                padding: 120px 1.5rem 60px;
             }
-            
-            .form-header,
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.125rem;
+            }
+
+            .section-header h2,
+            .cta-content h2 {
+                font-size: 2.5rem;
+            }
+
             .form-body {
-                padding: var(--space-xl);
+                padding: 2rem 1.5rem;
             }
-            
+
             .form-actions {
                 flex-direction: column;
             }
-            
-            .form-actions .btn {
-                width: 100%;
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
         }
 
-        @media (max-width: 576px) {
-            .container {
-                padding: 0 var(--space-md);
-            }
-            
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-            
-            .section-padding {
-                padding: var(--space-3xl) 0;
-            }
-            
-            .btn {
-                padding: var(--space-md) var(--space-xl);
-            }
-            
-            .whatsapp-cta h2 {
+        @media (max-width: 480px) {
+            .hero h1 {
                 font-size: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .contact-card,
+            .form-header {
+                padding: 2rem 1.5rem;
             }
         }
     </style>
 </head>
-
 <body>
 
-<!-- Animated Background -->
-<div class="animated-bg"></div>
+    <div class="bg-pattern"></div>
+    <div class="grid-pattern"></div>
 
-<!-- Navigation -->
-<nav class="navbar" id="navbar">
-    <div class="nav-container">
-        <a href="index.html" class="logo">
-            <div class="logo-icon">CV</div>
-            <span class="logo-text">CodersVerse</span>
-        </a>
-        
-        <ul class="nav-menu">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="about.html" class="nav-link">About Us</a></li>
-            <li><a href="contact.html" class="nav-link active">Contact</a></li>
-            <li><a href="#whatsapp-form" class="nav-link nav-cta">
-                <i class="fab fa-whatsapp"></i> WhatsApp Us
-            </a></li>
-        </ul>
-        
-        <button class="mobile-menu-btn" id="mobileMenuBtn">
-            <i class="fas fa-bars"></i>
-        </button>
-    </div>
-</nav>
-
-<!-- Mobile Menu -->
-<div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-header">
-        <div class="mobile-menu-logo">
-            <div class="logo-icon" style="width: 40px; height: 40px; font-size: 1.25rem;">CV</div>
-            <span class="logo-text">CodersVerse</span>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">CV</div>
+                <span class="logo-text">Coders Verse</span>
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#contact" class="nav-link active">Contact</a></li>
+                <li><a href="https://wa.me/919004329806" target="_blank" class="nav-link nav-cta">
+                    <i class="fab fa-whatsapp"></i> Chat Now
+                </a></li>
+            </ul>
+            
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-        <button class="mobile-close" id="mobileClose">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
-    
-    <ul class="mobile-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
-    </ul>
-    
-    <a href="#whatsapp-form" class="btn btn-whatsapp btn-block">
-        <i class="fab fa-whatsapp"></i> WhatsApp: +91 9004329806
-    </a>
-    
-    <div class="mobile-contact" style="margin-top: var(--space-2xl);">
-        <h4 style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: var(--space-md);">Direct Contact</h4>
-        <div class="contact-item" style="color: var(--text-dark);">
-            <i class="fab fa-whatsapp" style="color: var(--whatsapp);"></i>
-            <span>+91 9004329806</span>
-        </div>
-        <div class="contact-item" style="color: var(--text-dark);">
-            <i class="fas fa-envelope"></i>
-            <span>info@codersverse.com</span>
-        </div>
-    </div>
-</div>
+    </nav>
 
-<div class="menu-overlay" id="menuOverlay"></div>
-
-<!-- Contact Hero -->
-<section class="contact-hero">
-    <div class="container">
-        <div class="contact-hero-content">
-            <div class="contact-hero-badge animate__animated animate__fadeInUp">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-badge">
                 <i class="fab fa-whatsapp"></i>
-                <span>WhatsApp Connect</span>
+                <span>Instant Response on WhatsApp</span>
             </div>
             
-            <h1 class="animate__animated animate__fadeInUp">
-                Message Us Directly on <span class="whatsapp-text">WhatsApp</span>
+            <h1>
+                Let's Build Something <span class="gradient-text">Extraordinary</span>
             </h1>
             
-            <p class="animate__animated animate__fadeInUp">
-                Fill out the form below and get redirected to WhatsApp with all your project details pre-filled. 
-                Our team responds within minutes during business hours.
+            <p>
+                Connect with our expert team for professional web development, branding, and digital solutions. 
+                We respond instantly on WhatsApp and turn your vision into reality.
             </p>
             
-            <a href="https://wa.me/919004329806?text=Hello%20CodersVerse%2C%20I%27d%20like%20to%20discuss%20a%20project." 
-               target="_blank" 
-               class="whatsapp-direct animate__animated animate__fadeInUp">
+            <div class="hero-cta">
+                <a href="#form" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Start Your Project
+                </a>
+                <a href="https://wa.me/919004329806?text=Hello%20Coders%20Verse,%20I'd%20like%20to%20discuss%20a%20project" target="_blank" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp: +91 9004329806
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Cards -->
+    <div class="contact-grid">
+        <!-- WhatsApp Card -->
+        <div class="contact-card whatsapp">
+            <div class="card-icon">
                 <i class="fab fa-whatsapp"></i>
-                <span>Direct WhatsApp: +91 9004329806</span>
+            </div>
+            <h3>WhatsApp Business</h3>
+            <p>Get instant responses and discuss your project in real-time. Our fastest communication channel.</p>
+            <div class="contact-info">+91 9004329806</div>
+            <div class="contact-meta">Available 9 AM - 8 PM IST</div>
+            <a href="https://wa.me/919004329806" target="_blank" class="btn btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Message Now
+            </a>
+        </div>
+        
+        <!-- Email Card -->
+        <div class="contact-card">
+            <div class="card-icon">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <h3>Email</h3>
+            <p>For detailed proposals, contracts, and formal business communications.</p>
+            <div class="contact-info">careers.codersverse@gmail.com</div>
+            <div class="contact-meta">Response within 24 hours</div>
+            <a href="mailto:careers.codersverse@gmail.com" class="btn btn-outline">
+                <i class="fas fa-envelope"></i> Send Email
+            </a>
+        </div>
+        
+        <!-- Phone Card -->
+        <div class="contact-card">
+            <div class="card-icon">
+                <i class="fas fa-phone-alt"></i>
+            </div>
+            <h3>Phone Call</h3>
+            <p>For urgent matters and in-depth project discussions with our team.</p>
+            <div class="contact-info">+91 9004329806</div>
+            <div class="contact-meta">Mon-Sat: 10 AM - 7 PM</div>
+            <a href="tel:+919004329806" class="btn btn-outline">
+                <i class="fas fa-phone-alt"></i> Call Now
             </a>
         </div>
     </div>
-</section>
 
-<!-- Quick Contact -->
-<section class="quick-contact">
-    <div class="container">
-        <div class="quick-grid">
-            <!-- WhatsApp Card -->
-            <div class="quick-card whatsapp-card animate__animated animate__fadeInUp">
-                <div class="quick-icon">
-                    <i class="fab fa-whatsapp"></i>
-                </div>
-                <h3>WhatsApp Business</h3>
-                <p>Fastest response time. Ideal for quick questions and project discussions.</p>
-                <div class="quick-contact-info">+91 9004329806</div>
-                <p style="font-size: 0.9rem; color: var(--text-light);">Available 9 AM - 8 PM IST</p>
-                <a href="https://wa.me/919004329806" target="_blank" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> Message Now
-                </a>
-            </div>
-            
-            <!-- Email Card -->
-            <div class="quick-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
-                <div class="quick-icon">
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <h3>Email</h3>
-                <p>For detailed proposals, contracts, and formal communication.</p>
-                <div class="quick-contact-info">info@codersverse.com</div>
-                <p style="font-size: 0.9rem; color: var(--text-light);">Response within 24 hours</p>
-                <a href="mailto:info@codersverse.com" class="btn btn-secondary">
-                    <i class="fas fa-envelope"></i> Send Email
-                </a>
-            </div>
-            
-            <!-- Call Card -->
-            <div class="quick-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
-                <div class="quick-icon">
-                    <i class="fas fa-phone"></i>
-                </div>
-                <h3>Phone Call</h3>
-                <p>For urgent matters and in-depth project discussions.</p>
-                <div class="quick-contact-info">+91 99004329806</div>
-                <p style="font-size: 0.9rem; color: var(--text-light);">Mon-Fri: 10 AM - 6 PM</p>
-                <a href="tel:+919004329806" class="btn btn-secondary">
-                    <i class="fas fa-phone"></i> Call Now
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- WhatsApp Form -->
-<section class="whatsapp-form-section" id="whatsapp-form">
-    <div class="container">
-        <div class="form-container">
-            <div class="form-header">
+    <!-- Form Section -->
+    <section class="form-section" id="form">
+        <div class="form-wrapper">
+            <div class="section-header">
                 <h2>Send Project Details via WhatsApp</h2>
-                <p>Fill this form and get redirected to WhatsApp with all information pre-filled</p>
+                <p>Fill out the form below and connect with us instantly on WhatsApp with all your project details pre-filled</p>
             </div>
             
-            <div class="form-body">
-                <form id="projectForm">
-                    <div class="form-grid">
-                        <!-- Personal Information -->
-                        <div class="form-group">
-                            <label class="form-label" for="name">Full Name <span>*</span></label>
-                            <input type="text" id="name" class="form-control" placeholder="Your full name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label" for="email">Email Address <span>*</span></label>
-                            <input type="email" id="email" class="form-control" placeholder="your.email@example.com" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label" for="phone">WhatsApp Number <span>*</span></label>
-                            <input type="tel" id="phone" class="form-control" placeholder="+91 9004329806" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label" for="company">Company / Business</label>
-                            <input type="text" id="company" class="form-control" placeholder="Your company name">
-                        </div>
-                        
-                        <!-- Project Information -->
-                        <div class="form-group full-width">
-                            <label class="form-label" for="service">Service Needed <span>*</span></label>
-                            <select id="service" class="form-control form-select" required>
-                                <option value="" disabled selected>Select service</option>
-                                <option value="Website Development">Website Development</option>
-                                <option value="E-commerce Store">E-commerce Store</option>
-                                <option value="Website Redesign">Website Redesign</option>
-                                <option value="Logo Design">Logo & Branding</option>
-                                <option value="Brochure Design">Brochure Design</option>
-                                <option value="Marketing Materials">Marketing Materials</option>
-                                <option value="Multiple Services">Multiple Services</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label" for="budget">Budget Range <span>*</span></label>
-                            <select id="budget" class="form-control form-select" required>
-                                <option value="" disabled selected>Select budget</option>
-                                <option value="Under ₹50,000">Under ₹50,000</option>
-                                <option value="₹50,000 - ₹1,00,000">₹50,000 - ₹1,00,000</option>
-                                <option value="₹1,00,000 - ₹2,50,000">₹1,00,000 - ₹2,50,000</option>
-                                <option value="₹2,50,000 - ₹5,00,000">₹2,50,000 - ₹5,00,000</option>
-                                <option value="₹5,00,000+">₹5,00,000+</option>
-                                <option value="Not Sure">Not Sure / Need Quote</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label" for="timeline">Project Timeline <span>*</span></label>
-                            <select id="timeline" class="form-control form-select" required>
-                                <option value="" disabled selected>Select timeline</option>
-                                <option value="ASAP (Within 2 weeks)">ASAP (Within 2 weeks)</option>
-                                <option value="1 Month">Within 1 Month</option>
-                                <option value="1-3 Months">1-3 Months</option>
-                                <option value="3-6 Months">3-6 Months</option>
-                                <option value="Flexible">Flexible</option>
-                            </select>
-                        </div>
-                        
-                        <!-- Project Details -->
-                        <div class="form-group full-width">
-                            <label class="form-label" for="description">Project Description <span>*</span></label>
-                            <textarea id="description" class="form-control" placeholder="Describe your project in detail. What are your goals? Who is your target audience? Any specific features or requirements?" rows="5" required></textarea>
-                        </div>
-                    </div>
-                    
-                    <!-- WhatsApp Preview -->
-                    <div class="whatsapp-preview">
-                        <div class="whatsapp-header">
-                            <div class="whatsapp-avatar">
-                                <i class="fab fa-whatsapp"></i>
-                            </div>
-                            <div class="whatsapp-info">
-                                <h4>CodersVerse Business</h4>
-                                <p>+91 9004329806 • Usually responds instantly</p>
-                            </div>
-                        </div>
-                        
-                        <div class="whatsapp-message">
-                            <h5><i class="fab fa-whatsapp"></i> Message Preview</h5>
-                            <div class="message-content" id="whatsappPreview">
-                                <p><strong>Hello CodersVerse Team,</strong></p>
-                                <p>I'd like to discuss a project:</p>
-                                <p><strong>👤 Name:</strong> [Your Name]</p>
-                                <p><strong>📧 Email:</strong> [Your Email]</p>
-                                <p><strong>📱 WhatsApp:</strong> [Your Number]</p>
-                                <p><strong>🎯 Service:</strong> [Selected Service]</p>
-                                <p><strong>💰 Budget:</strong> [Budget Range]</p>
-                                <p><strong>⏰ Timeline:</strong> [Project Timeline]</p>
-                                <p><strong>📋 Description:</strong> [Your project details will appear here...]</p>
-                                <p>Looking forward to discussing this further!</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Terms & Submit -->
-                    <div class="form-group">
-                        <div class="form-checkbox">
-                            <input type="checkbox" id="terms" required>
-                            <label for="terms">I agree to receive communication from CodersVerse regarding my inquiry via WhatsApp and email.</label>
-                        </div>
-                    </div>
-                    
-                    <div class="form-actions">
-                        <button type="button" class="btn btn-secondary" id="previewBtn">
-                            <i class="fas fa-eye"></i> Update Preview
-                        </button>
-                        <button type="submit" class="btn btn-whatsapp btn-block">
-                            <i class="fab fa-whatsapp"></i> Send to WhatsApp
-                        </button>
-                    </div>
-                </form>
+            <div class="form-container">
+                <div class="form-header">
+                    <h3>📱 WhatsApp Contact Form</h3>
+                    <p>Your information will be formatted and sent directly to our WhatsApp</p>
+                </div>
                 
-                <!-- Success Message (Hidden by default) -->
-                <div class="success-message" id="successMessage" style="display: none;">
-                    <div class="success-icon">
-                        <i class="fab fa-whatsapp"></i>
-                    </div>
-                    <h2>WhatsApp Opened!</h2>
-                    <p>Your project details have been pre-filled in WhatsApp. Please send the message to start the conversation.</p>
-                    <p style="color: var(--text-muted); margin-bottom: var(--space-2xl);">
-                        If WhatsApp didn't open automatically, please message us directly at:<br>
-                        <strong style="color: var(--whatsapp); font-size: 1.25rem;">+91 9004324321</strong>
-                    </p>
-                    <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
-                        <button class="btn btn-secondary" onclick="resetForm()">
-                            <i class="fas fa-redo"></i> Submit Another
-                        </button>
-                        <a href="index.html" class="btn btn-primary">
-                            <i class="fas fa-home"></i> Back to Home
-                        </a>
+                <div class="form-body">
+                    <form id="contactForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">Full Name <span class="required">*</span></label>
+                                <input type="text" id="name" class="form-input" placeholder="John Doe" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Email Address <span class="required">*</span></label>
+                                <input type="email" id="email" class="form-input" placeholder="john@example.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">WhatsApp Number <span class="required">*</span></label>
+                                <input type="tel" id="phone" class="form-input" placeholder="+91 9004329806" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Company/Business Name</label>
+                                <input type="text" id="company" class="form-input" placeholder="Your company name">
+                            </div>
+                            
+                            <div class="form-group full">
+                                <label class="form-label">Service Required <span class="required">*</span></label>
+                                <select id="service" class="form-select" required>
+                                    <option value="">Select a service</option>
+                                    <option value="Website Development">🌐 Website Development</option>
+                                    <option value="E-commerce Solutions">🛒 E-commerce Solutions</option>
+                                    <option value="Website Redesign">🎨 Website Redesign</option>
+                                    <option value="Logo & Branding">✨ Logo & Branding</option>
+                                    <option value="Brochure Design">📄 Brochure Design</option>
+                                    <option value="Digital Marketing">📱 Digital Marketing</option>
+                                    <option value="SEO Services">🔍 SEO Services</option>
+                                    <option value="Multiple Services">📦 Multiple Services</option>
+                                    <option value="Other">💡 Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Budget Range <span class="required">*</span></label>
+                                <select id="budget" class="form-select" required>
+                                    <option value="">Select budget range</option>
+                                    <option value="Under ₹50,000">Under ₹50,000</option>
+                                    <option value="₹50,000 - ₹1,00,000">₹50,000 - ₹1,00,000</option>
+                                    <option value="₹1,00,000 - ₹2,50,000">₹1,00,000 - ₹2,50,000</option>
+                                    <option value="₹2,50,000 - ₹5,00,000">₹2,50,000 - ₹5,00,000</option>
+                                    <option value="Above ₹5,00,000">Above ₹5,00,000</option>
+                                    <option value="Need Consultation">Need Consultation</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Timeline <span class="required">*</span></label>
+                                <select id="timeline" class="form-select" required>
+                                    <option value="">Select timeline</option>
+                                    <option value="ASAP (1-2 weeks)">ASAP (1-2 weeks)</option>
+                                    <option value="1 Month">Within 1 Month</option>
+                                    <option value="1-3 Months">1-3 Months</option>
+                                    <option value="3-6 Months">3-6 Months</option>
+                                    <option value="Flexible">Flexible</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group full">
+                                <label class="form-label">Project Description <span class="required">*</span></label>
+                                <textarea id="description" class="form-textarea" placeholder="Tell us about your project, goals, target audience, specific requirements, and any other relevant details..." required></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- WhatsApp Preview -->
+                        <div class="whatsapp-preview">
+                            <div class="wp-header">
+                                <div class="wp-avatar">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div class="wp-info">
+                                    <h4>Coders Verse Business</h4>
+                                    <p>+91 9004329806 • Usually replies instantly</p>
+                                </div>
+                            </div>
+                            
+                            <div class="wp-message">
+                                <h5>📱 Your Message Preview</h5>
+                                <div class="message-content" id="messagePreview">
+                                    <p><strong>🌟 NEW PROJECT INQUIRY</strong></p>
+                                    <p><strong>━━━━━━━━━━━━━━━━━━━━</strong></p>
+                                    <p><strong>👤 Name:</strong> [Your Name]</p>
+                                    <p><strong>📧 Email:</strong> [Your Email]</p>
+                                    <p><strong>📱 WhatsApp:</strong> [Your Number]</p>
+                                    <p><strong>🏢 Company:</strong> [Your Company]</p>
+                                    <p><strong>🎯 Service:</strong> [Selected Service]</p>
+                                    <p><strong>💰 Budget:</strong> [Budget Range]</p>
+                                    <p><strong>⏰ Timeline:</strong> [Project Timeline]</p>
+                                    <p><strong>━━━━━━━━━━━━━━━━━━━━</strong></p>
+                                    <p><strong>📋 PROJECT DETAILS:</strong></p>
+                                    <p>[Your project description will appear here...]</p>
+                                    <p><strong>━━━━━━━━━━━━━━━━━━━━</strong></p>
+                                    <p>Looking forward to your response! 🚀</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="form-checkbox">
+                                <input type="checkbox" id="terms" required>
+                                <label for="terms">
+                                    I agree to receive communications from Coders Verse regarding my inquiry via WhatsApp and email. 
+                                    I understand my information will be kept confidential.
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline" onclick="updatePreview()">
+                                <i class="fas fa-eye"></i> Update Preview
+                            </button>
+                            <button type="submit" class="btn btn-whatsapp btn-full">
+                                <i class="fab fa-whatsapp"></i> Send to WhatsApp
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!-- Success State -->
+                    <div class="success-state" id="successState">
+                        <div class="success-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3>WhatsApp Opened Successfully!</h3>
+                        <p>Your message has been prepared with all project details. Please send it to start the conversation with our team.</p>
+                        <div style="background: var(--bg-alt); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem;">
+                            <p style="color: var(--text-light); margin-bottom: 0.5rem;">If WhatsApp didn't open automatically:</p>
+                            <p style="font-size: 1.25rem; font-weight: 700; color: var(--whatsapp); font-family: 'JetBrains Mono', monospace;">+91 9004329806</p>
+                        </div>
+                        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                            <button class="btn btn-outline" onclick="resetForm()">
+                                <i class="fas fa-redo"></i> Submit Another
+                            </button>
+                            <a href="#home" class="btn btn-primary">
+                                <i class="fas fa-home"></i> Back to Home
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- FAQ Section -->
-<section class="faq-section">
-    <div class="container">
-        <div class="section-header text-center">
-            <h2>Frequently Asked Questions</h2>
-            <p>Common questions about contacting CodersVerse</p>
-        </div>
-        
+    <!-- FAQ Section -->
+    <section class="faq-section">
         <div class="faq-container">
-            <!-- FAQ 1 -->
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about contacting Coders Verse</p>
+            </div>
+            
             <div class="faq-item">
-                <div class="faq-question">
-                    <h3>How quickly will you respond on WhatsApp?</h3>
-                    <div class="faq-icon">
-                        <i class="fas fa-plus"></i>
-                    </div>
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h4>How quickly do you respond on WhatsApp?</h4>
+                    <div class="faq-toggle">+</div>
                 </div>
                 <div class="faq-answer">
-                    <p>We respond within minutes during business hours (9 AM - 8 PM IST). Outside these hours, we'll respond the next business day.</p>
+                    <div class="faq-answer-content">
+                        We typically respond within minutes during business hours (9 AM - 8 PM IST). For messages sent outside these hours, we'll get back to you first thing the next business day. WhatsApp is our fastest communication channel!
+                    </div>
                 </div>
             </div>
             
-            <!-- FAQ 2 -->
             <div class="faq-item">
-                <div class="faq-question">
-                    <h3>Do I need to install WhatsApp to use this form?</h3>
-                    <div class="faq-icon">
-                        <i class="fas fa-plus"></i>
-                    </div>
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h4>Do I need WhatsApp installed to use this form?</h4>
+                    <div class="faq-toggle">+</div>
                 </div>
                 <div class="faq-answer">
-                    <p>Yes, you need WhatsApp installed on your device. If you don't have WhatsApp, you can email us at info@codersverse.com or call +91 9876543210.</p>
+                    <div class="faq-answer-content">
+                        Yes, you'll need WhatsApp installed on your device (mobile or desktop). If you don't have WhatsApp, you can contact us via email at careers.codersverse@gmail.com or call us at +91 9004329806.
+                    </div>
                 </div>
             </div>
             
-            <!-- FAQ 3 -->
             <div class="faq-item">
-                <div class="faq-question">
-                    <h3>Can I send files/images via the WhatsApp form?</h3>
-                    <div class="faq-icon">
-                        <i class="fas fa-plus"></i>
-                    </div>
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h4>Can I send files and images through WhatsApp?</h4>
+                    <div class="faq-toggle">+</div>
                 </div>
                 <div class="faq-answer">
-                    <p>Once redirected to WhatsApp, you can send files, images, and documents directly in the chat. Our team will review them and respond accordingly.</p>
+                    <div class="faq-answer-content">
+                        Absolutely! Once you're connected with us on WhatsApp, you can send images, PDFs, design files, and any other documents directly in the chat. Our team will review them and provide feedback accordingly.
+                    </div>
                 </div>
             </div>
             
-            <!-- FAQ 4 -->
             <div class="faq-item">
-                <div class="faq-question">
-                    <h3>What information should I include in my project description?</h3>
-                    <div class="faq-icon">
-                        <i class="fas fa-plus"></i>
-                    </div>
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h4>What information should I include in my project description?</h4>
+                    <div class="faq-toggle">+</div>
                 </div>
                 <div class="faq-answer">
-                    <p>Please include: Your business type, project goals, target audience, specific features needed, any existing websites/designs, and your timeline expectations.</p>
+                    <div class="faq-answer-content">
+                        Include details about your business, project goals, target audience, specific features or requirements, any existing websites or designs for reference, preferred style/aesthetic, and your timeline. The more detail you provide, the better we can help you!
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h4>Do you provide free consultations?</h4>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Yes! We offer free initial consultations where we discuss your project requirements, provide professional advice, and give you a clear project quote. There's no obligation, and you'll get valuable insights regardless.
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- WhatsApp CTA -->
-<section class="whatsapp-cta">
-    <div class="container">
-        <div class="whatsapp-cta-content">
-            <h2 class="animate__animated animate__fadeInUp">Ready to Start Your Project?</h2>
-            <p class="animate__animated animate__fadeInUp">
-                Message us directly on WhatsApp for the fastest response. Let's create something amazing together!
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Transform Your Digital Presence?</h2>
+            <p>
+                Let's discuss your project and create something exceptional together. 
+                Our team is standing by to bring your vision to life.
             </p>
             
-            <div class="flex-center gap-lg" style="flex-wrap: wrap;">
-                <a href="https://wa.me/919004329806" target="_blank" class="btn btn-whatsapp btn-lg">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Now
+            <div class="hero-cta">
+                <a href="https://wa.me/919004329806?text=Hello%20Coders%20Verse!%20I'm%20interested%20in%20your%20services" target="_blank" class="btn btn-whatsapp btn-lg" style="padding: 1.25rem 2.5rem; font-size: 1.125rem;">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
                 </a>
-                <a href="tel:+919004329806" class="btn btn-outline btn-lg" style="color: white; border-color: white;">
-                    <i class="fas fa-phone"></i> Call Us
+                <a href="tel:+919004329806" class="btn btn-outline btn-lg" style="padding: 1.25rem 2.5rem; font-size: 1.125rem; background: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.3);">
+                    <i class="fas fa-phone-alt"></i> Call Us Now
                 </a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
+    <!-- Footer -->
+    <footer class="footer">
         <div class="footer-content">
-            <div class="footer-logo">
-                <div class="logo">
-                    <div class="logo-icon">CV</div>
-                    <span class="logo-text">CodersVerse</span>
-                </div>
-                <p class="footer-description">
-                    Transforming businesses through exceptional digital design and development. 
-                    Message us on WhatsApp for instant response.
+            <div class="footer-brand">
+                <h3>Coders Verse</h3>
+                <p>
+                    Crafting exceptional digital experiences through innovative web development, stunning branding, 
+                    and strategic digital solutions. Let's build something extraordinary together.
                 </p>
-                <div class="footer-social">
+                <div class="social-links">
                     <a href="https://wa.me/919004329806" target="_blank" class="social-link" style="background: var(--whatsapp);">
                         <i class="fab fa-whatsapp"></i>
                     </a>
-                    <a href="#" class="social-link">
+                    <a href="https://instagram.com/Coders.verse" target="_blank" class="social-link">
                         <i class="fab fa-instagram"></i>
                     </a>
                     <a href="#" class="social-link">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-twitter"></i>
+                    <a href="mailto:careers.codersverse@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
                     </a>
                 </div>
             </div>
@@ -1658,42 +1433,42 @@
             <div class="footer-links">
                 <h4>Services</h4>
                 <ul>
-                    <li><a href="index.html#services">Website Development</a></li>
-                    <li><a href="index.html#services">E-commerce Solutions</a></li>
-                    <li><a href="index.html#services">Logo & Branding</a></li>
-                    <li><a href="index.html#services">Brochure Design</a></li>
-                    <li><a href="index.html#services">Digital Marketing</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> Website Development</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> E-commerce Solutions</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> Logo & Branding</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> Digital Marketing</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> SEO Services</a></li>
                 </ul>
             </div>
             
             <div class="footer-links">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="index.html#portfolio">Portfolio</a></li>
-                    <li><a href="#whatsapp-form">Contact Form</a></li>
-                    <li><a href="tel:+919876543210">Call Now</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> About Us</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> Portfolio</a></li>
+                    <li><a href="#form"><i class="fas fa-angle-right"></i> Contact Form</a></li>
+                    <li><a href="#"><i class="fas fa-angle-right"></i> Privacy Policy</a></li>
                 </ul>
             </div>
             
             <div class="footer-contact">
                 <h4>Contact Info</h4>
                 <div class="contact-item">
-                    <i class="fab fa-whatsapp" style="color: var(--whatsapp);"></i>
+                    <i class="fab fa-whatsapp"></i>
                     <span>+91 9004329806</span>
                 </div>
                 <div class="contact-item">
-                    <i class="fas fa-phone"></i>
+                    <i class="fas fa-phone-alt"></i>
                     <span>+91 9004329806</span>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
-                    <span>info@codersverse.com</span>
+                    <span>careers.codersverse@gmail.com</span>
                 </div>
                 <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Mumbai, Maharashtra<br>India</span>
+                    <i class="fab fa-instagram"></i>
+                    <span>@Coders.verse</span>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-clock"></i>
@@ -1703,99 +1478,94 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2025 CodersVerse. All rights reserved. | <a href="#" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.7);">Terms of Service</a></p>
+            <p>&copy; 2025 Coders Verse. All rights reserved. Built with passion for excellence.</p>
         </div>
-    </div>
-</footer>
+    </footer>
 
-<script>
-// WhatsApp Form Submission
-document.addEventListener('DOMContentLoaded', function() {
-    const whatsappNumber = "919004329806"; // Your WhatsApp number without + and spaces
-    
-    // Function to update WhatsApp preview
-    function updateWhatsAppPreview() {
-        const name = document.getElementById('name').value.trim() || '[Your Name]';
-        const email = document.getElementById('email').value.trim() || '[Your Email]';
-        const phone = document.getElementById('phone').value.trim() || '[Your Number]';
-        const company = document.getElementById('company').value.trim() || '[Not provided]';
-        const service = document.getElementById('service').value || '[Selected Service]';
-        const budget = document.getElementById('budget').value || '[Budget Range]';
-        const timeline = document.getElementById('timeline').value || '[Project Timeline]';
-        const description = document.getElementById('description').value.trim() || '[Your project details will appear here...]';
-        
-        const previewHTML = `
-            <p><strong>Hello CodersVerse Team,</strong></p>
-            <p>I'd like to discuss a project:</p>
-            <p><strong>👤 Name:</strong> ${name}</p>
-            <p><strong>📧 Email:</strong> ${email}</p>
-            <p><strong>📱 WhatsApp:</strong> ${phone}</p>
-            ${company !== '[Not provided]' ? `<p><strong>🏢 Company:</strong> ${company}</p>` : ''}
-            <p><strong>🎯 Service:</strong> ${service}</p>
-            <p><strong>💰 Budget:</strong> ${budget}</p>
-            <p><strong>⏰ Timeline:</strong> ${timeline}</p>
-            <p><strong>📋 Description:</strong> ${description}</p>
-            <p>Looking forward to discussing this further!</p>
-        `;
-        
-        document.getElementById('whatsappPreview').innerHTML = previewHTML;
-    }
-    
-    // Update preview on input
-    document.querySelectorAll('#projectForm input, #projectForm select, #projectForm textarea').forEach(element => {
-        element.addEventListener('input', updateWhatsAppPreview);
-        element.addEventListener('change', updateWhatsAppPreview);
-    });
-    
-    // Preview button
-    document.getElementById('previewBtn').addEventListener('click', updateWhatsAppPreview);
-    
-    // Form submission
-    document.getElementById('projectForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Check terms
-        if (!document.getElementById('terms').checked) {
-            alert('Please agree to receive communication from CodersVerse');
-            return;
+    <script>
+        // Update WhatsApp message preview
+        function updatePreview() {
+            const name = document.getElementById('name').value || '[Your Name]';
+            const email = document.getElementById('email').value || '[Your Email]';
+            const phone = document.getElementById('phone').value || '[Your Number]';
+            const company = document.getElementById('company').value || '[Not Provided]';
+            const service = document.getElementById('service').value || '[Selected Service]';
+            const budget = document.getElementById('budget').value || '[Budget Range]';
+            const timeline = document.getElementById('timeline').value || '[Project Timeline]';
+            const description = document.getElementById('description').value || '[Your project description will appear here...]';
+            
+            const preview = `
+                <p><strong>🌟 NEW PROJECT INQUIRY</strong></p>
+                <p><strong>━━━━━━━━━━━━━━━━━━━━</strong></p>
+                <p><strong>👤 Name:</strong> ${name}</p>
+                <p><strong>📧 Email:</strong> ${email}</p>
+                <p><strong>📱 WhatsApp:</strong> ${phone}</p>
+                ${company !== '[Not Provided]' ? `<p><strong>🏢 Company:</strong> ${company}</p>` : ''}
+                <p><strong>🎯 Service:</strong> ${service}</p>
+                <p><strong>💰 Budget:</strong> ${budget}</p>
+                <p><strong>⏰ Timeline:</strong> ${timeline}</p>
+                <p><strong>━━━━━━━━━━━━━━━━━━━━</strong></p>
+                <p><strong>📋 PROJECT DETAILS:</strong></p>
+                <p>${description}</p>
+                <p><strong>━━━━━━━━━━━━━━━━━━━━</strong></p>
+                <p>Looking forward to your response! 🚀</p>
+            `;
+            
+            document.getElementById('messagePreview').innerHTML = preview;
         }
-        
-        // Get form values
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const company = document.getElementById('company').value.trim();
-        const service = document.getElementById('service').value;
-        const budget = document.getElementById('budget').value;
-        const timeline = document.getElementById('timeline').value;
-        const description = document.getElementById('description').value.trim();
-        
-        // Validate required fields
-        if (!name || !email || !phone || !service || !budget || !timeline || !description) {
-            alert('Please fill in all required fields');
-            return;
-        }
-        
-        // Create WhatsApp message
-        const whatsappMessage = `
-*NEW PROJECT INQUIRY - CodersVerse Website*
 
-*👤 CONTACT INFORMATION*
-• Name: ${name}
-• Email: ${email}
-• WhatsApp: ${phone}
-${company ? `• Company: ${company}` : ''}
+        // Auto-update preview on input
+        document.querySelectorAll('#contactForm input, #contactForm select, #contactForm textarea').forEach(element => {
+            element.addEventListener('input', updatePreview);
+            element.addEventListener('change', updatePreview);
+        });
 
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!document.getElementById('terms').checked) {
+                alert('Please agree to the terms and conditions');
+                return;
+            }
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const company = document.getElementById('company').value.trim();
+            const service = document.getElementById('service').value;
+            const budget = document.getElementById('budget').value;
+            const timeline = document.getElementById('timeline').value;
+            const description = document.getElementById('description').value.trim();
+            
+            const whatsappMessage = `
+*🌟 NEW PROJECT INQUIRY - Coders Verse*
+
+*━━━━━━━━━━━━━━━━━━━━━*
+*📋 CONTACT INFORMATION*
+*━━━━━━━━━━━━━━━━━━━━━*
+
+👤 *Name:* ${name}
+📧 *Email:* ${email}
+📱 *WhatsApp:* ${phone}
+${company ? `🏢 *Company:* ${company}` : ''}
+
+*━━━━━━━━━━━━━━━━━━━━━*
 *🎯 PROJECT DETAILS*
-• Service Needed: ${service}
-• Budget Range: ${budget}
-• Timeline: ${timeline}
+*━━━━━━━━━━━━━━━━━━━━━*
 
-*📋 PROJECT DESCRIPTION*
+🎯 *Service Required:* ${service}
+💰 *Budget Range:* ${budget}
+⏰ *Timeline:* ${timeline}
+
+*━━━━━━━━━━━━━━━━━━━━━*
+*📝 PROJECT DESCRIPTION*
+*━━━━━━━━━━━━━━━━━━━━━*
+
 ${description}
 
-*📅 SUBMITTED ON*
-${new Date().toLocaleDateString('en-IN', { 
+*━━━━━━━━━━━━━━━━━━━━━*
+*📅 Submitted:* ${new Date().toLocaleDateString('en-US', { 
     weekday: 'long', 
     year: 'numeric', 
     month: 'long', 
@@ -1804,132 +1574,355 @@ ${new Date().toLocaleDateString('en-IN', {
     minute: '2-digit'
 })}
 
----
-*This inquiry was submitted via CodersVerse Contact Form*
-*Please respond within 24 hours*
-        `.trim();
-        
-        // Encode message for URL
-        const encodedMessage = encodeURIComponent(whatsappMessage);
-        
-        // Create WhatsApp URL
-        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-        
-        // Open WhatsApp in new tab
-        window.open(whatsappURL, '_blank');
-        
-        // Show success message
-        document.getElementById('projectForm').style.display = 'none';
-        document.getElementById('successMessage').style.display = 'block';
-        
-        // Scroll to success message
-        document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
-    });
-    
-    // Initialize preview
-    updateWhatsAppPreview();
-});
+_This inquiry was submitted via Coders Verse Contact Form_
 
-// Form reset function
-function resetForm() {
-    document.getElementById('projectForm').reset();
-    document.getElementById('projectForm').style.display = 'block';
-    document.getElementById('successMessage').style.display = 'none';
-    updateWhatsAppPreview();
-    
-    // Scroll back to form
-    document.getElementById('whatsapp-form').scrollIntoView({ behavior: 'smooth' });
-}
-
-// Navbar scroll effect
-window.addEventListener('scroll', () => {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
-
-// Mobile menu
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const mobileMenu = document.getElementById('mobileMenu');
-const mobileClose = document.getElementById('mobileClose');
-const menuOverlay = document.getElementById('menuOverlay');
-
-mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.add('active');
-    menuOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-});
-
-mobileClose.addEventListener('click', closeMobileMenu);
-menuOverlay.addEventListener('click', closeMobileMenu);
-
-function closeMobileMenu() {
-    mobileMenu.classList.remove('active');
-    menuOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-// FAQ Accordion
-document.querySelectorAll('.faq-question').forEach(question => {
-    question.addEventListener('click', () => {
-        const faqItem = question.parentElement;
-        const isActive = faqItem.classList.contains('active');
-        
-        // Close all FAQ items
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.classList.remove('active');
+Looking forward to working with you! 🚀
+            `.trim();
+            
+            const whatsappURL = `https://wa.me/919004329806?text=${encodeURIComponent(whatsappMessage)}`;
+            
+            window.open(whatsappURL, '_blank');
+            
+            document.querySelector('#contactForm').style.display = 'none';
+            document.getElementById('successState').classList.add('active');
+            
+            document.getElementById('successState').scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
-        
-        // Open clicked item if it wasn't active
-        if (!isActive) {
-            faqItem.classList.add('active');
-        }
-    });
-});
 
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        if (this.getAttribute('href') === '#') return;
-        
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
+        // Reset form
+        function resetForm() {
+            document.getElementById('contactForm').reset();
+            document.querySelector('#contactForm').style.display = 'block';
+            document.getElementById('successState').classList.remove('active');
+            updatePreview();
+            document.getElementById('form').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const allItems = document.querySelectorAll('.faq-item');
+            
+            allItems.forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                }
             });
             
-            // Close mobile menu if open
-            closeMobileMenu();
+            faqItem.classList.toggle('active');
         }
-    });
-});
 
-// Initialize animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
+        // Navbar scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate__animated', 'animate__fadeInUp');
-        }
-    });
-}, observerOptions);
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#' || href === '#home') return;
+                
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
 
-// Observe elements for animation
-document.querySelectorAll('.quick-card').forEach(el => {
-    observer.observe(el);
-});
-</script>
+        // Mobile menu toggle (basic functionality)
+        document.getElementById('mobileToggle').addEventListener('click', function() {
+            alert('Mobile menu - For full implementation, add a slide-out menu or dropdown navigation');
+        });
+
+        // Initialize preview on page load
+        window.addEventListener('load', updatePreview);
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(30px)';
+                    
+                    setTimeout(() => {
+                        entry.target.style.transition = 'all 0.6s ease';
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 100);
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe contact cards
+        document.querySelectorAll('.contact-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+            observer.observe(card);
+        });
+
+        // Observe FAQ items
+        document.querySelectorAll('.faq-item').forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.05}s`;
+            observer.observe(item);
+        });
+
+        // Form validation with visual feedback
+        const inputs = document.querySelectorAll('.form-input, .form-select, .form-textarea');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.hasAttribute('required') && !this.value.trim()) {
+                    this.style.borderColor = '#ef4444';
+                } else if (this.value.trim()) {
+                    this.style.borderColor = 'var(--success)';
+                    setTimeout(() => {
+                        this.style.borderColor = 'var(--border)';
+                    }, 2000);
+                }
+            });
+        });
+
+        // Email validation
+        document.getElementById('email').addEventListener('blur', function() {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (this.value && !emailRegex.test(this.value)) {
+                this.style.borderColor = '#ef4444';
+                this.setCustomValidity('Please enter a valid email address');
+            } else {
+                this.setCustomValidity('');
+                if (this.value) {
+                    this.style.borderColor = 'var(--success)';
+                    setTimeout(() => {
+                        this.style.borderColor = 'var(--border)';
+                    }, 2000);
+                }
+            }
+        });
+
+        // Phone validation
+        document.getElementById('phone').addEventListener('blur', function() {
+            const phoneRegex = /^[\d\s\+\-\(\)]+$/;
+            if (this.value && !phoneRegex.test(this.value)) {
+                this.style.borderColor = '#ef4444';
+                this.setCustomValidity('Please enter a valid phone number');
+            } else {
+                this.setCustomValidity('');
+                if (this.value) {
+                    this.style.borderColor = 'var(--success)';
+                    setTimeout(() => {
+                        this.style.borderColor = 'var(--border)';
+                    }, 2000);
+                }
+            }
+        });
+
+        // Add loading state to submit button
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Opening WhatsApp...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = '<i class="fab fa-whatsapp"></i> Send to WhatsApp';
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+
+        // Character counter for textarea
+        const textarea = document.getElementById('description');
+        const charCountDiv = document.createElement('div');
+        charCountDiv.style.cssText = 'font-size: 0.875rem; color: var(--text-lighter); text-align: right; margin-top: 0.5rem;';
+        textarea.parentElement.appendChild(charCountDiv);
+
+        textarea.addEventListener('input', function() {
+            const length = this.value.length;
+            const minLength = 50;
+            const color = length < minLength ? 'var(--error)' : 'var(--success)';
+            charCountDiv.innerHTML = `<span style="color: ${color}">${length}</span> characters (minimum ${minLength} recommended)`;
+        });
+
+        // Trigger initial character count
+        textarea.dispatchEvent(new Event('input'));
+
+        // Add tooltips to required fields
+        document.querySelectorAll('.required').forEach(span => {
+            span.setAttribute('title', 'This field is required');
+            span.style.cursor = 'help';
+        });
+
+        // Prevent form submission on Enter key (except in textarea)
+        document.getElementById('contactForm').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Add focus effect to form groups
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+                this.parentElement.style.transition = 'transform 0.2s ease';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        });
+
+        // Console greeting for developers
+        console.log('%c👋 Hello Developer!', 'font-size: 24px; font-weight: bold; color: #2563eb;');
+        console.log('%cWelcome to Coders Verse', 'font-size: 16px; color: #7c3aed;');
+        console.log('%cInterested in working with us? Contact us at careers.codersverse@gmail.com', 'font-size: 14px; color: #64748b;');
+        console.log('%cWhatsApp: +91 9004329806', 'font-size: 14px; color: #25D366; font-weight: bold;');
+
+        // Easter egg - Konami code
+        let konamiCode = [];
+        const konamiPattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        
+        document.addEventListener('keydown', (e) => {
+            konamiCode.push(e.key);
+            konamiCode = konamiCode.slice(-10);
+            
+            if (konamiCode.join('') === konamiPattern.join('')) {
+                document.body.style.transition = 'all 1s ease';
+                document.body.style.transform = 'rotate(360deg)';
+                setTimeout(() => {
+                    document.body.style.transform = 'rotate(0deg)';
+                    alert('🎉 You found the easter egg! Contact us for a special discount code!');
+                }, 1000);
+            }
+        });
+
+        // Add ripple effect to buttons
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.5);
+                    left: ${x}px;
+                    top: ${y}px;
+                    transform: scale(0);
+                    animation: ripple 0.6s ease-out;
+                    pointer-events: none;
+                `;
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Performance monitoring
+        window.addEventListener('load', () => {
+            const loadTime = performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart;
+            console.log(`%c⚡ Page loaded in ${loadTime}ms`, 'color: #10b981; font-weight: bold;');
+        });
+
+        // Add hover effect to social links
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-4px) rotate(360deg)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) rotate(0deg)';
+            });
+        });
+
+        // Preload images and optimize performance
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            if (img.loading !== 'lazy') {
+                img.loading = 'lazy';
+            }
+        });
+
+        // Add keyboard navigation for FAQ
+        document.querySelectorAll('.faq-question').forEach((question, index) => {
+            question.setAttribute('tabindex', '0');
+            question.setAttribute('role', 'button');
+            question.setAttribute('aria-expanded', 'false');
+            
+            question.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                    const isActive = this.parentElement.classList.contains('active');
+                    this.setAttribute('aria-expanded', isActive);
+                }
+            });
+        });
+
+        // Add accessibility improvements
+        document.querySelectorAll('.btn').forEach(btn => {
+            if (!btn.getAttribute('aria-label')) {
+                btn.setAttribute('aria-label', btn.textContent.trim());
+            }
+        });
+
+        // Track form interactions (for analytics)
+        let formInteractionStartTime = null;
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                if (!formInteractionStartTime) {
+                    formInteractionStartTime = Date.now();
+                    console.log('User started interacting with form');
+                }
+            });
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', () => {
+            if (formInteractionStartTime) {
+                const timeSpent = Math.round((Date.now() - formInteractionStartTime) / 1000);
+                console.log(`User spent ${timeSpent} seconds filling the form`);
+            }
+        });
+    </script>
 
 </body>
 </html>
