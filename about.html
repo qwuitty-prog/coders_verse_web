@@ -2,27 +2,79 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>About Us | Coders Verse</title>
+    <title>About CodersVerse | Premium Digital Agency</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about CodersVerse - a premium digital agency specializing in website development, branding, and marketing solutions.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
     <style>
+        /* Reuse all CSS variables and base styles from index.html */
         :root {
-            --primary: #3b82f6;
-            --primary-dark: #2563eb;
-            --primary-light: #60a5fa;
-            --accent: #8b5cf6;
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --primary-ultralight: #e0e7ff;
+            --accent: #ec4899;
+            --accent-light: #f472b6;
+            --secondary: #06b6d4;
+            --secondary-light: #22d3ee;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            
             --text-dark: #0f172a;
+            --text-dark-muted: #334155;
             --text-muted: #64748b;
-            --bg-light: #f8fafc;
+            --text-light: #94a3b8;
             --bg-white: #ffffff;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --bg-light: #f8fafc;
+            --bg-lighter: #f1f5f9;
+            --border-light: #e2e8f0;
+            --border-medium: #cbd5e1;
+            
+            --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+            --gradient-primary-reverse: linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #6366f1 100%);
+            --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --gradient-dark-reverse: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            --gradient-success: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
             --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-            --shadow-lg: 0 20px 40px rgba(0,0,0,0.12);
-            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.12);
+            --shadow-xl: 0 20px 40px rgba(0,0,0,0.15);
+            --shadow-xxl: 0 30px 60px rgba(0,0,0,0.2);
+            --shadow-primary: 0 10px 30px rgba(99, 102, 241, 0.3);
+            --shadow-primary-lg: 0 20px 50px rgba(99, 102, 241, 0.4);
+            
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --radius-full: 9999px;
+            
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            --space-3xl: 64px;
+            --space-4xl: 80px;
+            --space-5xl: 96px;
+            
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-secondary: 'Space Grotesk', monospace;
         }
 
         * { 
@@ -31,21 +83,140 @@
             padding: 0; 
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            font-family: var(--font-primary);
             background: var(--bg-light);
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
+            font-weight: 400;
         }
 
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-secondary);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--space-lg);
+        }
+
+        h1 { font-size: 4rem; }
+        h2 { font-size: 3rem; }
+        h3 { font-size: 2rem; }
+        h4 { font-size: 1.5rem; }
+        h5 { font-size: 1.25rem; }
+        h6 { font-size: 1rem; }
+
+        p {
+            margin-bottom: var(--space-md);
+            font-size: 1.125rem;
+            color: var(--text-dark-muted);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all var(--transition-normal);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+        }
+
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        .text-right { text-align: right; }
+
+        .gradient-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-padding {
+            padding: var(--space-4xl) 0;
+        }
+
+        .mb-0 { margin-bottom: 0 !important; }
+        .mb-xs { margin-bottom: var(--space-xs) !important; }
+        .mb-sm { margin-bottom: var(--space-sm) !important; }
+        .mb-md { margin-bottom: var(--space-md) !important; }
+        .mb-lg { margin-bottom: var(--space-lg) !important; }
+        .mb-xl { margin-bottom: var(--space-xl) !important; }
+        .mb-2xl { margin-bottom: var(--space-2xl) !important; }
+        .mb-3xl { margin-bottom: var(--space-3xl) !important; }
+
+        .mt-0 { margin-top: 0 !important; }
+        .mt-xs { margin-top: var(--space-xs) !important; }
+        .mt-sm { margin-top: var(--space-sm) !important; }
+        .mt-md { margin-top: var(--space-md) !important; }
+        .mt-lg { margin-top: var(--space-lg) !important; }
+        .mt-xl { margin-top: var(--space-xl) !important; }
+        .mt-2xl { margin-top: var(--space-2xl) !important; }
+        .mt-3xl { margin-top: var(--space-3xl) !important; }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flex-between {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .flex-column {
+            flex-direction: column;
+        }
+
+        .grid {
+            display: grid;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .gap-sm { gap: var(--space-sm); }
+        .gap-md { gap: var(--space-md); }
+        .gap-lg { gap: var(--space-lg); }
+        .gap-xl { gap: var(--space-xl); }
+        .gap-2xl { gap: var(--space-2xl); }
+
+        /* Animated Background */
         .animated-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
+            z-index: -2;
             background: linear-gradient(180deg, #f8fafc 0%, #e0e7ff 100%);
             overflow: hidden;
         }
@@ -63,7 +234,7 @@
         .animated-bg::before {
             width: 600px;
             height: 600px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
             top: -200px;
             right: -200px;
             animation-delay: 0s;
@@ -72,7 +243,7 @@
         .animated-bg::after {
             width: 500px;
             height: 500px;
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #ec4899 0%, #06b6d4 100%);
             bottom: -150px;
             left: -150px;
             animation-delay: 10s;
@@ -84,374 +255,370 @@
             66% { transform: translate(-100px, 100px) scale(0.9); }
         }
 
-        nav {
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             box-shadow: var(--shadow-md);
-            padding: 16px 40px;
+            transition: all var(--transition-normal);
+            padding: var(--space-md) 0;
+        }
+
+        .navbar.scrolled {
+            padding: var(--space-sm) 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-container {
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
         }
 
-        .nav-left {
+        .logo {
             display: flex;
             align-items: center;
-            gap: 14px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
+            gap: var(--space-sm);
+            font-weight: 900;
+            font-size: 1.75rem;
             text-decoration: none;
+            transition: transform var(--transition-normal);
         }
 
-        .nav-left:hover {
-            transform: scale(1.02);
+        .logo:hover {
+            transform: scale(1.05);
         }
 
-        .nav-left img {
+        .logo-icon {
+            width: 50px;
             height: 50px;
-            transition: transform 0.3s ease;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 900;
+            box-shadow: var(--shadow-primary);
         }
 
-        .nav-left:hover img {
-            transform: rotate(5deg);
-        }
-
-        .nav-left span {
-            font-size: 24px;
+        .logo-text {
+            font-family: var(--font-secondary);
             font-weight: 800;
-            background: var(--gradient-2);
+            background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        nav ul {
-            list-style: none;
+        .nav-menu {
             display: flex;
-            gap: 32px;
             align-items: center;
+            gap: var(--space-xl);
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
-        nav a {
-            text-decoration: none;
-            font-size: 15px;
+        .nav-link {
             font-weight: 600;
-            color: var(--text-dark);
-            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            color: var(--text-dark-muted);
+            padding: var(--space-sm) var(--space-md);
             position: relative;
-            padding: 6px 0;
+            transition: color var(--transition-normal);
         }
 
-        nav a::after {
+        .nav-link::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            left: 50%;
             width: 0;
             height: 2px;
-            background: var(--gradient-2);
-            transition: width 0.3s ease;
+            background: var(--gradient-primary);
+            transition: all var(--transition-normal);
+            transform: translateX(-50%);
         }
 
-        nav a:hover::after,
-        nav a.active::after {
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
             width: 100%;
         }
 
-        nav a.active,
-        nav a:hover {
-            color: var(--primary);
+        .nav-cta {
+            background: var(--gradient-primary);
+            color: white !important;
+            padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            box-shadow: var(--shadow-primary);
+            transition: all var(--transition-normal);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary-lg);
+        }
+
+        .nav-cta::after {
+            display: none;
         }
 
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            font-size: 28px;
-            cursor: pointer;
+            font-size: 1.5rem;
             color: var(--text-dark);
-            padding: 8px;
+            cursor: pointer;
+            padding: var(--space-sm);
+            z-index: 1001;
         }
 
+        /* Mobile Menu */
         .mobile-menu {
-            display: none;
             position: fixed;
             top: 0;
             right: -100%;
-            width: 280px;
+            width: 100%;
+            max-width: 400px;
             height: 100vh;
             background: var(--bg-white);
-            box-shadow: -4px 0 20px rgba(0,0,0,0.15);
-            z-index: 2000;
-            transition: right 0.3s ease;
-            padding: 80px 30px 30px;
+            z-index: 1002;
+            transition: right var(--transition-normal);
+            padding: var(--space-3xl);
+            box-shadow: var(--shadow-xxl);
+            overflow-y: auto;
         }
 
         .mobile-menu.active {
             right: 0;
         }
 
-        .mobile-menu ul {
-            flex-direction: column;
-            gap: 20px;
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-3xl);
         }
 
-        .mobile-menu a {
-            font-size: 18px;
-            display: block;
-            padding: 12px 0;
+        .mobile-menu-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
         }
 
-        .close-menu {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+        .mobile-close {
             background: none;
             border: none;
-            font-size: 32px;
-            cursor: pointer;
+            font-size: 1.5rem;
             color: var(--text-dark);
+            cursor: pointer;
+            padding: var(--space-sm);
         }
 
-        .header {
-            text-align: center;
-            padding: 0 40px;
-            margin: 120px auto 80px;
-            max-width: 1200px;
+        .mobile-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 var(--space-3xl) 0;
         }
 
-        .header-badge {
-            display: inline-block;
-            padding: 8px 20px;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            border-radius: 50px;
-            font-size: 14px;
+        .mobile-nav li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: var(--space-md) var(--space-lg);
+            font-size: 1.125rem;
             font-weight: 600;
+            color: var(--text-dark);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-normal);
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            background: var(--primary-ultralight);
             color: var(--primary);
-            margin-bottom: 30px;
-            animation: fadeInUp 0.6s ease;
         }
 
-        .header h1 {
-            font-size: 56px;
-            font-weight: 900;
-            margin-bottom: 24px;
-            line-height: 1.1;
-            background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 0.6s ease 0.2s both;
-        }
-
-        .header p {
-            font-size: 20px;
-            color: var(--text-muted);
-            max-width: 720px;
-            margin: 0 auto;
-            line-height: 1.7;
-            animation: fadeInUp 0.6s ease 0.4s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .about-container {
-            max-width: 1200px;
-            margin: 0 auto 80px;
-            padding: 0 40px;
-        }
-
-        .about-card {
-            background: var(--bg-white);
-            padding: 50px;
-            border-radius: 24px;
-            box-shadow: var(--shadow-md);
-            border: 1px solid rgba(0,0,0,0.05);
-            margin-bottom: 60px;
-        }
-
-        .about-card h2 {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            background: var(--gradient-2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .about-card p {
-            font-size: 17px;
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .info-box {
-            background: var(--bg-white);
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: var(--shadow-md);
-            border: 1px solid rgba(0,0,0,0.05);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .info-box::before {
-            content: '';
-            position: absolute;
+        .menu-overlay {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
-            background: var(--gradient-2);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
         }
 
-        .info-box:hover::before {
-            transform: scaleX(1);
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
         }
 
-        .info-box:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .info-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .info-box h3 {
-            font-size: 22px;
-            font-weight: 800;
-            margin-bottom: 12px;
-            color: var(--text-dark);
-        }
-
-        .info-box p {
-            font-size: 16px;
-            color: var(--text-muted);
-            line-height: 1.7;
-            margin-bottom: 0;
-        }
-
-        .stats-banner {
-            max-width: 1200px;
-            margin: 0 auto 80px;
-            padding: 50px 40px;
-            background: var(--gradient-2);
-            border-radius: 24px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
+        /* Hero About */
+        .about-hero {
+            padding: var(--space-5xl) 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
             position: relative;
             overflow: hidden;
         }
 
-        .stats-banner::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: pulse 4s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.2); opacity: 0.8; }
-        }
-
-        .stat-item {
+        .about-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
-            color: white;
             position: relative;
             z-index: 1;
         }
 
-        .stat-number {
-            font-size: 48px;
-            font-weight: 900;
-            display: block;
-            margin-bottom: 8px;
+        .about-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-lg);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: var(--space-2xl);
         }
 
-        .stat-label {
-            font-size: 16px;
-            opacity: 0.9;
+        .about-hero h1 {
+            font-size: 4rem;
+            margin-bottom: var(--space-xl);
+            line-height: 1.1;
+        }
+
+        .about-hero p {
+            font-size: 1.25rem;
+            color: var(--text-dark-muted);
+            max-width: 700px;
+            margin: 0 auto var(--space-2xl);
+        }
+
+        /* Mission Section */
+        .mission-section {
+            padding: var(--space-5xl) 0;
+            background: var(--bg-white);
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-4xl);
+            align-items: center;
+        }
+
+        .mission-image {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xxl);
+            position: relative;
+        }
+
+        .mission-image img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.7s ease;
+        }
+
+        .mission-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .mission-content h2 {
+            font-size: 3rem;
+            margin-bottom: var(--space-xl);
+        }
+
+        .mission-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-xl);
+            margin-top: var(--space-3xl);
+        }
+
+        .mission-stat {
+            text-align: center;
+            padding: var(--space-xl);
+            background: var(--bg-light);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            transition: all var(--transition-normal);
+        }
+
+        .mission-stat:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: transparent;
+        }
+
+        .mission-stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            font-family: var(--font-secondary);
+            margin-bottom: var(--space-sm);
+            color: var(--primary);
+        }
+
+        .mission-stat-label {
+            font-size: 1rem;
+            color: var(--text-muted);
             font-weight: 600;
         }
 
+        /* Values Section */
         .values-section {
-            max-width: 1200px;
-            margin: 0 auto 80px;
-            padding: 0 40px;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-size: 42px;
-            font-weight: 900;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-header p {
-            font-size: 18px;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
+            padding: var(--space-5xl) 0;
+            background: var(--bg-light);
         }
 
         .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-2xl);
         }
 
         .value-card {
             background: var(--bg-white);
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: var(--shadow-md);
-            transition: all 0.4s ease;
-            border: 1px solid rgba(0,0,0,0.05);
+            padding: var(--space-2xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            transition: all var(--transition-normal);
+            border: 1px solid var(--border-light);
+            text-align: center;
             position: relative;
             overflow: hidden;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xxl);
+            border-color: transparent;
         }
 
         .value-card::before {
@@ -461,31 +628,28 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: var(--gradient-2);
+            background: var(--gradient-primary);
             transform: scaleX(0);
-            transition: transform 0.4s ease;
+            transition: transform var(--transition-normal);
         }
 
         .value-card:hover::before {
             transform: scaleX(1);
         }
 
-        .value-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-
         .value-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-2);
-            border-radius: 16px;
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-lg);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            margin-bottom: 24px;
-            transition: all 0.3s ease;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto var(--space-xl);
+            box-shadow: var(--shadow-primary);
+            transition: all var(--transition-normal);
         }
 
         .value-card:hover .value-icon {
@@ -493,223 +657,551 @@
         }
 
         .value-card h3 {
-            margin-bottom: 16px;
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--text-dark);
+            font-size: 1.5rem;
+            margin-bottom: var(--space-md);
         }
 
         .value-card p {
-            font-size: 16px;
+            font-size: 1rem;
             color: var(--text-muted);
-            line-height: 1.7;
+            margin-bottom: 0;
         }
 
-        .location-section {
-            max-width: 1200px;
-            margin: 0 auto 80px;
-            padding: 60px 40px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
-            backdrop-filter: blur(10px);
-            border-radius: 32px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .location-section h2 {
-            font-size: 36px;
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 30px;
-        }
-
-        .location-details {
-            font-size: 18px;
-            color: var(--text-muted);
-            line-height: 2;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .location-details strong {
-            color: var(--text-dark);
-            font-weight: 700;
-        }
-
-        footer {
-            margin-top: 100px;
-            padding: 60px 40px 40px;
+        /* Team Section */
+        .team-section {
+            padding: var(--space-5xl) 0;
             background: var(--bg-white);
-            border-top: 1px solid rgba(0,0,0,0.08);
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-2xl);
         }
 
-        .footer-section h4 {
-            font-size: 18px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            color: var(--text-dark);
+        .team-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all var(--transition-normal);
+            border: 1px solid var(--border-light);
+            position: relative;
         }
 
-        .footer-section p,
-        .footer-section a {
-            font-size: 14px;
-            color: var(--text-muted);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 12px;
-            transition: color 0.3s ease;
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xxl);
+            border-color: transparent;
         }
 
-        .footer-section a:hover {
-            color: var(--primary);
+        .team-image {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(0,0,0,0.08);
-            color: var(--text-muted);
-            font-size: 14px;
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
         }
 
-        .social-links {
+        .team-card:hover .team-image img {
+            transform: scale(1.1);
+        }
+
+        .team-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+            padding: var(--space-xl);
             display: flex;
-            gap: 16px;
-            margin-top: 16px;
+            flex-direction: column;
+            justify-content: flex-end;
         }
 
-        .social-links a {
+        .team-card:hover .team-overlay {
+            opacity: 1;
+        }
+
+        .team-social {
+            display: flex;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+
+        .team-social a {
             width: 40px;
             height: 40px;
-            background: var(--gradient-2);
+            background: var(--gradient-primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
-            font-size: 18px;
-            transition: transform 0.3s ease;
+            color: white;
+            font-size: 1rem;
+            transition: all var(--transition-normal);
         }
 
-        .social-links a:hover {
+        .team-social a:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .team-info {
+            padding: var(--space-2xl);
+            text-align: center;
+        }
+
+        .team-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .team-role {
+            font-size: 0.95rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+        }
+
+        .team-info p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: var(--space-5xl) 0;
+            background: var(--bg-light);
+            position: relative;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: var(--space-4xl) auto 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient-primary);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--space-3xl);
+            width: 100%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-right: calc(50% + var(--space-xl));
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            padding-left: calc(50% + var(--space-xl));
+            text-align: left;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            box-shadow: var(--shadow-primary);
+        }
+
+        .timeline-content {
+            background: var(--bg-white);
+            padding: var(--space-2xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-light);
+            transition: all var(--transition-normal);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            border-color: transparent;
+        }
+
+        .timeline-year {
+            display: inline-block;
+            padding: var(--space-xs) var(--space-lg);
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .timeline-content p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        /* CTA Section */
+        .about-cta {
+            padding: var(--space-5xl) 0;
+            background: var(--gradient-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-cta-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-cta h2 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: var(--space-xl);
+        }
+
+        .about-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.25rem;
+            margin-bottom: var(--space-3xl);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gradient-dark);
+            color: white;
+            padding: var(--space-5xl) 0 var(--space-2xl);
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-3xl);
+            margin-bottom: var(--space-4xl);
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+        }
+
+        .footer-logo .logo-text {
+            background: linear-gradient(135deg, white 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .footer-links h4 {
+            color: white;
+            font-size: 1.125rem;
+            margin-bottom: var(--space-xl);
+            font-family: var(--font-primary);
+            font-weight: 700;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(4px);
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .contact-item i {
+            color: var(--primary-light);
+            width: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.125rem;
+            transition: all var(--transition-normal);
+        }
+
+        .social-link:hover {
+            background: var(--gradient-primary);
             transform: translateY(-4px);
         }
 
-        @media (max-width: 768px) {
-            nav {
-                padding: 16px 20px;
-            }
+        .footer-bottom {
+            padding-top: var(--space-2xl);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.875rem;
+        }
 
-            nav ul {
-                display: none;
-            }
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-2xl);
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: var(--radius-lg);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            font-family: var(--font-primary);
+        }
 
-            .mobile-menu-btn {
-                display: block;
-            }
+        .btn i {
+            font-size: 1.1rem;
+        }
 
-            .mobile-menu {
-                display: block;
-            }
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-primary);
+        }
 
-            .header {
-                margin: 80px auto 60px;
-                padding: 0 20px;
-            }
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary-lg);
+        }
 
-            .header h1 {
-                font-size: 40px;
-            }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s;
+        }
 
-            .header p {
-                font-size: 17px;
-            }
+        .btn-primary:hover::before {
+            left: 100%;
+        }
 
-            .about-container {
-                padding: 0 20px;
-            }
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
 
-            .about-card {
-                padding: 30px 24px;
-            }
+        .btn-secondary:hover {
+            background: rgba(99, 102, 241, 0.05);
+            transform: translateY(-2px);
+        }
 
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
+        .btn-dark {
+            background: var(--gradient-dark);
+            color: white;
+            box-shadow: var(--shadow-xl);
+        }
 
-            .info-box {
-                padding: 30px 24px;
-            }
+        .btn-dark:hover {
+            background: var(--gradient-dark-reverse);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xxl);
+        }
 
-            .stats-banner {
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-lg {
+            padding: var(--space-xl) var(--space-3xl);
+            font-size: 1.125rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 var(--space-lg);
+            }
+            
+            .mission-grid,
+            .values-grid,
+            .team-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
-                padding: 40px 30px;
-                margin: 0 20px 60px;
             }
-
-            .stat-number {
-                font-size: 36px;
-            }
-
-            .values-section {
-                padding: 0 20px;
-            }
-
-            .values-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .value-card {
-                padding: 30px 24px;
-            }
-
-            .section-header h2 {
-                font-size: 32px;
-            }
-
-            .location-section {
-                padding: 40px 30px;
-                margin: 0 20px 60px;
-            }
-
-            .location-section h2 {
-                font-size: 28px;
-            }
-
-            .location-details {
-                font-size: 16px;
-            }
-
+            
             .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                padding: 0 20px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-2xl);
             }
         }
 
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 32px;
+        @media (max-width: 992px) {
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.5rem; }
+            
+            .about-hero h1 { font-size: 3.5rem; }
+            .about-cta h2 { font-size: 2.5rem; }
+            
+            .timeline::before {
+                left: 30px;
             }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding-left: 60px;
+                padding-right: 0;
+                text-align: left;
+            }
+            
+            .timeline-dot {
+                left: 30px;
+            }
+        }
 
-            .stats-banner {
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .about-hero h1 { font-size: 2.5rem; }
+            .about-hero p { font-size: 1.125rem; }
+            
+            .mission-grid,
+            .values-grid,
+            .team-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .mission-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 var(--space-md);
+            }
+            
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            
+            .section-padding {
+                padding: var(--space-3xl) 0;
+            }
+            
+            .btn {
+                padding: var(--space-md) var(--space-xl);
+            }
+            
+            .mission-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-cta h2 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -717,195 +1209,517 @@
 
 <body>
 
+<!-- Animated Background -->
 <div class="animated-bg"></div>
 
-<nav>
-    <a href="index.html" class="nav-left">
-        <img src="assets/images/logo.png" alt="Coders Verse Logo">
-        <span>Coders Verse</span>
-    </a>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="courses.html">Courses</a></li>
-        <li><a href="about.html" class="active">About Us</a></li>
-        <li><a href="verify.html">Verify Certificate</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <button class="mobile-menu-btn" onclick="openMobileMenu()">☰</button>
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">CV</div>
+            <span class="logo-text">CodersVerse</span>
+        </a>
+        
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link active">About Us</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="contact.html" class="nav-link nav-cta">Start Project <i class="fas fa-arrow-right"></i></a></li>
+        </ul>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
 </nav>
 
+<!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
-    <button class="close-menu" onclick="closeMobileMenu()">×</button>
-    <ul>
-        <li><a href="index.html" onclick="closeMobileMenu()">Home</a></li>
-        <li><a href="courses.html" onclick="closeMobileMenu()">Courses</a></li>
-        <li><a href="about.html" class="active" onclick="closeMobileMenu()">About Us</a></li>
-        <li><a href="verify.html" onclick="closeMobileMenu()">Verify Certificate</a></li>
-        <li><a href="contact.html" onclick="closeMobileMenu()">Contact</a></li>
+    <div class="mobile-menu-header">
+        <div class="mobile-menu-logo">
+            <div class="logo-icon" style="width: 40px; height: 40px; font-size: 1.25rem;">CV</div>
+            <span class="logo-text">CodersVerse</span>
+        </div>
+        <button class="mobile-close" id="mobileClose">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    
+    <ul class="mobile-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
     </ul>
+    
+    <a href="contact.html" class="btn btn-primary mobile-cta">Start Project <i class="fas fa-arrow-right"></i></a>
+    
+    <div class="mobile-contact">
+        <h4>Contact Info</h4>
+        <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+1 (555) 123-4567</span>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>info@codersverse.com</span>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-clock"></i>
+            <span>Mon-Fri 9:00-18:00</span>
+        </div>
+    </div>
 </div>
 
-<section class="header">
-    <div class="header-badge">🎓 Trusted Technology Education</div>
-    <h1>About Coders Verse</h1>
-    <p>Coders Verse is a modern educational institute delivering industry-ready technical skills with transparency, credibility, and trust.</p>
-</section>
+<div class="menu-overlay" id="menuOverlay"></div>
 
-<section class="about-container">
-    <div class="stats-banner">
-        <div class="stat-item">
-            <span class="stat-number">15K+</span>
-            <span class="stat-label">Students Trained</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number">98%</span>
-            <span class="stat-label">Completion Rate</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number">500+</span>
-            <span class="stat-label">Hiring Partners</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number">4.8/5</span>
-            <span class="stat-label">Average Rating</span>
-        </div>
-    </div>
-
-    <div class="about-card">
-        <h2>Who We Are</h2>
-        <p>Coders Verse is an emerging technology education institute based in Mumbai, India. We specialize in professional training programs bridging academic learning and real-world industry needs.</p>
-        <p>Our certificate verification system ensures authenticity, builds employer trust, and provides students with verifiable credentials backed by official records.</p>
-    </div>
-
-    <div class="about-grid">
-        <div class="info-box">
-            <span class="info-icon">🎯</span>
-            <h3>Our Mission</h3>
-            <p>Empowering students and professionals with practical, job-ready skills through structured learning and verified certification.</p>
-        </div>
-
-        <div class="info-box">
-            <span class="info-icon">👁️</span>
-            <h3>Our Vision</h3>
-            <p>To become a trusted global name in technical education and digital credential verification.</p>
-        </div>
-
-        <div class="info-box">
-            <span class="info-icon">🔐</span>
-            <h3>Trust & Verification</h3>
-            <p>Every certificate issued is digitally verifiable via our official portal, ensuring complete transparency.</p>
+<!-- Hero About Section -->
+<section class="about-hero section-padding">
+    <div class="container">
+        <div class="about-hero-content animate__animated animate__fadeInUp">
+            <div class="about-hero-badge">
+                <i class="fas fa-info-circle"></i>
+                <span>About Our Company</span>
+            </div>
+            
+            <h1 class="animate__animated animate__fadeInUp">
+                Crafting Digital Excellence <span class="gradient-text">Since 2018</span>
+            </h1>
+            
+            <p class="animate__animated animate__fadeInUp">
+                CodersVerse is more than a digital agency - we're strategic partners in your business growth. With a passion for innovation and a commitment to excellence, we transform ideas into impactful digital solutions.
+            </p>
+            
+            <a href="#timeline" class="btn btn-primary btn-lg">
+                Our Journey <i class="fas fa-arrow-down"></i>
+            </a>
         </div>
     </div>
 </section>
 
-<section class="values-section">
-    <div class="section-header">
-        <h2>Our Core Values</h2>
-        <p>The principles that guide everything we do at Coders Verse</p>
-    </div>
-
-    <div class="values-grid">
-        <div class="value-card">
-            <div class="value-icon">💡</div>
-            <h3>Excellence</h3>
-            <p>We maintain the highest standards in education delivery, ensuring every student receives world-class training and support.</p>
-        </div>
-
-        <div class="value-card">
-            <div class="value-icon">🤝</div>
-            <h3>Integrity</h3>
-            <p>Complete transparency in our operations, certifications, and verification processes. Trust is our foundation.</p>
-        </div>
-
-        <div class="value-card">
-            <div class="value-icon">🚀</div>
-            <h3>Innovation</h3>
-            <p>Constantly evolving our curriculum and methods to stay ahead of industry trends and technological advancements.</p>
-        </div>
-
-        <div class="value-card">
-            <div class="value-icon">🌟</div>
-            <h3>Student Success</h3>
-            <p>Your growth and career advancement are our top priorities. We measure our success by yours.</p>
-        </div>
-
-        <div class="value-card">
-            <div class="value-icon">🔒</div>
-            <h3>Security</h3>
-            <p>Enterprise-grade security for all credentials and student data, ensuring privacy and authenticity.</p>
-        </div>
-
-        <div class="value-card">
-            <div class="value-icon">🌍</div>
-            <h3>Accessibility</h3>
-            <p>Making quality technical education accessible to learners from all backgrounds and locations.</p>
-        </div>
-    </div>
-</section>
-
-<section class="location-section">
-    <h2>📍 Our Location</h2>
-    <div class="location-details">
-        <strong>Coders Verse Learning Center</strong><br>
-        Andheri East, Mumbai<br>
-        Maharashtra – 400069<br>
-        India
-    </div>
-</section>
-
-<footer>
-    <div class="footer-content">
-        <div class="footer-section">
-            <h4>Coders Verse</h4>
-            <p>Leading the future of certificate verification with cutting-edge technology and uncompromising security.</p>
-            <div class="social-links">
-                <a href="https://instagram.com/coders.verse" target="_blank" title="Instagram">📷</a>
-                <a href="mailto:careers.codersverse@gmail.com" title="Email">📧</a>
-                <a href="#" title="LinkedIn">💼</a>
+<!-- Mission Section -->
+<section class="mission-section" id="mission">
+    <div class="container">
+        <div class="mission-grid">
+            <div class="mission-image animate__animated animate__fadeInLeft">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Our Team Collaboration">
+            </div>
+            
+            <div class="mission-content animate__animated animate__fadeInRight">
+                <h2>Our Mission & Vision</h2>
+                <p>
+                    At CodersVerse, our mission is to empower businesses with cutting-edge digital solutions that drive growth, enhance engagement, and deliver measurable results. We believe in the transformative power of technology when combined with creative excellence.
+                </p>
+                <p>
+                    Our vision is to be the most trusted digital partner for businesses worldwide, known for our innovative approach, exceptional quality, and unwavering commitment to client success.
+                </p>
+                
+                <div class="mission-stats">
+                    <div class="mission-stat">
+                        <div class="mission-stat-number">150+</div>
+                        <div class="mission-stat-label">Projects Delivered</div>
+                    </div>
+                    <div class="mission-stat">
+                        <div class="mission-stat-number">98%</div>
+                        <div class="mission-stat-label">Client Satisfaction</div>
+                    </div>
+                    <div class="mission-stat">
+                        <div class="mission-stat-number">15+</div>
+                        <div class="mission-stat-label">Industry Awards</div>
+                    </div>
+                    <div class="mission-stat">
+                        <div class="mission-stat-number">99%</div>
+                        <div class="mission-stat-label">On-Time Delivery</div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="footer-section">
-            <h4>Quick Links</h4>
-            <a href="index.html">Home</a>
-            <a href="courses.html">Courses</a>
-            <a href="about.html">About Us</a>
-            <a href="verify.html">Verify Certificate</a>
-            <a href="contact.html">Contact</a>
+    </div>
+</section>
+
+<!-- Values Section -->
+<section class="values-section" id="values">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2>Our Core Values</h2>
+            <p>The principles that guide everything we do at CodersVerse</p>
         </div>
-        <div class="footer-section">
-            <h4>Support</h4>
-            <a href="#">Help Center</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">FAQ</a>
-        </div>
-        <div class="footer-section">
-            <h4>Contact Us</h4>
-            <p>📞 +91 9876543210</p>
-            <p>📧 careers.codersverse@gmail.com</p>
-            <p>📍 Mumbai, Maharashtra, India</p>
+        
+        <div class="values-grid">
+            <!-- Value 1 -->
+            <div class="value-card animate__animated animate__fadeInUp">
+                <div class="value-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Innovation</h3>
+                <p>We constantly explore new technologies and approaches to deliver cutting-edge solutions that keep our clients ahead of the competition.</p>
+            </div>
+            
+            <!-- Value 2 -->
+            <div class="value-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                <div class="value-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>Partnership</h3>
+                <p>We believe in building long-term relationships based on trust, transparency, and mutual success. Your goals become our goals.</p>
+            </div>
+            
+            <!-- Value 3 -->
+            <div class="value-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                <div class="value-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <h3>Excellence</h3>
+                <p>From initial concept to final delivery, we maintain the highest standards of quality in every aspect of our work.</p>
+            </div>
+            
+            <!-- Value 4 -->
+            <div class="value-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                <div class="value-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Collaboration</h3>
+                <p>We work closely with our clients, involving them at every stage to ensure the final product exceeds expectations.</p>
+            </div>
+            
+            <!-- Value 5 -->
+            <div class="value-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                <div class="value-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Agility</h3>
+                <p>In a fast-paced digital world, we adapt quickly to changing requirements and market trends to deliver timely solutions.</p>
+            </div>
+            
+            <!-- Value 6 -->
+            <div class="value-card animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+                <div class="value-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Passion</h3>
+                <p>We love what we do, and it shows in the dedication and enthusiasm we bring to every project we undertake.</p>
+            </div>
         </div>
     </div>
-    <div class="footer-bottom">
-        © 2025 Coders Verse. All rights reserved. Built with ❤️ in India
+</section>
+
+<!-- Team Section -->
+<section class="team-section" id="team">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2>Meet Our Leadership Team</h2>
+            <p>The creative minds and strategic thinkers behind CodersVerse</p>
+        </div>
+        
+        <div class="team-grid">
+            <!-- Team Member 1 -->
+            <div class="team-card animate__animated animate__fadeInUp">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Alex Chen">
+                    <div class="team-overlay">
+                        <h3 style="color: white;">Alex Chen</h3>
+                        <p style="color: rgba(255,255,255,0.8);">Founder & CEO</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>Alex Chen</h3>
+                    <div class="team-role">Founder & CEO</div>
+                    <p>Former Google engineer with 12+ years of experience in digital transformation and product strategy.</p>
+                </div>
+            </div>
+            
+            <!-- Team Member 2 -->
+            <div class="team-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=800&q=80" alt="Sarah Johnson">
+                    <div class="team-overlay">
+                        <h3 style="color: white;">Sarah Johnson</h3>
+                        <p style="color: rgba(255,255,255,0.8);">Creative Director</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-behance"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>Sarah Johnson</h3>
+                    <div class="team-role">Creative Director</div>
+                    <p>Award-winning designer with expertise in branding, UX/UI, and digital marketing campaigns.</p>
+                </div>
+            </div>
+            
+            <!-- Team Member 3 -->
+            <div class="team-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                <div class="team-image">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=800&q=80" alt="Marcus Rodriguez">
+                    <div class="team-overlay">
+                        <h3 style="color: white;">Marcus Rodriguez</h3>
+                        <p style="color: rgba(255,255,255,0.8);">CTO</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-stack-overflow"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>Marcus Rodriguez</h3>
+                    <div class="team-role">Chief Technology Officer</div>
+                    <p>Full-stack developer with expertise in scalable architectures and emerging technologies.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Timeline Section -->
+<section class="timeline-section" id="timeline">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2>Our Journey</h2>
+            <p>Milestones in our growth and development</p>
+        </div>
+        
+        <div class="timeline">
+            <!-- Timeline Item 1 -->
+            <div class="timeline-item animate__animated animate__fadeInUp">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2018</div>
+                    <h3>Company Founded</h3>
+                    <p>CodersVerse was established with a vision to provide premium digital solutions to businesses of all sizes. Started with a team of 3 passionate individuals.</p>
+                </div>
+            </div>
+            
+            <!-- Timeline Item 2 -->
+            <div class="timeline-item animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2019</div>
+                    <h3>First Major Client</h3>
+                    <p>Secured our first enterprise client, leading to a 300% growth in revenue. Expanded our team to 10 professionals across design and development.</p>
+                </div>
+            </div>
+            
+            <!-- Timeline Item 3 -->
+            <div class="timeline-item animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2020</div>
+                    <h3>Service Expansion</h3>
+                    <p>Launched our branding and marketing divisions. Received "Best Digital Agency" award from the local business association.</p>
+                </div>
+            </div>
+            
+            <!-- Timeline Item 4 -->
+            <div class="timeline-item animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2021</div>
+                    <h3>International Reach</h3>
+                    <p>Expanded our services to international clients across 5 countries. Team grew to 25+ professionals with diverse expertise.</p>
+                </div>
+            </div>
+            
+            <!-- Timeline Item 5 -->
+            <div class="timeline-item animate__animated animate__fadeInUp" style="animation-delay: 0.8s;">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2023</div>
+                    <h3>Innovation Lab</h3>
+                    <p>Established our R&D division focusing on AI, AR/VR, and blockchain applications for digital solutions.</p>
+                </div>
+            </div>
+            
+            <!-- Timeline Item 6 -->
+            <div class="timeline-item animate__animated animate__fadeInUp" style="animation-delay: 1s;">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2024</div>
+                    <h3>Industry Recognition</h3>
+                    <p>Received "Excellence in Digital Innovation" award and featured in Forbes as one of the fastest-growing agencies.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="about-cta">
+    <div class="container">
+        <div class="about-cta-content animate__animated animate__fadeInUp">
+            <h2>Ready to Work With Us?</h2>
+            <p>
+                Join the 150+ businesses that have transformed their digital presence with CodersVerse. Let's create something amazing together.
+            </p>
+            
+            <div class="flex-center gap-lg" style="flex-wrap: wrap;">
+                <a href="contact.html" class="btn btn-primary btn-lg">
+                    Start Your Project <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="contact.html" class="btn btn-outline btn-lg">
+                    Schedule a Consultation <i class="fas fa-calendar"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo">
+                    <div class="logo-icon">CV</div>
+                    <span class="logo-text">CodersVerse</span>
+                </div>
+                <p class="footer-description">
+                    Transforming businesses through exceptional digital design and development. We create solutions that drive growth and make an impact.
+                </p>
+                <div class="footer-social">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-dribbble"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="index.html#services">Website Development</a></li>
+                    <li><a href="index.html#services">Branding & Logo Design</a></li>
+                    <li><a href="index.html#services">Marketing Materials</a></li>
+                    <li><a href="index.html#services">E-commerce Solutions</a></li>
+                    <li><a href="index.html#services">UI/UX Design</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="index.html#portfolio">Portfolio</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+1 (555) 123-4567</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@codersverse.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>123 Digital Street, Suite 500<br>San Francisco, CA 94107</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Mon-Fri: 9:00 AM - 6:00 PM</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 CodersVerse. All rights reserved. | <a href="#" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.7);">Terms of Service</a></p>
+        </div>
     </div>
 </footer>
 
 <script>
-function openMobileMenu() {
-    document.getElementById('mobileMenu').classList.add('active');
-}
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// Mobile menu
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+const menuOverlay = document.getElementById('menuOverlay');
+
+mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.add('active');
+    menuOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+});
+
+mobileClose.addEventListener('click', closeMobileMenu);
+menuOverlay.addEventListener('click', closeMobileMenu);
 
 function closeMobileMenu() {
-    document.getElementById('mobileMenu').classList.remove('active');
+    mobileMenu.classList.remove('active');
+    menuOverlay.classList.remove('active');
+    document.body.style.overflow = '';
 }
 
-document.addEventListener('click', function(event) {
-    const menu = document.getElementById('mobileMenu');
-    const btn = document.querySelector('.mobile-menu-btn');
-    if (!menu.contains(event.target) && !btn.contains(event.target)) {
-        menu.classList.remove('active');
-    }
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+            
+            // Close mobile menu if open
+            closeMobileMenu();
+        }
+    });
+});
+
+// Animation on scroll
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+        }
+    });
+}, observerOptions);
+
+// Observe elements
+document.querySelectorAll('.mission-image, .mission-content, .value-card, .team-card, .timeline-item').forEach(el => {
+    observer.observe(el);
 });
 </script>
 
