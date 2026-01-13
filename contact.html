@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contact CodersVerse | Get Your Free Consultation</title>
+    <title>Contact CodersVerse | WhatsApp: +91 9004324321</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact CodersVerse for website development, branding, and marketing solutions. Get a free consultation today.">
+    <meta name="description" content="Contact CodersVerse on WhatsApp +91 9004324321 for website development, branding, and marketing solutions.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
     <style>
-        /* Reuse all CSS variables and base styles */
         :root {
             --primary: #6366f1;
             --primary-dark: #4f46e5;
@@ -22,6 +21,8 @@
             --accent-light: #f472b6;
             --secondary: #06b6d4;
             --secondary-light: #22d3ee;
+            --whatsapp: #25D366;
+            --whatsapp-light: #5ae37c;
             --success: #10b981;
             --warning: #f59e0b;
             --error: #ef4444;
@@ -42,7 +43,7 @@
             --gradient-dark-reverse: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
             --gradient-success: linear-gradient(135deg, #10b981 0%, #34d399 100%);
-            --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            --gradient-whatsapp: linear-gradient(135deg, #25D366 0%, #5ae37c 100%);
             
             --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
             --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
@@ -51,6 +52,7 @@
             --shadow-xxl: 0 30px 60px rgba(0,0,0,0.2);
             --shadow-primary: 0 10px 30px rgba(99, 102, 241, 0.3);
             --shadow-primary-lg: 0 20px 50px rgba(99, 102, 241, 0.4);
+            --shadow-whatsapp: 0 10px 30px rgba(37, 211, 102, 0.3);
             
             --transition-fast: 0.2s ease;
             --transition-normal: 0.3s ease;
@@ -134,12 +136,6 @@
             padding: 0 var(--space-xl);
         }
 
-        .container-wide {
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 0 var(--space-xl);
-        }
-
         .text-center { text-align: center; }
         .text-left { text-align: left; }
         .text-right { text-align: right; }
@@ -151,12 +147,15 @@
             background-clip: text;
         }
 
-        .section-padding {
-            padding: var(--space-4xl) 0;
+        .whatsapp-text {
+            background: var(--gradient-whatsapp);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .section-margin {
-            margin: var(--space-4xl) 0;
+        .section-padding {
+            padding: var(--space-4xl) 0;
         }
 
         .mb-0 { margin-bottom: 0 !important; }
@@ -167,15 +166,6 @@
         .mb-xl { margin-bottom: var(--space-xl) !important; }
         .mb-2xl { margin-bottom: var(--space-2xl) !important; }
         .mb-3xl { margin-bottom: var(--space-3xl) !important; }
-
-        .mt-0 { margin-top: 0 !important; }
-        .mt-xs { margin-top: var(--space-xs) !important; }
-        .mt-sm { margin-top: var(--space-sm) !important; }
-        .mt-md { margin-top: var(--space-md) !important; }
-        .mt-lg { margin-top: var(--space-lg) !important; }
-        .mt-xl { margin-top: var(--space-xl) !important; }
-        .mt-2xl { margin-top: var(--space-2xl) !important; }
-        .mt-3xl { margin-top: var(--space-3xl) !important; }
 
         .flex {
             display: flex;
@@ -508,12 +498,12 @@
             align-items: center;
             gap: var(--space-sm);
             padding: var(--space-sm) var(--space-lg);
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-            border: 1px solid rgba(99, 102, 241, 0.2);
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.1) 0%, rgba(90, 227, 124, 0.1) 100%);
+            border: 1px solid rgba(37, 211, 102, 0.2);
             border-radius: var(--radius-full);
             font-size: 0.875rem;
             font-weight: 600;
-            color: var(--primary);
+            color: var(--whatsapp);
             margin-bottom: var(--space-2xl);
         }
 
@@ -530,19 +520,39 @@
             margin: 0 auto var(--space-2xl);
         }
 
-        /* Contact Methods */
-        .contact-methods {
+        .whatsapp-direct {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-xl);
+            background: var(--gradient-whatsapp);
+            color: white;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: var(--shadow-whatsapp);
+            transition: all var(--transition-normal);
+            margin-top: var(--space-xl);
+        }
+
+        .whatsapp-direct:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Quick Contact */
+        .quick-contact {
             padding: var(--space-4xl) 0;
             background: var(--bg-white);
         }
 
-        .methods-grid {
+        .quick-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: var(--space-2xl);
         }
 
-        .method-card {
+        .quick-card {
             background: var(--bg-white);
             padding: var(--space-2xl);
             border-radius: var(--radius-xl);
@@ -554,13 +564,13 @@
             overflow: hidden;
         }
 
-        .method-card:hover {
+        .quick-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-xxl);
             border-color: transparent;
         }
 
-        .method-card::before {
+        .quick-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -572,11 +582,11 @@
             transition: transform var(--transition-normal);
         }
 
-        .method-card:hover::before {
+        .quick-card:hover::before {
             transform: scaleX(1);
         }
 
-        .method-icon {
+        .quick-icon {
             width: 80px;
             height: 80px;
             background: var(--gradient-primary);
@@ -591,36 +601,120 @@
             transition: all var(--transition-normal);
         }
 
-        .method-card:hover .method-icon {
+        .quick-card:hover .quick-icon {
             transform: scale(1.1) rotate(5deg);
         }
 
-        .method-card h3 {
+        .quick-card h3 {
             font-size: 1.5rem;
             margin-bottom: var(--space-md);
         }
 
-        .method-card p {
+        .quick-card p {
             font-size: 1rem;
             color: var(--text-muted);
             margin-bottom: var(--space-lg);
         }
 
-        .method-contact {
+        .quick-contact-info {
             font-size: 1.25rem;
             font-weight: 700;
             color: var(--primary);
             margin-bottom: var(--space-sm);
         }
 
-        .method-hours {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-bottom: 0;
+        .whatsapp-card .quick-icon {
+            background: var(--gradient-whatsapp);
+            box-shadow: var(--shadow-whatsapp);
         }
 
-        /* Contact Form Section */
-        .contact-form-section {
+        .whatsapp-card .quick-contact-info {
+            color: var(--whatsapp);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-2xl);
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: var(--radius-lg);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            font-family: var(--font-primary);
+        }
+
+        .btn i {
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-primary-lg);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-whatsapp {
+            background: var(--gradient-whatsapp);
+            color: white;
+            box-shadow: var(--shadow-whatsapp);
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(99, 102, 241, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .btn-lg {
+            padding: var(--space-xl) var(--space-3xl);
+            font-size: 1.125rem;
+        }
+
+        .btn-block {
+            width: 100%;
+            display: flex;
+        }
+
+        /* WhatsApp Form Section */
+        .whatsapp-form-section {
             padding: var(--space-4xl) 0;
             background: var(--bg-light);
         }
@@ -636,7 +730,7 @@
 
         .form-header {
             padding: var(--space-3xl);
-            background: var(--gradient-primary);
+            background: var(--gradient-whatsapp);
             text-align: center;
             color: white;
         }
@@ -696,8 +790,8 @@
 
         .form-control:focus {
             outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+            border-color: var(--whatsapp);
+            box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.1);
             background: var(--bg-white);
         }
 
@@ -740,156 +834,69 @@
             text-decoration: underline;
         }
 
-        /* Form Steps */
-        .form-steps {
+        /* WhatsApp Preview */
+        .whatsapp-preview {
+            background: #E5DDD5;
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-2xl);
+            border: 1px solid #D1CBC1;
+        }
+
+        .whatsapp-header {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: var(--space-3xl);
-            position: relative;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-md);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
         }
 
-        .form-steps::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--border-light);
-            z-index: 0;
-        }
-
-        .form-step {
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            flex: 1;
-        }
-
-        .step-circle {
-            width: 40px;
-            height: 40px;
-            background: var(--bg-white);
-            border: 2px solid var(--border-medium);
+        .whatsapp-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-whatsapp);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            color: var(--text-muted);
-            margin: 0 auto var(--space-sm);
-            transition: all var(--transition-normal);
-        }
-
-        .form-step.active .step-circle {
-            background: var(--gradient-primary);
-            border-color: transparent;
             color: white;
-            transform: scale(1.1);
+            font-size: 1.5rem;
         }
 
-        .step-label {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--text-muted);
-        }
-
-        .form-step.active .step-label {
-            color: var(--primary);
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--space-sm);
-            padding: var(--space-lg) var(--space-2xl);
-            font-size: 1rem;
-            font-weight: 700;
-            border-radius: var(--radius-lg);
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all var(--transition-normal);
-            position: relative;
-            overflow: hidden;
-            font-family: var(--font-primary);
-        }
-
-        .btn i {
-            font-size: 1.1rem;
-        }
-
-        .btn-primary {
-            background: var(--gradient-primary);
-            color: white;
-            box-shadow: var(--shadow-primary);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-primary-lg);
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.7s;
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(99, 102, 241, 0.05);
-            transform: translateY(-2px);
-        }
-
-        .btn-dark {
-            background: var(--gradient-dark);
-            color: white;
-            box-shadow: var(--shadow-xl);
-        }
-
-        .btn-dark:hover {
-            background: var(--gradient-dark-reverse);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-xxl);
-        }
-
-        .btn-outline {
-            background: transparent;
+        .whatsapp-info h4 {
+            margin: 0;
             color: var(--text-dark);
-            border: 2px solid var(--border-medium);
         }
 
-        .btn-outline:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            transform: translateY(-2px);
+        .whatsapp-info p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
-        .btn-lg {
-            padding: var(--space-xl) var(--space-3xl);
-            font-size: 1.125rem;
+        .whatsapp-message {
+            background: white;
+            padding: var(--space-lg);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            max-height: 300px;
+            overflow-y: auto;
         }
 
-        .btn-block {
-            width: 100%;
-            display: flex;
+        .whatsapp-message h5 {
+            color: var(--whatsapp);
+            margin-bottom: var(--space-lg);
+            border-bottom: 2px solid var(--whatsapp-light);
+            padding-bottom: var(--space-sm);
+        }
+
+        .message-content {
+            line-height: 1.6;
+        }
+
+        .message-content p {
+            margin-bottom: var(--space-sm);
         }
 
         .form-actions {
@@ -968,48 +975,26 @@
             color: var(--text-muted);
         }
 
-        /* Map Section */
-        .map-section {
-            padding: var(--space-4xl) 0 0;
-        }
-
-        .map-container {
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            box-shadow: var(--shadow-xxl);
-            height: 500px;
-            position: relative;
-        }
-
-        .map-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: var(--space-2xl);
-            background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, transparent 100%);
-            color: white;
-        }
-
-        .map-overlay h3 {
-            color: white;
-            margin-bottom: var(--space-sm);
-        }
-
-        .map-overlay p {
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 0;
-        }
-
-        /* Contact CTA */
-        .contact-cta {
+        /* WhatsApp CTA */
+        .whatsapp-cta {
             padding: var(--space-5xl) 0;
-            background: var(--gradient-dark);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             position: relative;
             overflow: hidden;
         }
 
-        .contact-cta-content {
+        .whatsapp-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(37, 211, 102, 0.1) 0%, transparent 70%);
+            animation: pulse 8s infinite;
+        }
+
+        .whatsapp-cta-content {
             text-align: center;
             max-width: 700px;
             margin: 0 auto;
@@ -1017,13 +1002,13 @@
             z-index: 1;
         }
 
-        .contact-cta h2 {
+        .whatsapp-cta h2 {
             color: white;
             font-size: 3.5rem;
             margin-bottom: var(--space-xl);
         }
 
-        .contact-cta p {
+        .whatsapp-cta p {
             color: rgba(255, 255, 255, 0.9);
             font-size: 1.25rem;
             margin-bottom: var(--space-3xl);
@@ -1031,7 +1016,7 @@
 
         /* Footer */
         .footer {
-            background: var(--gradient-dark);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
             padding: var(--space-5xl) 0 var(--space-2xl);
             position: relative;
@@ -1146,7 +1131,9 @@
         .social-link:hover {
             background: var(--gradient-primary);
             transform: translateY(-4px);
-        }.footer-bottom {
+        }
+
+        .footer-bottom {
             padding-top: var(--space-2xl);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
@@ -1154,41 +1141,39 @@
             font-size: 0.875rem;
         }
 
-        /* Form Success Message */
-        .form-success {
-            display: none;
+        /* Success Message */
+        .success-message {
             text-align: center;
-            padding: var(--space-3xl);
-        }
-
-        .form-success.active {
-            display: block;
+            padding: var(--space-4xl);
         }
 
         .success-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-success);
+            width: 100px;
+            height: 100px;
+            background: var(--gradient-whatsapp);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 3rem;
             color: white;
-            margin: 0 auto var(--space-xl);
-            box-shadow: var(--shadow-lg);
+            margin: 0 auto var(--space-2xl);
+            box-shadow: var(--shadow-whatsapp);
+            animation: bounce 1s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         /* Responsive Design */
         @media (max-width: 1200px) {
-            .container, .container-wide {
+            .container {
                 padding: 0 var(--space-lg);
             }
             
-            .methods-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
+            .quick-grid,
             .footer-content {
                 grid-template-columns: repeat(2, 1fr);
                 gap: var(--space-2xl);
@@ -1200,7 +1185,7 @@
             h2 { font-size: 2.5rem; }
             
             .contact-hero h1 { font-size: 3.5rem; }
-            .contact-cta h2 { font-size: 2.5rem; }
+            .whatsapp-cta h2 { font-size: 2.5rem; }
             
             .form-grid {
                 grid-template-columns: 1fr;
@@ -1219,17 +1204,14 @@
             .contact-hero h1 { font-size: 2.5rem; }
             .contact-hero p { font-size: 1.125rem; }
             
-            .methods-grid {
+            .quick-grid,
+            .footer-content {
                 grid-template-columns: 1fr;
             }
             
             .form-header,
             .form-body {
                 padding: var(--space-xl);
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
             }
             
             .form-actions {
@@ -1257,12 +1239,8 @@
                 padding: var(--space-md) var(--space-xl);
             }
             
-            .contact-cta h2 {
+            .whatsapp-cta h2 {
                 font-size: 2rem;
-            }
-            
-            .map-container {
-                height: 350px;
             }
         }
     </style>
@@ -1285,7 +1263,9 @@
             <li><a href="index.html" class="nav-link">Home</a></li>
             <li><a href="about.html" class="nav-link">About Us</a></li>
             <li><a href="contact.html" class="nav-link active">Contact</a></li>
-            <li><a href="contact.html" class="nav-link nav-cta">Get Free Quote <i class="fas fa-arrow-right"></i></a></li>
+            <li><a href="#whatsapp-form" class="nav-link nav-cta">
+                <i class="fab fa-whatsapp"></i> WhatsApp Us
+            </a></li>
         </ul>
         
         <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -1312,276 +1292,249 @@
         <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
     
-    <a href="#contact-form" class="btn btn-primary mobile-cta">Get Free Quote <i class="fas fa-arrow-right"></i></a>
+    <a href="#whatsapp-form" class="btn btn-whatsapp btn-block">
+        <i class="fab fa-whatsapp"></i> WhatsApp: +91 9004324321
+    </a>
     
-    <div class="mobile-contact">
-        <h4>Contact Info</h4>
-        <div class="contact-item">
-            <i class="fas fa-phone"></i>
-            <span>+1 (555) 123-4567</span>
+    <div class="mobile-contact" style="margin-top: var(--space-2xl);">
+        <h4 style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: var(--space-md);">Direct Contact</h4>
+        <div class="contact-item" style="color: var(--text-dark);">
+            <i class="fab fa-whatsapp" style="color: var(--whatsapp);"></i>
+            <span>+91 9004324321</span>
         </div>
-        <div class="contact-item">
+        <div class="contact-item" style="color: var(--text-dark);">
             <i class="fas fa-envelope"></i>
             <span>info@codersverse.com</span>
-        </div>
-        <div class="contact-item">
-            <i class="fas fa-clock"></i>
-            <span>Mon-Fri 9:00-18:00</span>
         </div>
     </div>
 </div>
 
 <div class="menu-overlay" id="menuOverlay"></div>
 
-<!-- Contact Hero Section -->
+<!-- Contact Hero -->
 <section class="contact-hero">
     <div class="container">
         <div class="contact-hero-content">
             <div class="contact-hero-badge animate__animated animate__fadeInUp">
-                <i class="fas fa-comments"></i>
-                <span>Let's Start Your Project</span>
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp Connect</span>
             </div>
             
             <h1 class="animate__animated animate__fadeInUp">
-                Let's Create Something <span class="gradient-text">Amazing Together</span>
+                Message Us Directly on <span class="whatsapp-text">WhatsApp</span>
             </h1>
             
             <p class="animate__animated animate__fadeInUp">
-                Ready to transform your digital presence? Contact us today for a free consultation. Our team is ready to help you achieve your business goals with innovative digital solutions.
+                Fill out the form below and get redirected to WhatsApp with all your project details pre-filled. 
+                Our team responds within minutes during business hours.
             </p>
             
-            <a href="#contact-form" class="btn btn-primary btn-lg animate__animated animate__fadeInUp">
-                Start Your Project <i class="fas fa-arrow-right"></i>
+            <a href="https://wa.me/919004324321?text=Hello%20CodersVerse%2C%20I%27d%20like%20to%20discuss%20a%20project." 
+               target="_blank" 
+               class="whatsapp-direct animate__animated animate__fadeInUp">
+                <i class="fab fa-whatsapp"></i>
+                <span>Direct WhatsApp: +91 9004324321</span>
             </a>
         </div>
     </div>
 </section>
 
-<!-- Contact Methods -->
-<section class="contact-methods">
+<!-- Quick Contact -->
+<section class="quick-contact">
     <div class="container">
-        <div class="methods-grid">
-            <!-- Method 1: Phone -->
-            <div class="method-card animate__animated animate__fadeInUp">
-                <div class="method-icon">
-                    <i class="fas fa-phone"></i>
+        <div class="quick-grid">
+            <!-- WhatsApp Card -->
+            <div class="quick-card whatsapp-card animate__animated animate__fadeInUp">
+                <div class="quick-icon">
+                    <i class="fab fa-whatsapp"></i>
                 </div>
-                <h3>Call Us</h3>
-                <p>Speak directly with our team for immediate assistance</p>
-                <div class="method-contact">+1 (555) 123-4567</div>
-                <p class="method-hours">Mon-Fri: 9:00 AM - 6:00 PM EST</p>
-                <a href="tel:+15551234567" class="btn btn-secondary btn-sm">
-                    <i class="fas fa-phone"></i> Call Now
+                <h3>WhatsApp Business</h3>
+                <p>Fastest response time. Ideal for quick questions and project discussions.</p>
+                <div class="quick-contact-info">+91 9004324321</div>
+                <p style="font-size: 0.9rem; color: var(--text-light);">Available 9 AM - 8 PM IST</p>
+                <a href="https://wa.me/919004324321" target="_blank" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Message Now
                 </a>
             </div>
             
-            <!-- Method 2: Email -->
-            <div class="method-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
-                <div class="method-icon">
+            <!-- Email Card -->
+            <div class="quick-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                <div class="quick-icon">
                     <i class="fas fa-envelope"></i>
                 </div>
-                <h3>Email Us</h3>
-                <p>Send us your project details and get a detailed quote</p>
-                <div class="method-contact">info@codersverse.com</div>
-                <p class="method-hours">Response within 24 hours</p>
-                <a href="mailto:info@codersverse.com" class="btn btn-secondary btn-sm">
+                <h3>Email</h3>
+                <p>For detailed proposals, contracts, and formal communication.</p>
+                <div class="quick-contact-info">info@codersverse.com</div>
+                <p style="font-size: 0.9rem; color: var(--text-light);">Response within 24 hours</p>
+                <a href="mailto:info@codersverse.com" class="btn btn-secondary">
                     <i class="fas fa-envelope"></i> Send Email
                 </a>
             </div>
             
-            <!-- Method 3: Live Chat -->
-            <div class="method-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
-                <div class="method-icon">
-                    <i class="fas fa-comment-dots"></i>
+            <!-- Call Card -->
+            <div class="quick-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                <div class="quick-icon">
+                    <i class="fas fa-phone"></i>
                 </div>
-                <h3>Live Chat</h3>
-                <p>Get instant answers from our support team</p>
-                <div class="method-contact">Available Now</div>
-                <p class="method-hours">Click to start conversation</p>
-                <button class="btn btn-secondary btn-sm" id="liveChatBtn">
-                    <i class="fas fa-comment"></i> Start Chat
-                </button>
+                <h3>Phone Call</h3>
+                <p>For urgent matters and in-depth project discussions.</p>
+                <div class="quick-contact-info">+91 9876543210</div>
+                <p style="font-size: 0.9rem; color: var(--text-light);">Mon-Fri: 10 AM - 6 PM</p>
+                <a href="tel:+919876543210" class="btn btn-secondary">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Contact Form Section -->
-<section class="contact-form-section" id="contact-form">
+<!-- WhatsApp Form -->
+<section class="whatsapp-form-section" id="whatsapp-form">
     <div class="container">
         <div class="form-container">
             <div class="form-header">
-                <h2>Get Your Free Consultation</h2>
-                <p>Fill out the form below and we'll get back to you within 24 hours</p>
+                <h2>Send Project Details via WhatsApp</h2>
+                <p>Fill this form and get redirected to WhatsApp with all information pre-filled</p>
             </div>
             
             <div class="form-body">
-                <!-- Form Steps -->
-                <div class="form-steps">
-                    <div class="form-step active">
-                        <div class="step-circle">1</div>
-                        <div class="step-label">Contact Info</div>
-                    </div>
-                    <div class="form-step">
-                        <div class="step-circle">2</div>
-                        <div class="step-label">Project Details</div>
-                    </div>
-                    <div class="form-step">
-                        <div class="step-circle">3</div>
-                        <div class="step-label">Review & Submit</div>
-                    </div>
-                </div>
-                
-                <!-- Multi-Step Form -->
-                <form id="consultationForm">
-                    <!-- Step 1: Contact Information -->
-                    <div class="form-step-content active" id="step1">
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label class="form-label" for="firstName">First Name <span>*</span></label>
-                                <input type="text" id="firstName" class="form-control" placeholder="Enter your first name" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label" for="lastName">Last Name <span>*</span></label>
-                                <input type="text" id="lastName" class="form-control" placeholder="Enter your last name" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label" for="email">Email Address <span>*</span></label>
-                                <input type="email" id="email" class="form-control" placeholder="your.email@example.com" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label" for="phone">Phone Number</label>
-                                <input type="tel" id="phone" class="form-control" placeholder="+1 (555) 123-4567">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label" for="company">Company Name</label>
-                                <input type="text" id="company" class="form-control" placeholder="Your company name">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label" for="website">Website URL</label>
-                                <input type="url" id="website" class="form-control" placeholder="https://example.com">
-                            </div>
+                <form id="projectForm">
+                    <div class="form-grid">
+                        <!-- Personal Information -->
+                        <div class="form-group">
+                            <label class="form-label" for="name">Full Name <span>*</span></label>
+                            <input type="text" id="name" class="form-control" placeholder="Your full name" required>
                         </div>
                         
-                        <div class="form-actions">
-                            <button type="button" class="btn btn-primary" id="nextStep1">
-                                Next Step <i class="fas fa-arrow-right"></i>
-                            </button>
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email Address <span>*</span></label>
+                            <input type="email" id="email" class="form-control" placeholder="your.email@example.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="phone">WhatsApp Number <span>*</span></label>
+                            <input type="tel" id="phone" class="form-control" placeholder="+91 9876543210" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="company">Company / Business</label>
+                            <input type="text" id="company" class="form-control" placeholder="Your company name">
+                        </div>
+                        
+                        <!-- Project Information -->
+                        <div class="form-group full-width">
+                            <label class="form-label" for="service">Service Needed <span>*</span></label>
+                            <select id="service" class="form-control form-select" required>
+                                <option value="" disabled selected>Select service</option>
+                                <option value="Website Development">Website Development</option>
+                                <option value="E-commerce Store">E-commerce Store</option>
+                                <option value="Website Redesign">Website Redesign</option>
+                                <option value="Logo Design">Logo & Branding</option>
+                                <option value="Brochure Design">Brochure Design</option>
+                                <option value="Marketing Materials">Marketing Materials</option>
+                                <option value="Multiple Services">Multiple Services</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="budget">Budget Range <span>*</span></label>
+                            <select id="budget" class="form-control form-select" required>
+                                <option value="" disabled selected>Select budget</option>
+                                <option value="Under ₹50,000">Under ₹50,000</option>
+                                <option value="₹50,000 - ₹1,00,000">₹50,000 - ₹1,00,000</option>
+                                <option value="₹1,00,000 - ₹2,50,000">₹1,00,000 - ₹2,50,000</option>
+                                <option value="₹2,50,000 - ₹5,00,000">₹2,50,000 - ₹5,00,000</option>
+                                <option value="₹5,00,000+">₹5,00,000+</option>
+                                <option value="Not Sure">Not Sure / Need Quote</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="timeline">Project Timeline <span>*</span></label>
+                            <select id="timeline" class="form-control form-select" required>
+                                <option value="" disabled selected>Select timeline</option>
+                                <option value="ASAP (Within 2 weeks)">ASAP (Within 2 weeks)</option>
+                                <option value="1 Month">Within 1 Month</option>
+                                <option value="1-3 Months">1-3 Months</option>
+                                <option value="3-6 Months">3-6 Months</option>
+                                <option value="Flexible">Flexible</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Project Details -->
+                        <div class="form-group full-width">
+                            <label class="form-label" for="description">Project Description <span>*</span></label>
+                            <textarea id="description" class="form-control" placeholder="Describe your project in detail. What are your goals? Who is your target audience? Any specific features or requirements?" rows="5" required></textarea>
                         </div>
                     </div>
                     
-                    <!-- Step 2: Project Details -->
-                    <div class="form-step-content" id="step2">
-                        <div class="form-grid">
-                            <div class="form-group full-width">
-                                <label class="form-label" for="projectType">Project Type <span>*</span></label>
-                                <select id="projectType" class="form-control form-select" required>
-                                    <option value="" disabled selected>Select your project type</option>
-                                    <option value="website">Website Development</option>
-                                    <option value="ecommerce">E-commerce Website</option>
-                                    <option value="branding">Branding & Logo Design</option>
-                                    <option value="marketing">Marketing Materials</option>
-                                    <option value="redesign">Website Redesign</option>
-                                    <option value="other">Other</option>
-                                </select>
+                    <!-- WhatsApp Preview -->
+                    <div class="whatsapp-preview">
+                        <div class="whatsapp-header">
+                            <div class="whatsapp-avatar">
+                                <i class="fab fa-whatsapp"></i>
                             </div>
-                            
-                            <div class="form-group full-width">
-                                <label class="form-label" for="budget">Project Budget <span>*</span></label>
-                                <select id="budget" class="form-control form-select" required>
-                                    <option value="" disabled selected>Select your budget range</option>
-                                    <option value="under-2k">Under $2,000</option>
-                                    <option value="2k-5k">$2,000 - $5,000</option>
-                                    <option value="5k-10k">$5,000 - $10,000</option>
-                                    <option value="10k-25k">$10,000 - $25,000</option>
-                                    <option value="25k-plus">$25,000+</option>
-                                    <option value="not-sure">Not Sure</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group full-width">
-                                <label class="form-label" for="timeline">Project Timeline <span>*</span></label>
-                                <select id="timeline" class="form-control form-select" required>
-                                    <option value="" disabled selected>Select your timeline</option>
-                                    <option value="asap">ASAP (1-2 weeks)</option>
-                                    <option value="1month">Within 1 month</option>
-                                    <option value="3months">1-3 months</option>
-                                    <option value="flexible">Flexible</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group full-width">
-                                <label class="form-label" for="projectDetails">Project Details <span>*</span></label>
-                                <textarea id="projectDetails" class="form-control" placeholder="Tell us about your project, goals, and requirements..." required></textarea>
+                            <div class="whatsapp-info">
+                                <h4>CodersVerse Business</h4>
+                                <p>+91 9004324321 • Usually responds instantly</p>
                             </div>
                         </div>
                         
-                        <div class="form-actions">
-                            <button type="button" class="btn btn-outline" id="prevStep2">
-                                <i class="fas fa-arrow-left"></i> Back
-                            </button>
-                            <button type="button" class="btn btn-primary" id="nextStep2">
-                                Next Step <i class="fas fa-arrow-right"></i>
-                            </button>
+                        <div class="whatsapp-message">
+                            <h5><i class="fab fa-whatsapp"></i> Message Preview</h5>
+                            <div class="message-content" id="whatsappPreview">
+                                <p><strong>Hello CodersVerse Team,</strong></p>
+                                <p>I'd like to discuss a project:</p>
+                                <p><strong>👤 Name:</strong> [Your Name]</p>
+                                <p><strong>📧 Email:</strong> [Your Email]</p>
+                                <p><strong>📱 WhatsApp:</strong> [Your Number]</p>
+                                <p><strong>🎯 Service:</strong> [Selected Service]</p>
+                                <p><strong>💰 Budget:</strong> [Budget Range]</p>
+                                <p><strong>⏰ Timeline:</strong> [Project Timeline]</p>
+                                <p><strong>📋 Description:</strong> [Your project details will appear here...]</p>
+                                <p>Looking forward to discussing this further!</p>
+                            </div>
                         </div>
                     </div>
                     
-                    <!-- Step 3: Review & Submit -->
-                    <div class="form-step-content" id="step3">
-                        <div class="form-group">
-                            <h4>Review Your Information</h4>
-                            <div id="formReview" style="background: var(--bg-light); padding: var(--space-xl); border-radius: var(--radius-md); margin-bottom: var(--space-xl);">
-                                <p><strong>Name:</strong> <span id="reviewName"></span></p>
-                                <p><strong>Email:</strong> <span id="reviewEmail"></span></p>
-                                <p><strong>Company:</strong> <span id="reviewCompany"></span></p>
-                                <p><strong>Project Type:</strong> <span id="reviewProjectType"></span></p>
-                                <p><strong>Budget:</strong> <span id="reviewBudget"></span></p>
-                                <p><strong>Timeline:</strong> <span id="reviewTimeline"></span></p>
-                                <p><strong>Project Details:</strong> <span id="reviewDetails"></span></p>
-                            </div>
+                    <!-- Terms & Submit -->
+                    <div class="form-group">
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="terms" required>
+                            <label for="terms">I agree to receive communication from CodersVerse regarding my inquiry via WhatsApp and email.</label>
                         </div>
-                        
-                        <div class="form-group">
-                            <div class="form-checkbox">
-                                <input type="checkbox" id="newsletter" checked>
-                                <label for="newsletter">Subscribe to our newsletter for tips, updates, and special offers.</label>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <div class="form-checkbox">
-                                <input type="checkbox" id="privacy" required>
-                                <label for="privacy">I agree to the <a href="#">Privacy Policy</a> and consent to CodersVerse contacting me about my inquiry.</label>
-                            </div>
-                        </div>
-                        
-                        <div class="form-actions">
-                            <button type="button" class="btn btn-outline" id="prevStep3">
-                                <i class="fas fa-arrow-left"></i> Back
-                            </button>
-                            <button type="submit" class="btn btn-primary btn-lg">
-                                <i class="fas fa-paper-plane"></i> Submit Request
-                            </button>
-                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="previewBtn">
+                            <i class="fas fa-eye"></i> Update Preview
+                        </button>
+                        <button type="submit" class="btn btn-whatsapp btn-block">
+                            <i class="fab fa-whatsapp"></i> Send to WhatsApp
+                        </button>
                     </div>
                 </form>
                 
-                <!-- Success Message -->
-                <div class="form-success" id="formSuccess">
+                <!-- Success Message (Hidden by default) -->
+                <div class="success-message" id="successMessage" style="display: none;">
                     <div class="success-icon">
-                        <i class="fas fa-check"></i>
+                        <i class="fab fa-whatsapp"></i>
                     </div>
-                    <h3>Thank You!</h3>
-                    <p>Your consultation request has been submitted successfully. Our team will contact you within 24 hours.</p>
-                    <p>In the meantime, feel free to browse our <a href="index.html#portfolio">portfolio</a> or check out our <a href="about.html">company story</a>.</p>
-                    <a href="index.html" class="btn btn-primary">
-                        <i class="fas fa-home"></i> Back to Home
-                    </a>
+                    <h2>WhatsApp Opened!</h2>
+                    <p>Your project details have been pre-filled in WhatsApp. Please send the message to start the conversation.</p>
+                    <p style="color: var(--text-muted); margin-bottom: var(--space-2xl);">
+                        If WhatsApp didn't open automatically, please message us directly at:<br>
+                        <strong style="color: var(--whatsapp); font-size: 1.25rem;">+91 9004324321</strong>
+                    </p>
+                    <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+                        <button class="btn btn-secondary" onclick="resetForm()">
+                            <i class="fas fa-redo"></i> Submit Another
+                        </button>
+                        <a href="index.html" class="btn btn-primary">
+                            <i class="fas fa-home"></i> Back to Home
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1593,116 +1546,80 @@
     <div class="container">
         <div class="section-header text-center">
             <h2>Frequently Asked Questions</h2>
-            <p>Find answers to common questions about working with CodersVerse</p>
+            <p>Common questions about contacting CodersVerse</p>
         </div>
         
         <div class="faq-container">
             <!-- FAQ 1 -->
             <div class="faq-item">
                 <div class="faq-question">
-                    <h3>How long does a typical website project take?</h3>
+                    <h3>How quickly will you respond on WhatsApp?</h3>
                     <div class="faq-icon">
                         <i class="fas fa-plus"></i>
                     </div>
                 </div>
                 <div class="faq-answer">
-                    <p>The timeline varies based on project complexity. A basic website takes 2-4 weeks, while complex e-commerce platforms may take 6-10 weeks. We provide a detailed timeline during our initial consultation.</p>
+                    <p>We respond within minutes during business hours (9 AM - 8 PM IST). Outside these hours, we'll respond the next business day.</p>
                 </div>
             </div>
             
             <!-- FAQ 2 -->
             <div class="faq-item">
                 <div class="faq-question">
-                    <h3>What is your pricing structure?</h3>
+                    <h3>Do I need to install WhatsApp to use this form?</h3>
                     <div class="faq-icon">
                         <i class="fas fa-plus"></i>
                     </div>
                 </div>
                 <div class="faq-answer">
-                    <p>We offer transparent, project-based pricing. Costs depend on the scope, features, and complexity. Website projects start at $1,500, branding at $800, and marketing materials at $600. We provide detailed quotes after understanding your requirements.</p>
+                    <p>Yes, you need WhatsApp installed on your device. If you don't have WhatsApp, you can email us at info@codersverse.com or call +91 9876543210.</p>
                 </div>
             </div>
             
             <!-- FAQ 3 -->
             <div class="faq-item">
                 <div class="faq-question">
-                    <h3>Do you provide ongoing support after launch?</h3>
+                    <h3>Can I send files/images via the WhatsApp form?</h3>
                     <div class="faq-icon">
                         <i class="fas fa-plus"></i>
                     </div>
                 </div>
                 <div class="faq-answer">
-                    <p>Yes! We offer maintenance packages starting at $150/month, including updates, security monitoring, and minor content changes. All our projects come with 30 days of free post-launch support.</p>
+                    <p>Once redirected to WhatsApp, you can send files, images, and documents directly in the chat. Our team will review them and respond accordingly.</p>
                 </div>
             </div>
             
             <!-- FAQ 4 -->
             <div class="faq-item">
                 <div class="faq-question">
-                    <h3>What information do you need to start my project?</h3>
+                    <h3>What information should I include in my project description?</h3>
                     <div class="faq-icon">
                         <i class="fas fa-plus"></i>
                     </div>
                 </div>
                 <div class="faq-answer">
-                    <p>We'll need to understand your business goals, target audience, design preferences, and functional requirements. During our consultation, we'll gather all necessary information to create a tailored solution.</p>
-                </div>
-            </div>
-            
-            <!-- FAQ 5 -->
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>Do you work with clients outside your local area?</h3>
-                    <div class="faq-icon">
-                        <i class="fas fa-plus"></i>
-                    </div>
-                </div>
-                <div class="faq-answer">
-                    <p>Absolutely! We work with clients worldwide. Our team is experienced in remote collaboration using video calls, project management tools, and regular communication to ensure seamless collaboration regardless of location.</p>
+                    <p>Please include: Your business type, project goals, target audience, specific features needed, any existing websites/designs, and your timeline expectations.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Map Section -->
-<section class="map-section">
-    <div class="container-wide">
-        <div class="map-container">
-            <!-- Google Map Embed -->
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.177858804427!2d-73.98784468459418!3d40.70556577933208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a315cdf4c9b%3A0x8b934de5cae6f7a!2sWall%20St%2C%20New%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1641234567890!5m2!1sen!2s" 
-                width="100%" 
-                height="100%" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-            
-            <div class="map-overlay">
-                <h3>Our Headquarters</h3>
-                <p>123 Digital Street, Suite 500<br>San Francisco, CA 94107</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Contact CTA -->
-<section class="contact-cta">
+<!-- WhatsApp CTA -->
+<section class="whatsapp-cta">
     <div class="container">
-        <div class="contact-cta-content">
-            <h2 class="animate__animated animate__fadeInUp">Still Have Questions?</h2>
+        <div class="whatsapp-cta-content">
+            <h2 class="animate__animated animate__fadeInUp">Ready to Start Your Project?</h2>
             <p class="animate__animated animate__fadeInUp">
-                Don't hesitate to reach out. Our team is here to help you navigate your digital transformation journey.
+                Message us directly on WhatsApp for the fastest response. Let's create something amazing together!
             </p>
             
             <div class="flex-center gap-lg" style="flex-wrap: wrap;">
-                <a href="#contact-form" class="btn btn-primary btn-lg">
-                    Get Free Quote <i class="fas fa-arrow-right"></i>
+                <a href="https://wa.me/919004324321" target="_blank" class="btn btn-whatsapp btn-lg">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Now
                 </a>
-                <a href="tel:+15551234567" class="btn btn-outline btn-lg">
-                    <i class="fas fa-phone"></i> Call Now
+                <a href="tel:+919876543210" class="btn btn-outline btn-lg" style="color: white; border-color: white;">
+                    <i class="fas fa-phone"></i> Call Us
                 </a>
             </div>
         </div>
@@ -1719,14 +1636,12 @@
                     <span class="logo-text">CodersVerse</span>
                 </div>
                 <p class="footer-description">
-                    Transforming businesses through exceptional digital design and development. We create solutions that drive growth and make an impact.
+                    Transforming businesses through exceptional digital design and development. 
+                    Message us on WhatsApp for instant response.
                 </p>
                 <div class="footer-social">
-                    <a href="#" class="social-link">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-facebook-f"></i>
+                    <a href="https://wa.me/919004324321" target="_blank" class="social-link" style="background: var(--whatsapp);">
+                        <i class="fab fa-whatsapp"></i>
                     </a>
                     <a href="#" class="social-link">
                         <i class="fab fa-instagram"></i>
@@ -1735,7 +1650,7 @@
                         <i class="fab fa-linkedin-in"></i>
                     </a>
                     <a href="#" class="social-link">
-                        <i class="fab fa-dribbble"></i>
+                        <i class="fab fa-twitter"></i>
                     </a>
                 </div>
             </div>
@@ -1744,29 +1659,33 @@
                 <h4>Services</h4>
                 <ul>
                     <li><a href="index.html#services">Website Development</a></li>
-                    <li><a href="index.html#services">Branding & Logo Design</a></li>
-                    <li><a href="index.html#services">Marketing Materials</a></li>
                     <li><a href="index.html#services">E-commerce Solutions</a></li>
-                    <li><a href="index.html#services">UI/UX Design</a></li>
+                    <li><a href="index.html#services">Logo & Branding</a></li>
+                    <li><a href="index.html#services">Brochure Design</a></li>
+                    <li><a href="index.html#services">Digital Marketing</a></li>
                 </ul>
             </div>
             
             <div class="footer-links">
-                <h4>Company</h4>
+                <h4>Quick Links</h4>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="index.html#portfolio">Portfolio</a></li>
-                    <li><a href="index.html#services">Services</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#whatsapp-form">Contact Form</a></li>
+                    <li><a href="tel:+919876543210">Call Now</a></li>
                 </ul>
             </div>
             
             <div class="footer-contact">
-                <h4>Contact Us</h4>
+                <h4>Contact Info</h4>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp" style="color: var(--whatsapp);"></i>
+                    <span>+91 9004324321</span>
+                </div>
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
-                    <span>+1 (555) 123-4567</span>
+                    <span>+91 9876543210</span>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
@@ -1774,11 +1693,11 @@
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>123 Digital Street, Suite 500<br>San Francisco, CA 94107</span>
+                    <span>Mumbai, Maharashtra<br>India</span>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-clock"></i>
-                    <span>Mon-Fri: 9:00 AM - 6:00 PM</span>
+                    <span>Mon-Sat: 9 AM - 8 PM IST</span>
                 </div>
             </div>
         </div>
@@ -1790,6 +1709,138 @@
 </footer>
 
 <script>
+// WhatsApp Form Submission
+document.addEventListener('DOMContentLoaded', function() {
+    const whatsappNumber = "919004324321"; // Your WhatsApp number without + and spaces
+    
+    // Function to update WhatsApp preview
+    function updateWhatsAppPreview() {
+        const name = document.getElementById('name').value.trim() || '[Your Name]';
+        const email = document.getElementById('email').value.trim() || '[Your Email]';
+        const phone = document.getElementById('phone').value.trim() || '[Your Number]';
+        const company = document.getElementById('company').value.trim() || '[Not provided]';
+        const service = document.getElementById('service').value || '[Selected Service]';
+        const budget = document.getElementById('budget').value || '[Budget Range]';
+        const timeline = document.getElementById('timeline').value || '[Project Timeline]';
+        const description = document.getElementById('description').value.trim() || '[Your project details will appear here...]';
+        
+        const previewHTML = `
+            <p><strong>Hello CodersVerse Team,</strong></p>
+            <p>I'd like to discuss a project:</p>
+            <p><strong>👤 Name:</strong> ${name}</p>
+            <p><strong>📧 Email:</strong> ${email}</p>
+            <p><strong>📱 WhatsApp:</strong> ${phone}</p>
+            ${company !== '[Not provided]' ? `<p><strong>🏢 Company:</strong> ${company}</p>` : ''}
+            <p><strong>🎯 Service:</strong> ${service}</p>
+            <p><strong>💰 Budget:</strong> ${budget}</p>
+            <p><strong>⏰ Timeline:</strong> ${timeline}</p>
+            <p><strong>📋 Description:</strong> ${description}</p>
+            <p>Looking forward to discussing this further!</p>
+        `;
+        
+        document.getElementById('whatsappPreview').innerHTML = previewHTML;
+    }
+    
+    // Update preview on input
+    document.querySelectorAll('#projectForm input, #projectForm select, #projectForm textarea').forEach(element => {
+        element.addEventListener('input', updateWhatsAppPreview);
+        element.addEventListener('change', updateWhatsAppPreview);
+    });
+    
+    // Preview button
+    document.getElementById('previewBtn').addEventListener('click', updateWhatsAppPreview);
+    
+    // Form submission
+    document.getElementById('projectForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Check terms
+        if (!document.getElementById('terms').checked) {
+            alert('Please agree to receive communication from CodersVerse');
+            return;
+        }
+        
+        // Get form values
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const company = document.getElementById('company').value.trim();
+        const service = document.getElementById('service').value;
+        const budget = document.getElementById('budget').value;
+        const timeline = document.getElementById('timeline').value;
+        const description = document.getElementById('description').value.trim();
+        
+        // Validate required fields
+        if (!name || !email || !phone || !service || !budget || !timeline || !description) {
+            alert('Please fill in all required fields');
+            return;
+        }
+        
+        // Create WhatsApp message
+        const whatsappMessage = `
+*NEW PROJECT INQUIRY - CodersVerse Website*
+
+*👤 CONTACT INFORMATION*
+• Name: ${name}
+• Email: ${email}
+• WhatsApp: ${phone}
+${company ? `• Company: ${company}` : ''}
+
+*🎯 PROJECT DETAILS*
+• Service Needed: ${service}
+• Budget Range: ${budget}
+• Timeline: ${timeline}
+
+*📋 PROJECT DESCRIPTION*
+${description}
+
+*📅 SUBMITTED ON*
+${new Date().toLocaleDateString('en-IN', { 
+    weekday: 'long', 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+})}
+
+---
+*This inquiry was submitted via CodersVerse Contact Form*
+*Please respond within 24 hours*
+        `.trim();
+        
+        // Encode message for URL
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+        
+        // Create WhatsApp URL
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+        
+        // Open WhatsApp in new tab
+        window.open(whatsappURL, '_blank');
+        
+        // Show success message
+        document.getElementById('projectForm').style.display = 'none';
+        document.getElementById('successMessage').style.display = 'block';
+        
+        // Scroll to success message
+        document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+    });
+    
+    // Initialize preview
+    updateWhatsAppPreview();
+});
+
+// Form reset function
+function resetForm() {
+    document.getElementById('projectForm').reset();
+    document.getElementById('projectForm').style.display = 'block';
+    document.getElementById('successMessage').style.display = 'none';
+    updateWhatsAppPreview();
+    
+    // Scroll back to form
+    document.getElementById('whatsapp-form').scrollIntoView({ behavior: 'smooth' });
+}
+
 // Navbar scroll effect
 window.addEventListener('scroll', () => {
     const navbar = document.getElementById('navbar');
@@ -1821,15 +1872,33 @@ function closeMobileMenu() {
     document.body.style.overflow = '';
 }
 
+// FAQ Accordion
+document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        const isActive = faqItem.classList.contains('active');
+        
+        // Close all FAQ items
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        // Open clicked item if it wasn't active
+        if (!isActive) {
+            faqItem.classList.add('active');
+        }
+    });
+});
+
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
+        if (this.getAttribute('href') === '#') return;
+        
         e.preventDefault();
-        
         const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
         const targetElement = document.querySelector(targetId);
+        
         if (targetElement) {
             window.scrollTo({
                 top: targetElement.offsetTop - 80,
@@ -1842,171 +1911,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Multi-step form functionality
-let currentStep = 1;
-const totalSteps = 3;
-
-function updateFormSteps() {
-    // Update step indicators
-    document.querySelectorAll('.form-step').forEach((step, index) => {
-        if (index + 1 === currentStep) {
-            step.classList.add('active');
-        } else {
-            step.classList.remove('active');
-        }
-    });
-    
-    // Show current step content
-    document.querySelectorAll('.form-step-content').forEach((content, index) => {
-        if (index + 1 === currentStep) {
-            content.classList.add('active');
-        } else {
-            content.classList.remove('active');
-        }
-    });
-}
-
-// Next step buttons
-document.getElementById('nextStep1').addEventListener('click', () => {
-    // Validate step 1
-    const firstName = document.getElementById('firstName').value.trim();
-    const lastName = document.getElementById('lastName').value.trim();
-    const email = document.getElementById('email').value.trim();
-    
-    if (!firstName || !lastName || !email) {
-        alert('Please fill in all required fields');
-        return;
-    }
-    
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('Please enter a valid email address');
-        return;
-    }
-    
-    currentStep = 2;
-    updateFormSteps();
-});
-
-document.getElementById('nextStep2').addEventListener('click', () => {
-    // Validate step 2
-    const projectType = document.getElementById('projectType').value;
-    const budget = document.getElementById('budget').value;
-    const timeline = document.getElementById('timeline').value;
-    const projectDetails = document.getElementById('projectDetails').value.trim();
-    
-    if (!projectType || !budget || !timeline || !projectDetails) {
-        alert('Please fill in all required fields');
-        return;
-    }
-    
-    // Update review section
-    document.getElementById('reviewName').textContent = 
-        `${document.getElementById('firstName').value} ${document.getElementById('lastName').value}`;
-    document.getElementById('reviewEmail').textContent = document.getElementById('email').value;
-    document.getElementById('reviewCompany').textContent = document.getElementById('company').value || 'Not provided';
-    
-    // Map values to readable text
-    const projectTypeMap = {
-        'website': 'Website Development',
-        'ecommerce': 'E-commerce Website',
-        'branding': 'Branding & Logo Design',
-        'marketing': 'Marketing Materials',
-        'redesign': 'Website Redesign',
-        'other': 'Other'
-    };
-    
-    const budgetMap = {
-        'under-2k': 'Under $2,000',
-        '2k-5k': '$2,000 - $5,000',
-        '5k-10k': '$5,000 - $10,000',
-        '10k-25k': '$10,000 - $25,000',
-        '25k-plus': '$25,000+',
-        'not-sure': 'Not Sure'
-    };
-    
-    const timelineMap = {
-        'asap': 'ASAP (1-2 weeks)',
-        '1month': 'Within 1 month',
-        '3months': '1-3 months',
-        'flexible': 'Flexible'
-    };
-    
-    document.getElementById('reviewProjectType').textContent = projectTypeMap[projectType] || projectType;
-    document.getElementById('reviewBudget').textContent = budgetMap[budget] || budget;
-    document.getElementById('reviewTimeline').textContent = timelineMap[timeline] || timeline;
-    document.getElementById('reviewDetails').textContent = projectDetails;
-    
-    currentStep = 3;
-    updateFormSteps();
-});
-
-// Previous step buttons
-document.getElementById('prevStep2').addEventListener('click', () => {
-    currentStep = 1;
-    updateFormSteps();
-});
-
-document.getElementById('prevStep3').addEventListener('click', () => {
-    currentStep = 2;
-    updateFormSteps();
-});
-
-// Form submission
-document.getElementById('consultationForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Check privacy policy agreement
-    const privacyCheckbox = document.getElementById('privacy');
-    if (!privacyCheckbox.checked) {
-        alert('Please agree to the Privacy Policy');
-        return;
-    }
-    
-    // In a real application, you would send the form data to a server here
-    // For demo purposes, we'll simulate a successful submission
-    
-    // Show success message
-    document.getElementById('consultationForm').style.display = 'none';
-    document.getElementById('formSuccess').classList.add('active');
-    
-    // Reset form after 5 seconds (optional)
-    setTimeout(() => {
-        // Reset form
-        document.getElementById('consultationForm').reset();
-        currentStep = 1;
-        updateFormSteps();
-        document.getElementById('consultationForm').style.display = 'block';
-        document.getElementById('formSuccess').classList.remove('active');
-        
-        // Scroll to top of form
-        document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });
-    }, 5000);
-});
-
-// FAQ Accordion
-document.querySelectorAll('.faq-question').forEach(question => {
-    question.addEventListener('click', () => {
-        const faqItem = question.parentElement;
-        faqItem.classList.toggle('active');
-        
-        // Close other FAQ items
-        document.querySelectorAll('.faq-item').forEach(item => {
-            if (item !== faqItem && item.classList.contains('active')) {
-                item.classList.remove('active');
-            }
-        });
-    });
-});
-
-// Live Chat Simulation
-document.getElementById('liveChatBtn').addEventListener('click', () => {
-    const chatMessage = "Hello! Welcome to CodersVerse. How can we help you today?";
-    alert(`Live Chat: ${chatMessage}\n\n(In a real implementation, this would open a live chat widget)`);
-});
-
-// Animation on scroll
+// Initialize animations
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -100px 0px'
@@ -2020,13 +1925,10 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe elements
-document.querySelectorAll('.method-card, .faq-item').forEach(el => {
+// Observe elements for animation
+document.querySelectorAll('.quick-card').forEach(el => {
     observer.observe(el);
 });
-
-// Initialize form steps
-updateFormSteps();
 </script>
 
 </body>
