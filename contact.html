@@ -303,7 +303,7 @@
             box-shadow: 0 15px 40px rgba(26, 95, 255, 0.3);
         }
         
-        /* Hero Image Section */
+        /* Hero Video Section */
         .hero-image-section {
             display: flex;
             justify-content: center;
@@ -320,6 +320,12 @@
             height: auto;
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-elevated);
+        }
+        
+        /* Video specific styling */
+        video.hero-image {
+            max-height: 400px;
+            object-fit: cover;
         }
         
         /* Contact Methods */
@@ -843,6 +849,10 @@
                 max-width: 450px;
                 margin: 0 auto;
             }
+            
+            video.hero-image {
+                max-height: 350px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -895,6 +905,10 @@
                 width: 55px;
                 height: 55px;
                 font-size: 1.5rem;
+            }
+            
+            video.hero-image {
+                max-height: 300px;
             }
         }
         
@@ -965,6 +979,10 @@
             .info-card {
                 padding: var(--space-lg);
             }
+            
+            video.hero-image {
+                max-height: 250px;
+            }
         }
         
         @media (max-width: 400px) {
@@ -978,6 +996,10 @@
             
             .method-detail {
                 font-size: 1.1rem;
+            }
+            
+            video.hero-image {
+                max-height: 200px;
             }
         }
     </style>
@@ -1020,7 +1042,7 @@
         <a href="#contact-form" class="header-cta" id="mobileCta">Start Project</a>
     </div>
 
-    <!-- Hero Section with Image -->
+    <!-- Hero Section with Video -->
     <section class="hero">
         <div class="container hero-container">
             <div class="hero-content">
@@ -1046,10 +1068,11 @@
             
             <div class="hero-image-section">
                 <div class="hero-image-wrapper">
-                    <!-- Static stock image - no animations, no text overlay -->
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
-                         alt="Digital agency team collaboration" 
-                         class="hero-image">
+                    <!-- Your GitHub Video -->
+                    <video class="hero-image" autoplay muted loop playsinline>
+                        <source src="https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/assets/CodersVerseIntro.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
         </div>
