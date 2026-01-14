@@ -2,698 +2,513 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Contact CodersVerse | Premium Digital Agency | +91 9004329806</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact CodersVerse | Premium Digital Agency</title>
     <meta name="description" content="Contact CodersVerse for premium website development, branding, and digital marketing solutions. WhatsApp: +91 9004329806, Email: careers.codersverse@gmail.com">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     
     <style>
-        /* ====== MODERN VARIABLES ====== */
         :root {
-            --primary: #7C3AED;
-            --primary-dark: #5B21B6;
-            --primary-light: #8B5CF6;
-            --primary-glow: rgba(124, 58, 237, 0.15);
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #3b82f6;
+            --secondary: #0f172a;
+            --secondary-light: #1e293b;
+            --accent: #8b5cf6;
+            --accent-dark: #7c3aed;
+            --light: #f8fafc;
+            --light-gray: #f1f5f9;
+            --medium-gray: #e2e8f0;
+            --dark-gray: #64748b;
+            --text: #334155;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
             
-            --secondary: #06D6A0;
-            --secondary-dark: #059669;
-            --secondary-light: #34D399;
-            --secondary-glow: rgba(6, 214, 160, 0.15);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 12px 32px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 50px rgba(0,0,0,0.12);
             
-            --accent: #EF476F;
-            --accent-dark: #DC2626;
-            --accent-light: #F472B6;
-            --accent-glow: rgba(239, 71, 111, 0.15);
-            
-            --dark: #0F172A;
-            --darker: #020617;
-            --light: #F8FAFC;
-            --lighter: #F1F5F9;
-            --white: #FFFFFF;
-            
-            --text-primary: #1E293B;
-            --text-secondary: #475569;
-            --text-tertiary: #64748B;
-            --text-light: #94A3B8;
-            
-            --border-light: #E2E8F0;
-            --border-medium: #CBD5E1;
-            --border-dark: #475569;
-            
-            --gradient-primary: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 50%, #EC4899 100%);
-            --gradient-secondary: linear-gradient(135deg, #06D6A0 0%, #3B82F6 100%);
-            --gradient-accent: linear-gradient(135deg, #EF476F 0%, #F59E0B 100%);
-            --gradient-dark: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-            --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-            
-            --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.08);
-            --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.12);
-            --shadow-lg: 0 8px 32px rgba(15, 23, 42, 0.16);
-            --shadow-xl: 0 16px 48px rgba(15, 23, 42, 0.2);
-            --shadow-glow: 0 0 40px rgba(124, 58, 237, 0.3);
-            
-            --radius-sm: 12px;
-            --radius-md: 20px;
-            --radius-lg: 28px;
-            --radius-xl: 40px;
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 20px;
             --radius-full: 9999px;
             
-            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             
-            --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-accent: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+            --container: 1200px;
+            --header-height: 80px;
         }
-
-        /* ====== BASE STYLES ====== */
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 80px;
         }
-
+        
         body {
-            font-family: var(--font-body);
-            background: var(--light);
-            color: var(--text-primary);
-            line-height: 1.7;
-            overflow-x: hidden;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            background-color: var(--white);
+            line-height: 1.6;
             font-weight: 400;
+            overflow-x: hidden;
         }
-
+        
         h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-heading);
+            font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 1.5rem;
         }
-
-        h1 { font-size: 3.5rem; }
-        h2 { font-size: 2.75rem; }
-        h3 { font-size: 2rem; }
-        h4 { font-size: 1.5rem; }
-        h5 { font-size: 1.25rem; }
-        h6 { font-size: 1rem; }
-
+        
+        h1 {
+            font-size: 3.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            letter-spacing: -0.01em;
+        }
+        
+        h3 {
+            font-size: 1.75rem;
+        }
+        
         p {
             margin-bottom: 1.5rem;
             font-size: 1.125rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
+            color: var(--text-light);
         }
-
+        
         a {
             text-decoration: none;
             color: inherit;
-            transition: all var(--transition-normal);
+            transition: var(--transition);
         }
-
+        
         img {
             max-width: 100%;
             height: auto;
             display: block;
         }
-
-        ul, ol {
-            list-style: none;
-        }
-
-        /* ====== UTILITIES ====== */
+        
         .container {
-            max-width: 1280px;
+            max-width: var(--container);
             margin: 0 auto;
             padding: 0 2rem;
         }
-
-        .text-center { text-align: center; }
-        .text-left { text-align: left; }
-        .text-right { text-align: right; }
-
-        .gradient-text {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-padding {
+        
+        .section {
             padding: 6rem 0;
         }
-
-        .flex {
-            display: flex;
+        
+        .section-title {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
         }
-
-        .flex-center {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .flex-between {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .flex-column {
-            flex-direction: column;
-        }
-
-        .grid {
-            display: grid;
-        }
-
-        .gap-sm { gap: 1rem; }
-        .gap-md { gap: 2rem; }
-        .gap-lg { gap: 3rem; }
-        .gap-xl { gap: 4rem; }
-
-        /* ====== ANIMATED BACKGROUND ====== */
-        .particle-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.4;
-            animation: float 20s infinite linear;
-        }
-
-        .particle-1 {
-            width: 400px;
-            height: 400px;
-            background: var(--primary);
-            top: -100px;
-            right: -100px;
-            animation-delay: 0s;
-        }
-
-        .particle-2 {
-            width: 300px;
-            height: 300px;
-            background: var(--secondary);
-            bottom: -50px;
-            left: -50px;
-            animation-delay: 5s;
-        }
-
-        .particle-3 {
-            width: 200px;
-            height: 200px;
-            background: var(--accent);
-            top: 50%;
-            left: 10%;
-            animation-delay: 10s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(50px, -50px) scale(1.1); }
-            50% { transform: translate(-30px, 30px) scale(0.9); }
-            75% { transform: translate(70px, 20px) scale(1.05); }
-        }
-
-        /* ====== NAVIGATION ====== */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
-            padding: 1.5rem 0;
-            transition: all var(--transition-normal);
-        }
-
-        .nav.scrolled {
-            padding: 1rem 0;
-            box-shadow: var(--shadow-md);
-        }
-
-        .nav-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-family: var(--font-accent);
-            font-weight: 800;
-            font-size: 1.75rem;
-            color: var(--dark);
-        }
-
-        .nav-logo {
-            width: 45px;
-            height: 45px;
-            background: var(--gradient-primary);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.25rem;
-            font-weight: 800;
-            box-shadow: var(--shadow-glow);
-        }
-
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
-        }
-
-        .nav-link {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            padding: 0.5rem 0;
-            position: relative;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--gradient-primary);
-            border-radius: 2px;
-            transition: width var(--transition-normal);
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--primary);
-        }
-
-        .nav-link:hover::before,
-        .nav-link.active::before {
-            width: 100%;
-        }
-
-        .nav-cta {
-            background: var(--gradient-primary);
-            color: white !important;
-            padding: 0.75rem 1.75rem;
-            border-radius: var(--radius-full);
-            font-weight: 700;
-            box-shadow: var(--shadow-glow);
-            transition: all var(--transition-normal);
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4);
-        }
-
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--dark);
-            cursor: pointer;
-        }
-
-        /* ====== HERO SECTION ====== */
-        .contact-hero {
-            padding: 8rem 0 6rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem 1.5rem;
-            background: rgba(124, 58, 237, 0.1);
-            border: 1px solid rgba(124, 58, 237, 0.2);
-            border-radius: var(--radius-full);
+        
+        .section-title .subtitle {
+            display: inline-block;
             font-size: 0.875rem;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
             color: var(--primary);
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
+            background: rgba(37, 99, 235, 0.1);
+            padding: 0.5rem 1.25rem;
+            border-radius: var(--radius-full);
         }
-
-        .hero-badge i {
-            font-size: 1rem;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .hero-visual {
-            position: relative;
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            box-shadow: var(--shadow-xl);
-            height: 500px;
-        }
-
-        .hero-visual img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform var(--transition-slow);
-        }
-
-        .hero-visual:hover img {
-            transform: scale(1.05);
-        }
-
-        .hero-visual::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(124, 58, 237, 0.1), rgba(6, 214, 160, 0.1));
-            mix-blend-mode: overlay;
-            pointer-events: none;
-        }
-
-        /* ====== BUTTONS ====== */
+        
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 0.75rem;
             padding: 1rem 2rem;
+            font-family: 'Inter', sans-serif;
             font-size: 1rem;
             font-weight: 600;
-            border-radius: var(--radius-lg);
+            border-radius: var(--radius-md);
             border: none;
             cursor: pointer;
+            transition: var(--transition);
             text-decoration: none;
-            transition: all var(--transition-normal);
             position: relative;
             overflow: hidden;
-            font-family: var(--font-body);
         }
-
+        
         .btn i {
             font-size: 1.125rem;
         }
-
+        
         .btn-primary {
-            background: var(--gradient-primary);
-            color: white;
-            box-shadow: var(--shadow-glow);
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
-
+        
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(124, 58, 237, 0.4);
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
         }
-
+        
         .btn-secondary {
-            background: transparent;
+            background-color: transparent;
             color: var(--primary);
             border: 2px solid var(--primary);
         }
-
+        
         .btn-secondary:hover {
-            background: rgba(124, 58, 237, 0.05);
-            transform: translateY(-3px);
+            background-color: rgba(37, 99, 235, 0.05);
+            transform: translateY(-2px);
         }
-
+        
         .btn-whatsapp {
             background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-            color: white;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
         }
-
+        
         .btn-whatsapp:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
         }
-
+        
         .btn-instagram {
             background: linear-gradient(45deg, #E4405F 0%, #C13584 50%, #833AB4 100%);
-            color: white;
+            color: var(--white);
+            box-shadow: 0 4px 12px rgba(228, 64, 95, 0.3);
         }
-
+        
         .btn-instagram:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(228, 64, 95, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(228, 64, 95, 0.4);
         }
-
-        .btn-lg {
-            padding: 1.25rem 2.5rem;
-            font-size: 1.125rem;
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
         }
-
-        /* ====== CONTACT CARDS ====== */
-        .contact-cards {
-            padding: 6rem 0;
-            background: var(--white);
+        
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
         }
-
-        .section-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 4rem;
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--secondary);
         }
-
-        .section-tag {
-            display: inline-block;
-            padding: 0.5rem 1.25rem;
-            background: var(--gradient-secondary);
-            color: white;
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 800;
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+        
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-light);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+            border-radius: var(--radius-full);
+        }
+        
+        .nav-cta {
+            margin-left: 1rem;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .contact-hero {
+            padding: 10rem 0 6rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(37, 99, 235, 0.03) 100%);
+            z-index: 0;
+        }
+        
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
             border-radius: var(--radius-full);
             font-size: 0.875rem;
             font-weight: 600;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            margin-bottom: 2rem;
         }
-
-        .cards-grid {
+        
+        .hero-badge i {
+            font-size: 1rem;
+        }
+        
+        .hero-title {
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-title span {
+            color: var(--primary);
+        }
+        
+        .hero-description {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-light);
+        }
+        
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .hero-visual {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            height: 500px;
+            position: relative;
+        }
+        
+        .hero-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+        
+        .hero-visual:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Contact Methods */
+        .contact-methods {
+            background-color: var(--white);
+        }
+        
+        .methods-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
-
-        .contact-card {
-            background: var(--white);
-            border-radius: var(--radius-xl);
-            padding: 3rem;
-            border: 1px solid var(--border-light);
-            transition: all var(--transition-normal);
-            position: relative;
-            overflow: hidden;
+        
+        .method-card {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 3rem 2rem;
             text-align: center;
+            border: 1px solid var(--medium-gray);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-
-        .contact-card:hover {
+        
+        .method-card:hover {
             transform: translateY(-10px);
-            border-color: transparent;
-            box-shadow: var(--shadow-xl);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
         }
-
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient-primary);
-            transform: scaleX(0);
-            transition: transform var(--transition-normal);
-        }
-
-        .contact-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .card-icon {
+        
+        .method-icon {
             width: 80px;
             height: 80px;
-            background: var(--gradient-primary);
             border-radius: var(--radius-lg);
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-bottom: 1.5rem;
             font-size: 2rem;
-            color: white;
-            margin: 0 auto 2rem;
-            box-shadow: var(--shadow-glow);
-            transition: all var(--transition-normal);
+            color: var(--white);
         }
-
-        .contact-card:hover .card-icon {
-            transform: scale(1.1) rotate(8deg);
-        }
-
-        .whatsapp-icon {
+        
+        .method-icon.whatsapp {
             background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
         }
-
-        .instagram-icon {
-            background: linear-gradient(45deg, #E4405F 0%, #C13584 100%);
+        
+        .method-icon.email {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
         }
-
-        .contact-card h3 {
-            font-size: 1.5rem;
+        
+        .method-icon.instagram {
+            background: linear-gradient(45deg, #E4405F 0%, #C13584 50%, #833AB4 100%);
+        }
+        
+        .method-card h3 {
             margin-bottom: 1rem;
         }
-
-        .contact-info {
+        
+        .method-detail {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary);
             margin: 1rem 0;
             display: block;
+            color: var(--secondary);
         }
-
-        .whatsapp-info {
-            color: #25D366;
-        }
-
-        .instagram-info {
-            background: linear-gradient(45deg, #E4405F, #C13584);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .contact-note {
-            font-size: 0.9rem;
-            color: var(--text-tertiary);
+        
+        .method-note {
+            font-size: 0.875rem;
+            color: var(--dark-gray);
             margin-top: 1rem;
         }
-
-        /* ====== CONTACT FORM ====== */
+        
+        /* Contact Form Section */
         .contact-form-section {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+            background-color: var(--light-gray);
         }
-
+        
         .form-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
-            align-items: start;
         }
-
+        
         .form-wrapper {
-            background: var(--white);
-            border-radius: var(--radius-xl);
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
             padding: 3rem;
-            box-shadow: var(--shadow-xl);
+            box-shadow: var(--shadow-lg);
         }
-
-        .form-header {
-            margin-bottom: 2.5rem;
+        
+        .form-title {
+            margin-bottom: 0.5rem;
         }
-
-        .form-header h2 {
-            font-size: 2.25rem;
-            margin-bottom: 0.75rem;
+        
+        .form-subtitle {
+            margin-bottom: 2rem;
         }
-
+        
         .form-group {
             margin-bottom: 1.5rem;
         }
-
+        
         .form-label {
             display: block;
             margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text);
         }
-
+        
         .form-control {
             width: 100%;
             padding: 1rem 1.25rem;
-            font-family: var(--font-body);
+            font-family: 'Inter', sans-serif;
             font-size: 1rem;
-            background: var(--lighter);
-            border: 2px solid var(--border-light);
+            border: 1px solid var(--medium-gray);
             border-radius: var(--radius-md);
-            transition: all var(--transition-normal);
-            color: var(--text-primary);
+            background-color: var(--white);
+            transition: var(--transition);
+            color: var(--text);
         }
-
+        
         .form-control:focus {
             outline: none;
             border-color: var(--primary);
-            background: var(--white);
-            box-shadow: 0 0 0 3px var(--primary-glow);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
-
-        .form-control::placeholder {
-            color: var(--text-light);
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
+        
         .form-select {
             appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748B'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
@@ -702,320 +517,296 @@
             background-size: 1.25rem;
             padding-right: 3rem;
         }
-
-        .info-panel {
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-actions {
+            margin-top: 2rem;
+        }
+        
+        .info-sidebar {
             display: flex;
             flex-direction: column;
             gap: 2rem;
         }
-
+        
         .info-card {
-            background: var(--gradient-dark);
-            color: white;
-            border-radius: var(--radius-xl);
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+            color: var(--white);
+            border-radius: var(--radius-lg);
             padding: 2.5rem;
         }
-
+        
         .info-card h3 {
-            color: white;
+            color: var(--white);
             margin-bottom: 1.5rem;
-            font-size: 1.5rem;
         }
-
+        
         .info-list {
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
         }
-
+        
         .info-item {
             display: flex;
             align-items: flex-start;
             gap: 1rem;
         }
-
+        
         .info-item i {
-            color: var(--secondary);
+            color: var(--primary-light);
             font-size: 1.25rem;
             margin-top: 0.25rem;
         }
-
+        
         .info-item p {
             color: rgba(255, 255, 255, 0.9);
             margin: 0;
-            font-size: 1rem;
         }
-
-        /* ====== FAQ SECTION ====== */
+        
+        /* FAQ Section */
         .faq-section {
-            padding: 6rem 0;
-            background: var(--white);
+            background-color: var(--white);
         }
-
+        
         .faq-container {
             max-width: 800px;
             margin: 0 auto;
         }
-
+        
         .faq-item {
-            border: 2px solid var(--border-light);
+            border: 1px solid var(--medium-gray);
             border-radius: var(--radius-lg);
             margin-bottom: 1rem;
             overflow: hidden;
-            transition: all var(--transition-normal);
+            transition: var(--transition);
         }
-
+        
         .faq-item.active {
             border-color: var(--primary);
-            box-shadow: var(--shadow-glow);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
         }
-
+        
         .faq-question {
             padding: 1.5rem;
-            background: var(--lighter);
+            background-color: var(--light-gray);
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all var(--transition-normal);
+            transition: var(--transition);
         }
-
+        
         .faq-item.active .faq-question {
-            background: var(--primary);
-            color: white;
+            background-color: rgba(37, 99, 235, 0.05);
         }
-
+        
         .faq-question h3 {
             margin: 0;
             font-size: 1.125rem;
         }
-
+        
         .faq-icon {
-            transition: transform var(--transition-normal);
+            transition: var(--transition);
         }
-
+        
         .faq-item.active .faq-icon {
             transform: rotate(45deg);
-            color: white;
+            color: var(--primary);
         }
-
+        
         .faq-answer {
             padding: 0 1.5rem;
             max-height: 0;
             overflow: hidden;
-            transition: all var(--transition-normal);
+            transition: var(--transition);
         }
-
+        
         .faq-item.active .faq-answer {
             padding: 1.5rem;
-            max-height: 500px;
+            max-height: 1000px;
         }
-
+        
         .faq-answer p {
             margin: 0;
-            color: var(--text-secondary);
         }
-
-        /* ====== CTA SECTION ====== */
+        
+        /* CTA Section */
         .cta-section {
-            padding: 8rem 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
-
-        .cta-bg {
+        
+        .cta-section::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--gradient-primary);
-            z-index: -2;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
         }
-
-        .cta-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            z-index: -1;
-        }
-
+        
         .cta-content {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
             position: relative;
             z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
         }
-
+        
         .cta-title {
-            font-size: 3rem;
-            color: white;
+            color: var(--white);
             margin-bottom: 1.5rem;
         }
-
-        .cta-subtitle {
-            font-size: 1.25rem;
+        
+        .cta-description {
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
+            font-size: 1.25rem;
         }
-
+        
         .cta-actions {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
         }
-
+        
         .cta-actions .btn {
             min-width: 200px;
         }
-
+        
         .cta-actions .btn-primary {
-            background: white;
+            background-color: var(--white);
             color: var(--primary);
         }
-
+        
         .cta-actions .btn-primary:hover {
-            background: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255, 255, 255, 0.95);
         }
-
+        
         .cta-actions .btn-secondary {
-            background: transparent;
-            color: white;
-            border-color: white;
+            border-color: var(--white);
+            color: var(--white);
         }
-
+        
         .cta-actions .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.1);
         }
-
-        /* ====== FOOTER ====== */
+        
+        /* Footer */
         .footer {
-            background: var(--dark);
-            color: white;
-            padding: 6rem 0 3rem;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 4rem 0 2rem;
         }
-
+        
         .footer-content {
             display: grid;
             grid-template-columns: 1fr 2fr;
             gap: 4rem;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
-
+        
         .footer-brand {
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
         }
-
+        
         .footer-logo {
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            font-family: var(--font-accent);
-            font-weight: 800;
-            font-size: 1.75rem;
-            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--white);
         }
-
-        .footer-logo-icon {
-            width: 45px;
-            height: 45px;
-            background: var(--gradient-primary);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.25rem;
-            font-weight: 800;
-        }
-
+        
         .footer-description {
             color: rgba(255, 255, 255, 0.7);
-            font-size: 0.95rem;
-            line-height: 1.7;
+            font-size: 1rem;
         }
-
+        
         .footer-social {
             display: flex;
             gap: 1rem;
-            margin-top: 1.5rem;
+            margin-top: 1rem;
         }
-
+        
         .social-icon {
-            width: 45px;
-            height: 45px;
-            background: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.125rem;
-            transition: all var(--transition-normal);
+            color: var(--white);
+            transition: var(--transition);
         }
-
+        
         .social-icon:hover {
+            background-color: var(--primary);
             transform: translateY(-3px);
-            background: var(--primary);
         }
-
-        .footer-grid {
+        
+        .footer-links {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 3rem;
         }
-
-        .footer-section h4 {
-            color: white;
+        
+        .footer-column h4 {
+            color: var(--white);
             font-size: 1.125rem;
             margin-bottom: 1.5rem;
-            font-family: var(--font-body);
-            font-weight: 600;
         }
-
-        .footer-links {
+        
+        .footer-column ul {
+            list-style: none;
             display: flex;
             flex-direction: column;
             gap: 1rem;
         }
-
-        .footer-links a {
+        
+        .footer-column a {
             color: rgba(255, 255, 255, 0.7);
-            font-size: 0.95rem;
-            transition: all var(--transition-normal);
+            transition: var(--transition);
         }
-
-        .footer-links a:hover {
-            color: white;
+        
+        .footer-column a:hover {
+            color: var(--white);
             transform: translateX(5px);
         }
-
+        
         .contact-details {
             display: flex;
             flex-direction: column;
             gap: 1rem;
         }
-
+        
         .contact-detail {
             display: flex;
             align-items: flex-start;
             gap: 0.75rem;
             color: rgba(255, 255, 255, 0.7);
-            font-size: 0.95rem;
         }
-
+        
         .contact-detail i {
             color: var(--primary-light);
             margin-top: 0.25rem;
         }
-
+        
         .footer-bottom {
             padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -1023,83 +814,120 @@
             color: rgba(255, 255, 255, 0.5);
             font-size: 0.875rem;
         }
-
-        /* ====== FLOATING ACTION BUTTONS ====== */
-        .fab {
+        
+        /* Floating Buttons */
+        .floating-buttons {
             position: fixed;
             bottom: 2rem;
             right: 2rem;
-            z-index: 1000;
+            z-index: 100;
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            align-items: flex-end;
         }
-
-        .whatsapp-fab {
+        
+        .whatsapp-float {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
             border-radius: 50%;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.75rem;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-            transition: all var(--transition-normal);
-            text-decoration: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            transition: var(--transition);
         }
-
-        .whatsapp-fab:hover {
+        
+        .whatsapp-float:hover {
             transform: scale(1.1);
-            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
         }
-
+        
         .scroll-top {
             width: 50px;
             height: 50px;
-            background: var(--gradient-primary);
             border-radius: 50%;
+            background-color: var(--primary);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--white);
             font-size: 1.25rem;
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(20px);
-            transition: all var(--transition-normal);
-            box-shadow: var(--shadow-glow);
+            transform: translateY(10px);
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
-
+        
         .scroll-top.visible {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
-
+        
         .scroll-top:hover {
+            background-color: var(--primary-dark);
             transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(124, 58, 237, 0.4);
         }
-
-        /* ====== RESPONSIVE DESIGN ====== */
-        @media (max-width: 1200px) {
-            .container {
-                padding: 0 1.5rem;
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 2.75rem;
+            }
+            
+            h2 {
+                font-size: 2.25rem;
             }
             
             .hero-container,
             .form-container {
                 gap: 3rem;
             }
+            
+            .methods-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
         }
-
-        @media (max-width: 992px) {
-            h1 { font-size: 2.75rem; }
-            h2 { font-size: 2.25rem; }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: var(--shadow-lg);
+                gap: 1.5rem;
+            }
+            
+            .nav.active {
+                display: flex;
+            }
+            
+            .nav-cta {
+                margin-left: 0;
+                width: 100%;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
             
             .hero-container,
             .form-container {
@@ -1111,627 +939,556 @@
                 order: -1;
             }
             
-            .cards-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-content {
+            .methods-grid {
                 grid-template-columns: 1fr;
             }
             
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .footer-links {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
             
             .cta-actions {
                 flex-direction: column;
-                align-items: center;
             }
             
             .cta-actions .btn {
                 width: 100%;
-                max-width: 300px;
             }
         }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-            
-            .mobile-toggle {
-                display: block;
-            }
-            
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-actions {
-                flex-direction: column;
-            }
-            
-            .hero-actions .btn {
-                width: 100%;
-            }
-            
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .section-padding {
-                padding: 4rem 0;
-            }
-            
-            .fab {
-                bottom: 1.5rem;
-                right: 1.5rem;
-            }
-        }
-
+        
         @media (max-width: 576px) {
             .container {
                 padding: 0 1rem;
             }
             
-            h1 { font-size: 2.25rem; }
-            h2 { font-size: 1.75rem; }
-            
-            .hero-visual {
-                height: 300px;
+            h1 {
+                font-size: 2.25rem;
             }
             
-            .contact-card,
+            h2 {
+                font-size: 1.75rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+            
             .form-wrapper {
                 padding: 2rem;
             }
             
-            .btn {
-                padding: 0.875rem 1.5rem;
-            }
-            
-            .cta-title {
-                font-size: 2.25rem;
+            .floating-buttons {
+                bottom: 1.5rem;
+                right: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-
-<!-- Animated Background -->
-<div class="particle-bg">
-    <div class="particle particle-1"></div>
-    <div class="particle particle-2"></div>
-    <div class="particle particle-3"></div>
-</div>
-
-<!-- Navigation -->
-<nav class="nav" id="nav">
-    <div class="container">
-        <div class="nav-content">
-            <a href="index.html" class="nav-brand">
-                <div class="nav-logo">CV</div>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">CV</div>
                 CodersVerse
             </a>
             
-            <div class="nav-menu">
+            <nav class="nav" id="nav">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="about.html" class="nav-link">About</a>
                 <a href="contact.html" class="nav-link active">Contact</a>
-                <a href="contact.html" class="nav-link nav-cta">
-                    Start Project <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <a href="#contact-form" class="btn btn-primary nav-cta">Start Project</a>
+            </nav>
             
             <button class="mobile-toggle" id="mobileToggle">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
-    </div>
-</nav>
+    </header>
 
-<!-- Hero Section -->
-<section class="contact-hero">
-    <div class="container">
-        <div class="hero-container">
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="container hero-container">
             <div class="hero-content">
-                <div class="hero-badge animate__animated animate__fadeInUp">
+                <div class="hero-badge">
                     <i class="fas fa-rocket"></i>
                     <span>Premium Digital Agency</span>
                 </div>
                 
-                <h1 class="hero-title animate__animated animate__fadeInUp">
-                    Let's Create <span class="gradient-text">Something Amazing</span> Together
+                <h1 class="hero-title">
+                    Let's Build Your<br>
+                    <span>Digital Future</span>
                 </h1>
                 
-                <p class="hero-subtitle animate__animated animate__fadeInUp">
-                    Ready to transform your digital presence? Contact us today for a free consultation and project estimate. Our expert team is here to bring your vision to life.
+                <p class="hero-description">
+                    Ready to transform your digital presence? Contact our expert team for a free consultation and project estimate. Let's create something exceptional together.
                 </p>
                 
-                <div class="hero-actions animate__animated animate__fadeInUp">
-                    <a href="#contact-form" class="btn btn-primary btn-lg">
+                <div class="hero-actions">
+                    <a href="#contact-form" class="btn btn-primary">
                         <i class="fas fa-paper-plane"></i> Start Project
                     </a>
-                    <a href="tel:+919004329806" class="btn btn-secondary btn-lg">
+                    <a href="tel:+919004329806" class="btn btn-secondary">
                         <i class="fas fa-phone"></i> Call Now
                     </a>
                 </div>
             </div>
             
-            <div class="hero-visual animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+            <div class="hero-visual">
                 <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80" alt="Team Collaboration at CodersVerse">
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Contact Cards -->
-<section class="contact-cards">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-tag">Connect With Us</span>
-            <h2>Multiple Ways to Reach Our Team</h2>
-            <p>Choose your preferred method to get in touch. We're always ready to help with your digital transformation needs.</p>
-        </div>
-        
-        <div class="cards-grid">
-            <!-- WhatsApp Card -->
-            <div class="contact-card">
-                <div class="card-icon whatsapp-icon">
-                    <i class="fab fa-whatsapp"></i>
-                </div>
-                <h3>WhatsApp Business</h3>
-                <p>Fastest response time for instant project discussions and quick questions.</p>
-                <span class="contact-info whatsapp-info">+91 9004329806</span>
-                <p class="contact-note">Available 9 AM - 8 PM IST</p>
-                <a href="https://wa.me/919004329806?text=Hello%20CodersVerse%2C%20I'm%20interested%20in%20discussing%20a%20project." 
-                   target="_blank" 
-                   class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> Message Now
-                </a>
+    <!-- Contact Methods -->
+    <section class="section contact-methods">
+        <div class="container">
+            <div class="section-title">
+                <span class="subtitle">Connect With Us</span>
+                <h2>Multiple Ways to Reach Our Team</h2>
+                <p>Choose your preferred method to get in touch. We're always ready to help with your digital transformation needs.</p>
             </div>
             
-            <!-- Email Card -->
-            <div class="contact-card">
-                <div class="card-icon">
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <h3>Email</h3>
-                <p>For detailed proposals, contracts, and formal business communication.</p>
-                <span class="contact-info">careers.codersverse@gmail.com</span>
-                <p class="contact-note">Response within 12 hours</p>
-                <a href="mailto:careers.codersverse@gmail.com" class="btn btn-primary">
-                    <i class="fas fa-envelope"></i> Send Email
-                </a>
-            </div>
-            
-            <!-- Instagram Card -->
-            <div class="contact-card">
-                <div class="card-icon instagram-icon">
-                    <i class="fab fa-instagram"></i>
-                </div>
-                <h3>Instagram</h3>
-                <p>Follow us for design inspiration, project showcases, and industry insights.</p>
-                <span class="contact-info instagram-info">@Coders.verse</span>
-                <p class="contact-note">Daily updates & creative content</p>
-                <a href="https://instagram.com/Coders.verse" target="_blank" class="btn btn-instagram">
-                    <i class="fab fa-instagram"></i> Follow Us
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Contact Form Section -->
-<section class="contact-form-section" id="contact-form">
-    <div class="container">
-        <div class="form-container">
-            <div class="form-wrapper">
-                <div class="form-header">
-                    <h2>Project Inquiry Form</h2>
-                    <p>Tell us about your project and we'll get back to you with a customized proposal.</p>
-                </div>
-                
-                <form id="projectForm">
-                    <div class="form-group">
-                        <label class="form-label" for="name">Full Name *</label>
-                        <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="email">Email Address *</label>
-                        <input type="email" id="email" class="form-control" placeholder="your.email@example.com" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" class="form-control" placeholder="+91 9004329806" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="company">Company / Business</label>
-                        <input type="text" id="company" class="form-control" placeholder="Your company name (optional)">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="service">Service Needed *</label>
-                        <select id="service" class="form-control form-select" required>
-                            <option value="" disabled selected>Select a service</option>
-                            <option value="Website Development">Website Development</option>
-                            <option value="E-commerce Store">E-commerce Store</option>
-                            <option value="UI/UX Design">UI/UX Design</option>
-                            <option value="Brand Identity">Brand Identity</option>
-                            <option value="Digital Marketing">Digital Marketing</option>
-                            <option value="Multiple Services">Multiple Services</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="timeline">Project Timeline *</label>
-                        <select id="timeline" class="form-control form-select" required>
-                            <option value="" disabled selected>Select timeline</option>
-                            <option value="ASAP (Within 2 weeks)">ASAP (Within 2 weeks)</option>
-                            <option value="1 Month">Within 1 Month</option>
-                            <option value="1-3 Months">1-3 Months</option>
-                            <option value="3-6 Months">3-6 Months</option>
-                            <option value="Flexible">Flexible</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="budget">Budget Range</label>
-                        <select id="budget" class="form-control form-select">
-                            <option value="" disabled selected>Select budget</option>
-                            <option value="Under ₹50,000">Under ₹50,000</option>
-                            <option value="₹50,000 - ₹1,00,000">₹50,000 - ₹1,00,000</option>
-                            <option value="₹1,00,000 - ₹2,50,000">₹1,00,000 - ₹2,50,000</option>
-                            <option value="₹2,50,000 - ₹5,00,000">₹2,50,000 - ₹5,00,000</option>
-                            <option value="₹5,00,000+">₹5,00,000+</option>
-                            <option value="Not Sure">Not Sure / Need Quote</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="message">Project Description *</label>
-                        <textarea id="message" class="form-control" 
-                                  placeholder="Describe your project in detail. What are your goals? Who is your target audience? Any specific features or requirements?"
-                                  rows="6" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
-                        <i class="fas fa-paper-plane"></i> Send Project Details
-                    </button>
-                </form>
-            </div>
-            
-            <div class="info-panel">
-                <div class="info-card">
-                    <h3>Why Choose CodersVerse?</h3>
-                    <div class="info-list">
-                        <div class="info-item">
-                            <i class="fas fa-check-circle"></i>
-                            <p><strong>Expert Team:</strong> 10+ years of industry experience in digital solutions</p>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-check-circle"></i>
-                            <p><strong>Quality First:</strong> Rigorous testing and attention to detail in every project</p>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-check-circle"></i>
-                            <p><strong>Timely Delivery:</strong> We respect deadlines and deliver on time, every time</p>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-check-circle"></i>
-                            <p><strong>Ongoing Support:</strong> Comprehensive post-launch maintenance and support</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="info-card">
-                    <h3>Our Process</h3>
-                    <div class="info-list">
-                        <div class="info-item">
-                            <i class="fas fa-comments"></i>
-                            <p><strong>Consultation:</strong> Initial call to understand your requirements</p>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-file-alt"></i>
-                            <p><strong>Proposal:</strong> Detailed project proposal within 48 hours</p>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-play-circle"></i>
-                            <p><strong>Kickoff:</strong> Project begins with regular updates</p>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-rocket"></i>
-                            <p><strong>Launch:</strong> Final delivery with ongoing support</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- FAQ Section -->
-<section class="faq-section">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-tag">FAQs</span>
-            <h2>Frequently Asked Questions</h2>
-            <p>Find answers to common questions about working with our agency.</p>
-        </div>
-        
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>How quickly will you respond to my inquiry?</h3>
-                    <div class="faq-icon">
-                        <i class="fas fa-plus"></i>
-                    </div>
-                </div>
-                <div class="faq-answer">
-                    <p>We respond within 24 hours for email inquiries and within minutes on WhatsApp during business hours (9 AM - 8 PM IST). For urgent matters, please call us directly at +91 9004329806.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>What information should I include in my project description?</h3>
-                    <div class="faq-icon">
-                        <i class="fas fa-plus"></i>
-                    </div>
-                </div>
-                <div class="faq-answer">
-                    <p>Please include: Your business type, project goals, target audience, specific features needed, any existing websites/designs, timeline expectations, and budget range if available.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>Do you provide free consultations?</h3>
-                    <div class="faq-icon">
-                        <i class="fas fa-plus"></i>
-                    </div>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes, we offer a free 30-minute consultation to discuss your project requirements and provide initial recommendations. You can schedule one by filling out the contact form or messaging us on WhatsApp.</p>
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>What is your typical project timeline?</h3>
-                    <div class="faq-icon">
-                        <i class="fas fa-plus"></i>
-                    </div>
-                </div>
-                <div class="faq-answer">
-                    <p>Timelines vary based on project complexity. Simple websites take 2-4 weeks, while complex web applications may take 2-3 months. We'll provide a detailed timeline in your project proposal.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- CTA Section -->
-<section class="cta-section">
-    <div class="cta-bg"></div>
-    <div class="cta-overlay"></div>
-    
-    <div class="container">
-        <div class="cta-content">
-            <h2 class="cta-title">Ready to Transform Your Digital Presence?</h2>
-            <p class="cta-subtitle">
-                Don't wait to elevate your business. Contact us today and let's create something amazing together.
-            </p>
-            
-            <div class="cta-actions">
-                <a href="#contact-form" class="btn btn-primary btn-lg">
-                    Start Your Project <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="tel:+919004329806" class="btn btn-secondary btn-lg">
-                    <i class="fas fa-phone"></i> Call Now: +91 9004329806
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <div class="footer-logo">
-                    <div class="footer-logo-icon">CV</div>
-                    CodersVerse
-                </div>
-                <p class="footer-description">
-                    We transform businesses through exceptional digital experiences. From concept to launch, we're with you every step of the way.
-                </p>
-                <div class="footer-social">
-                    <a href="https://wa.me/919004329806" target="_blank" class="social-icon">
+            <div class="methods-grid">
+                <!-- WhatsApp -->
+                <div class="method-card">
+                    <div class="method-icon whatsapp">
                         <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp Business</h3>
+                    <p>Fastest response time for instant project discussions and quick questions.</p>
+                    <span class="method-detail">+91 9004329806</span>
+                    <p class="method-note">Available 9 AM - 8 PM IST</p>
+                    <a href="https://wa.me/919004329806?text=Hello%20CodersVerse%2C%20I'm%20interested%20in%20discussing%20a%20project." 
+                       target="_blank" 
+                       class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> Message Now
                     </a>
-                    <a href="https://instagram.com/Coders.verse" target="_blank" class="social-icon">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="mailto:careers.codersverse@gmail.com" class="social-icon">
+                </div>
+                
+                <!-- Email -->
+                <div class="method-card">
+                    <div class="method-icon email">
                         <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>For detailed proposals, contracts, and formal business communication.</p>
+                    <span class="method-detail">careers.codersverse@gmail.com</span>
+                    <p class="method-note">Response within 12 hours</p>
+                    <a href="mailto:careers.codersverse@gmail.com" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Send Email
                     </a>
-                    <a href="#" class="social-icon">
-                        <i class="fab fa-linkedin-in"></i>
+                </div>
+                
+                <!-- Instagram -->
+                <div class="method-card">
+                    <div class="method-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3>Instagram</h3>
+                    <p>Follow us for design inspiration, project showcases, and industry insights.</p>
+                    <span class="method-detail">@Coders.verse</span>
+                    <p class="method-note">Daily updates & creative content</p>
+                    <a href="https://instagram.com/Coders.verse" target="_blank" class="btn btn-instagram">
+                        <i class="fab fa-instagram"></i> Follow Us
                     </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="section contact-form-section" id="contact-form">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-wrapper">
+                    <div class="form-header">
+                        <h2 class="form-title">Project Inquiry Form</h2>
+                        <p class="form-subtitle">Tell us about your project and we'll get back to you with a customized proposal.</p>
+                    </div>
+                    
+                    <form id="projectForm">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Full Name *</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email Address *</label>
+                            <input type="email" id="email" class="form-control" placeholder="your.email@example.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="+91 9004329806" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="company">Company / Business</label>
+                            <input type="text" id="company" class="form-control" placeholder="Your company name (optional)">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="service">Service Needed *</label>
+                            <select id="service" class="form-control form-select" required>
+                                <option value="" disabled selected>Select a service</option>
+                                <option value="Website Development">Website Development</option>
+                                <option value="E-commerce Store">E-commerce Store</option>
+                                <option value="UI/UX Design">UI/UX Design</option>
+                                <option value="Brand Identity">Brand Identity</option>
+                                <option value="Digital Marketing">Digital Marketing</option>
+                                <option value="Multiple Services">Multiple Services</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="timeline">Project Timeline *</label>
+                            <select id="timeline" class="form-control form-select" required>
+                                <option value="" disabled selected>Select timeline</option>
+                                <option value="ASAP (Within 2 weeks)">ASAP (Within 2 weeks)</option>
+                                <option value="1 Month">Within 1 Month</option>
+                                <option value="1-3 Months">1-3 Months</option>
+                                <option value="3-6 Months">3-6 Months</option>
+                                <option value="Flexible">Flexible</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="budget">Budget Range</label>
+                            <select id="budget" class="form-control form-select">
+                                <option value="" disabled selected>Select budget</option>
+                                <option value="Under ₹50,000">Under ₹50,000</option>
+                                <option value="₹50,000 - ₹1,00,000">₹50,000 - ₹1,00,000</option>
+                                <option value="₹1,00,000 - ₹2,50,000">₹1,00,000 - ₹2,50,000</option>
+                                <option value="₹2,50,000 - ₹5,00,000">₹2,50,000 - ₹5,00,000</option>
+                                <option value="₹5,00,000+">₹5,00,000+</option>
+                                <option value="Not Sure">Not Sure / Need Quote</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="message">Project Description *</label>
+                            <textarea id="message" class="form-control" 
+                                      placeholder="Describe your project in detail. What are your goals? Who is your target audience? Any specific features or requirements?"
+                                      rows="6" required></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                <i class="fas fa-paper-plane"></i> Send Project Details
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="info-sidebar">
+                    <div class="info-card">
+                        <h3>Why Choose CodersVerse?</h3>
+                        <div class="info-list">
+                            <div class="info-item">
+                                <i class="fas fa-check-circle"></i>
+                                <p><strong>Expert Team:</strong> 10+ years of industry experience in digital solutions</p>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-check-circle"></i>
+                                <p><strong>Quality First:</strong> Rigorous testing and attention to detail in every project</p>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-check-circle"></i>
+                                <p><strong>Timely Delivery:</strong> We respect deadlines and deliver on time, every time</p>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-check-circle"></i>
+                                <p><strong>Ongoing Support:</strong> Comprehensive post-launch maintenance and support</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Our Process</h3>
+                        <div class="info-list">
+                            <div class="info-item">
+                                <i class="fas fa-comments"></i>
+                                <p><strong>Consultation:</strong> Initial call to understand your requirements</p>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-file-alt"></i>
+                                <p><strong>Proposal:</strong> Detailed project proposal within 48 hours</p>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-play-circle"></i>
+                                <p><strong>Kickoff:</strong> Project begins with regular updates</p>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-rocket"></i>
+                                <p><strong>Launch:</strong> Final delivery with ongoing support</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq-section">
+        <div class="container">
+            <div class="section-title">
+                <span class="subtitle">FAQs</span>
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about working with our agency.</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How quickly will you respond to my inquiry?</h3>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We respond within 24 hours for email inquiries and within minutes on WhatsApp during business hours (9 AM - 8 PM IST). For urgent matters, please call us directly at +91 9004329806.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What information should I include in my project description?</h3>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Please include: Your business type, project goals, target audience, specific features needed, any existing websites/designs, timeline expectations, and budget range if available.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you provide free consultations?</h3>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer a free 30-minute consultation to discuss your project requirements and provide initial recommendations. You can schedule one by filling out the contact form or messaging us on WhatsApp.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is your typical project timeline?</h3>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Timelines vary based on project complexity. Simple websites take 2-4 weeks, while complex web applications may take 2-3 months. We'll provide a detailed timeline in your project proposal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Transform Your Digital Presence?</h2>
+                <p class="cta-description">
+                    Don't wait to elevate your business. Contact us today and let's create something amazing together.
+                </p>
+                
+                <div class="cta-actions">
+                    <a href="#contact-form" class="btn btn-primary">
+                        Start Your Project <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="tel:+919004329806" class="btn btn-secondary">
+                        <i class="fas fa-phone"></i> Call Now: +91 9004329806
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">CV</div>
+                        CodersVerse
+                    </div>
+                    <p class="footer-description">
+                        We transform businesses through exceptional digital experiences. From concept to launch, we're with you every step of the way.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/919004329806" target="_blank" class="social-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://instagram.com/Coders.verse" target="_blank" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="mailto:careers.codersverse@gmail.com" class="social-icon">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="index.html#services">Website Development</a></li>
+                            <li><a href="index.html#services">E-commerce Solutions</a></li>
+                            <li><a href="index.html#services">UI/UX Design</a></li>
+                            <li><a href="index.html#services">Brand Identity</a></li>
+                            <li><a href="index.html#services">Digital Marketing</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="index.html#portfolio">Portfolio</a></li>
+                            <li><a href="index.html#services">Services</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Contact Info</h4>
+                        <div class="contact-details">
+                            <div class="contact-detail">
+                                <i class="fas fa-phone"></i>
+                                <span><a href="tel:+919004329806">+91 9004329806</a></span>
+                            </div>
+                            <div class="contact-detail">
+                                <i class="fas fa-envelope"></i>
+                                <span><a href="mailto:careers.codersverse@gmail.com">careers.codersverse@gmail.com</a></span>
+                            </div>
+                            <div class="contact-detail">
+                                <i class="fab fa-instagram"></i>
+                                <span><a href="https://instagram.com/Coders.verse" target="_blank">@Coders.verse</a></span>
+                            </div>
+                            <div class="contact-detail">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Mumbai, Maharashtra<br>India</span>
+                            </div>
+                            <div class="contact-detail">
+                                <i class="fas fa-clock"></i>
+                                <span>Mon-Sat: 9 AM - 8 PM IST</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <div class="footer-links">
-                        <a href="index.html#services">Website Development</a>
-                        <a href="index.html#services">E-commerce Solutions</a>
-                        <a href="index.html#services">UI/UX Design</a>
-                        <a href="index.html#services">Brand Identity</a>
-                        <a href="index.html#services">Digital Marketing</a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Company</h4>
-                    <div class="footer-links">
-                        <a href="index.html">Home</a>
-                        <a href="about.html">About Us</a>
-                        <a href="index.html#portfolio">Portfolio</a>
-                        <a href="index.html#services">Services</a>
-                        <a href="contact.html">Contact</a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <div class="contact-details">
-                        <div class="contact-detail">
-                            <i class="fas fa-phone"></i>
-                            <span><a href="tel:+919004329806">+91 9004329806</a></span>
-                        </div>
-                        <div class="contact-detail">
-                            <i class="fas fa-envelope"></i>
-                            <span><a href="mailto:careers.codersverse@gmail.com">careers.codersverse@gmail.com</a></span>
-                        </div>
-                        <div class="contact-detail">
-                            <i class="fab fa-instagram"></i>
-                            <span><a href="https://instagram.com/Coders.verse" target="_blank">@Coders.verse</a></span>
-                        </div>
-                        <div class="contact-detail">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Mumbai, Maharashtra<br>India</span>
-                        </div>
-                        <div class="contact-detail">
-                            <i class="fas fa-clock"></i>
-                            <span>Mon-Sat: 9 AM - 8 PM IST</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CodersVerse. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
             </div>
         </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2025 CodersVerse. All rights reserved. | <a href="#" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.7);">Terms of Service</a></p>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/919004329806?text=Hello%20CodersVerse!%20I'm%20interested%20in%20discussing%20a%20project." 
+           target="_blank" 
+           class="whatsapp-float">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <div class="scroll-top" id="scrollTop">
+            <i class="fas fa-chevron-up"></i>
         </div>
     </div>
-</footer>
 
-<!-- Floating Action Buttons -->
-<div class="fab">
-    <a href="https://wa.me/919004329806?text=Hello%20CodersVerse!%20I'm%20interested%20in%20discussing%20a%20project." 
-       target="_blank" 
-       class="whatsapp-fab">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-    <div class="scroll-top" id="scrollTop">
-        <i class="fas fa-chevron-up"></i>
-    </div>
-</div>
-
-<script>
-// Navigation Scroll Effect
-window.addEventListener('scroll', () => {
-    const nav = document.getElementById('nav');
-    const scrollTop = document.getElementById('scrollTop');
-    
-    if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
-    } else {
-        nav.classList.remove('scrolled');
-    }
-    
-    if (window.scrollY > 500) {
-        scrollTop.classList.add('visible');
-    } else {
-        scrollTop.classList.remove('visible');
-    }
-});
-
-// Mobile Menu Toggle
-const mobileToggle = document.getElementById('mobileToggle');
-const navMenu = document.querySelector('.nav-menu');
-
-mobileToggle.addEventListener('click', () => {
-    const isVisible = navMenu.style.display === 'flex';
-    navMenu.style.display = isVisible ? 'none' : 'flex';
-    
-    if (!isVisible) {
-        navMenu.style.position = 'absolute';
-        navMenu.style.top = '100%';
-        navMenu.style.left = '0';
-        navMenu.style.right = '0';
-        navMenu.style.background = 'rgba(255, 255, 255, 0.98)';
-        navMenu.style.backdropFilter = 'blur(20px)';
-        navMenu.style.flexDirection = 'column';
-        navMenu.style.padding = '2rem';
-        navMenu.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.1)';
-        navMenu.style.gap = '1.5rem';
-    }
-});
-
-// FAQ Accordion
-document.querySelectorAll('.faq-question').forEach(question => {
-    question.addEventListener('click', () => {
-        const faqItem = question.parentElement;
-        const isActive = faqItem.classList.contains('active');
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const nav = document.getElementById('nav');
         
-        // Close all FAQ items
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.classList.remove('active');
+        mobileToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
         });
         
-        // Open clicked item if it wasn't active
-        if (!isActive) {
-            faqItem.classList.add('active');
-        }
-    });
-});
-
-// Form Submission
-document.getElementById('projectForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const company = document.getElementById('company').value;
-    const service = document.getElementById('service').value;
-    const timeline = document.getElementById('timeline').value;
-    const budget = document.getElementById('budget').value;
-    const message = document.getElementById('message').value;
-    
-    // Create WhatsApp message
-    const whatsappMessage = `
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+        
+        // Scroll to Top
+        const scrollTop = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+        
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Form Submission
+        document.getElementById('projectForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const company = document.getElementById('company').value;
+            const service = document.getElementById('service').value;
+            const timeline = document.getElementById('timeline').value;
+            const budget = document.getElementById('budget').value;
+            const message = document.getElementById('message').value;
+            
+            // Create WhatsApp message
+            const whatsappMessage = `
 *New Project Inquiry - CodersVerse*
 
-*👤 CONTACT INFORMATION*
+*CONTACT INFORMATION*
 • Name: ${name}
 • Email: ${email}
 • Phone: ${phone}
 ${company ? `• Company: ${company}` : ''}
 
-*🎯 PROJECT DETAILS*
+*PROJECT DETAILS*
 • Service Needed: ${service}
 • Timeline: ${timeline}
 ${budget ? `• Budget Range: ${budget}` : ''}
 
-*📋 PROJECT DESCRIPTION*
+*PROJECT DESCRIPTION*
 ${message}
 
-*📅 SUBMITTED ON*
+*SUBMITTED ON*
 ${new Date().toLocaleString('en-IN', {
     weekday: 'long',
     year: 'numeric',
@@ -1744,75 +1501,43 @@ ${new Date().toLocaleString('en-IN', {
 ---
 *This inquiry was submitted via CodersVerse Contact Form*
 *Please respond within 24 hours*
-    `.trim();
-    
-    // Encode for URL
-    const encodedMessage = encodeURIComponent(whatsappMessage);
-    
-    // Open WhatsApp
-    window.open(`https://wa.me/919004329806?text=${encodedMessage}`, '_blank');
-    
-    // Reset form
-    this.reset();
-    
-    // Show success message
-    alert('Thank you! Your project details have been prepared in WhatsApp. Please send the message to start the conversation. We will also email you a copy of your inquiry within 12 hours.');
-});
-
-// Scroll to Top
-document.getElementById('scrollTop').addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-// Smooth Scroll for Anchor Links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
+            `.trim();
             
-            // Close mobile menu if open
-            if (navMenu.style.display === 'flex') {
-                navMenu.style.display = 'none';
-            }
-        }
-    });
-});
-
-// Animate Elements on Scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe elements for animation
-document.querySelectorAll('.contact-card, .form-wrapper, .info-card, .faq-item').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-});
-</script>
-
+            // Encode for URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Open WhatsApp
+            window.open(`https://wa.me/919004329806?text=${encodedMessage}`, '_blank');
+            
+            // Reset form
+            this.reset();
+            
+            // Show success message
+            alert('Thank you! Your project details have been prepared in WhatsApp. Please send the message to start the conversation. We will also email you a copy of your inquiry within 12 hours.');
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (nav.classList.contains('active')) {
+                        nav.classList.remove('active');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
