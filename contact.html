@@ -218,7 +218,7 @@
             z-index: 1001;
         }
         
-        /* Hero Section - Updated with image section */
+        /* Hero Section */
         .hero {
             padding: 10rem 0 6rem;
             background: linear-gradient(135deg, var(--primary-dark) 0%, #151a38 100%);
@@ -311,7 +311,6 @@
         }
         
         .hero-image-wrapper {
-            position: relative;
             width: 100%;
             max-width: 500px;
         }
@@ -319,40 +318,8 @@
         .hero-image {
             width: 100%;
             height: auto;
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-elevated);
-            transform: perspective(1000px) rotateY(-5deg);
-            transition: var(--transition);
-        }
-        
-        .hero-image:hover {
-            transform: perspective(1000px) rotateY(0deg);
-        }
-        
-        .image-overlay {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: var(--space-md);
             border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-medium);
-            width: 80%;
-            text-align: center;
-        }
-        
-        .image-overlay h4 {
-            color: var(--primary-dark);
-            margin-bottom: var(--space-xs);
-            font-size: 1.1rem;
-        }
-        
-        .image-overlay p {
-            color: var(--gray-medium);
-            margin: 0;
-            font-size: 0.9rem;
+            box-shadow: var(--shadow-elevated);
         }
         
         /* Contact Methods */
@@ -834,7 +801,7 @@
             cursor: pointer;
         }
         
-        /* Responsive Design - Enhanced */
+        /* Responsive Design */
         @media (max-width: 1024px) {
             h1 {
                 font-size: 3rem;
@@ -873,7 +840,7 @@
             }
             
             .hero-image-wrapper {
-                max-width: 400px;
+                max-width: 450px;
                 margin: 0 auto;
             }
         }
@@ -928,19 +895,6 @@
                 width: 55px;
                 height: 55px;
                 font-size: 1.5rem;
-            }
-            
-            .image-overlay {
-                width: 90%;
-                padding: var(--space-sm);
-            }
-            
-            .image-overlay h4 {
-                font-size: 1rem;
-            }
-            
-            .image-overlay p {
-                font-size: 0.85rem;
             }
         }
         
@@ -1025,19 +979,6 @@
             .method-detail {
                 font-size: 1.1rem;
             }
-            
-            .image-overlay {
-                width: 95%;
-                padding: 0.8rem;
-            }
-            
-            .image-overlay h4 {
-                font-size: 0.9rem;
-            }
-            
-            .image-overlay p {
-                font-size: 0.8rem;
-            }
         }
     </style>
 </head>
@@ -1053,7 +994,6 @@
                 <div class="nav-links">
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="about.html" class="nav-link">About</a>
-                    <!-- Removed Services and Portfolio tabs as requested -->
                     <a href="contact.html" class="nav-link active">Contact</a>
                 </div>
                 <a href="#contact-form" class="header-cta">Start Project</a>
@@ -1074,7 +1014,6 @@
         <div class="mobile-nav-links">
             <a href="index.html" class="mobile-nav-link">Home</a>
             <a href="about.html" class="mobile-nav-link">About</a>
-            <!-- Removed Services and Portfolio tabs as requested -->
             <a href="contact.html" class="mobile-nav-link active">Contact</a>
         </div>
         
@@ -1107,15 +1046,10 @@
             
             <div class="hero-image-section">
                 <div class="hero-image-wrapper">
-                    <!-- Stock image of a modern digital agency workspace -->
+                    <!-- Static stock image - no animations, no text overlay -->
                     <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
                          alt="Digital agency team collaboration" 
                          class="hero-image">
-                    
-                    <div class="image-overlay">
-                        <h4>Expert Digital Solutions</h4>
-                        <p>Transforming ideas into exceptional digital experiences since 2018</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1243,8 +1177,6 @@
                 </div>
                 
                 <div class="form-sidebar">
-                    <!-- Removed "Why Choose CodersVerse" section as requested -->
-                    
                     <div class="info-card">
                         <h3>Response Time</h3>
                         <div class="info-list">
@@ -1301,7 +1233,7 @@
                     <p><i class="fas fa-phone-alt"></i> +91 9004329806</p>
                     <p><i class="fas fa-envelope"></i> careers.codersverse@gmail.com</p>
                 </div>
-                <!-- Map placeholder - you can add actual Google Maps embed here -->
+                <!-- Map placeholder -->
                 <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.3562908416895!2d72.82856271579359!3d19.07512668710665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9a6a5411c4f%3A0xcbdb1a2e3264e3b7!2sMumbai%2C%20Maharashtra%2C%20India!5e0!3m2!1sen!2sus!4v1678882345678!5m2!1sen!2sus" 
                     width="100%" 
@@ -1359,7 +1291,6 @@
                         <ul>
                             <li><a href="index.html">Home</a></li>
                             <li><a href="about.html">About Us</a></li>
-                            <!-- Removed Portfolio link from footer as well -->
                             <li><a href="services.html">Services</a></li>
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
