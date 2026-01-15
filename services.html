@@ -110,7 +110,7 @@
             width: 100%;
         }
         
-        /* HEADER - EXACT MATCH */
+        /* HEADER - EXACT MATCH TO INDEX.HTML */
         .header {
             position: fixed;
             top: 0;
@@ -120,9 +120,15 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: clamp(0.75rem, 2vw, 1.25rem) 0;
+            padding: 1.25rem 0;
             border-bottom: 1px solid rgba(161, 168, 195, 0.1);
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            padding: 1rem 0;
+            box-shadow: 0 5px 20px rgba(10, 15, 41, 0.1);
         }
         
         .header-container {
@@ -130,18 +136,16 @@
             justify-content: space-between;
             align-items: center;
             position: relative;
-            gap: var(--space-sm);
         }
         
         .logo {
             font-family: 'Manrope', sans-serif;
             font-weight: 800;
-            font-size: clamp(1.25rem, 4vw, 1.75rem);
+            font-size: 1.75rem;
             color: var(--primary-dark);
             display: flex;
             align-items: center;
             z-index: 1001;
-            white-space: nowrap;
         }
         
         .logo-highlight {
@@ -155,12 +159,12 @@
         
         .nav-links {
             display: flex;
-            gap: clamp(var(--space-lg), 4vw, var(--space-xl));
+            gap: var(--space-xl);
         }
         
         .nav-link {
             font-weight: 500;
-            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            font-size: 0.95rem;
             color: var(--gray-medium);
             position: relative;
             padding: var(--space-xs) 0;
@@ -190,32 +194,30 @@
         .header-cta {
             background-color: var(--primary-blue);
             color: var(--white);
-            padding: clamp(0.6rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
+            padding: 0.75rem 1.5rem;
             border-radius: var(--radius-full);
             font-weight: 600;
-            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            font-size: 0.9rem;
             transition: var(--transition);
-            margin-left: var(--space-sm);
-            white-space: nowrap;
+            margin-left: var(--space-md);
+            box-shadow: var(--glow-blue);
         }
         
         .header-cta:hover {
             background-color: var(--accent-blue);
             transform: translateY(-2px);
-            box-shadow: var(--glow-blue);
+            box-shadow: 0 8px 25px rgba(26, 95, 255, 0.3);
         }
         
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            font-size: clamp(1.25rem, 4vw, 1.5rem);
+            font-size: 1.5rem;
             color: var(--primary-dark);
             cursor: pointer;
             z-index: 1001;
-            padding: 0.5rem;
-            min-width: 44px;
-            min-height: 44px;
+            padding: var(--space-sm);
         }
         
         /* HERO SECTION - MATCHING STYLE */
@@ -564,7 +566,7 @@
             box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
         }
         
-        /* MOBILE MENU - EXACT MATCH */
+        /* MOBILE MENU - EXACT MATCH TO INDEX.HTML */
         .mobile-menu-overlay {
             display: none;
             position: fixed;
@@ -590,14 +592,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: clamp(var(--space-md), 4vw, var(--space-lg));
+            gap: var(--space-lg);
             margin-bottom: var(--space-xl);
             width: 100%;
             max-width: min(400px, 100%);
         }
         
         .mobile-nav-link {
-            font-size: clamp(1.25rem, 4vw, 1.5rem);
+            font-size: 1.5rem;
             font-weight: 600;
             color: var(--primary-dark);
             padding: 0.5rem 0;
@@ -625,19 +627,17 @@
         
         .mobile-menu-close {
             position: absolute;
-            top: clamp(20px, 5vw, 30px);
-            right: clamp(20px, 5vw, 30px);
+            top: 30px;
+            right: 30px;
             background: none;
             border: none;
-            font-size: clamp(1.25rem, 4vw, 1.5rem);
+            font-size: 1.5rem;
             color: var(--primary-dark);
             cursor: pointer;
-            padding: 0.5rem;
-            min-width: 44px;
-            min-height: 44px;
+            padding: var(--space-sm);
         }
         
-        /* RESPONSIVE - EXACT MATCH */
+        /* RESPONSIVE - EXACT MATCH TO INDEX.HTML */
         @media (max-width: 768px) {
             .nav-links,
             .header-cta {
@@ -649,7 +649,7 @@
             }
             
             .header {
-                padding: 0.75rem 0;
+                padding: 1rem 0;
             }
         }
         
@@ -675,8 +675,8 @@
     </style>
 </head>
 <body>
-    <!-- HEADER - NOW EXACT MATCH WITH INDEX.HTML -->
-    <header class="header">
+    <!-- HEADER - EXACT MATCH TO INDEX.HTML -->
+    <header class="header" id="header">
         <div class="container header-container">
             <a href="index.html" class="logo">
                 Coders<span class="logo-highlight">Verse</span>
@@ -689,7 +689,6 @@
                     <a href="services.html" class="nav-link active">Services</a>
                     <a href="contact.html" class="nav-link">Contact</a>
                 </div>
-                <!-- FIXED: Changed from contact.html#contact-form to contact.html to match index.html -->
                 <a href="contact.html" class="header-cta">Start Project</a>
             </nav>
             
@@ -699,7 +698,7 @@
         </div>
     </header>
 
-    <!-- MOBILE MENU - NOW EXACT MATCH WITH INDEX.HTML -->
+    <!-- MOBILE MENU - EXACT MATCH TO INDEX.HTML -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay">
         <button class="mobile-menu-close" id="mobileMenuClose">
             <i class="fas fa-times"></i>
@@ -712,7 +711,6 @@
             <a href="contact.html" class="mobile-nav-link">Contact</a>
         </div>
         
-        <!-- FIXED: Changed from contact.html#contact-form to contact.html to match index.html -->
         <a href="contact.html" class="header-cta" id="mobileCta">Start Project</a>
     </div>
 
@@ -940,7 +938,7 @@
     </a>
 
     <script>
-        // Mobile menu functionality - EXACT MATCH
+        // Mobile menu functionality - EXACT MATCH TO INDEX.HTML
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
         const mobileMenuClose = document.getElementById('mobileMenuClose');
@@ -966,13 +964,13 @@
             });
         });
         
-        // Header scroll effect - EXACT MATCH
+        // Header scroll effect - EXACT MATCH TO INDEX.HTML
         window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
+            const header = document.getElementById('header');
             if (window.scrollY > 50) {
-                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+                header.classList.add('scrolled');
             } else {
-                header.style.boxShadow = 'none';
+                header.classList.remove('scrolled');
             }
         });
         
