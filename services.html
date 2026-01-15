@@ -2,18 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | CodersVerse | Web & Design Services</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <title>Our Services | CodersVerse | Website & Design Services</title>
+    <meta name="description" content="Professional website development and design services. Static websites from ₹5,000, Dynamic websites from ₹10,000.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* EXACTLY MATCHING YOUR CONTACT.HML STYLES */
         :root {
             --primary-dark: #0a0f29;
             --primary-blue: #1a5fff;
@@ -21,188 +23,422 @@
             --light-blue: #eef4ff;
             --gray-dark: #2a2f45;
             --gray-medium: #5a6178;
+            --gray-light: #a1a8c3;
+            --gray-extra-light: #f8fafd;
             --white: #ffffff;
+            
+            --shadow-subtle: 0 4px 20px rgba(10, 15, 41, 0.05);
+            --shadow-medium: 0 8px 30px rgba(10, 15, 41, 0.1);
+            --shadow-elevated: 0 15px 50px rgba(10, 15, 41, 0.15);
+            --glow-blue: 0 0 30px rgba(26, 95, 255, 0.2);
+            
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 100px;
+            
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
         }
         
         body {
             font-family: 'Inter', sans-serif;
             color: var(--gray-dark);
-            background: var(--white);
+            background-color: var(--white);
             line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
-        h1, h2, h3 {
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'Manrope', sans-serif;
             font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--space-md);
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+        }
+        
+        h3 {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+        }
+        
+        p {
+            margin-bottom: var(--space-md);
+            color: var(--gray-medium);
+            font-size: clamp(1rem, 2vw, 1.125rem);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 0 clamp(var(--space-sm), 4vw, var(--space-lg));
+            width: 100%;
         }
         
-        /* Header */
+        /* HEADER - EXACT MATCH */
         .header {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            background: var(--white);
-            padding: 1rem 0;
-            border-bottom: 1px solid #eee;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             z-index: 1000;
+            padding: clamp(0.75rem, 2vw, 1.25rem) 0;
+            border-bottom: 1px solid rgba(161, 168, 195, 0.1);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
+            gap: var(--space-sm);
         }
         
         .logo {
             font-family: 'Manrope', sans-serif;
             font-weight: 800;
-            font-size: 1.5rem;
+            font-size: clamp(1.25rem, 4vw, 1.75rem);
             color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            z-index: 1001;
+            white-space: nowrap;
         }
         
         .logo-highlight {
             color: var(--primary-blue);
         }
         
+        .nav {
+            display: flex;
+            align-items: center;
+        }
+        
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: clamp(var(--space-lg), 4vw, var(--space-xl));
         }
         
         .nav-link {
-            color: var(--gray-medium);
             font-weight: 500;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            color: var(--gray-medium);
+            position: relative;
+            padding: var(--space-xs) 0;
         }
         
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-blue);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .nav-link:hover,
         .nav-link.active {
             color: var(--primary-dark);
         }
         
         .header-cta {
-            background: var(--primary-blue);
+            background-color: var(--primary-blue);
             color: var(--white);
-            padding: 0.75rem 1.5rem;
-            border-radius: 100px;
+            padding: clamp(0.6rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
+            border-radius: var(--radius-full);
             font-weight: 600;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            transition: var(--transition);
+            margin-left: var(--space-sm);
+            white-space: nowrap;
         }
         
-        /* Hero */
-        .hero {
-            padding: 8rem 0 4rem;
+        .header-cta:hover {
+            background-color: var(--accent-blue);
+            transform: translateY(-2px);
+            box-shadow: var(--glow-blue);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: clamp(1.25rem, 4vw, 1.5rem);
+            color: var(--primary-dark);
+            cursor: pointer;
+            z-index: 1001;
+            padding: 0.5rem;
+            min-width: 44px;
+            min-height: 44px;
+        }
+        
+        /* HERO SECTION - MATCHING STYLE */
+        .services-hero {
+            padding: clamp(8rem, 15vw, 10rem) 0 clamp(4rem, 10vw, 6rem);
             background: linear-gradient(135deg, var(--primary-dark) 0%, #151a38 100%);
             color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .services-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(26, 95, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(77, 138, 255, 0.1) 0%, transparent 50%);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
         
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: clamp(0.6rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
+            border-radius: var(--radius-full);
+            margin-bottom: var(--space-lg);
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        /* Services */
-        .services {
-            padding: 4rem 0;
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: var(--space-lg);
+            color: var(--white);
+            line-height: 1.1;
         }
         
-        .service-grid {
+        .hero-title span {
+            color: var(--accent-blue);
+        }
+        
+        .hero-description {
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: var(--space-xl);
+        }
+        
+        /* SERVICES SECTION */
+        .services-section {
+            padding: clamp(var(--space-2xl), 6vw, var(--space-2xl)) 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            max-width: min(700px, 100%);
+            margin: 0 auto var(--space-2xl);
+        }
+        
+        .section-subtitle {
+            display: inline-block;
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .services-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 2rem;
-            max-width: 900px;
+            gap: clamp(var(--space-lg), 4vw, var(--space-xl));
+            max-width: 1000px;
             margin: 0 auto;
         }
         
         @media (min-width: 768px) {
-            .service-grid {
+            .services-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
         
         .service-card {
-            background: var(--white);
-            border: 1px solid var(--light-blue);
-            border-radius: 16px;
-            padding: 2rem;
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: clamp(var(--space-lg), 4vw, var(--space-xl));
+            box-shadow: var(--shadow-subtle);
+            transition: var(--transition);
+            border: 1px solid transparent;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-elevated);
+            border-color: var(--light-blue);
         }
         
         .service-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
+            width: clamp(50px, 8vw, 60px);
+            height: clamp(50px, 8vw, 60px);
+            border-radius: var(--radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+            margin-bottom: var(--space-lg);
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
             color: var(--white);
         }
         
-        .website .service-icon {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+        .icon-web {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
         }
         
-        .graphic .service-icon {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .icon-design {
+            background: linear-gradient(135deg, #667eea, #764ba2);
         }
         
-        .social .service-icon {
-            background: linear-gradient(135deg, #E4405F 0%, #C13584 100%);
+        .icon-social {
+            background: linear-gradient(135deg, #E4405F, #C13584);
         }
         
-        .corporate .service-icon {
-            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+        .icon-corporate {
+            background: linear-gradient(135deg, #10b981, #34d399);
         }
         
         .service-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            margin-bottom: var(--space-md);
+            color: var(--primary-dark);
         }
         
         .service-list {
             list-style: none;
+            margin-bottom: var(--space-lg);
+            flex-grow: 1;
         }
         
         .service-list li {
-            padding: 0.5rem 0;
+            padding: var(--space-sm) 0;
             border-bottom: 1px solid var(--light-blue);
+            color: var(--gray-medium);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
-        .price {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-            margin-top: 1rem;
+        .service-list li:last-child {
+            border-bottom: none;
         }
         
-        .price-highlight {
+        .service-item-name {
+            flex-grow: 1;
+        }
+        
+        .service-price-tag {
+            background-color: var(--light-blue);
             color: var(--primary-blue);
-            font-weight: 800;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+            margin-left: var(--space-sm);
         }
         
-        /* Footer */
-        .footer {
-            background: var(--primary-dark);
+        .price-note {
+            font-size: 0.9rem;
+            color: var(--gray-medium);
+            margin-top: var(--space-sm);
+            text-align: center;
+        }
+        
+        .service-cta {
+            background-color: var(--primary-blue);
             color: var(--white);
-            padding: 3rem 0 1.5rem;
+            padding: clamp(0.75rem, 2vw, 0.9rem) clamp(1.25rem, 3vw, 1.5rem);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            transition: var(--transition);
+            text-align: center;
+            display: block;
+            margin-top: auto;
+        }
+        
+        .service-cta:hover {
+            background-color: var(--accent-blue);
+            transform: translateY(-2px);
+            box-shadow: var(--glow-blue);
+        }
+        
+        /* FOOTER - EXACT MATCH */
+        .footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: clamp(var(--space-xl), 6vw, var(--space-2xl)) 0 var(--space-lg);
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: clamp(var(--space-lg), 4vw, var(--space-xl));
+            margin-bottom: clamp(var(--space-lg), 4vw, var(--space-xl));
         }
         
         @media (min-width: 768px) {
@@ -214,20 +450,64 @@
         .footer-logo {
             font-family: 'Manrope', sans-serif;
             font-weight: 800;
-            font-size: 1.5rem;
+            font-size: clamp(1.25rem, 4vw, 1.75rem);
             color: var(--white);
-            margin-bottom: 1rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            width: clamp(36px, 8vw, 40px);
+            height: clamp(36px, 8vw, 40px);
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: var(--transition);
+            min-width: 44px;
+            min-height: 44px;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary-blue);
+            transform: translateY(-3px);
         }
         
         .footer-links {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: clamp(var(--space-md), 4vw, var(--space-xl));
+        }
+        
+        @media (min-width: 640px) {
+            .footer-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .footer-links {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
         
         .footer-column h4 {
-            font-size: 1rem;
-            margin-bottom: 1rem;
+            color: var(--white);
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            margin-bottom: var(--space-md);
         }
         
         .footer-column ul {
@@ -240,44 +520,162 @@
         
         .footer-column a {
             color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
         
-        /* WhatsApp */
+        .footer-column a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+        }
+        
+        /* FLOATING WHATSAPP - EXACT MATCH */
         .whatsapp-fab {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 60px;
-            height: 60px;
+            bottom: clamp(15px, 4vw, 30px);
+            right: clamp(15px, 4vw, 30px);
+            width: clamp(50px, 10vw, 60px);
+            height: clamp(50px, 10vw, 60px);
             border-radius: 50%;
-            background: #25D366;
+            background-color: #25D366;
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: clamp(1.4rem, 3vw, 1.75rem);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
             z-index: 999;
+            transition: var(--transition);
+            text-decoration: none;
+            min-width: 50px;
+            min-height: 50px;
         }
         
-        /* Mobile */
+        .whatsapp-fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
+        }
+        
+        /* MOBILE MENU - EXACT MATCH */
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.98);
+            z-index: 1000;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: var(--space-lg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .mobile-menu-overlay.active {
+            display: flex;
+        }
+        
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: clamp(var(--space-md), 4vw, var(--space-lg));
+            margin-bottom: var(--space-xl);
+            width: 100%;
+            max-width: min(400px, 100%);
+        }
+        
+        .mobile-nav-link {
+            font-size: clamp(1.25rem, 4vw, 1.5rem);
+            font-weight: 600;
+            color: var(--primary-dark);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        .mobile-nav-link.active {
+            color: var(--primary-blue);
+        }
+        
+        .mobile-nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-blue);
+            transition: var(--transition);
+        }
+        
+        .mobile-nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-close {
+            position: absolute;
+            top: clamp(20px, 5vw, 30px);
+            right: clamp(20px, 5vw, 30px);
+            background: none;
+            border: none;
+            font-size: clamp(1.25rem, 4vw, 1.5rem);
+            color: var(--primary-dark);
+            cursor: pointer;
+            padding: 0.5rem;
+            min-width: 44px;
+            min-height: 44px;
+        }
+        
+        /* RESPONSIVE - EXACT MATCH */
         @media (max-width: 768px) {
             .nav-links,
             .header-cta {
                 display: none;
             }
             
-            .hero h1 {
-                font-size: 2rem;
+            .mobile-menu-btn {
+                display: block;
             }
             
-            .footer-links {
-                grid-template-columns: 1fr;
+            .header {
+                padding: 0.75rem 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .service-cta {
+                width: 100%;
+            }
+        }
+        
+        /* SAFE AREA INSETS - EXACT MATCH */
+        @supports (padding: max(0px)) {
+            .header,
+            .footer,
+            .container {
+                padding-left: max(var(--space-sm), env(safe-area-inset-left));
+                padding-right: max(var(--space-sm), env(safe-area-inset-right));
+            }
+            
+            .whatsapp-fab {
+                bottom: max(clamp(15px, 4vw, 30px), env(safe-area-inset-bottom));
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- HEADER - EXACT MATCH -->
     <header class="header">
         <div class="container header-container">
             <a href="index.html" class="logo">
@@ -293,113 +691,216 @@
                 </div>
                 <a href="contact.html#contact-form" class="header-cta">Start Project</a>
             </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
 
-    <!-- Hero -->
-    <section class="hero">
+    <!-- MOBILE MENU - EXACT MATCH -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <button class="mobile-menu-close" id="mobileMenuClose">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="services.html" class="mobile-nav-link active">Services</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+        </div>
+        
+        <a href="contact.html#contact-form" class="header-cta" id="mobileCta">Start Project</a>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="services-hero">
         <div class="container">
-            <h1>Our Services</h1>
-            <p>Professional web and design services</p>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-crown"></i>
+                    <span>Professional Services</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Our <span>Services</span>
+                </h1>
+                
+                <p class="hero-description">
+                    Professional website development and design services at competitive prices.
+                </p>
+            </div>
         </div>
     </section>
 
-    <!-- Services -->
-    <section class="services">
+    <!-- SERVICES SECTION -->
+    <section class="services-section">
         <div class="container">
-            <div class="service-grid">
+            <div class="section-title">
+                <span class="section-subtitle">What We Offer</span>
+                <h2>Professional Services</h2>
+                <p>Clear pricing for all our services</p>
+            </div>
+            
+            <div class="services-grid">
                 <!-- Website Making -->
-                <div class="service-card website">
-                    <div class="service-icon">
+                <div class="service-card">
+                    <div class="service-icon icon-web">
                         <i class="fas fa-code"></i>
                     </div>
                     <h3>Website Making</h3>
                     
                     <ul class="service-list">
-                        <li>Static Websites</li>
-                        <li>Dynamic Websites</li>
+                        <li>
+                            <span class="service-item-name">Static Website</span>
+                            <span class="service-price-tag">Starts from ₹5,000</span>
+                        </li>
+                        <li>
+                            <span class="service-item-name">Dynamic Website</span>
+                            <span class="service-price-tag">Starts from ₹10,000</span>
+                        </li>
                     </ul>
                     
-                    <div class="price">
-                        Static: <span class="price-highlight">₹5,000</span><br>
-                        Dynamic: <span class="price-highlight">₹10,000</span>
-                    </div>
+                    <p class="price-note">* Custom pricing based on requirements</p>
+                    
+                    <a href="contact.html#contact-form" class="service-cta">
+                        <i class="fas fa-paper-plane"></i> Get Quote
+                    </a>
                 </div>
 
                 <!-- Graphic Designs -->
-                <div class="service-card graphic">
-                    <div class="service-icon">
+                <div class="service-card">
+                    <div class="service-icon icon-design">
                         <i class="fas fa-paint-brush"></i>
                     </div>
                     <h3>Graphic Designs</h3>
                     
                     <ul class="service-list">
-                        <li>Logo Design</li>
-                        <li>Brand Identity</li>
-                        <li>Business Cards</li>
-                        <li>Letterheads</li>
+                        <li>
+                            <span class="service-item-name">Logo Design</span>
+                            <span class="service-price-tag">Starts from ₹3,000</span>
+                        </li>
+                        <li>
+                            <span class="service-item-name">Brand Identity</span>
+                            <span class="service-price-tag">Starts from ₹5,000</span>
+                        </li>
+                        <li>
+                            <span class="service-item-name">Business Cards</span>
+                            <span class="service-price-tag">Starts from ₹1,500</span>
+                        </li>
+                        <li>
+                            <span class="service-item-name">Letterheads</span>
+                            <span class="service-price-tag">Starts from ₹2,000</span>
+                        </li>
                     </ul>
                     
-                    <div class="price">Starting from <span class="price-highlight">₹3,000</span></div>
+                    <a href="contact.html#contact-form" class="service-cta">
+                        <i class="fas fa-paper-plane"></i> Get Quote
+                    </a>
                 </div>
 
                 <!-- Social Media Posts -->
-                <div class="service-card social">
-                    <div class="service-icon">
+                <div class="service-card">
+                    <div class="service-icon icon-social">
                         <i class="fas fa-share-alt"></i>
                     </div>
                     <h3>Social Media Posts</h3>
                     
                     <ul class="service-list">
-                        <li>Instagram Posts</li>
-                        <li>Facebook Posts</li>
-                        <li>LinkedIn Graphics</li>
-                        <li>Twitter Posts</li>
+                        <li>
+                            <span class="service-item-name">Instagram Posts</span>
+                            <span class="service-price-tag">Starts from ₹2,000</span>
+                        </li>
+                        <li>
+                            <span class="service-item-name">Facebook Posts</span>
+                            <span class="service-price-tag">Starts from ₹2,000</span>
+                        </li>
+                        <li>
+                            <span class="service-item-name">LinkedIn Graphics</span>
+                            <span class="service-price-tag">Starts from ₹2,500</span>
+                        </li>
+                        <li>
+                            <span class="service-item-name">Twitter Posts</span>
+                            <span class="service-price-tag">Starts from ₹1,500</span>
+                        </li>
                     </ul>
                     
-                    <div class="price">Starting from <span class="price-highlight">₹2,000</span></div>
+                    <a href="contact.html#contact-form" class="service-cta">
+                        <i class="fas fa-paper-plane"></i> Get Quote
+                    </a>
                 </div>
 
                 <!-- Corporate Catalogues -->
-                <div class="service-card corporate">
-                    <div class="service-icon">
+                <div class="service-card">
+                    <div class="service-icon icon-corporate">
                         <i class="fas fa-file-alt"></i>
                     </div>
                     <h3>Corporate Designs</h3>
                     
                     <ul class="service-list">
-                        <li>Brochures</li>
-                        <li>Catalogues</li>
-                        <li>Flyers</li>
-                        <li>Posters</li>
-                        <li>Banners</li>
+                        <li>
+                            <span class="service-item-name">Brochures</span>
+                            <span class="service-price-tag">Starts from ₹4,000</span>
+                        </li>
+                        <li>
+                            <span class="service-item-name">Catalogues</span>
+                            <span class="service-price-tag">Starts from ₹5,000</span>
+                        </li>
+                        <li>
+                            <span class="service-item-name">Flyers</span>
+                            <span class="service-price-tag">Starts from ₹2,500</span>
+                        </li>
+                        <li>
+                            <span class="service-item-name">Posters</span>
+                            <span class="service-price-tag">Starts from ₹3,000</span>
+                        </li>
+                        <li>
+                            <span class="service-item-name">Banners</span>
+                            <span class="service-price-tag">Starts from ₹4,000</span>
+                        </li>
                     </ul>
                     
-                    <div class="price">Starting from <span class="price-highlight">₹4,000</span></div>
+                    <a href="contact.html#contact-form" class="service-cta">
+                        <i class="fas fa-paper-plane"></i> Get Quote
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER - EXACT MATCH -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div>
+                <div class="footer-brand">
                     <div class="footer-logo">
                         Coders<span class="logo-highlight">Verse</span>
                     </div>
-                    <p>Professional digital solutions</p>
+                    <p class="footer-description">
+                        Professional digital solutions for your business.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://wa.me/919004329806?text=Hello%20CodersVerse!%20I'd%20like%20to%20discuss%20a%20project%20with%20you." target="_blank" class="social-link" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://instagram.com/Coders.verse" target="_blank" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="mailto:careers.codersverse@gmail.com" class="social-link" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
                 </div>
                 
                 <div class="footer-links">
                     <div class="footer-column">
                         <h4>Services</h4>
                         <ul>
-                            <li><a href="#">Website Making</a></li>
-                            <li><a href="#">Graphic Designs</a></li>
-                            <li><a href="#">Social Media</a></li>
-                            <li><a href="#">Corporate Designs</a></li>
+                            <li><a href="services.html">Website Making</a></li>
+                            <li><a href="services.html">Graphic Designs</a></li>
+                            <li><a href="services.html">Social Media Posts</a></li>
+                            <li><a href="services.html">Corporate Designs</a></li>
                         </ul>
                     </div>
                     
@@ -407,7 +908,7 @@
                         <h4>Company</h4>
                         <ul>
                             <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
+                            <li><a href="about.html">About Us</a></li>
                             <li><a href="services.html">Services</a></li>
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
@@ -416,18 +917,86 @@
                     <div class="footer-column">
                         <h4>Contact</h4>
                         <ul>
-                            <li>+91 9004329806</li>
-                            <li>careers.codersverse@gmail.com</li>
+                            <li><a href="tel:+919004329806">+91 9004329806</a></li>
+                            <li><a href="mailto:careers.codersverse@gmail.com">careers.codersverse@gmail.com</a></li>
+                            <li><a href="https://instagram.com/Coders.verse" target="_blank">@Coders.verse</a></li>
+                            <li>Mumbai, India</li>
                         </ul>
                     </div>
                 </div>
             </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 CodersVerse. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- WhatsApp -->
-    <a href="https://wa.me/919004329806" target="_blank" class="whatsapp-fab">
+    <!-- FLOATING WHATSAPP - EXACT MATCH -->
+    <a href="https://wa.me/919004329806?text=Hello%20CodersVerse!%20I'd%20like%20to%20discuss%20a%20project%20with%20you." target="_blank" class="whatsapp-fab" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+    <script>
+        // Mobile menu functionality - EXACT MATCH
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        
+        // Open mobile menu
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        // Close mobile menu
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link, #mobileCta');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Header scroll effect - EXACT MATCH
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+        
+        // Smooth scroll for anchor links - EXACT MATCH
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (mobileMenuOverlay.classList.contains('active')) {
+                        mobileMenuOverlay.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
