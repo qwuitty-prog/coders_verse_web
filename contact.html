@@ -37,6 +37,7 @@
             --shadow-medium: 0 8px 30px rgba(10, 15, 41, 0.1);
             --shadow-elevated: 0 15px 50px rgba(10, 15, 41, 0.15);
             --glow-blue: 0 0 30px rgba(26, 95, 255, 0.2);
+            --video-shadow: 0 15px 35px rgba(10, 15, 41, 0.25); /* Added subtle video shadow */
             
             /* Spacing */
             --space-xs: 0.5rem;
@@ -322,10 +323,12 @@
             box-shadow: var(--shadow-elevated);
         }
         
-        /* Video specific styling */
+        /* Video specific styling with subtle shadow */
         video.hero-image {
             max-height: 400px;
             object-fit: cover;
+            box-shadow: var(--video-shadow); /* Added subtle shadow */
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Added subtle border for better definition */
         }
         
         /* Contact Methods */
@@ -832,6 +835,11 @@
             .hero-container {
                 gap: var(--space-lg);
             }
+            
+            /* Adjust video shadow on tablet */
+            video.hero-image {
+                box-shadow: 0 12px 30px rgba(10, 15, 41, 0.2);
+            }
         }
         
         @media (max-width: 900px) {
@@ -909,6 +917,7 @@
             
             video.hero-image {
                 max-height: 300px;
+                box-shadow: 0 10px 25px rgba(10, 15, 41, 0.18);
             }
         }
         
@@ -982,6 +991,7 @@
             
             video.hero-image {
                 max-height: 250px;
+                box-shadow: 0 8px 20px rgba(10, 15, 41, 0.15);
             }
         }
         
@@ -1096,7 +1106,8 @@
                     <h3>WhatsApp</h3>
                     <p>Fast response for quick questions and instant project discussions.</p>
                     <span class="method-detail">+91 9004329806</span>
-                    <a href="https://wa.me/919004329806" target="_blank" class="method-btn whatsapp-btn">
+                    <!-- WhatsApp button with preloaded message -->
+                    <a href="https://wa.me/919004329806?text=Hello%20CodersVerse!%20I'd%20like%20to%20discuss%20a%20project%20with%20you." target="_blank" class="method-btn whatsapp-btn">
                         <i class="fab fa-whatsapp"></i> Message Now
                     </a>
                 </div>
@@ -1282,7 +1293,8 @@
                         We transform businesses through exceptional digital experiences. From concept to launch, we're with you every step of the way.
                     </p>
                     <div class="social-links">
-                        <a href="https://wa.me/919004329806" target="_blank" class="social-link" aria-label="WhatsApp">
+                        <!-- WhatsApp link with preloaded message -->
+                        <a href="https://wa.me/919004329806?text=Hello%20CodersVerse!%20I'd%20like%20to%20discuss%20a%20project%20with%20you." target="_blank" class="social-link" aria-label="WhatsApp">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                         <a href="https://instagram.com/Coders.verse" target="_blank" class="social-link" aria-label="Instagram">
@@ -1338,8 +1350,8 @@
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/919004329806" target="_blank" class="whatsapp-fab" aria-label="Chat on WhatsApp">
+    <!-- Floating WhatsApp Button with preloaded message -->
+    <a href="https://wa.me/919004329806?text=Hello%20CodersVerse!%20I'd%20like%20to%20discuss%20a%20project%20with%20you." target="_blank" class="whatsapp-fab" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
