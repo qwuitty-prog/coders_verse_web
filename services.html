@@ -15,8 +15,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* EXACTLY MATCHING YOUR CONTACT.HML STYLES */
+        /* EXACTLY MATCHING YOUR INDEX.HTML STYLES */
         :root {
+            /* Premium Color Palette - Matching Index Page */
             --primary-dark: #0a0f29;
             --primary-blue: #1a5fff;
             --accent-blue: #4d8aff;
@@ -27,24 +28,28 @@
             --gray-extra-light: #f8fafd;
             --white: #ffffff;
             
+            /* Shadows & Effects - Matching Index Page */
             --shadow-subtle: 0 4px 20px rgba(10, 15, 41, 0.05);
             --shadow-medium: 0 8px 30px rgba(10, 15, 41, 0.1);
             --shadow-elevated: 0 15px 50px rgba(10, 15, 41, 0.15);
             --glow-blue: 0 0 30px rgba(26, 95, 255, 0.2);
             
+            /* Spacing - EXACT MATCH TO INDEX.HTML */
             --space-xs: 0.5rem;
             --space-sm: 1rem;
             --space-md: 1.5rem;
-            --space-lg: 2rem;
-            --space-xl: 3rem;
-            --space-2xl: 4rem;
+            --space-lg: 2.5rem;
+            --space-xl: 4rem;
+            --space-2xl: 6rem;
             
+            /* Border Radius - Matching Index Page */
             --radius-sm: 8px;
             --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 24px;
+            --radius-lg: 20px;
+            --radius-xl: 30px;
             --radius-full: 100px;
             
+            /* Transitions - Matching Index Page */
             --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
@@ -79,22 +84,22 @@
         }
         
         h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: 3.5rem;
             letter-spacing: -0.02em;
         }
         
         h2 {
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-size: 2.5rem;
         }
         
         h3 {
-            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-size: 1.75rem;
         }
         
         p {
             margin-bottom: var(--space-md);
             color: var(--gray-medium);
-            font-size: clamp(1rem, 2vw, 1.125rem);
+            font-size: 1.125rem;
         }
         
         a {
@@ -106,11 +111,14 @@
         .container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 clamp(var(--space-sm), 4vw, var(--space-lg));
-            width: 100%;
+            padding: 0 var(--space-lg);
         }
         
-        /* HEADER - EXACT MATCH TO INDEX.HTML */
+        .text-center {
+            text-align: center;
+        }
+        
+        /* HEADER - EXACT COPY FROM INDEX.HTML */
         .header {
             position: fixed;
             top: 0;
@@ -220,9 +228,9 @@
             padding: var(--space-sm);
         }
         
-        /* HERO SECTION - MATCHING STYLE */
+        /* HERO SECTION - Matching Style */
         .services-hero {
-            padding: clamp(8rem, 15vw, 10rem) 0 clamp(4rem, 10vw, 6rem);
+            padding: 10rem 0 6rem;
             background: linear-gradient(135deg, var(--primary-dark) 0%, #151a38 100%);
             color: var(--white);
             position: relative;
@@ -256,16 +264,16 @@
             background-color: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            padding: clamp(0.6rem, 2vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
+            padding: 0.75rem 1.5rem;
             border-radius: var(--radius-full);
             margin-bottom: var(--space-lg);
-            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            font-size: 0.9rem;
             font-weight: 500;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .hero-title {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: 3.5rem;
             margin-bottom: var(--space-lg);
             color: var(--white);
             line-height: 1.1;
@@ -276,14 +284,14 @@
         }
         
         .hero-description {
-            font-size: clamp(1rem, 3vw, 1.25rem);
+            font-size: 1.25rem;
             color: rgba(255, 255, 255, 0.8);
             margin-bottom: var(--space-xl);
         }
         
         /* SERVICES SECTION */
         .services-section {
-            padding: clamp(var(--space-2xl), 6vw, var(--space-2xl)) 0;
+            padding: var(--space-2xl) 0;
             background-color: var(--white);
         }
         
@@ -297,7 +305,7 @@
             display: inline-block;
             color: var(--primary-blue);
             font-weight: 600;
-            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: var(--space-sm);
@@ -306,7 +314,7 @@
         .services-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: clamp(var(--space-lg), 4vw, var(--space-xl));
+            gap: var(--space-xl);
             max-width: 1000px;
             margin: 0 auto;
         }
@@ -320,7 +328,7 @@
         .service-card {
             background-color: var(--white);
             border-radius: var(--radius-lg);
-            padding: clamp(var(--space-lg), 4vw, var(--space-xl));
+            padding: var(--space-xl);
             box-shadow: var(--shadow-subtle);
             transition: var(--transition);
             border: 1px solid transparent;
@@ -336,14 +344,14 @@
         }
         
         .service-icon {
-            width: clamp(50px, 8vw, 60px);
-            height: clamp(50px, 8vw, 60px);
+            width: 60px;
+            height: 60px;
             border-radius: var(--radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: var(--space-lg);
-            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            font-size: 1.5rem;
             color: var(--white);
         }
         
@@ -364,7 +372,7 @@
         }
         
         .service-card h3 {
-            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            font-size: 1.5rem;
             margin-bottom: var(--space-md);
             color: var(--primary-dark);
         }
@@ -413,10 +421,10 @@
         .service-cta {
             background-color: var(--primary-blue);
             color: var(--white);
-            padding: clamp(0.75rem, 2vw, 0.9rem) clamp(1.25rem, 3vw, 1.5rem);
+            padding: 0.9rem 1.5rem;
             border-radius: var(--radius-full);
             font-weight: 600;
-            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            font-size: 0.95rem;
             transition: var(--transition);
             text-align: center;
             display: block;
@@ -429,49 +437,42 @@
             box-shadow: var(--glow-blue);
         }
         
-        /* FOOTER - EXACT MATCH */
+        /* FOOTER - EXACT COPY FROM INDEX.HTML */
         .footer {
             background-color: var(--primary-dark);
             color: var(--white);
-            padding: clamp(var(--space-xl), 6vw, var(--space-2xl)) 0 var(--space-lg);
+            padding: var(--space-2xl) 0 var(--space-lg);
         }
         
         .footer-content {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: clamp(var(--space-lg), 4vw, var(--space-xl));
-            margin-bottom: clamp(var(--space-lg), 4vw, var(--space-xl));
-        }
-        
-        @media (min-width: 768px) {
-            .footer-content {
-                grid-template-columns: 1fr 2fr;
-            }
+            grid-template-columns: 1fr 2fr;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
         }
         
         .footer-logo {
             font-family: 'Manrope', sans-serif;
             font-weight: 800;
-            font-size: clamp(1.25rem, 4vw, 1.75rem);
+            font-size: 1.75rem;
             color: var(--white);
             margin-bottom: var(--space-md);
         }
         
         .footer-description {
             color: rgba(255, 255, 255, 0.7);
-            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-size: 1rem;
             margin-bottom: var(--space-lg);
         }
         
         .social-links {
             display: flex;
             gap: var(--space-sm);
-            flex-wrap: wrap;
         }
         
         .social-link {
-            width: clamp(36px, 8vw, 40px);
-            height: clamp(36px, 8vw, 40px);
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background-color: rgba(255, 255, 255, 0.1);
             display: flex;
@@ -479,8 +480,6 @@
             justify-content: center;
             color: var(--white);
             transition: var(--transition);
-            min-width: 44px;
-            min-height: 44px;
         }
         
         .social-link:hover {
@@ -490,26 +489,14 @@
         
         .footer-links {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: clamp(var(--space-md), 4vw, var(--space-xl));
-        }
-        
-        @media (min-width: 640px) {
-            .footer-links {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            .footer-links {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
         }
         
         .footer-column h4 {
             color: var(--white);
-            font-size: clamp(1rem, 2vw, 1.125rem);
-            margin-bottom: var(--space-md);
+            font-size: 1.125rem;
+            margin-bottom: var(--space-lg);
         }
         
         .footer-column ul {
@@ -517,13 +504,12 @@
         }
         
         .footer-column li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
         
         .footer-column a {
             color: rgba(255, 255, 255, 0.7);
             transition: var(--transition);
-            font-size: clamp(0.9rem, 2vw, 1rem);
         }
         
         .footer-column a:hover {
@@ -536,29 +522,27 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
             color: rgba(255, 255, 255, 0.5);
-            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            font-size: 0.9rem;
         }
         
-        /* FLOATING WHATSAPP - EXACT MATCH */
+        /* Floating WhatsApp Button - Matching Index.html */
         .whatsapp-fab {
             position: fixed;
-            bottom: clamp(15px, 4vw, 30px);
-            right: clamp(15px, 4vw, 30px);
-            width: clamp(50px, 10vw, 60px);
-            height: clamp(50px, 10vw, 60px);
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background-color: #25D366;
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: clamp(1.4rem, 3vw, 1.75rem);
+            font-size: 1.75rem;
             box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
             z-index: 999;
             transition: var(--transition);
             text-decoration: none;
-            min-width: 50px;
-            min-height: 50px;
         }
         
         .whatsapp-fab:hover {
@@ -566,7 +550,41 @@
             box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
         }
         
-        /* MOBILE MENU - EXACT MATCH TO INDEX.HTML */
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: var(--transition);
+            box-shadow: var(--glow-blue);
+            z-index: 998;
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .scroll-to-top:hover {
+            transform: translateY(-4px);
+            background-color: var(--accent-blue);
+        }
+        
+        /* Mobile Menu Overlay - EXACT COPY FROM INDEX.HTML */
         .mobile-menu-overlay {
             display: none;
             position: fixed;
@@ -580,8 +598,6 @@
             justify-content: center;
             align-items: center;
             padding: var(--space-lg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
         }
         
         .mobile-menu-overlay.active {
@@ -595,7 +611,7 @@
             gap: var(--space-lg);
             margin-bottom: var(--space-xl);
             width: 100%;
-            max-width: min(400px, 100%);
+            max-width: 400px;
         }
         
         .mobile-nav-link {
@@ -637,8 +653,44 @@
             padding: var(--space-sm);
         }
         
-        /* RESPONSIVE - EXACT MATCH TO INDEX.HTML */
+        /* Responsive Design - Matching Index.html */
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.25rem;
+            }
+            
+            h3 {
+                font-size: 1.5rem;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+        
         @media (max-width: 768px) {
+            .header {
+                padding: 1rem 0;
+            }
+            
             .nav-links,
             .header-cta {
                 display: none;
@@ -648,34 +700,82 @@
                 display: block;
             }
             
-            .header {
-                padding: 1rem 0;
+            .services-hero {
+                padding: 8rem 0 4rem;
             }
-        }
-        
-        @media (max-width: 480px) {
-            .service-cta {
-                width: 100%;
+            
+            .hero-title {
+                font-size: 2.5rem;
             }
-        }
-        
-        /* SAFE AREA INSETS - EXACT MATCH */
-        @supports (padding: max(0px)) {
-            .header,
-            .footer,
-            .container {
-                padding-left: max(var(--space-sm), env(safe-area-inset-left));
-                padding-right: max(var(--space-sm), env(safe-area-inset-right));
+            
+            .footer-links {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
             }
             
             .whatsapp-fab {
-                bottom: max(clamp(15px, 4vw, 30px), env(safe-area-inset-bottom));
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+            }
+            
+            .scroll-to-top {
+                bottom: 90px;
+                right: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 var(--space-md);
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            h3 {
+                font-size: 1.25rem;
+            }
+            
+            .hero-title {
+                font-size: 2.25rem;
+            }
+            
+            .hero-description {
+                font-size: 1.1rem;
+            }
+            
+            .service-cta {
+                width: 100%;
+            }
+            
+            .whatsapp-fab {
+                bottom: 15px;
+                right: 15px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+            
+            .scroll-to-top {
+                bottom: 85px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- HEADER - EXACT MATCH TO INDEX.HTML -->
+    <!-- HEADER - EXACT COPY FROM INDEX.HTML -->
     <header class="header" id="header">
         <div class="container header-container">
             <a href="index.html" class="logo">
@@ -698,7 +798,7 @@
         </div>
     </header>
 
-    <!-- MOBILE MENU - EXACT MATCH TO INDEX.HTML -->
+    <!-- Mobile Menu Overlay - EXACT COPY FROM INDEX.HTML -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay">
         <button class="mobile-menu-close" id="mobileMenuClose">
             <i class="fas fa-times"></i>
@@ -869,7 +969,7 @@
         </div>
     </section>
 
-    <!-- FOOTER - EXACT MATCH -->
+    <!-- FOOTER - EXACT COPY FROM INDEX.HTML -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -932,13 +1032,18 @@
         </div>
     </footer>
 
-    <!-- FLOATING WHATSAPP - EXACT MATCH -->
+    <!-- Floating WhatsApp Button - Matching Index.html -->
     <a href="https://wa.me/919004329806?text=Hello%20CodersVerse!%20I'd%20like%20to%20discuss%20a%20project%20with%20you." target="_blank" class="whatsapp-fab" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
     <script>
-        // Mobile menu functionality - EXACT MATCH TO INDEX.HTML
+        // Mobile menu functionality - EXACT COPY FROM INDEX.HTML
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
         const mobileMenuClose = document.getElementById('mobileMenuClose');
@@ -964,7 +1069,7 @@
             });
         });
         
-        // Header scroll effect - EXACT MATCH TO INDEX.HTML
+        // Header scroll effect - EXACT COPY FROM INDEX.HTML
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
             if (window.scrollY > 50) {
@@ -972,9 +1077,17 @@
             } else {
                 header.classList.remove('scrolled');
             }
+            
+            // Scroll to top button
+            const scrollToTop = document.getElementById('scrollToTop');
+            if (window.scrollY > 500) {
+                scrollToTop.classList.add('visible');
+            } else {
+                scrollToTop.classList.remove('visible');
+            }
         });
         
-        // Smooth scroll for anchor links - EXACT MATCH
+        // Smooth scroll for anchor links - EXACT COPY FROM INDEX.HTML
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -995,6 +1108,14 @@
                         document.body.style.overflow = '';
                     }
                 }
+            });
+        });
+        
+        // Scroll to top functionality
+        document.getElementById('scrollToTop').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
     </script>
