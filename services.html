@@ -653,7 +653,143 @@
             padding: var(--space-sm);
         }
         
-        /* Responsive Design - Matching Index.html */
+        /* MOBILE-ONLY OPTIMIZATIONS (Will not affect desktop) */
+        @media (max-width: 480px) {
+            /* Fix container padding on very small screens */
+            .container {
+                padding: 0 var(--space-md);
+            }
+            
+            /* Optimize service cards for mobile */
+            .service-card {
+                padding: var(--space-lg);
+            }
+            
+            /* Make service list items more mobile-friendly */
+            .service-list li {
+                flex-wrap: wrap;
+                padding: 0.75rem 0;
+            }
+            
+            .service-item-name {
+                width: 100%;
+                margin-bottom: 0.25rem;
+                font-size: 0.95rem;
+            }
+            
+            .service-price-tag {
+                white-space: normal;
+                margin-left: 0;
+                font-size: 0.8rem;
+                padding: 0.25rem 0.6rem;
+                align-self: flex-start;
+            }
+            
+            /* Optimize hero section for mobile */
+            .services-hero {
+                padding: 7rem 0 4rem;
+            }
+            
+            /* Better mobile typography */
+            .hero-title {
+                font-size: 2rem;
+                line-height: 1.15;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+            
+            .section-title h2 {
+                font-size: 1.75rem;
+            }
+            
+            .service-card h3 {
+                font-size: 1.25rem;
+            }
+            
+            /* Adjust service grid gap for mobile */
+            .services-grid {
+                gap: var(--space-lg);
+            }
+            
+            /* Optimize service CTA buttons */
+            .service-cta {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+                width: 100%;
+            }
+            
+            /* Adjust spacing in services section */
+            .services-section {
+                padding: var(--space-xl) 0;
+            }
+            
+            .section-title {
+                margin-bottom: var(--space-xl);
+            }
+            
+            /* Optimize price note */
+            .price-note {
+                font-size: 0.8rem;
+                margin-top: var(--space-xs);
+            }
+            
+            /* Optimize footer for mobile */
+            .footer {
+                padding: var(--space-xl) 0 var(--space-md);
+            }
+            
+            .footer-links {
+                gap: var(--space-lg);
+            }
+            
+            .footer-column h4 {
+                margin-bottom: var(--space-md);
+                font-size: 1rem;
+            }
+            
+            /* Better mobile touch targets */
+            .nav-link,
+            .mobile-nav-link {
+                padding: var(--space-sm) 0;
+            }
+        }
+        
+        /* EXTRA SMALL SCREEN OPTIMIZATIONS */
+        @media (max-width: 360px) {
+            .hero-title {
+                font-size: 1.75rem;
+            }
+            
+            .hero-badge {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
+            
+            .service-card {
+                padding: var(--space-md);
+            }
+            
+            .service-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.25rem;
+                margin-bottom: var(--space-md);
+            }
+            
+            .service-list li {
+                padding: 0.6rem 0;
+            }
+            
+            .service-price-tag {
+                font-size: 0.75rem;
+                padding: 0.2rem 0.5rem;
+            }
+        }
+        
+        /* Existing Responsive Design - Matching Index.html (No Changes) */
         @media (max-width: 1024px) {
             h1 {
                 font-size: 3rem;
