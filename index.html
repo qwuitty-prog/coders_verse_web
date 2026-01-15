@@ -1437,7 +1437,7 @@
                 <div class="stat-icon">
                     <i class="fas fa-calendar-check"></i>
                 </div>
-                <div class="stat-number" data-count="150">0</div>
+                <div class="stat-number" data-count="157">157</div>
                 <div class="stat-label">Projects Completed</div>
             </div>
             
@@ -1445,7 +1445,7 @@
                 <div class="stat-icon">
                     <i class="fas fa-users"></i>
                 </div>
-                <div class="stat-number" data-count="98">0</div>
+                <div class="stat-number" data-count="103">103</div>
                 <div class="stat-label">Happy Clients</div>
             </div>
             
@@ -1453,7 +1453,7 @@
                 <div class="stat-icon">
                     <i class="fas fa-award"></i>
                 </div>
-                <div class="stat-number" data-count="27">0</div>
+                <div class="stat-number" data-count="29">29</div>
                 <div class="stat-label">Awards Won</div>
             </div>
             
@@ -1461,7 +1461,7 @@
                 <div class="stat-icon">
                     <i class="fas fa-clock"></i>
                 </div>
-                <div class="stat-number" data-count="4500">0</div>
+                <div class="stat-number" data-count="4780">4,780</div>
                 <div class="stat-label">Hours of Expertise</div>
             </div>
         </div>
@@ -1763,7 +1763,7 @@
                     We transform businesses through exceptional digital experiences. From concept to launch, we're with you every step of the way.
                 </p>
                 <div class="social-links">
-                    <a href="https://wa.me/919004329806" target="_blank" class="social-link" aria-label="WhatsApp">
+                    <a href="https://wa.me/919004329806?text=Hello%20CodersVerse!%20I'd%20like%20to%20discuss%20a%20project%20with%20you." target="_blank" class="social-link" aria-label="WhatsApp">
                         <i class="fab fa-whatsapp"></i>
                     </a>
                     <a href="https://instagram.com/Coders.verse" target="_blank" class="social-link" aria-label="Instagram">
@@ -1820,7 +1820,7 @@
 </footer>
 
 <!-- Floating WhatsApp Button -->
-<a href="https://wa.me/919004329806" target="_blank" class="whatsapp-fab" aria-label="Chat on WhatsApp">
+<a href="https://wa.me/919004329806?text=Hello%20CodersVerse!%20I'd%20like%20to%20discuss%20a%20project%20with%20you." target="_blank" class="whatsapp-fab" aria-label="Chat on WhatsApp">
     <i class="fab fa-whatsapp"></i>
 </a>
 
@@ -1880,15 +1880,21 @@ let animated = false;
 
 const animateCounter = () => {
     counters.forEach(counter => {
-        const target = +counter.getAttribute('data-count');
-        const count = +counter.innerText;
-        const increment = target / 100;
+        // Get the displayed number
+        const currentNumber = parseInt(counter.innerText.replace(',', ''));
+        const target = parseInt(counter.getAttribute('data-count'));
         
-        if (count < target) {
-            counter.innerText = Math.ceil(count + increment);
-            setTimeout(animateCounter, 20);
-        } else {
-            counter.innerText = target;
+        // Only animate if we're not already at the target
+        if (currentNumber < target) {
+            const increment = Math.ceil((target - currentNumber) / 25);
+            const newNumber = currentNumber + increment;
+            
+            if (newNumber >= target) {
+                counter.innerText = target.toLocaleString();
+            } else {
+                counter.innerText = newNumber.toLocaleString();
+                setTimeout(animateCounter, 50);
+            }
         }
     });
 };
@@ -2050,7 +2056,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Initialize
+// Initialize testimonial slider
 updateTestimonial(0);
 
 // Add loading animation to cards on scroll
@@ -2059,6 +2065,20 @@ window.addEventListener('load', () => {
     animatedElements.forEach((el, index) => {
         el.style.animationDelay = `${index * 0.1}s`;
     });
+});
+
+// WhatsApp pre-filled message function
+function openWhatsAppWithMessage() {
+    const message = "Hello CodersVerse! I'd like to discuss a project with you.";
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/919004329806?text=${encodedMessage}`;
+    window.open(whatsappURL, '_blank');
+}
+
+// Add click event to WhatsApp button
+document.querySelector('.whatsapp-fab').addEventListener('click', function(e) {
+    e.preventDefault();
+    openWhatsAppWithMessage();
 });
 </script>
 
