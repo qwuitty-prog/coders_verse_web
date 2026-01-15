@@ -498,300 +498,6 @@
             font-weight: 500;
         }
 
-        /* Services Section */
-        .services-section {
-            padding: var(--space-2xl) 0;
-            background-color: var(--gray-extra-light);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: var(--space-2xl);
-        }
-
-        .section-subtitle {
-            display: inline-block;
-            color: var(--primary-blue);
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: var(--space-sm);
-        }
-
-        .section-description {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-lg);
-        }
-
-        .service-card {
-            background-color: var(--white);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-subtle);
-            transition: var(--transition);
-            border: 1px solid transparent;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-elevated);
-            border-color: var(--light-blue);
-        }
-
-        .service-header {
-            padding: var(--space-xl);
-            background: linear-gradient(135deg, var(--primary-dark), #151a38);
-            position: relative;
-            min-height: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--white);
-            margin-bottom: var(--space-lg);
-        }
-
-        .service-header h3 {
-            color: var(--white);
-            text-align: center;
-            margin-bottom: 0;
-        }
-
-        .service-body {
-            padding: var(--space-xl);
-        }
-
-        .service-features {
-            list-style: none;
-            padding: 0;
-            margin: var(--space-lg) 0;
-        }
-
-        .service-features li {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            padding: var(--space-sm) 0;
-            color: var(--gray-medium);
-            font-size: 0.95rem;
-        }
-
-        .service-features li i {
-            color: var(--primary-blue);
-            font-size: 0.875rem;
-        }
-
-        .service-price {
-            font-size: 1.75rem;
-            font-weight: 800;
-            font-family: 'Manrope', sans-serif;
-            color: var(--primary-dark);
-            margin-bottom: var(--space-lg);
-        }
-
-        .service-price span {
-            font-size: 0.9rem;
-            color: var(--gray-medium);
-            font-weight: 500;
-        }
-
-        /* Process Section */
-        .process-section {
-            padding: var(--space-2xl) 0;
-            background-color: var(--white);
-            position: relative;
-        }
-
-        .process-container {
-            position: relative;
-            padding: var(--space-xl) 0;
-        }
-
-        .process-line {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
-            transform: translateY(-50%);
-            z-index: 0;
-        }
-
-        .process-steps {
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-            z-index: 1;
-        }
-
-        .process-step {
-            text-align: center;
-            width: 200px;
-            position: relative;
-        }
-
-        .step-number {
-            width: 70px;
-            height: 70px;
-            background: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary-blue);
-            margin: 0 auto var(--space-lg);
-            box-shadow: var(--shadow-medium);
-            border: 3px solid transparent;
-            position: relative;
-            z-index: 1;
-            transition: var(--transition);
-        }
-
-        .process-step:hover .step-number {
-            transform: scale(1.1);
-            background: var(--primary-blue);
-            color: var(--white);
-            box-shadow: var(--glow-blue);
-        }
-
-        .step-content h3 {
-            font-size: 1.25rem;
-            margin-bottom: var(--space-sm);
-        }
-
-        .step-content p {
-            font-size: 0.95rem;
-            color: var(--gray-medium);
-        }
-
-        /* Portfolio Section */
-        .portfolio-section {
-            padding: var(--space-2xl) 0;
-            background-color: var(--gray-extra-light);
-        }
-
-        .portfolio-filters {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-sm);
-            margin-bottom: var(--space-xl);
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: var(--space-sm) var(--space-lg);
-            background: transparent;
-            border: 2px solid var(--light-blue);
-            border-radius: var(--radius-full);
-            font-weight: 600;
-            color: var(--gray-medium);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            background-color: var(--primary-blue);
-            color: var(--white);
-            border-color: transparent;
-            box-shadow: var(--glow-blue);
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-lg);
-        }
-
-        .portfolio-item {
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-subtle);
-            position: relative;
-            aspect-ratio: 4/3;
-            transition: var(--transition);
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-elevated);
-        }
-
-        .portfolio-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.7s ease;
-        }
-
-        .portfolio-item:hover .portfolio-image {
-            transform: scale(1.1);
-        }
-
-        .portfolio-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to top, var(--primary-dark) 0%, transparent 100%);
-            padding: var(--space-lg);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
-        }
-
-        .portfolio-category {
-            display: inline-block;
-            padding: var(--space-xs) var(--space-md);
-            background: var(--primary-blue);
-            color: var(--white);
-            border-radius: var(--radius-full);
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: var(--space-sm);
-        }
-
-        .portfolio-overlay h3 {
-            color: var(--white);
-            font-size: 1.25rem;
-            margin-bottom: var(--space-sm);
-        }
-
-        .portfolio-overlay p {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-            margin-bottom: var(--space-md);
-        }
-
         /* Testimonials Section */
         .testimonials-section {
             padding: var(--space-2xl) 0;
@@ -1203,10 +909,6 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
             .footer-content {
                 grid-template-columns: 1fr;
             }
@@ -1215,10 +917,6 @@
         @media (max-width: 900px) {
             .hero-title {
                 font-size: 2.5rem;
-            }
-            
-            .portfolio-grid {
-                grid-template-columns: repeat(2, 1fr);
             }
             
             .footer-links {
@@ -1248,30 +946,8 @@
                 font-size: 2.5rem;
             }
             
-            .services-grid,
-            .portfolio-grid,
             .stats-container {
                 grid-template-columns: 1fr;
-            }
-            
-            .process-steps {
-                flex-direction: column;
-                gap: var(--space-xl);
-            }
-            
-            .process-line {
-                top: 0;
-                bottom: 0;
-                left: 50%;
-                width: 2px;
-                height: auto;
-                transform: translateX(-50%);
-            }
-            
-            .process-step {
-                width: 100%;
-                max-width: 300px;
-                margin: 0 auto;
             }
             
             .hero-actions {
@@ -1421,8 +1097,8 @@
                 <a href="contact.html" class="btn btn-primary btn-lg animate__animated animate__fadeInUp">
                     <i class="fas fa-rocket"></i> Start Your Project
                 </a>
-                <a href="#portfolio" class="btn btn-secondary btn-lg animate__animated animate__fadeInUp">
-                    <i class="fas fa-eye"></i> View Our Work
+                <a href="#contact" class="btn btn-secondary btn-lg animate__animated animate__fadeInUp">
+                    <i class="fas fa-calendar"></i> Schedule a Call
                 </a>
             </div>
         </div>
@@ -1463,224 +1139,6 @@
                 </div>
                 <div class="stat-number" data-count="4780">4,780</div>
                 <div class="stat-label">Hours of Expertise</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Services Section -->
-<section class="services-section" id="services">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-subtitle">Our Expertise</span>
-            <h2 class="section-title">Premium Digital Solutions</h2>
-            <p class="section-description">
-                Comprehensive digital services designed to elevate your brand and drive business growth through innovation and excellence.
-            </p>
-        </div>
-        
-        <div class="services-grid">
-            <!-- Service 1 -->
-            <div class="service-card">
-                <div class="service-header">
-                    <div class="service-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3>Website Development</h3>
-                </div>
-                <div class="service-body">
-                    <p>
-                        Custom, responsive websites built with cutting-edge technologies. From simple landing pages to complex web applications.
-                    </p>
-                    
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Responsive & Mobile-First</li>
-                        <li><i class="fas fa-check"></i> E-commerce Solutions</li>
-                        <li><i class="fas fa-check"></i> SEO Optimization</li>
-                        <li><i class="fas fa-check"></i> CMS Integration</li>
-                        <li><i class="fas fa-check"></i> Performance Focused</li>
-                    </ul>
-                    
-                    <div class="service-price">
-                        ₹50,000+ <span>Starting From</span>
-                    </div>
-                    
-                    <a href="contact.html" class="btn btn-primary btn-sm">
-                        Get Started <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Service 2 -->
-            <div class="service-card">
-                <div class="service-header">
-                    <div class="service-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3>Branding & Design</h3>
-                </div>
-                <div class="service-body">
-                    <p>
-                        Memorable brand identities that communicate your values and attract your target audience.
-                    </p>
-                    
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Logo Design</li>
-                        <li><i class="fas fa-check"></i> Brand Guidelines</li>
-                        <li><i class="fas fa-check"></i> Business Cards</li>
-                        <li><i class="fas fa-check"></i> Social Media Kits</li>
-                        <li><i class="fas fa-check"></i> Stationery Design</li>
-                    </ul>
-                    
-                    <div class="service-price">
-                        ₹25,000+ <span>Starting From</span>
-                    </div>
-                    
-                    <a href="contact.html" class="btn btn-primary btn-sm">
-                        Get Started <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Service 3 -->
-            <div class="service-card">
-                <div class="service-header">
-                    <div class="service-icon">
-                        <i class="fas fa-bullhorn"></i>
-                    </div>
-                    <h3>Digital Marketing</h3>
-                </div>
-                <div class="service-body">
-                    <p>
-                        Strategic marketing solutions that effectively promote your products and drive conversions.
-                    </p>
-                    
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Social Media Marketing</li>
-                        <li><i class="fas fa-check"></i> SEO & Content Strategy</li>
-                        <li><i class="fas fa-check"></i> Email Campaigns</li>
-                        <li><i class="fas fa-check"></i> PPC Advertising</li>
-                        <li><i class="fas fa-check"></i> Analytics & Reporting</li>
-                    </ul>
-                    
-                    <div class="service-price">
-                        ₹20,000+ <span>Starting From</span>
-                    </div>
-                    
-                    <a href="contact.html" class="btn btn-primary btn-sm">
-                        Get Started <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Process Section -->
-<section class="process-section">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-subtitle">Our Methodology</span>
-            <h2 class="section-title">How We Work</h2>
-            <p class="section-description">
-                A proven 4-step process that ensures exceptional results and seamless collaboration.
-            </p>
-        </div>
-        
-        <div class="process-container">
-            <div class="process-line"></div>
-            
-            <div class="process-steps">
-                <!-- Step 1 -->
-                <div class="process-step">
-                    <div class="step-number">01</div>
-                    <div class="step-content">
-                        <h3>Discovery & Strategy</h3>
-                        <p>We analyze your needs, define goals, and create a comprehensive project blueprint.</p>
-                    </div>
-                </div>
-                
-                <!-- Step 2 -->
-                <div class="process-step">
-                    <div class="step-number">02</div>
-                    <div class="step-content">
-                        <h3>Design & Development</h3>
-                        <p>Our team creates designs and builds your solution with precision and creativity.</p>
-                    </div>
-                </div>
-                
-                <!-- Step 3 -->
-                <div class="process-step">
-                    <div class="step-number">03</div>
-                    <div class="step-content">
-                        <h3>Testing & Refinement</h3>
-                        <p>We rigorously test and refine every detail to ensure perfection and performance.</p>
-                    </div>
-                </div>
-                
-                <!-- Step 4 -->
-                <div class="process-step">
-                    <div class="step-number">04</div>
-                    <div class="step-content">
-                        <h3>Launch & Growth</h3>
-                        <p>We launch your project and provide ongoing support for continued success.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Portfolio Section -->
-<section class="portfolio-section" id="portfolio">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-subtitle">Our Work</span>
-            <h2 class="section-title">Featured Projects</h2>
-            <p class="section-description">
-                A selection of our recent work that demonstrates our expertise and attention to detail.
-            </p>
-        </div>
-        
-        <div class="portfolio-filters">
-            <button class="filter-btn active" data-filter="all">All Projects</button>
-            <button class="filter-btn" data-filter="web">Web Development</button>
-            <button class="filter-btn" data-filter="branding">Branding</button>
-            <button class="filter-btn" data-filter="marketing">Marketing</button>
-        </div>
-        
-        <div class="portfolio-grid">
-            <!-- Project 1 -->
-            <div class="portfolio-item" data-category="web">
-                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80" alt="E-commerce Website" class="portfolio-image">
-                <div class="portfolio-overlay">
-                    <span class="portfolio-category">Web Development</span>
-                    <h3>Modern E-commerce Platform</h3>
-                    <p>Full-featured online store with custom cart and payment integration</p>
-                    <a href="#" class="btn btn-outline btn-sm" style="color: white; border-color: white;">View Details</a>
-                </div>
-            </div>
-            
-            <!-- Project 2 -->
-            <div class="portfolio-item" data-category="branding">
-                <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?auto=format&fit=crop&w=800&q=80" alt="Corporate Branding" class="portfolio-image">
-                <div class="portfolio-overlay">
-                    <span class="portfolio-category">Branding</span>
-                    <h3>Tech Startup Identity</h3>
-                    <p>Complete branding package for innovative technology company</p>
-                    <a href="#" class="btn btn-outline btn-sm" style="color: white; border-color: white;">View Details</a>
-                </div>
-            </div>
-            
-            <!-- Project 3 -->
-            <div class="portfolio-item" data-category="marketing">
-                <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=800&q=80" alt="Marketing Campaign" class="portfolio-image">
-                <div class="portfolio-overlay">
-                    <span class="portfolio-category">Marketing</span>
-                    <h3>Product Launch Campaign</h3>
-                    <p>Comprehensive marketing materials for new product introduction</p>
-                    <a href="#" class="btn btn-outline btn-sm" style="color: white; border-color: white;">View Details</a>
-                </div>
             </div>
         </div>
     </div>
@@ -1782,11 +1240,11 @@
                 <div class="footer-column">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#services">Website Development</a></li>
-                        <li><a href="#services">E-commerce Solutions</a></li>
-                        <li><a href="#services">UI/UX Design</a></li>
-                        <li><a href="#services">Brand Identity</a></li>
-                        <li><a href="#services">Digital Marketing</a></li>
+                        <li><a href="contact.html">Website Development</a></li>
+                        <li><a href="contact.html">E-commerce Solutions</a></li>
+                        <li><a href="contact.html">UI/UX Design</a></li>
+                        <li><a href="contact.html">Brand Identity</a></li>
+                        <li><a href="contact.html">Digital Marketing</a></li>
                     </ul>
                 </div>
                 
@@ -1795,7 +1253,6 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -1917,39 +1374,8 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe elements
-document.querySelectorAll('.service-card, .portfolio-item, .process-step, .testimonial-card, .stat-card').forEach(el => {
+document.querySelectorAll('.stat-card, .testimonial-card').forEach(el => {
     observer.observe(el);
-});
-
-// Portfolio filtering
-const filterButtons = document.querySelectorAll('.filter-btn');
-const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Remove active class from all buttons
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        // Add active class to clicked button
-        button.classList.add('active');
-        
-        const filterValue = button.getAttribute('data-filter');
-        
-        portfolioItems.forEach(item => {
-            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                item.style.display = 'block';
-                setTimeout(() => {
-                    item.style.opacity = '1';
-                    item.style.transform = 'translateY(0)';
-                }, 10);
-            } else {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    item.style.display = 'none';
-                }, 300);
-            }
-        });
-    });
 });
 
 // Testimonial slider
