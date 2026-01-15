@@ -37,7 +37,6 @@
             --shadow-medium: 0 8px 30px rgba(10, 15, 41, 0.1);
             --shadow-elevated: 0 15px 50px rgba(10, 15, 41, 0.15);
             --glow-blue: 0 0 30px rgba(26, 95, 255, 0.2);
-            --video-shadow: 0 15px 35px rgba(10, 15, 41, 0.25); /* Added subtle video shadow */
             
             /* Spacing */
             --space-xs: 0.5rem;
@@ -323,12 +322,11 @@
             box-shadow: var(--shadow-elevated);
         }
         
-        /* Video specific styling with subtle shadow */
+        /* Video specific styling with subtle black shadow */
         video.hero-image {
             max-height: 400px;
             object-fit: cover;
-            box-shadow: var(--video-shadow); /* Added subtle shadow */
-            border: 1px solid rgba(255, 255, 255, 0.1); /* Added subtle border for better definition */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Subtle black shadow */
         }
         
         /* Contact Methods */
@@ -838,7 +836,7 @@
             
             /* Adjust video shadow on tablet */
             video.hero-image {
-                box-shadow: 0 12px 30px rgba(10, 15, 41, 0.2);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
             }
         }
         
@@ -917,7 +915,7 @@
             
             video.hero-image {
                 max-height: 300px;
-                box-shadow: 0 10px 25px rgba(10, 15, 41, 0.18);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
             }
         }
         
@@ -991,7 +989,7 @@
             
             video.hero-image {
                 max-height: 250px;
-                box-shadow: 0 8px 20px rgba(10, 15, 41, 0.15);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
             }
         }
         
