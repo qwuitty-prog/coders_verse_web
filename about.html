@@ -365,10 +365,11 @@
             font-weight: 500;
         }
         
-        /* Values Section */
+        /* Values Section - Auto-scrolling Slider */
         .values-section {
             padding: var(--space-2xl) 0;
             background-color: var(--gray-extra-light);
+            overflow: hidden;
         }
         
         .section-title {
@@ -387,152 +388,73 @@
             margin-bottom: var(--space-sm);
         }
         
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-lg);
-            margin-top: var(--space-xl);
+        .values-slider-container {
+            position: relative;
+            max-width: 800px;
+            margin: var(--space-xl) auto 0;
+            overflow: hidden;
+            height: 400px;
         }
         
-        .value-card {
+        .values-track {
+            display: flex;
+            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+        }
+        
+        .value-slide {
+            min-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-xl);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+            height: 100%;
+        }
+        
+        .value-slide.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .value-slide-content {
             background-color: var(--white);
             border-radius: var(--radius-lg);
             padding: var(--space-xl);
-            box-shadow: var(--shadow-subtle);
-            transition: var(--transition);
-            border: 1px solid transparent;
+            box-shadow: var(--shadow-elevated);
+            border: 1px solid var(--light-blue);
+            max-width: 600px;
+            width: 100%;
             text-align: center;
+            transition: var(--transition);
         }
         
-        .value-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-elevated);
-            border-color: var(--light-blue);
+        .value-slide-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(10, 15, 41, 0.2);
         }
         
         .value-icon {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
             border-radius: var(--radius-lg);
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto var(--space-lg);
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--white);
             box-shadow: var(--shadow-medium);
-            transition: var(--transition);
-        }
-        
-        .value-card:hover .value-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-        
-        /* Team Section */
-        .team-section {
-            padding: var(--space-2xl) 0;
-            background-color: var(--white);
-        }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-lg);
-            margin-top: var(--space-xl);
-        }
-        
-        .team-card {
-            background-color: var(--white);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-subtle);
-            transition: var(--transition);
-            border: 1px solid transparent;
-        }
-        
-        .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-elevated);
-            border-color: var(--light-blue);
-        }
-        
-        .team-image {
-            width: 100%;
-            height: 300px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .team-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.7s ease;
-        }
-        
-        .team-card:hover .team-image img {
-            transform: scale(1.1);
-        }
-        
-        .team-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to top, rgba(10, 15, 41, 0.9) 0%, transparent 100%);
-            opacity: 0;
-            transition: var(--transition);
-            padding: var(--space-lg);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-        }
-        
-        .team-card:hover .team-overlay {
-            opacity: 1;
-        }
-        
-        .team-social {
-            display: flex;
-            gap: var(--space-sm);
-            margin-top: var(--space-md);
-        }
-        
-        .team-social a {
-            width: 40px;
-            height: 40px;
-            background: var(--primary-blue);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-        
-        .team-social a:hover {
-            background-color: var(--accent-blue);
-            transform: translateY(-3px);
-        }
-        
-        .team-info {
-            padding: var(--space-lg);
-            text-align: center;
-        }
-        
-        .team-role {
-            color: var(--primary-blue);
-            font-weight: 600;
-            margin-bottom: var(--space-sm);
         }
         
         /* Timeline Section */
         .timeline-section {
             padding: var(--space-2xl) 0;
-            background-color: var(--gray-extra-light);
+            background-color: var(--white);
         }
         
         .timeline {
@@ -886,11 +808,6 @@
                 font-size: 3rem;
             }
             
-            .values-grid,
-            .team-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
             .footer-content {
                 grid-template-columns: 1fr;
             }
@@ -929,12 +846,6 @@
                 font-size: 2.5rem;
             }
             
-            .values-grid,
-            .team-grid {
-                grid-template-columns: 1fr;
-                gap: var(--space-md);
-            }
-            
             .mission-stats {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -962,6 +873,10 @@
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
+            }
+            
+            .values-slider-container {
+                height: 450px;
             }
             
             .whatsapp-fab {
@@ -1003,9 +918,18 @@
                 gap: var(--space-md);
             }
             
-            .value-card,
-            .team-card {
+            .value-slide-content {
                 padding: var(--space-lg);
+            }
+            
+            .values-slider-container {
+                height: 500px;
+            }
+            
+            .value-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
             }
             
             .whatsapp-fab {
@@ -1034,6 +958,10 @@
             
             .about-hero-description {
                 font-size: 1rem;
+            }
+            
+            .values-slider-container {
+                height: 550px;
             }
         }
     </style>
@@ -1140,7 +1068,7 @@
         </div>
     </section>
 
-    <!-- Values Section -->
+    <!-- Values Section - Auto-scrolling Slider -->
     <section class="values-section" id="values">
         <div class="container">
             <div class="section-title">
@@ -1149,131 +1077,72 @@
                 <p>The principles that guide everything we do at CodersVerse</p>
             </div>
             
-            <div class="values-grid">
-                <!-- Value 1 -->
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3>Innovation</h3>
-                    <p>We constantly explore new technologies and approaches to deliver cutting-edge solutions.</p>
-                </div>
-                
-                <!-- Value 2 -->
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Partnership</h3>
-                    <p>Building long-term relationships based on trust, transparency, and mutual success.</p>
-                </div>
-                
-                <!-- Value 3 -->
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-medal"></i>
-                    </div>
-                    <h3>Excellence</h3>
-                    <p>Maintaining the highest standards of quality in every aspect of our work.</p>
-                </div>
-                
-                <!-- Value 4 -->
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Collaboration</h3>
-                    <p>Working closely with clients, involving them at every stage of development.</p>
-                </div>
-                
-                <!-- Value 5 -->
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Agility</h3>
-                    <p>Adapting quickly to changing requirements and market trends to deliver timely solutions.</p>
-                </div>
-                
-                <!-- Value 6 -->
-                <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Passion</h3>
-                    <p>We love what we do, and it shows in the dedication we bring to every project.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="team-section" id="team">
-        <div class="container">
-            <div class="section-title">
-                <span class="section-subtitle">Our Experts</span>
-                <h2>Leadership Team</h2>
-                <p>The creative minds and strategic thinkers behind CodersVerse</p>
-            </div>
-            
-            <div class="team-grid">
-                <!-- Team Member 1 -->
-                <div class="team-card">
-                    <div class="team-image">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="Alex Chen">
-                        <div class="team-overlay">
-                            <h3 style="color: white;">Alex Chen</h3>
-                            <p style="color: rgba(255,255,255,0.8);">Founder & CEO</p>
-                            <div class="team-social">
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
+            <div class="values-slider-container">
+                <div class="values-track" id="valuesTrack">
+                    <!-- Value 1 - Innovation -->
+                    <div class="value-slide active" id="slide1">
+                        <div class="value-slide-content">
+                            <div class="value-icon">
+                                <i class="fas fa-lightbulb"></i>
                             </div>
+                            <h3>Innovation</h3>
+                            <p>We constantly explore new technologies and approaches to deliver cutting-edge solutions that keep our clients ahead of the competition. Our team stays updated with the latest trends in web development, AI, and digital marketing.</p>
                         </div>
                     </div>
-                    <div class="team-info">
-                        <h3>Alex Chen</h3>
-                        <div class="team-role">Founder & CEO</div>
-                        <p>Former Google engineer with 12+ years of experience in digital transformation.</p>
-                    </div>
-                </div>
-                
-                <!-- Team Member 2 -->
-                <div class="team-card">
-                    <div class="team-image">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=800&q=80" alt="Sarah Johnson">
-                        <div class="team-overlay">
-                            <h3 style="color: white;">Sarah Johnson</h3>
-                            <p style="color: rgba(255,255,255,0.8);">Creative Director</p>
-                            <div class="team-social">
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-dribbble"></i></a>
+                    
+                    <!-- Value 2 - Partnership -->
+                    <div class="value-slide" id="slide2">
+                        <div class="value-slide-content">
+                            <div class="value-icon">
+                                <i class="fas fa-handshake"></i>
                             </div>
+                            <h3>Partnership</h3>
+                            <p>We believe in building long-term relationships based on trust, transparency, and mutual success. Your goals become our goals. We work as an extension of your team, not just as service providers.</p>
                         </div>
                     </div>
-                    <div class="team-info">
-                        <h3>Sarah Johnson</h3>
-                        <div class="team-role">Creative Director</div>
-                        <p>Award-winning designer with expertise in branding, UX/UI, and digital marketing.</p>
-                    </div>
-                </div>
-                
-                <!-- Team Member 3 -->
-                <div class="team-card">
-                    <div class="team-image">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=800&q=80" alt="Marcus Rodriguez">
-                        <div class="team-overlay">
-                            <h3 style="color: white;">Marcus Rodriguez</h3>
-                            <p style="color: rgba(255,255,255,0.8);">CTO</p>
-                            <div class="team-social">
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-github"></i></a>
+                    
+                    <!-- Value 3 - Excellence -->
+                    <div class="value-slide" id="slide3">
+                        <div class="value-slide-content">
+                            <div class="value-icon">
+                                <i class="fas fa-medal"></i>
                             </div>
+                            <h3>Excellence</h3>
+                            <p>From initial concept to final delivery, we maintain the highest standards of quality in every aspect of our work. We don't just meet expectations - we exceed them with attention to detail and craftsmanship.</p>
                         </div>
                     </div>
-                    <div class="team-info">
-                        <h3>Marcus Rodriguez</h3>
-                        <div class="team-role">Chief Technology Officer</div>
-                        <p>Full-stack developer with expertise in scalable architectures and emerging technologies.</p>
+                    
+                    <!-- Value 4 - Collaboration -->
+                    <div class="value-slide" id="slide4">
+                        <div class="value-slide-content">
+                            <div class="value-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Collaboration</h3>
+                            <p>We work closely with our clients, involving them at every stage to ensure the final product exceeds expectations. Open communication and feedback are key to our collaborative process.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Value 5 - Agility -->
+                    <div class="value-slide" id="slide5">
+                        <div class="value-slide-content">
+                            <div class="value-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3>Agility</h3>
+                            <p>In a fast-paced digital world, we adapt quickly to changing requirements and market trends to deliver timely solutions. Our flexible approach ensures we can pivot when needed without compromising quality.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Value 6 - Passion -->
+                    <div class="value-slide" id="slide6">
+                        <div class="value-slide-content">
+                            <div class="value-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3>Passion</h3>
+                            <p>We love what we do, and it shows in the dedication and enthusiasm we bring to every project we undertake. Our passion for digital innovation drives us to create exceptional solutions.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1508,27 +1377,80 @@
             });
         });
         
-        // Animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
+        // Values Slider - Auto-scrolling only
+        const valuesTrack = document.getElementById('valuesTrack');
+        const slides = document.querySelectorAll('.value-slide');
+        
+        let currentSlide = 0;
+        let slideInterval;
+        const slideDuration = 3000; // 3 seconds
+        
+        // Initialize slider
+        function initSlider() {
+            updateSlider();
+            startAutoSlide();
+        }
+        
+        // Update slider position and active states
+        function updateSlider() {
+            // Update track position
+            valuesTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update slide active states
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+        }
+        
+        // Next slide
+        function nextSlide() {
+            currentSlide++;
+            if (currentSlide >= slides.length) currentSlide = 0;
+            updateSlider();
+        }
+        
+        // Start auto sliding
+        function startAutoSlide() {
+            slideInterval = setInterval(nextSlide, slideDuration);
+        }
+        
+        // Stop auto sliding
+        function stopAutoSlide() {
+            clearInterval(slideInterval);
+        }
+        
+        // Pause on hover
+        valuesTrack.addEventListener('mouseenter', () => {
+            stopAutoSlide();
+        });
+        
+        valuesTrack.addEventListener('mouseleave', () => {
+            startAutoSlide();
+        });
+        
+        // Initialize slider on page load
+        window.addEventListener('load', initSlider);
+        
+        // Animation on scroll for timeline items
+        const timelineItems = document.querySelectorAll('.timeline-content');
+        
+        const timelineObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, observerOptions);
-
-        // Observe elements
-        document.querySelectorAll('.value-card, .team-card, .mission-stat, .timeline-content').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            observer.observe(el);
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        timelineItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            timelineObserver.observe(item);
         });
     </script>
 </body>
