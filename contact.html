@@ -401,6 +401,7 @@
             }
         }
         
+        /* FIXED: Card Alignment */
         .method-card {
             background-color: var(--white);
             border-radius: var(--radius-lg);
@@ -412,6 +413,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            height: 100%; /* Make all cards same height */
+            min-height: 380px; /* Set minimum height for consistency */
         }
         
         .method-card:hover {
@@ -430,6 +433,7 @@
             margin: 0 auto var(--space-lg);
             font-size: clamp(1.5rem, 3vw, 1.75rem);
             color: var(--white);
+            flex-shrink: 0; /* Prevent icon from shrinking */
         }
         
         .method-icon.whatsapp {
@@ -444,6 +448,25 @@
             background: linear-gradient(45deg, #E4405F, #C13584, #833AB4);
         }
         
+        /* FIXED: Card content alignment */
+        .method-card h3 {
+            margin-bottom: var(--space-sm);
+            min-height: 2.5rem; /* Ensure consistent height for titles */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .method-card p {
+            margin-bottom: var(--space-md);
+            flex-grow: 1; /* Allow description to take available space */
+            min-height: 3.5rem; /* Ensure consistent height for descriptions */
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+        
         .method-detail {
             display: block;
             font-size: clamp(1.1rem, 3vw, 1.5rem);
@@ -452,6 +475,19 @@
             margin: var(--space-md) 0;
             word-break: break-all;
             overflow-wrap: break-word;
+            min-height: 2.5rem; /* Ensure consistent height for contact details */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 0 var(--space-xs);
+        }
+        
+        /* FIXED: Button alignment at bottom */
+        .method-btn-container {
+            margin-top: auto; /* Push button to bottom of card */
+            padding-top: var(--space-md);
+            width: 100%;
         }
         
         .method-btn {
@@ -463,12 +499,13 @@
             border-radius: var(--radius-full);
             font-weight: 600;
             font-size: clamp(0.85rem, 2vw, 0.95rem);
-            margin-top: var(--space-sm);
             transition: var(--transition);
             border: none;
             cursor: pointer;
             min-height: 44px;
             min-width: 140px;
+            width: 100%; /* Make buttons same width */
+            max-width: 220px; /* Limit maximum width */
         }
         
         .whatsapp-btn {
@@ -1059,10 +1096,12 @@
                     <h3>WhatsApp</h3>
                     <p>Fast response for quick questions and instant project discussions.</p>
                     <span class="method-detail">+91 9004329806</span>
-                    <!-- WhatsApp button with preloaded message -->
-                    <a href="https://wa.me/919004329806?text=Hello%20CodersVerse!%20I'd%20like%20to%20discuss%20a%20project%20with%20you." target="_blank" class="method-btn whatsapp-btn">
-                        <i class="fab fa-whatsapp"></i> Message Now
-                    </a>
+                    <div class="method-btn-container">
+                        <!-- WhatsApp button with preloaded message -->
+                        <a href="https://wa.me/919004329806?text=Hello%20CodersVerse!%20I'd%20like%20to%20discuss%20a%20project%20with%20you." target="_blank" class="method-btn whatsapp-btn">
+                            <i class="fab fa-whatsapp"></i> Message Now
+                        </a>
+                    </div>
                 </div>
                 
                 <!-- Email -->
@@ -1073,9 +1112,11 @@
                     <h3>Email</h3>
                     <p>For detailed proposals, contracts, and formal business communication.</p>
                     <span class="method-detail">careers.codersverse@gmail.com</span>
-                    <a href="mailto:careers.codersverse@gmail.com" class="method-btn email-btn">
-                        <i class="fas fa-envelope"></i> Send Email
-                    </a>
+                    <div class="method-btn-container">
+                        <a href="mailto:careers.codersverse@gmail.com" class="method-btn email-btn">
+                            <i class="fas fa-envelope"></i> Send Email
+                        </a>
+                    </div>
                 </div>
                 
                 <!-- Instagram -->
@@ -1086,9 +1127,11 @@
                     <h3>Instagram</h3>
                     <p>Follow us for design inspiration, project showcases, and updates.</p>
                     <span class="method-detail">@Coders.verse</span>
-                    <a href="https://instagram.com/Coders.verse" target="_blank" class="method-btn instagram-btn">
-                        <i class="fab fa-instagram"></i> Follow Us
-                    </a>
+                    <div class="method-btn-container">
+                        <a href="https://instagram.com/Coders.verse" target="_blank" class="method-btn instagram-btn">
+                            <i class="fab fa-instagram"></i> Follow Us
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
