@@ -166,7 +166,7 @@
             line-height: 1.7;
         }
 
-        /* Video Background Styles - IMPROVED */
+        /* Video Background Styles - HEAVILY IMPROVED */
         .video-background {
             position: absolute;
             top: 0;
@@ -175,16 +175,26 @@
             height: 100%;
             z-index: -1;
             overflow: hidden;
+            background-color: var(--primary-dark); /* Solid background while video loads */
         }
         
         .video-background video {
             min-width: 100%;
             min-height: 100%;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 1s ease;
+            will-change: opacity;
+        }
+        
+        .video-background video.loaded {
+            opacity: 1;
         }
         
         .video-overlay {
@@ -194,6 +204,43 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(to bottom, rgba(10, 15, 41, 0.9), rgba(21, 26, 56, 0.8));
+        }
+        
+        /* Preloader for video */
+        .video-preloader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-top-color: var(--primary-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            z-index: 1;
+        }
+        
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .video-fallback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+        
+        .video-background.fallback .video-fallback {
+            display: block;
+        }
+        
+        .video-background.fallback video {
+            display: none;
         }
 
         /* Utility Classes */
@@ -1404,19 +1451,23 @@
     <a href="contact.html" class="header-cta" id="mobileCta">Start Project</a>
 </div>
 
-<!-- Hero Section with Video Background - IMPROVED -->
+<!-- Hero Section with Video Background - HEAVILY IMPROVED -->
 <section class="hero">
-    <!-- Video Background with responsive sources -->
+    <!-- Video Background with aggressive loading strategy -->
     <div class="video-background" id="videoBackground">
+        <div class="video-preloader" id="videoPreloader"></div>
         <video autoplay muted loop playsinline preload="auto" id="heroVideo">
-            <!-- Desktop video for larger screens -->
-            <source src="https://github.com/qwuitty-prog/coders_verse_web/blob/main/assets/HeroVideo.mp4?raw=true" type="video/mp4" media="(min-width: 769px)">
-            <!-- Mobile video for smaller screens -->
-            <source src="https://github.com/qwuitty-prog/coders_verse_web/blob/main/assets/HeroVideoMobile.mp4?raw=true" type="video/mp4" media="(max-width: 768px)">
-            <!-- Fallback image if video doesn't load -->
-            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Coding background">
+            <!-- Desktop video -->
+            <source src="https://github.com/qwuitty-prog/coders_verse_web/raw/main/assets/HeroVideo.mp4" type="video/mp4">
+            <!-- Mobile video -->
+            <source src="https://github.com/qwuitty-prog/coders_verse_web/raw/main/assets/HeroVideoMobile.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
+        <!-- Static fallback image -->
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+             alt="Coding background" 
+             class="video-fallback" 
+             id="videoFallback">
         <div class="video-overlay"></div>
     </div>
     
@@ -1629,69 +1680,141 @@
 </div>
 
 <script>
-// Improved video loading with error handling
+// AGGRESSIVE VIDEO LOADING SOLUTION
 document.addEventListener('DOMContentLoaded', function() {
     const video = document.getElementById('heroVideo');
-    const videoContainer = document.getElementById('videoBackground');
+    const videoBackground = document.getElementById('videoBackground');
+    const videoPreloader = document.getElementById('videoPreloader');
+    const videoFallback = document.getElementById('videoFallback');
+    let videoLoadAttempts = 0;
+    const maxAttempts = 3;
+    let isMobile = window.innerWidth <= 768;
     
-    // Video loading with fallback
-    function ensureVideoLoads() {
-        // Check if video is already playing
-        if (video.readyState >= 3) {
-            return;
-        }
+    // Function to get appropriate video source
+    function getVideoSource() {
+        return isMobile 
+            ? 'https://github.com/qwuitty-prog/coders_verse_web/raw/main/assets/HeroVideoMobile.mp4'
+            : 'https://github.com/qwuitty-prog/coders_verse_web/raw/main/assets/HeroVideo.mp4';
+    }
+    
+    // Preload the image fallback immediately
+    videoFallback.style.display = 'block';
+    videoFallback.style.opacity = '1';
+    
+    // Aggressive loading function
+    function loadVideoAggressively() {
+        videoLoadAttempts++;
+        console.log(`Video load attempt ${videoLoadAttempts} of ${maxAttempts}`);
         
-        // Try to load and play the video
+        // Force video to reload
+        video.src = getVideoSource();
         video.load();
         
-        const playPromise = video.play();
+        // Set timeout to force play
+        setTimeout(() => {
+            const playPromise = video.play();
+            
+            if (playPromise !== undefined) {
+                playPromise
+                    .then(() => {
+                        console.log('Video playing successfully');
+                        video.classList.add('loaded');
+                        videoPreloader.style.display = 'none';
+                        videoFallback.style.opacity = '0';
+                        setTimeout(() => {
+                            videoFallback.style.display = 'none';
+                        }, 1000);
+                    })
+                    .catch(error => {
+                        console.log('Video autoplay prevented:', error);
+                        videoPreloader.style.display = 'none';
+                        
+                        // If autoplay blocked, at least show the first frame
+                        video.currentTime = 0.1;
+                        video.classList.add('loaded');
+                    });
+            }
+        }, 100);
+    }
+    
+    // Video event listeners
+    video.addEventListener('loadeddata', function() {
+        console.log('Video data loaded');
+        video.classList.add('loaded');
+        videoPreloader.style.display = 'none';
+        videoFallback.style.opacity = '0';
+        setTimeout(() => {
+            videoFallback.style.display = 'none';
+        }, 1000);
+    });
+    
+    video.addEventListener('canplay', function() {
+        console.log('Video can play');
+        video.classList.add('loaded');
+    });
+    
+    video.addEventListener('error', function(e) {
+        console.log('Video loading error:', e);
         
-        if (playPromise !== undefined) {
-            playPromise.catch(function(error) {
-                console.log("Video autoplay was prevented, showing fallback:", error);
-                // Show fallback image
-                const fallbackImg = videoContainer.querySelector('img');
-                if (fallbackImg) {
-                    video.style.display = 'none';
-                    fallbackImg.style.display = 'block';
-                }
-            });
+        if (videoLoadAttempts < maxAttempts) {
+            // Retry after delay
+            setTimeout(loadVideoAggressively, 1000 * videoLoadAttempts);
+        } else {
+            // Max attempts reached, show fallback
+            console.log('Max video load attempts reached, showing fallback');
+            videoPreloader.style.display = 'none';
+            videoBackground.classList.add('fallback');
+            videoFallback.style.display = 'block';
+            videoFallback.style.opacity = '1';
+        }
+    });
+    
+    video.addEventListener('stalled', function() {
+        console.log('Video stalled, attempting to recover');
+        if (video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) {
+            loadVideoAggressively();
+        }
+    });
+    
+    // Handle viewport changes
+    function handleResize() {
+        const newIsMobile = window.innerWidth <= 768;
+        if (newIsMobile !== isMobile) {
+            isMobile = newIsMobile;
+            console.log(`Switching to ${isMobile ? 'mobile' : 'desktop'} video`);
+            loadVideoAggressively();
         }
     }
     
-    // Initial attempt to load video
-    ensureVideoLoads();
+    // Initial load
+    loadVideoAggressively();
     
-    // Retry loading if video fails to load
-    video.addEventListener('error', function(e) {
-        console.log("Video loading error:", e);
-        // Show fallback image
-        const fallbackImg = videoContainer.querySelector('img');
-        if (fallbackImg) {
-            video.style.display = 'none';
-            fallbackImg.style.display = 'block';
-        }
-    });
-    
-    // Video loaded successfully
-    video.addEventListener('canplay', function() {
-        console.log("Video loaded successfully");
-        video.style.opacity = '1';
-    });
-    
-    // Handle video source switching on resize
+    // Resize handler with debouncing
     let resizeTimeout;
     window.addEventListener('resize', function() {
         clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(function() {
-            if (!video.error) {
-                video.load();
-                video.play().catch(function(error) {
-                    console.log("Video replay prevented after resize:", error);
-                });
-            }
-        }, 250);
+        resizeTimeout = setTimeout(handleResize, 250);
     });
+    
+    // Intersection Observer for lazy loading recovery
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // If video is in view but not playing, try to recover
+                if (video.paused && video.readyState >= 2) {
+                    video.play().catch(e => console.log('Recovery play failed:', e));
+                }
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    observer.observe(videoBackground);
+    
+    // Preconnect to video sources for faster loading
+    const preconnectLink = document.createElement('link');
+    preconnectLink.rel = 'preconnect';
+    preconnectLink.href = 'https://github.com';
+    document.head.appendChild(preconnectLink);
 });
 
 // Header scroll effect - Initially transparent, becomes white after scroll
