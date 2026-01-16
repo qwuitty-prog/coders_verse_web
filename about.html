@@ -16,6 +16,8 @@
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- ADDED: Animate.css for slide-up animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     
     <style>
         :root {
@@ -1044,23 +1046,27 @@
         <a href="contact.html" class="header-cta" id="mobileCta">Start Project</a>
     </div>
 
-    <!-- Hero About Section -->
+    <!-- Hero About Section - ADDED ANIMATION CLASSES -->
     <section class="about-hero">
         <div class="container about-hero-container">
-            <div class="about-hero-badge">
+            <!-- ADDED: animate__animated animate__fadeInUp -->
+            <div class="about-hero-badge animate__animated animate__fadeInUp">
                 <i class="fas fa-info-circle"></i>
                 <span>About Our Company</span>
             </div>
             
-            <h1 class="about-hero-title">
+            <!-- ADDED: animate__animated animate__fadeInUp -->
+            <h1 class="about-hero-title animate__animated animate__fadeInUp">
                 Crafting Digital Excellence <span>Since 2018</span>
             </h1>
             
-            <p class="about-hero-description">
+            <!-- ADDED: animate__animated animate__fadeInUp -->
+            <p class="about-hero-description animate__animated animate__fadeInUp">
                 CodersVerse is more than a digital agency - we're strategic partners in your business growth. With a passion for innovation and a commitment to excellence, we transform ideas into impactful digital solutions.
             </p>
             
-            <a href="#timeline" class="about-hero-cta">
+            <!-- ADDED: animate__animated animate__fadeInUp -->
+            <a href="#timeline" class="about-hero-cta animate__animated animate__fadeInUp">
                 <i class="fas fa-arrow-down"></i>
                 Explore Our Journey
             </a>
@@ -1505,6 +1511,14 @@
                 return false;
             });
         }
+        
+        // ADDED: Staggered animation delays for hero section elements (EXACTLY like homepage)
+        window.addEventListener('load', () => {
+            const animatedElements = document.querySelectorAll('.animate__animated');
+            animatedElements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
     </script>
 </body>
 </html>
