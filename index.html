@@ -166,6 +166,36 @@
             line-height: 1.7;
         }
 
+        /* Video Background Styles */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(10, 15, 41, 0.9), rgba(21, 26, 56, 0.8));
+        }
+
         /* Utility Classes */
         .gradient-text {
             background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
@@ -345,25 +375,15 @@
             min-height: 44px;
         }
 
-        /* Hero Section - Matching Contact Page Style */
+        /* Hero Section - Updated with Video Background */
         .hero {
             padding: 10rem 0 6rem;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, #151a38 100%);
             color: var(--white);
             position: relative;
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(26, 95, 255, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(77, 138, 255, 0.1) 0%, transparent 50%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
 
         .hero-content {
@@ -371,7 +391,7 @@
             margin: 0 auto;
             text-align: center;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         .hero-badge {
@@ -402,7 +422,7 @@
 
         .hero-description {
             font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: var(--space-xl);
             max-width: 700px;
             margin-left: auto;
@@ -1035,6 +1055,7 @@
             
             .hero {
                 padding: 8rem 0 4rem;
+                min-height: 90vh;
             }
             
             .hero-title {
@@ -1132,6 +1153,7 @@
             
             .hero {
                 padding: 7rem 0 3rem;
+                min-height: 85vh;
             }
             
             .hero-title {
@@ -1350,8 +1372,18 @@
     <a href="contact.html" class="header-cta" id="mobileCta">Start Project</a>
 </div>
 
-<!-- Hero Section -->
+<!-- Hero Section with Video Background -->
 <section class="hero">
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="https://github.com/qwuitty-prog/coders_verse_web/blob/main/assets/HeroVideo.mp4?raw=true" type="video/mp4">
+            <!-- Fallback image if video doesn't load -->
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Coding background">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+    
     <div class="container">
         <div class="hero-content">
             <div class="hero-badge animate__animated animate__fadeInUp">
@@ -1802,6 +1834,17 @@ document.querySelector('.whatsapp-fab').addEventListener('click', function(e) {
 
 // Better touch handling for mobile
 document.addEventListener('touchstart', function() {}, {passive: true});
+
+// Ensure video plays correctly
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.querySelector('.video-background video');
+    
+    // Ensure video plays even if autoplay is blocked
+    video.play().catch(function(error) {
+        console.log("Video autoplay was prevented:", error);
+        // Video will show fallback image if it doesn't play
+    });
+});
 </script>
 
 </body>
