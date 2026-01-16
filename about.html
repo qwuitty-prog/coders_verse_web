@@ -299,7 +299,7 @@
             box-shadow: 0 15px 40px rgba(26, 95, 255, 0.3);
         }
         
-        /* Mission Section */
+        /* Mission Section - UPDATED to match contact page video style */
         .mission-section {
             padding: var(--space-2xl) 0;
             background-color: var(--white);
@@ -312,63 +312,29 @@
             align-items: center;
         }
         
+        /* UPDATED VIDEO STYLE - EXACTLY LIKE CONTACT PAGE */
         .mission-video {
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-elevated);
-            position: relative;
-            background-color: var(--primary-dark);
-            height: 400px;
+            width: 100%;
+            max-width: min(500px, 100%);
+            justify-self: center;
         }
         
         .mission-video video {
             width: 100%;
-            height: 100%;
+            height: auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-elevated);
+            max-height: 400px;
             object-fit: cover;
             display: block;
             transition: transform 0.7s ease;
         }
         
-        .mission-video:hover video {
-            transform: scale(1.05);
+        .mission-video video:hover {
+            transform: scale(1.02);
         }
         
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(10, 15, 41, 0.1), rgba(10, 15, 41, 0.3));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: var(--transition);
-        }
-        
-        .mission-video:hover .video-overlay {
-            opacity: 1;
-        }
-        
-        .play-button {
-            width: 70px;
-            height: 70px;
-            background-color: var(--primary-blue);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.8rem;
-            cursor: pointer;
-            transition: var(--transition);
-            transform: scale(0.9);
-        }
-        
-        .mission-video:hover .play-button {
-            transform: scale(1);
-        }
+        /* Remove all overlay and play button - video is standalone like contact page */
         
         .mission-stats {
             display: grid;
@@ -862,7 +828,10 @@
             
             .mission-video {
                 order: -1;
-                height: 350px;
+            }
+            
+            .mission-video video {
+                max-height: 350px;
             }
         }
         
@@ -929,8 +898,8 @@
                 font-size: 1.5rem;
             }
             
-            .mission-video {
-                height: 300px;
+            .mission-video video {
+                max-height: 300px;
             }
         }
         
@@ -992,14 +961,8 @@
                 font-size: 1rem;
             }
             
-            .mission-video {
-                height: 250px;
-            }
-            
-            .play-button {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
+            .mission-video video {
+                max-height: 250px;
             }
         }
         
@@ -1016,8 +979,8 @@
                 min-height: 600px;
             }
             
-            .mission-video {
-                height: 200px;
+            .mission-video video {
+                max-height: 200px;
             }
         }
     </style>
@@ -1085,7 +1048,7 @@
         </div>
     </section>
 
-    <!-- Mission Section -->
+    <!-- Mission Section - VIDEO STYLE UPDATED -->
     <section class="mission-section" id="mission">
         <div class="container">
             <div class="mission-grid">
@@ -1115,16 +1078,12 @@
                     </div>
                 </div>
                 
+                <!-- VIDEO UPDATED TO MATCH CONTACT PAGE STYLE -->
                 <div class="mission-video">
                     <video autoplay muted loop playsinline>
                         <source src="https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/assets/CodersVerse-1.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
-                    <div class="video-overlay">
-                        <div class="play-button" id="videoPlayButton">
-                            <i class="fas fa-play"></i>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1515,44 +1474,17 @@
             timelineObserver.observe(item);
         });
         
-        // Video play/pause functionality
+        // Video functionality - simple autoplay, no controls
         const videoElement = document.querySelector('.mission-video video');
-        const videoPlayButton = document.getElementById('videoPlayButton');
-        
-        if (videoElement && videoPlayButton) {
-            // Toggle video play/pause on button click
-            videoPlayButton.addEventListener('click', () => {
-                if (videoElement.paused) {
-                    videoElement.play();
-                    videoPlayButton.innerHTML = '<i class="fas fa-pause"></i>';
-                } else {
-                    videoElement.pause();
-                    videoPlayButton.innerHTML = '<i class="fas fa-play"></i>';
-                }
-            });
+        if (videoElement) {
+            // Ensure video is muted for autoplay on all browsers
+            videoElement.muted = true;
+            videoElement.playsInline = true;
             
-            // Update button when video ends
-            videoElement.addEventListener('ended', () => {
-                videoPlayButton.innerHTML = '<i class="fas fa-redo"></i>';
-            });
-            
-            // Update button when video is playing
-            videoElement.addEventListener('play', () => {
-                videoPlayButton.innerHTML = '<i class="fas fa-pause"></i>';
-            });
-            
-            // Update button when video is paused
-            videoElement.addEventListener('pause', () => {
-                videoPlayButton.innerHTML = '<i class="fas fa-play"></i>';
-            });
-            
-            // Restart video when clicking replay button
-            videoPlayButton.addEventListener('click', (e) => {
-                if (videoElement.ended) {
-                    videoElement.currentTime = 0;
-                    videoElement.play();
-                    e.stopPropagation();
-                }
+            // Prevent context menu
+            videoElement.addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+                return false;
             });
         }
     </script>
