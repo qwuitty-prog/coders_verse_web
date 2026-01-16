@@ -166,7 +166,7 @@
             line-height: 1.7;
         }
 
-        /* Video Background Styles */
+        /* Video Background Styles - IMPROVED */
         .video-background {
             position: absolute;
             top: 0;
@@ -1404,14 +1404,18 @@
     <a href="contact.html" class="header-cta" id="mobileCta">Start Project</a>
 </div>
 
-<!-- Hero Section with Video Background -->
+<!-- Hero Section with Video Background - IMPROVED -->
 <section class="hero">
-    <!-- Video Background -->
-    <div class="video-background">
-        <video autoplay muted loop playsinline>
-            <source src="https://github.com/qwuitty-prog/coders_verse_web/blob/main/assets/HeroVideo.mp4?raw=true" type="video/mp4">
+    <!-- Video Background with responsive sources -->
+    <div class="video-background" id="videoBackground">
+        <video autoplay muted loop playsinline preload="auto" id="heroVideo">
+            <!-- Desktop video for larger screens -->
+            <source src="https://github.com/qwuitty-prog/coders_verse_web/blob/main/assets/HeroVideo.mp4?raw=true" type="video/mp4" media="(min-width: 769px)">
+            <!-- Mobile video for smaller screens -->
+            <source src="https://github.com/qwuitty-prog/coders_verse_web/blob/main/assets/HeroVideoMobile.mp4?raw=true" type="video/mp4" media="(max-width: 768px)">
             <!-- Fallback image if video doesn't load -->
             <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Coding background">
+            Your browser does not support the video tag.
         </video>
         <div class="video-overlay"></div>
     </div>
@@ -1625,6 +1629,71 @@
 </div>
 
 <script>
+// Improved video loading with error handling
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.getElementById('heroVideo');
+    const videoContainer = document.getElementById('videoBackground');
+    
+    // Video loading with fallback
+    function ensureVideoLoads() {
+        // Check if video is already playing
+        if (video.readyState >= 3) {
+            return;
+        }
+        
+        // Try to load and play the video
+        video.load();
+        
+        const playPromise = video.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.catch(function(error) {
+                console.log("Video autoplay was prevented, showing fallback:", error);
+                // Show fallback image
+                const fallbackImg = videoContainer.querySelector('img');
+                if (fallbackImg) {
+                    video.style.display = 'none';
+                    fallbackImg.style.display = 'block';
+                }
+            });
+        }
+    }
+    
+    // Initial attempt to load video
+    ensureVideoLoads();
+    
+    // Retry loading if video fails to load
+    video.addEventListener('error', function(e) {
+        console.log("Video loading error:", e);
+        // Show fallback image
+        const fallbackImg = videoContainer.querySelector('img');
+        if (fallbackImg) {
+            video.style.display = 'none';
+            fallbackImg.style.display = 'block';
+        }
+    });
+    
+    // Video loaded successfully
+    video.addEventListener('canplay', function() {
+        console.log("Video loaded successfully");
+        video.style.opacity = '1';
+    });
+    
+    // Handle video source switching on resize
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            if (!video.error) {
+                video.load();
+                video.play().catch(function(error) {
+                    console.log("Video replay prevented after resize:", error);
+                });
+            }
+        }, 250);
+    });
+});
+
 // Header scroll effect - Initially transparent, becomes white after scroll
 window.addEventListener('scroll', () => {
     const header = document.getElementById('header');
@@ -1874,17 +1943,6 @@ document.querySelector('.whatsapp-fab').addEventListener('click', function(e) {
 
 // Better touch handling for mobile
 document.addEventListener('touchstart', function() {}, {passive: true});
-
-// Ensure video plays correctly
-document.addEventListener('DOMContentLoaded', function() {
-    const video = document.querySelector('.video-background video');
-    
-    // Ensure video plays even if autoplay is blocked
-    video.play().catch(function(error) {
-        console.log("Video autoplay was prevented:", error);
-        // Video will show fallback image if it doesn't play
-    });
-});
 </script>
 
 </body>
