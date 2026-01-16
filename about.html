@@ -118,7 +118,7 @@
             padding: 0 var(--space-lg);
         }
         
-        /* Header - Matching Contact Page */
+        /* Header - Updated with Portfolio Link */
         .header {
             position: fixed;
             top: 0;
@@ -201,12 +201,13 @@
             font-size: 0.9rem;
             transition: var(--transition);
             margin-left: var(--space-md);
+            box-shadow: var(--glow-blue);
         }
         
         .header-cta:hover {
             background-color: var(--accent-blue);
             transform: translateY(-2px);
-            box-shadow: var(--glow-blue);
+            box-shadow: 0 8px 25px rgba(26, 95, 255, 0.3);
         }
         
         .mobile-menu-btn {
@@ -217,6 +218,9 @@
             color: var(--primary-dark);
             cursor: pointer;
             z-index: 1001;
+            padding: var(--space-sm);
+            min-width: 44px;
+            min-height: 44px;
         }
         
         /* Hero About Section */
@@ -620,7 +624,7 @@
             transform: translateY(-2px);
         }
         
-        /* Footer - Matching Contact Page */
+        /* Footer - Updated with Portfolio Link */
         .footer {
             background-color: var(--primary-dark);
             color: var(--white);
@@ -654,8 +658,8 @@
         }
         
         .social-link {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             background-color: rgba(255, 255, 255, 0.1);
             display: flex;
@@ -726,6 +730,8 @@
             z-index: 999;
             transition: var(--transition);
             text-decoration: none;
+            min-width: 60px;
+            min-height: 60px;
         }
         
         .whatsapp-fab:hover {
@@ -733,7 +739,7 @@
             box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
         }
         
-        /* Mobile Menu Overlay */
+        /* Mobile Menu Overlay - Updated with Portfolio Link */
         .mobile-menu-overlay {
             display: none;
             position: fixed;
@@ -769,6 +775,9 @@
             color: var(--primary-dark);
             padding: 0.5rem 0;
             position: relative;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
         }
         
         .mobile-nav-link.active {
@@ -799,6 +808,12 @@
             font-size: 1.5rem;
             color: var(--primary-dark);
             cursor: pointer;
+            padding: var(--space-sm);
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         /* Responsive Design - Matching Contact Page */
@@ -846,7 +861,9 @@
             }
             
             .mobile-menu-btn {
-                display: block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
             
             .about-hero {
@@ -986,8 +1003,8 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
+    <!-- Header - Updated with Portfolio Link -->
+    <header class="header" id="header">
         <div class="container header-container">
             <a href="index.html" class="logo">
                 Coders<span class="logo-highlight">Verse</span>
@@ -997,27 +1014,29 @@
                 <div class="nav-links">
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="about.html" class="nav-link active">About</a>
+                    <a href="portfolio.html" class="nav-link">Portfolio</a>
                     <a href="services.html" class="nav-link">Services</a>
                     <a href="contact.html" class="nav-link">Contact</a>
                 </div>
                 <a href="contact.html" class="header-cta">Start Project</a>
             </nav>
             
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open mobile menu">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </header>
 
-    <!-- Mobile Menu Overlay -->
+    <!-- Mobile Menu Overlay - Updated with Portfolio Link -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay">
-        <button class="mobile-menu-close" id="mobileMenuClose">
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close mobile menu">
             <i class="fas fa-times"></i>
         </button>
         
         <div class="mobile-nav-links">
             <a href="index.html" class="mobile-nav-link">Home</a>
             <a href="about.html" class="mobile-nav-link active">About</a>
+            <a href="portfolio.html" class="mobile-nav-link">Portfolio</a>
             <a href="services.html" class="mobile-nav-link">Services</a>
             <a href="contact.html" class="mobile-nav-link">Contact</a>
         </div>
@@ -1264,7 +1283,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer - Updated with Portfolio Link -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -1276,7 +1295,7 @@
                         We transform businesses through exceptional digital experiences. From concept to launch, we're with you every step of the way.
                     </p>
                     <div class="social-links">
-                        <a href="https://wa.me/919004329806" target="_blank" class="social-link" aria-label="WhatsApp">
+                        <a href="https://wa.me/919004329806?text=Hello%20CodersVerse!%20I'd%20like%20to%20discuss%20a%20project%20with%20you." target="_blank" class="social-link" aria-label="WhatsApp">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                         <a href="https://instagram.com/Coders.verse" target="_blank" class="social-link" aria-label="Instagram">
@@ -1295,11 +1314,10 @@
                     <div class="footer-column">
                         <h4>Services</h4>
                         <ul>
-                            <li><a href="index.html">Website Development</a></li>
-                            <li><a href="index.html">E-commerce Solutions</a></li>
-                            <li><a href="index.html">UI/UX Design</a></li>
-                            <li><a href="index.html">Brand Identity</a></li>
-                            <li><a href="index.html">Digital Marketing</a></li>
+                            <li><a href="services.html">Website Development</a></li>
+                            <li><a href="services.html">Graphic Design</a></li>
+                            <li><a href="services.html">Branding</a></li>
+                            <li><a href="services.html">Digital Marketing</a></li>
                         </ul>
                     </div>
                     
@@ -1308,7 +1326,7 @@
                         <ul>
                             <li><a href="index.html">Home</a></li>
                             <li><a href="about.html">About Us</a></li>
-                            <li><a href="services.html">Services</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
@@ -1327,13 +1345,13 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 CodersVerse. All rights reserved. | <a href="privacy.html" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="terms.html" style="color: rgba(255,255,255,0.7);">Terms of Service</a></p>
+                <p>&copy; 2025 CodersVerse. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
             </div>
         </div>
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/919004329806" target="_blank" class="whatsapp-fab" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/919004329806?text=Hello%20CodersVerse!%20I'd%20like%20to%20discuss%20a%20project%20with%20you." target="_blank" class="whatsapp-fab" aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
