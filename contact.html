@@ -14,6 +14,8 @@
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- ADDED: Animate.css for slide-up animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     
     <style>
         /* EXACTLY MATCHING YOUR INDEX.HTML STYLES */
@@ -1108,25 +1110,29 @@
         <a href="#contact-form" class="header-cta" id="mobileCta">Start Project</a>
     </div>
 
-    <!-- Hero Section with Video -->
+    <!-- Hero Section with Video - ADDED ANIMATION CLASSES -->
     <section class="hero">
         <div class="container hero-container">
             <div class="hero-content">
-                <div class="hero-badge">
+                <!-- ADDED: animate__animated animate__fadeInUp -->
+                <div class="hero-badge animate__animated animate__fadeInUp">
                     <i class="fas fa-crown"></i>
                     <span>Premium Digital Agency</span>
                 </div>
                 
-                <h1 class="hero-title">
+                <!-- ADDED: animate__animated animate__fadeInUp -->
+                <h1 class="hero-title animate__animated animate__fadeInUp">
                     Let's Create Something
                     <span>Extraordinary</span>
                 </h1>
                 
-                <p class="hero-description">
+                <!-- ADDED: animate__animated animate__fadeInUp -->
+                <p class="hero-description animate__animated animate__fadeInUp">
                     Ready to transform your digital vision into reality? Our team of expert developers and designers is here to bring your ideas to life with precision and creativity.
                 </p>
                 
-                <a href="#contact-form" class="hero-cta">
+                <!-- ADDED: animate__animated animate__fadeInUp -->
+                <a href="#contact-form" class="hero-cta animate__animated animate__fadeInUp">
                     <i class="fas fa-paper-plane"></i>
                     Start Your Project
                 </a>
@@ -1572,6 +1578,14 @@ ${formData.message}
         const video = document.querySelector('video');
         video.muted = true;
         video.playsInline = true;
+        
+        // ADDED: Staggered animation delays for hero section elements (EXACTLY like homepage)
+        window.addEventListener('load', () => {
+            const animatedElements = document.querySelectorAll('.animate__animated');
+            animatedElements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
     </script>
 </body>
 </html>
