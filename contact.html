@@ -130,7 +130,7 @@
             background-clip: text;
         }
         
-        /* HEADER - EXACT COPY FROM INDEX.HTML */
+        /* HEADER - Updated with Portfolio Link */
         .header {
             position: fixed;
             top: 0;
@@ -238,6 +238,8 @@
             cursor: pointer;
             z-index: 1001;
             padding: var(--space-sm);
+            min-width: 44px;
+            min-height: 44px;
         }
         
         /* HERO SECTION - Matching Style */
@@ -695,7 +697,7 @@
             color: var(--gray-medium);
         }
         
-        /* FOOTER - EXACT COPY FROM INDEX.HTML */
+        /* FOOTER - Updated with Portfolio Link */
         .footer {
             background-color: var(--primary-dark);
             color: var(--white);
@@ -729,8 +731,8 @@
         }
         
         .social-link {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             background-color: rgba(255, 255, 255, 0.1);
             display: flex;
@@ -801,6 +803,8 @@
             z-index: 999;
             transition: var(--transition);
             text-decoration: none;
+            min-width: 60px;
+            min-height: 60px;
         }
         
         .whatsapp-fab:hover {
@@ -808,7 +812,7 @@
             box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
         }
         
-        /* Mobile Menu Overlay - EXACT COPY FROM INDEX.HTML */
+        /* Mobile Menu Overlay - Updated with Portfolio Link */
         .mobile-menu-overlay {
             display: none;
             position: fixed;
@@ -844,6 +848,9 @@
             color: var(--primary-dark);
             padding: 0.5rem 0;
             position: relative;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
         }
         
         .mobile-nav-link.active {
@@ -875,6 +882,11 @@
             color: var(--primary-dark);
             cursor: pointer;
             padding: var(--space-sm);
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         /* Scroll to Top Button */
@@ -959,7 +971,9 @@
             }
             
             .mobile-menu-btn {
-                display: block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
             
             .hero {
@@ -1053,7 +1067,7 @@
     </style>
 </head>
 <body>
-    <!-- Header - EXACT COPY FROM INDEX.HTML -->
+    <!-- Header - Updated with Portfolio Link -->
     <header class="header" id="header">
         <div class="container header-container">
             <a href="index.html" class="logo">
@@ -1064,27 +1078,29 @@
                 <div class="nav-links">
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="about.html" class="nav-link">About</a>
+                    <a href="portfolio.html" class="nav-link">Portfolio</a>
                     <a href="services.html" class="nav-link">Services</a>
                     <a href="contact.html" class="nav-link active">Contact</a>
                 </div>
                 <a href="#contact-form" class="header-cta">Start Project</a>
             </nav>
             
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open mobile menu">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </header>
 
-    <!-- Mobile Menu Overlay - EXACT COPY FROM INDEX.HTML -->
+    <!-- Mobile Menu Overlay - Updated with Portfolio Link -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay">
-        <button class="mobile-menu-close" id="mobileMenuClose">
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close mobile menu">
             <i class="fas fa-times"></i>
         </button>
         
         <div class="mobile-nav-links">
             <a href="index.html" class="mobile-nav-link">Home</a>
             <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="portfolio.html" class="mobile-nav-link">Portfolio</a>
             <a href="services.html" class="mobile-nav-link">Services</a>
             <a href="contact.html" class="mobile-nav-link active">Contact</a>
         </div>
@@ -1328,7 +1344,7 @@
         </div>
     </section>
 
-    <!-- Footer - EXACT COPY FROM INDEX.HTML -->
+    <!-- Footer - Updated with Portfolio Link -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -1360,9 +1376,8 @@
                         <h4>Services</h4>
                         <ul>
                             <li><a href="services.html">Website Development</a></li>
-                            <li><a href="services.html">E-commerce Solutions</a></li>
-                            <li><a href="services.html">UI/UX Design</a></li>
-                            <li><a href="services.html">Brand Identity</a></li>
+                            <li><a href="services.html">Graphic Design</a></li>
+                            <li><a href="services.html">Branding</a></li>
                             <li><a href="services.html">Digital Marketing</a></li>
                         </ul>
                     </div>
@@ -1372,7 +1387,7 @@
                         <ul>
                             <li><a href="index.html">Home</a></li>
                             <li><a href="about.html">About Us</a></li>
-                            <li><a href="services.html">Services</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
@@ -1391,7 +1406,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 CodersVerse. All rights reserved. | <a href="privacy.html" style="color: rgba(255,255,255,0.7);">Privacy Policy</a> | <a href="terms.html" style="color: rgba(255,255,255,0.7);">Terms of Service</a></p>
+                <p>&copy; 2025 CodersVerse. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
             </div>
         </div>
     </footer>
