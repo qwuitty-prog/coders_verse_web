@@ -138,19 +138,23 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background-color: transparent; /* Changed from white to transparent */
+            backdrop-filter: none; /* Changed from blur(10px) to none */
+            -webkit-backdrop-filter: none;
             z-index: 1000;
             padding: 1.25rem 0;
-            border-bottom: 1px solid rgba(161, 168, 195, 0.1);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
+            border-bottom: 1px solid transparent; /* Changed from rgba to transparent */
+            box-shadow: none; /* Changed from shadow to none */
+            transition: var(--transition-slow); /* Changed to slow transition */
         }
 
         .header.scrolled {
-            padding: 1rem 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(161, 168, 195, 0.1);
             box-shadow: 0 5px 20px rgba(10, 15, 41, 0.1);
+            padding: 1rem 0;
         }
         
         .header-container {
@@ -164,10 +168,15 @@
             font-family: 'Manrope', sans-serif;
             font-weight: 800;
             font-size: 1.75rem;
-            color: var(--primary-dark);
+            color: var(--white); /* Changed from primary-dark to white */
             display: flex;
             align-items: center;
             z-index: 1001;
+            transition: var(--transition);
+        }
+
+        .header.scrolled .logo {
+            color: var(--primary-dark); /* Change to dark when scrolled */
         }
         
         .logo-highlight {
@@ -187,9 +196,14 @@
         .nav-link {
             font-weight: 500;
             font-size: 0.95rem;
-            color: var(--gray-medium);
+            color: rgba(255, 255, 255, 0.9); /* Changed from gray-medium to white */
             position: relative;
             padding: var(--space-xs) 0;
+            transition: var(--transition);
+        }
+
+        .header.scrolled .nav-link {
+            color: var(--gray-medium); /* Change to gray when scrolled */
         }
         
         .nav-link::after {
@@ -210,7 +224,12 @@
         
         .nav-link:hover,
         .nav-link.active {
-            color: var(--primary-dark);
+            color: var(--white); /* Keep white on hover/active */
+        }
+
+        .header.scrolled .nav-link:hover,
+        .header.scrolled .nav-link.active {
+            color: var(--primary-dark); /* Change to dark when scrolled */
         }
         
         .header-cta {
@@ -236,134 +255,229 @@
             background: none;
             border: none;
             font-size: 1.5rem;
-            color: var(--primary-dark);
+            color: var(--white); /* Changed from primary-dark to white */
             cursor: pointer;
             z-index: 1001;
             padding: var(--space-sm);
             min-width: 44px;
             min-height: 44px;
+            transition: var(--transition);
+        }
+
+        .header.scrolled .mobile-menu-btn {
+            color: var(--primary-dark); /* Change to dark when scrolled */
         }
         
-        /* HERO SECTION - Matching Style */
-        .hero {
-            padding: 10rem 0 6rem;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, #151a38 100%);
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
+        /* =============== HERO SECTION - EXACT COPY FROM INDEX.HTML =============== */
+        /* Video Background Styles */
+        .video-background {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(26, 95, 255, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(77, 138, 255, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            overflow: hidden;
+            background-color: var(--primary-dark);
         }
         
-        .hero-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-xl);
-            align-items: center;
-            position: relative;
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 1s ease;
+            will-change: opacity;
+        }
+        
+        .video-background video.loaded {
+            opacity: 1;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(10, 15, 41, 0.9), rgba(21, 26, 56, 0.8));
+        }
+        
+        /* Preloader for video */
+        .video-preloader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-top-color: var(--primary-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
             z-index: 1;
         }
         
-        @media (min-width: 900px) {
-            .hero-container {
-                grid-template-columns: 1fr 1fr;
-            }
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
         }
         
+        .video-fallback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+        
+        .video-background.fallback .video-fallback {
+            display: block;
+        }
+        
+        .video-background.fallback video {
+            display: none;
+        }
+
+        /* Hero Section with Video Background */
+        .hero {
+            padding: 10rem 0 6rem;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
         .hero-content {
-            max-width: 650px;
+            max-width: 900px;
+            margin: 0 auto;
             text-align: center;
+            position: relative;
+            z-index: 2;
         }
-        
-        @media (min-width: 900px) {
-            .hero-content {
-                text-align: left;
-            }
-        }
-        
+
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: var(--space-xs);
             background-color: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             padding: 0.75rem 1.5rem;
             border-radius: var(--radius-full);
             margin-bottom: var(--space-lg);
             font-size: 0.9rem;
             font-weight: 500;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            white-space: nowrap;
         }
-        
+
+        .hero-badge i {
+            color: var(--accent-blue);
+        }
+
         .hero-title {
             font-size: 3.5rem;
             margin-bottom: var(--space-lg);
             color: var(--white);
             line-height: 1.1;
         }
-        
-        .hero-title span {
-            color: var(--accent-blue);
-        }
-        
+
         .hero-description {
             font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: var(--space-xl);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        
-        .hero-cta {
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        /* Buttons - Matching Index Page Style */
+        .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: var(--space-sm);
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+            min-height: 56px;
+        }
+
+        .btn i {
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
             background-color: var(--primary-blue);
             color: var(--white);
-            padding: 1.25rem 2.5rem;
-            border-radius: var(--radius-full);
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: var(--transition);
             box-shadow: var(--glow-blue);
         }
-        
-        .hero-cta:hover {
+
+        .btn-primary:hover {
             background-color: var(--accent-blue);
             transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(26, 95, 255, 0.3);
         }
-        
-        /* Hero Video Section */
-        .hero-image-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
-        
-        .hero-image-wrapper {
-            width: 100%;
-            max-width: min(500px, 100%);
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
         }
-        
-        .hero-image {
-            width: 100%;
-            height: auto;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-elevated);
-            max-height: 400px;
-            object-fit: cover;
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
         }
+
+        .btn-outline:hover {
+            background-color: var(--light-blue);
+            transform: translateY(-2px);
+        }
+
+        .btn-sm {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.875rem;
+            min-height: 48px;
+        }
+
+        .btn-lg {
+            padding: 1.25rem 2.5rem;
+            font-size: 1.125rem;
+            min-height: 64px;
+        }
+        /* =============== END HERO SECTION COPY =============== */
         
         /* Contact Methods */
         .contact-methods {
@@ -964,6 +1078,10 @@
         
         @media (max-width: 768px) {
             .header {
+                padding: 1.25rem 0;
+            }
+            
+            .header.scrolled {
                 padding: 1rem 0;
             }
             
@@ -980,14 +1098,33 @@
             
             .hero {
                 padding: 8rem 0 4rem;
+                min-height: 90vh;
             }
             
             .hero-title {
                 font-size: 2.5rem;
             }
             
+            .hero-description {
+                font-size: 1.15rem;
+                padding: 0 var(--space-sm);
+            }
+            
             .methods-grid {
                 grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                padding: 0 var(--space-sm);
+            }
+            
+            .hero-actions .btn {
+                width: 100%;
+                max-width: 300px;
             }
             
             .footer-links {
@@ -1034,12 +1171,28 @@
                 font-size: 1.25rem;
             }
             
+            .hero {
+                padding: 7rem 0 3rem;
+                min-height: 85vh;
+            }
+            
             .hero-title {
                 font-size: 2.25rem;
+                line-height: 1.2;
+                padding: 0 var(--space-sm);
             }
             
             .hero-description {
                 font-size: 1.1rem;
+                line-height: 1.6;
+            }
+            
+            .hero-badge {
+                font-size: 0.85rem;
+                padding: 0.6rem 1.2rem;
+                white-space: normal;
+                text-align: center;
+                line-height: 1.4;
             }
             
             .method-detail {
@@ -1064,6 +1217,46 @@
                 width: 45px;
                 height: 45px;
                 font-size: 1.1rem;
+            }
+            
+            .mobile-nav-link {
+                font-size: 1.25rem;
+            }
+        }
+        
+        /* Additional mobile-specific improvements */
+        @media (hover: none) and (pointer: coarse) {
+            /* Optimize for touch devices */
+            .btn:hover,
+            .header-cta:hover,
+            .social-link:hover,
+            .whatsapp-fab:hover,
+            .scroll-to-top:hover,
+            .nav-link:hover::after,
+            .mobile-nav-link:hover::after,
+            .method-card:hover {
+                transform: none;
+            }
+            
+            .btn:active,
+            .header-cta:active,
+            .social-link:active,
+            .whatsapp-fab:active {
+                transform: scale(0.97);
+            }
+            
+            .nav-link:hover,
+            .nav-link.active {
+                color: var(--white);
+            }
+            
+            .header.scrolled .nav-link:hover,
+            .header.scrolled .nav-link.active {
+                color: var(--primary-dark);
+            }
+            
+            .method-card:active {
+                transform: translateY(-5px);
             }
         }
     </style>
@@ -1110,45 +1303,53 @@
         <a href="#contact-form" class="header-cta" id="mobileCta">Start Project</a>
     </div>
 
-    <!-- Hero Section with Video - ADDED ANIMATION CLASSES -->
+    <!-- =============== HERO SECTION - EXACT COPY FROM INDEX.HTML WITH CONTENT UPDATES =============== -->
     <section class="hero">
-        <div class="container hero-container">
+        <!-- Video Background with aggressive loading strategy -->
+        <div class="video-background" id="videoBackground">
+            <div class="video-preloader" id="videoPreloader"></div>
+            <video autoplay muted loop playsinline preload="auto" id="heroVideo">
+                <!-- Desktop video -->
+                <source src="https://github.com/qwuitty-prog/coders_verse_web/raw/main/assets/HeroVideo.mp4" type="video/mp4">
+                <!-- Mobile video -->
+                <source src="https://github.com/qwuitty-prog/coders_verse_web/raw/main/assets/HeroVideoMobile.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <!-- Static fallback image -->
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+                 alt="Coding background" 
+                 class="video-fallback" 
+                 id="videoFallback">
+            <div class="video-overlay"></div>
+        </div>
+        
+        <div class="container">
             <div class="hero-content">
-                <!-- ADDED: animate__animated animate__fadeInUp -->
                 <div class="hero-badge animate__animated animate__fadeInUp">
                     <i class="fas fa-crown"></i>
-                    <span>Premium Digital Agency</span>
+                    <span>Let's Connect</span>
                 </div>
                 
-                <!-- ADDED: animate__animated animate__fadeInUp -->
                 <h1 class="hero-title animate__animated animate__fadeInUp">
-                    Let's Create Something
-                    <span>Extraordinary</span>
+                    Start Your <span class="gradient-text">Digital Journey</span> With Us
                 </h1>
                 
-                <!-- ADDED: animate__animated animate__fadeInUp -->
                 <p class="hero-description animate__animated animate__fadeInUp">
-                    Ready to transform your digital vision into reality? Our team of expert developers and designers is here to bring your ideas to life with precision and creativity.
+                    Ready to transform your ideas into exceptional digital solutions? Our team is here to listen, collaborate, and create something amazing together.
                 </p>
                 
-                <!-- ADDED: animate__animated animate__fadeInUp -->
-                <a href="#contact-form" class="hero-cta animate__animated animate__fadeInUp">
-                    <i class="fas fa-paper-plane"></i>
-                    Start Your Project
-                </a>
-            </div>
-            
-            <div class="hero-image-section">
-                <div class="hero-image-wrapper">
-                    <!-- Your GitHub Video -->
-                    <video class="hero-image" autoplay muted loop playsinline preload="metadata">
-                        <source src="https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/assets/CodersVerseV2.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                <div class="hero-actions">
+                    <a href="#contact-form" class="btn btn-primary btn-lg animate__animated animate__fadeInUp">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </a>
+                    <a href="tel:+919004329806" class="btn btn-secondary btn-lg animate__animated animate__fadeInUp">
+                        <i class="fas fa-phone-alt"></i> Call Now
+                    </a>
                 </div>
             </div>
         </div>
     </section>
+    <!-- =============== END HERO SECTION =============== -->
 
     <!-- Contact Methods -->
     <section class="contact-methods">
@@ -1428,7 +1629,156 @@
     </div>
 
     <script>
-        // Mobile menu functionality - EXACT COPY FROM INDEX.HTML
+        // =============== VIDEO LOADING SCRIPT - EXACT COPY FROM INDEX.HTML ===============
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('heroVideo');
+            const videoBackground = document.getElementById('videoBackground');
+            const videoPreloader = document.getElementById('videoPreloader');
+            const videoFallback = document.getElementById('videoFallback');
+            let videoLoadAttempts = 0;
+            const maxAttempts = 3;
+            let isMobile = window.innerWidth <= 768;
+            
+            function getVideoSource() {
+                return isMobile 
+                    ? 'https://github.com/qwuitty-prog/coders_verse_web/raw/main/assets/HeroVideoMobile.mp4'
+                    : 'https://github.com/qwuitty-prog/coders_verse_web/raw/main/assets/HeroVideo.mp4';
+            }
+            
+            // Preload the image fallback immediately
+            videoFallback.style.display = 'block';
+            videoFallback.style.opacity = '1';
+            
+            function loadVideoAggressively() {
+                videoLoadAttempts++;
+                console.log(`Video load attempt ${videoLoadAttempts} of ${maxAttempts}`);
+                
+                video.src = getVideoSource();
+                video.load();
+                
+                setTimeout(() => {
+                    const playPromise = video.play();
+                    
+                    if (playPromise !== undefined) {
+                        playPromise
+                            .then(() => {
+                                console.log('Video playing successfully');
+                                video.classList.add('loaded');
+                                videoPreloader.style.display = 'none';
+                                videoFallback.style.opacity = '0';
+                                setTimeout(() => {
+                                    videoFallback.style.display = 'none';
+                                }, 1000);
+                            })
+                            .catch(error => {
+                                console.log('Video autoplay prevented:', error);
+                                videoPreloader.style.display = 'none';
+                                
+                                video.currentTime = 0.1;
+                                video.classList.add('loaded');
+                            });
+                    }
+                }, 100);
+            }
+            
+            video.addEventListener('loadeddata', function() {
+                console.log('Video data loaded');
+                video.classList.add('loaded');
+                videoPreloader.style.display = 'none';
+                videoFallback.style.opacity = '0';
+                setTimeout(() => {
+                    videoFallback.style.display = 'none';
+                }, 1000);
+            });
+            
+            video.addEventListener('canplay', function() {
+                console.log('Video can play');
+                video.classList.add('loaded');
+            });
+            
+            video.addEventListener('error', function(e) {
+                console.log('Video loading error:', e);
+                
+                if (videoLoadAttempts < maxAttempts) {
+                    setTimeout(loadVideoAggressively, 1000 * videoLoadAttempts);
+                } else {
+                    console.log('Max video load attempts reached, showing fallback');
+                    videoPreloader.style.display = 'none';
+                    videoBackground.classList.add('fallback');
+                    videoFallback.style.display = 'block';
+                    videoFallback.style.opacity = '1';
+                }
+            });
+            
+            video.addEventListener('stalled', function() {
+                console.log('Video stalled, attempting to recover');
+                if (video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) {
+                    loadVideoAggressively();
+                }
+            });
+            
+            function handleResize() {
+                const newIsMobile = window.innerWidth <= 768;
+                if (newIsMobile !== isMobile) {
+                    isMobile = newIsMobile;
+                    console.log(`Switching to ${isMobile ? 'mobile' : 'desktop'} video`);
+                    loadVideoAggressively();
+                }
+            }
+            
+            loadVideoAggressively();
+            
+            let resizeTimeout;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(handleResize, 250);
+            });
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (video.paused && video.readyState >= 2) {
+                            video.play().catch(e => console.log('Recovery play failed:', e));
+                        }
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(videoBackground);
+            
+            const preconnectLink = document.createElement('link');
+            preconnectLink.rel = 'preconnect';
+            preconnectLink.href = 'https://github.com';
+            document.head.appendChild(preconnectLink);
+        });
+
+        // Header scroll effect - Initially transparent, becomes white after scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Scroll to top button
+            const scrollToTop = document.getElementById('scrollToTop');
+            if (window.scrollY > 500) {
+                scrollToTop.classList.add('visible');
+            } else {
+                scrollToTop.classList.remove('visible');
+            }
+        });
+
+        // Initialize header as transparent on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY <= 50) {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu functionality
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
         const mobileMenuClose = document.getElementById('mobileMenuClose');
@@ -1452,24 +1802,6 @@
                 mobileMenuOverlay.classList.remove('active');
                 document.body.style.overflow = '';
             });
-        });
-        
-        // Header scroll effect - EXACT COPY FROM INDEX.HTML
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-            
-            // Scroll to top button
-            const scrollToTop = document.getElementById('scrollToTop');
-            if (window.scrollY > 500) {
-                scrollToTop.classList.add('visible');
-            } else {
-                scrollToTop.classList.remove('visible');
-            }
         });
         
         // Form submission
@@ -1528,7 +1860,7 @@ ${formData.message}
             alert('Thank you! Your project details have been prepared. Please send the WhatsApp message to start the conversation.');
         });
         
-        // Smooth scroll for anchor links - EXACT COPY FROM INDEX.HTML
+        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1574,18 +1906,30 @@ ${formData.message}
             });
         });
         
-        // Video autoplay handling for mobile
-        const video = document.querySelector('video');
-        video.muted = true;
-        video.playsInline = true;
-        
-        // ADDED: Staggered animation delays for hero section elements (EXACTLY like homepage)
+        // Staggered animation delays for hero section elements (EXACTLY like homepage)
         window.addEventListener('load', () => {
             const animatedElements = document.querySelectorAll('.animate__animated');
             animatedElements.forEach((el, index) => {
                 el.style.animationDelay = `${index * 0.1}s`;
             });
         });
+        
+        // WhatsApp pre-filled message function (from index.html)
+        function openWhatsAppWithMessage() {
+            const message = "Hello CodersVerse! I'd like to discuss a project with you.";
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/919004329806?text=${encodedMessage}`;
+            window.open(whatsappURL, '_blank');
+        }
+        
+        // Add click event to WhatsApp button
+        document.querySelector('.whatsapp-fab').addEventListener('click', function(e) {
+            e.preventDefault();
+            openWhatsAppWithMessage();
+        });
+        
+        // Better touch handling for mobile
+        document.addEventListener('touchstart', function() {}, {passive: true});
     </script>
 </body>
 </html>
