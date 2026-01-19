@@ -931,21 +931,19 @@
     <!-- Portfolio Projects Section -->
     <section class="portfolio-section" id="projects">
         <div class="container">
-            <!-- Portfolio Filter -->
+            <!-- Portfolio Filter - Updated Categories -->
             <div class="portfolio-filter">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="real-estate">Real Estate</button>
-                <button class="filter-btn" data-filter="luxury">Luxury</button>
-                <button class="filter-btn" data-filter="investment">Investment</button>
-                <button class="filter-btn" data-filter="technology">Technology</button>
+                <button class="filter-btn active" data-filter="all">ALL</button>
+                <button class="filter-btn" data-filter="professional">Professional</button>
+                <button class="filter-btn" data-filter="modern">Modern</button>
             </div>
             
-            <!-- Portfolio Grid -->
+            <!-- Portfolio Grid - Updated with new categories -->
             <div class="portfolio-grid">
-                <!-- Project 1: Arjun Real Estate -->
-                <div class="portfolio-card" data-category="real-estate">
+                <!-- Project 1: Arjun Real Estate - Professional -->
+                <div class="portfolio-card" data-category="professional">
                     <div class="portfolio-image">
-                        <div class="portfolio-category">Real Estate</div>
+                        <div class="portfolio-category">Professional</div>
                         <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Arjun Real Estate Project" loading="lazy">
                     </div>
                     <div class="portfolio-content">
@@ -965,10 +963,10 @@
                     </div>
                 </div>
                 
-                <!-- Project 2: Arjun Estates -->
-                <div class="portfolio-card" data-category="luxury">
+                <!-- Project 2: Arjun Estates - Professional -->
+                <div class="portfolio-card" data-category="professional">
                     <div class="portfolio-image">
-                        <div class="portfolio-category">Luxury Real Estate</div>
+                        <div class="portfolio-category">Professional</div>
                         <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Arjun Estates Project" loading="lazy">
                     </div>
                     <div class="portfolio-content">
@@ -988,10 +986,10 @@
                     </div>
                 </div>
                 
-                <!-- Project 3: Demo Realty -->
-                <div class="portfolio-card" data-category="real-estate">
+                <!-- Project 3: Demo Realty - Professional -->
+                <div class="portfolio-card" data-category="professional">
                     <div class="portfolio-image">
-                        <div class="portfolio-category">Real Estate Agency</div>
+                        <div class="portfolio-category">Professional</div>
                         <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Demo Realty Project" loading="lazy">
                     </div>
                     <div class="portfolio-content">
@@ -1011,10 +1009,10 @@
                     </div>
                 </div>
                 
-                <!-- Project 4: A-One Gold Investment -->
-                <div class="portfolio-card" data-category="investment">
+                <!-- Project 4: A-One Gold Investment - Modern -->
+                <div class="portfolio-card" data-category="modern">
                     <div class="portfolio-image">
-                        <div class="portfolio-category">Gold Investment</div>
+                        <div class="portfolio-category">Modern</div>
                         <img src="https://github.com/qwuitty-prog/coders_verse_web/blob/main/assets/images/GoldStock.jpeg?raw=true" alt="A-One Gold Investment Project" loading="lazy">
                     </div>
                     <div class="portfolio-content">
@@ -1034,10 +1032,10 @@
                     </div>
                 </div>
                 
-                <!-- NEW PROJECT 5: NovaVista Technologies -->
-                <div class="portfolio-card" data-category="technology">
+                <!-- Project 5: NovaVista Technologies - Modern -->
+                <div class="portfolio-card" data-category="modern">
                     <div class="portfolio-image">
-                        <div class="portfolio-category">Technology Solutions</div>
+                        <div class="portfolio-category">Modern</div>
                         <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="NovaVista Technologies Project" loading="lazy">
                     </div>
                     <div class="portfolio-content">
@@ -1052,6 +1050,29 @@
                             <span class="tech-tag">Consulting</span>
                         </div>
                         <a href="https://novavista-technologies.pages.dev/" target="_blank" class="portfolio-link">
+                            <i class="fas fa-external-link-alt"></i> View Live Project
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- NEW Project 6: Cinevibe Media - Modern -->
+                <div class="portfolio-card" data-category="modern">
+                    <div class="portfolio-image">
+                        <div class="portfolio-category">Modern</div>
+                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cinevibe Media Project" loading="lazy">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Cinevibe Media</h3>
+                        <p class="portfolio-description">
+                            Modern media and entertainment platform with dynamic content showcasing, video galleries, and engaging user interface. Features seamless navigation for media content exploration.
+                        </p>
+                        <div class="portfolio-tech">
+                            <span class="tech-tag">Media Platform</span>
+                            <span class="tech-tag">Dynamic Content</span>
+                            <span class="tech-tag">Video Integration</span>
+                            <span class="tech-tag">Modern UI</span>
+                        </div>
+                        <a href="https://cinevibemedia.pages.dev/" target="_blank" class="portfolio-link">
                             <i class="fas fa-external-link-alt"></i> View Live Project
                         </a>
                     </div>
@@ -1190,7 +1211,7 @@
             });
         });
 
-        // Portfolio Filter Functionality
+        // Portfolio Filter Functionality - Updated for new categories
         const filterButtons = document.querySelectorAll('.filter-btn');
         const portfolioCards = document.querySelectorAll('.portfolio-card');
 
