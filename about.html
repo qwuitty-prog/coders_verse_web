@@ -16,7 +16,6 @@
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- ADDED: Animate.css for slide-up animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     
     <style>
@@ -62,10 +61,69 @@
             --transition-slow: 0.5s ease;
         }
         
+        /* Custom Cursor Styles - ADDED FROM HOMEPAGE */
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-blue);
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+        }
+        
+        .cursor-dot.active {
+            width: 16px;
+            height: 16px;
+            background-color: rgba(26, 95, 255, 0.3);
+        }
+        
+        .cursor-dot.hover-active {
+            width: 24px;
+            height: 24px;
+            background-color: rgba(26, 95, 255, 0.2);
+        }
+        
+        .cursor-circle {
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(26, 95, 255, 0.2);
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, transform 0.1s linear;
+        }
+        
+        .cursor-circle.active {
+            width: 60px;
+            height: 60px;
+            border-color: rgba(26, 95, 255, 0.15);
+        }
+        
+        .cursor-circle.hover-active {
+            width: 80px;
+            height: 80px;
+            border-color: rgba(26, 95, 255, 0.1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            cursor: none !important; /* ADDED FROM HOMEPAGE */
+        }
+
+        /* Re-enable cursor for interactive elements - ADDED FROM HOMEPAGE */
+        a, button, input, textarea, .btn, .header-cta, .mobile-menu-btn, .mobile-menu-close, .slider-dot, .whatsapp-fab, .scroll-to-top {
+            cursor: none !important;
         }
         
         html {
@@ -540,7 +598,7 @@
             font-weight: 500;
         }
         
-        /* Values Section - Auto-scrolling Slider */
+        /* Values Section - UPDATED for mobile responsiveness */
         .values-section {
             padding: var(--space-2xl) 0;
             background-color: var(--gray-extra-light);
@@ -864,7 +922,7 @@
             transform: scale(1.1);
             box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
         }
-        
+
         /* Mobile Menu Overlay - Updated with Portfolio Link */
         .mobile-menu-overlay {
             display: none;
@@ -942,7 +1000,7 @@
             justify-content: center;
         }
         
-        /* Responsive Design - Matching Contact Page */
+        /* Responsive Design - UPDATED for mobile cursor and values section */
         @media (max-width: 1024px) {
             h1 {
                 font-size: 3rem;
@@ -1057,8 +1115,19 @@
                 left: 30px;
             }
             
+            /* UPDATED: Better mobile optimization for values section */
             .values-slider-container {
                 min-height: 500px;
+            }
+            
+            .value-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+            
+            .value-slide-content {
+                padding: var(--space-lg);
             }
             
             .whatsapp-fab {
@@ -1071,6 +1140,21 @@
             
             .mission-video video {
                 max-height: 300px;
+            }
+
+            /* Hide custom cursor on mobile for better performance - ADDED FROM HOMEPAGE */
+            .cursor-dot,
+            .cursor-circle {
+                display: none;
+            }
+            
+            /* Restore default cursor on mobile - ADDED FROM HOMEPAGE */
+            * {
+                cursor: auto !important;
+            }
+            
+            a, button, input, textarea, .btn, .header-cta, .mobile-menu-btn, .mobile-menu-close, .slider-dot, .whatsapp-fab, .scroll-to-top {
+                cursor: pointer !important;
             }
         }
         
@@ -1120,9 +1204,9 @@
             }
             
             .value-icon {
-                width: 80px;
-                height: 80px;
-                font-size: 2rem;
+                width: 70px;
+                height: 70px;
+                font-size: 1.75rem;
             }
             
             .whatsapp-fab {
@@ -1163,6 +1247,16 @@
                 min-height: 600px;
             }
             
+            .value-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .value-slide-content {
+                padding: var(--space-md);
+            }
+            
             .mission-video video {
                 max-height: 200px;
             }
@@ -1170,6 +1264,10 @@
     </style>
 </head>
 <body>
+    <!-- Custom Cursor Elements - ADDED FROM HOMEPAGE -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-circle" id="cursorCircle"></div>
+
     <!-- Header - Updated with Portfolio Link -->
     <header class="header" id="header">
         <div class="container header-container">
@@ -1238,8 +1336,9 @@
                     <span>Premium Digital Agency</span>
                 </div>
                 
+                <!-- UPDATED: Removed "- Your Digital Success Partner" -->
                 <h1 class="hero-title animate__animated animate__fadeInUp">
-                    About <span class="gradient-text">CodersVerse</span> - Your Digital Success Partner
+                    About <span class="gradient-text">CodersVerse</span>
                 </h1>
                 
                 <p class="hero-description animate__animated animate__fadeInUp">
@@ -1547,6 +1646,111 @@
     </a>
 
     <script>
+        // CUSTOM CURSOR IMPLEMENTATION - ADDED FROM HOMEPAGE
+        document.addEventListener('DOMContentLoaded', function() {
+            const cursorDot = document.getElementById('cursorDot');
+            const cursorCircle = document.getElementById('cursorCircle');
+            let mouseX = 0;
+            let mouseY = 0;
+            let circleX = 0;
+            let circleY = 0;
+            let isMobile = window.innerWidth <= 768;
+            
+            // Initialize cursor position
+            cursorDot.style.left = '-20px';
+            cursorDot.style.top = '-20px';
+            cursorCircle.style.left = '-20px';
+            cursorCircle.style.top = '-20px';
+            
+            // Only enable custom cursor on non-mobile devices
+            if (!isMobile) {
+                // Update mouse position
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                });
+                
+                // Animate cursor with requestAnimationFrame for smoothness
+                function animateCursor() {
+                    // Direct positioning for dot (no delay)
+                    cursorDot.style.left = `${mouseX}px`;
+                    cursorDot.style.top = `${mouseY}px`;
+                    
+                    // Smooth, delayed movement for circle (trailing effect)
+                    circleX += (mouseX - circleX) * 0.1;
+                    circleY += (mouseY - circleY) * 0.1;
+                    
+                    cursorCircle.style.left = `${circleX}px`;
+                    cursorCircle.style.top = `${circleY}px`;
+                    
+                    requestAnimationFrame(animateCursor);
+                }
+                
+                // Start animation
+                animateCursor();
+                
+                // Cursor interaction effects
+                const interactiveElements = document.querySelectorAll(
+                    'a, button, .btn, .header-cta, .mobile-menu-btn, .mobile-menu-close, .slider-dot, .whatsapp-fab, .mission-stat, .value-slide-content, .timeline-content, .social-link'
+                );
+                
+                // Add hover effect for interactive elements
+                interactiveElements.forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        cursorDot.classList.add('hover-active');
+                        cursorCircle.classList.add('hover-active');
+                    });
+                    
+                    el.addEventListener('mouseleave', () => {
+                        cursorDot.classList.remove('hover-active');
+                        cursorCircle.classList.remove('hover-active');
+                    });
+                });
+                
+                // Add click effect
+                document.addEventListener('mousedown', () => {
+                    cursorDot.classList.add('active');
+                    cursorCircle.classList.add('active');
+                });
+                
+                document.addEventListener('mouseup', () => {
+                    cursorDot.classList.remove('active');
+                    cursorCircle.classList.remove('active');
+                });
+                
+                // Hide cursor when leaving window
+                document.addEventListener('mouseleave', () => {
+                    cursorDot.style.opacity = '0';
+                    cursorCircle.style.opacity = '0';
+                });
+                
+                document.addEventListener('mouseenter', () => {
+                    cursorDot.style.opacity = '1';
+                    cursorCircle.style.opacity = '1';
+                });
+            } else {
+                // Hide cursor elements on mobile
+                cursorDot.style.display = 'none';
+                cursorCircle.style.display = 'none';
+            }
+            
+            // Handle window resize
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    isMobile = window.innerWidth <= 768;
+                    if (isMobile) {
+                        cursorDot.style.display = 'none';
+                        cursorCircle.style.display = 'none';
+                    } else {
+                        cursorDot.style.display = 'block';
+                        cursorCircle.style.display = 'block';
+                    }
+                }, 250);
+            });
+        });
+
         // AGGRESSIVE VIDEO LOADING SOLUTION - EXACTLY LIKE INDEX.HTML
         document.addEventListener('DOMContentLoaded', function() {
             const video = document.getElementById('heroVideo');
