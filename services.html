@@ -59,11 +59,70 @@
             --transition-slow: 0.5s ease;
         }
 
+        /* CUSTOM CURSOR STYLES - ADDED FROM INDEX.HTML */
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-blue);
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+        }
+        
+        .cursor-dot.active {
+            width: 16px;
+            height: 16px;
+            background-color: rgba(26, 95, 255, 0.3);
+        }
+        
+        .cursor-dot.hover-active {
+            width: 24px;
+            height: 24px;
+            background-color: rgba(26, 95, 255, 0.2);
+        }
+        
+        .cursor-circle {
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(26, 95, 255, 0.2);
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, transform 0.1s linear;
+        }
+        
+        .cursor-circle.active {
+            width: 60px;
+            height: 60px;
+            border-color: rgba(26, 95, 255, 0.15);
+        }
+        
+        .cursor-circle.hover-active {
+            width: 80px;
+            height: 80px;
+            border-color: rgba(26, 95, 255, 0.1);
+        }
+
         /* Base Reset */
         * { 
             box-sizing: border-box; 
             margin: 0; 
             padding: 0; 
+            cursor: none !important;
+        }
+
+        /* Re-enable cursor for interactive elements */
+        a, button, input, textarea, .btn, .header-cta, .mobile-menu-btn, .mobile-menu-close, .whatsapp-fab, .scroll-to-top, .service-cta, .service-card {
+            cursor: none !important;
         }
 
         html {
@@ -1095,6 +1154,21 @@
                 padding: 0.25rem 0.6rem;
                 align-self: flex-start;
             }
+            
+            /* Hide custom cursor on mobile for better performance */
+            .cursor-dot,
+            .cursor-circle {
+                display: none;
+            }
+            
+            /* Restore default cursor on mobile */
+            * {
+                cursor: auto !important;
+            }
+            
+            a, button, input, textarea, .btn, .header-cta, .mobile-menu-btn, .mobile-menu-close, .whatsapp-fab, .scroll-to-top, .service-cta, .service-card {
+                cursor: pointer !important;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1254,14 +1328,16 @@
             .scroll-to-top:hover,
             .nav-link:hover::after,
             .mobile-nav-link:hover::after,
-            .service-card:hover {
+            .service-card:hover,
+            .service-cta:hover {
                 transform: none;
             }
             
             .btn:active,
             .header-cta:active,
             .social-link:active,
-            .whatsapp-fab:active {
+            .whatsapp-fab:active,
+            .service-cta:active {
                 transform: scale(0.97);
             }
             
@@ -1283,6 +1359,10 @@
 </head>
 
 <body>
+
+<!-- CUSTOM CURSOR ELEMENTS - ADDED FROM INDEX.HTML -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-circle" id="cursorCircle"></div>
 
 <!-- Header - EXACT COPY FROM INDEX.HTML with transparent effect -->
 <header class="header" id="header">
@@ -1584,8 +1664,113 @@
     <i class="fas fa-chevron-up"></i>
 </div>
 
-<!-- JavaScript - EXACT COPY FROM INDEX.HTML with all functionality -->
+<!-- JavaScript - ADDED CURSOR FUNCTIONALITY FROM INDEX.HTML -->
 <script>
+// CUSTOM CURSOR IMPLEMENTATION - ADDED FROM INDEX.HTML
+document.addEventListener('DOMContentLoaded', function() {
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorCircle = document.getElementById('cursorCircle');
+    let mouseX = 0;
+    let mouseY = 0;
+    let circleX = 0;
+    let circleY = 0;
+    let isMobile = window.innerWidth <= 768;
+    
+    // Initialize cursor position
+    cursorDot.style.left = '-20px';
+    cursorDot.style.top = '-20px';
+    cursorCircle.style.left = '-20px';
+    cursorCircle.style.top = '-20px';
+    
+    // Only enable custom cursor on non-mobile devices
+    if (!isMobile) {
+        // Update mouse position
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+        
+        // Animate cursor with requestAnimationFrame for smoothness
+        function animateCursor() {
+            // Direct positioning for dot (no delay)
+            cursorDot.style.left = `${mouseX}px`;
+            cursorDot.style.top = `${mouseY}px`;
+            
+            // Smooth, delayed movement for circle (trailing effect)
+            circleX += (mouseX - circleX) * 0.1;
+            circleY += (mouseY - circleY) * 0.1;
+            
+            cursorCircle.style.left = `${circleX}px`;
+            cursorCircle.style.top = `${circleY}px`;
+            
+            requestAnimationFrame(animateCursor);
+        }
+        
+        // Start animation
+        animateCursor();
+        
+        // Cursor interaction effects
+        const interactiveElements = document.querySelectorAll(
+            'a, button, .btn, .header-cta, .mobile-menu-btn, .mobile-menu-close, .whatsapp-fab, .scroll-to-top, .service-card, .service-cta, .social-link'
+        );
+        
+        // Add hover effect for interactive elements
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorDot.classList.add('hover-active');
+                cursorCircle.classList.add('hover-active');
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                cursorDot.classList.remove('hover-active');
+                cursorCircle.classList.remove('hover-active');
+            });
+        });
+        
+        // Add click effect
+        document.addEventListener('mousedown', () => {
+            cursorDot.classList.add('active');
+            cursorCircle.classList.add('active');
+        });
+        
+        document.addEventListener('mouseup', () => {
+            cursorDot.classList.remove('active');
+            cursorCircle.classList.remove('active');
+        });
+        
+        // Hide cursor when leaving window
+        document.addEventListener('mouseleave', () => {
+            cursorDot.style.opacity = '0';
+            cursorCircle.style.opacity = '0';
+        });
+        
+        document.addEventListener('mouseenter', () => {
+            cursorDot.style.opacity = '1';
+            cursorCircle.style.opacity = '1';
+        });
+    } else {
+        // Hide cursor elements on mobile
+        cursorDot.style.display = 'none';
+        cursorCircle.style.display = 'none';
+    }
+    
+    // Handle window resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            isMobile = window.innerWidth <= 768;
+            if (isMobile) {
+                cursorDot.style.display = 'none';
+                cursorCircle.style.display = 'none';
+            } else {
+                cursorDot.style.display = 'block';
+                cursorCircle.style.display = 'block';
+            }
+        }, 250);
+    });
+});
+
 // AGGRESSIVE VIDEO LOADING SOLUTION - EXACT COPY FROM INDEX.HTML
 document.addEventListener('DOMContentLoaded', function() {
     const video = document.getElementById('heroVideo');
