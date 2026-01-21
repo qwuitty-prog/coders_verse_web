@@ -598,7 +598,7 @@
             font-weight: 500;
         }
         
-        /* Values Section - UPDATED for mobile responsiveness */
+        /* Values Section - COMPLETELY REVAMPED for mobile */
         .values-section {
             padding: var(--space-2xl) 0;
             background-color: var(--gray-extra-light);
@@ -621,12 +621,14 @@
             margin-bottom: var(--space-sm);
         }
         
+        /* Desktop slider - hidden on mobile */
         .values-slider-container {
             position: relative;
             max-width: 800px;
             margin: var(--space-xl) auto 0;
             overflow: hidden;
             min-height: 450px;
+            display: block; /* Desktop: show */
         }
         
         .values-track {
@@ -653,21 +655,29 @@
             transform: translateY(0);
         }
         
-        .value-slide-content {
+        /* Mobile values grid - hidden on desktop */
+        .values-grid {
+            display: none; /* Desktop: hide */
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+            max-width: 600px;
+            margin: var(--space-xl) auto 0;
+        }
+        
+        .value-card {
             background-color: var(--white);
             border-radius: var(--radius-lg);
-            padding: var(--space-xl);
-            box-shadow: var(--shadow-elevated);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-medium);
             border: 1px solid var(--light-blue);
-            max-width: 600px;
-            width: 100%;
             text-align: center;
             transition: var(--transition);
         }
         
-        .value-slide-content:hover {
+        .value-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(10, 15, 41, 0.2);
+            box-shadow: var(--shadow-elevated);
+            border-color: var(--primary-blue);
         }
         
         .value-icon {
@@ -682,6 +692,24 @@
             font-size: 2.5rem;
             color: var(--white);
             box-shadow: var(--shadow-medium);
+        }
+        
+        .value-slide-content,
+        .value-card-content {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-elevated);
+            border: 1px solid var(--light-blue);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .value-slide-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(10, 15, 41, 0.2);
         }
         
         /* Timeline Section */
@@ -1115,9 +1143,18 @@
                 left: 30px;
             }
             
-            /* UPDATED: Better mobile optimization for values section */
+            /* FIXED: Switch to grid layout on mobile, hide slider */
             .values-slider-container {
-                min-height: 500px;
+                display: none; /* Hide slider on mobile */
+                min-height: 0;
+            }
+            
+            .values-grid {
+                display: grid; /* Show grid on mobile */
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+                max-width: 500px;
+                margin: var(--space-lg) auto 0;
             }
             
             .value-icon {
@@ -1126,7 +1163,7 @@
                 font-size: 2rem;
             }
             
-            .value-slide-content {
+            .value-card {
                 padding: var(--space-lg);
             }
             
@@ -1195,12 +1232,12 @@
                 gap: var(--space-md);
             }
             
-            .value-slide-content {
-                padding: var(--space-lg);
+            .values-grid {
+                gap: var(--space-md);
             }
             
-            .values-slider-container {
-                min-height: 550px;
+            .value-card {
+                padding: var(--space-md);
             }
             
             .value-icon {
@@ -1243,18 +1280,14 @@
                 font-size: 1rem;
             }
             
-            .values-slider-container {
-                min-height: 600px;
-            }
-            
             .value-icon {
                 width: 60px;
                 height: 60px;
                 font-size: 1.5rem;
             }
             
-            .value-slide-content {
-                padding: var(--space-md);
+            .value-card {
+                padding: var(--space-sm);
             }
             
             .mission-video video {
@@ -1398,7 +1431,7 @@
         </div>
     </section>
 
-    <!-- Values Section - Auto-scrolling Slider -->
+    <!-- Values Section - FIXED: Two different layouts for desktop/mobile -->
     <section class="values-section" id="values">
         <div class="container">
             <div class="section-title">
@@ -1407,6 +1440,7 @@
                 <p>The principles that guide everything we do at CodersVerse</p>
             </div>
             
+            <!-- Desktop Slider (hidden on mobile) -->
             <div class="values-slider-container">
                 <div class="values-track" id="valuesTrack">
                     <!-- Value 1 - Innovation -->
@@ -1474,6 +1508,63 @@
                             <p>We love what we do, and it shows in the dedication and enthusiasm we bring to every project we undertake. Our passion for digital innovation drives us to create exceptional solutions.</p>
                         </div>
                     </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Grid (hidden on desktop) -->
+            <div class="values-grid" id="valuesGrid">
+                <!-- Value 1 - Innovation -->
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>We constantly explore new technologies and approaches to deliver cutting-edge solutions that keep our clients ahead of the competition.</p>
+                </div>
+                
+                <!-- Value 2 - Partnership -->
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Partnership</h3>
+                    <p>We believe in building long-term relationships based on trust, transparency, and mutual success. Your goals become our goals.</p>
+                </div>
+                
+                <!-- Value 3 - Excellence -->
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>From initial concept to final delivery, we maintain the highest standards of quality in every aspect of our work.</p>
+                </div>
+                
+                <!-- Value 4 - Collaboration -->
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Collaboration</h3>
+                    <p>We work closely with our clients, involving them at every stage to ensure the final product exceeds expectations.</p>
+                </div>
+                
+                <!-- Value 5 - Agility -->
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Agility</h3>
+                    <p>In a fast-paced digital world, we adapt quickly to changing requirements and market trends to deliver timely solutions.</p>
+                </div>
+                
+                <!-- Value 6 - Passion -->
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Passion</h3>
+                    <p>We love what we do, and it shows in the dedication and enthusiasm we bring to every project we undertake.</p>
                 </div>
             </div>
         </div>
@@ -1691,7 +1782,7 @@
                 
                 // Cursor interaction effects
                 const interactiveElements = document.querySelectorAll(
-                    'a, button, .btn, .header-cta, .mobile-menu-btn, .mobile-menu-close, .slider-dot, .whatsapp-fab, .mission-stat, .value-slide-content, .timeline-content, .social-link'
+                    'a, button, .btn, .header-cta, .mobile-menu-btn, .mobile-menu-close, .slider-dot, .whatsapp-fab, .mission-stat, .value-slide-content, .value-card, .timeline-content, .social-link'
                 );
                 
                 // Add hover effect for interactive elements
@@ -1956,7 +2047,7 @@
             });
         });
         
-        // Values Slider - Auto-scrolling only
+        // Values Slider - Auto-scrolling only (for desktop)
         const valuesTrack = document.getElementById('valuesTrack');
         const slides = document.querySelectorAll('.value-slide');
         
@@ -1964,10 +2055,13 @@
         let slideInterval;
         const slideDuration = 3000; // 3 seconds
         
-        // Initialize slider
+        // Initialize slider only on desktop
         function initSlider() {
-            updateSlider();
-            startAutoSlide();
+            // Only initialize if we're not on mobile
+            if (window.innerWidth > 768) {
+                updateSlider();
+                startAutoSlide();
+            }
         }
         
         // Update slider position and active states
@@ -1999,13 +2093,15 @@
         }
         
         // Pause on hover
-        valuesTrack.addEventListener('mouseenter', () => {
-            stopAutoSlide();
-        });
-        
-        valuesTrack.addEventListener('mouseleave', () => {
-            startAutoSlide();
-        });
+        if (valuesTrack) {
+            valuesTrack.addEventListener('mouseenter', () => {
+                stopAutoSlide();
+            });
+            
+            valuesTrack.addEventListener('mouseleave', () => {
+                startAutoSlide();
+            });
+        }
         
         // Initialize slider on page load
         window.addEventListener('load', initSlider);
