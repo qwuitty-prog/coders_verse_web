@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodersVerse</title>
+  <link rel="stylesheet" href="https://db.onlinewebfonts.com/c/5ac3fe7c6abd2f62067f266d89671492?family=HelveticaNowDisplay-Medium" />
+  <link rel="stylesheet" href="https://db.onlinewebfonts.com/c/1aa3377e489837a26d019bba501e779d?family=HelveticaNowDisplayW01-Rg" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --font-heading: 'HelveticaNowDisplay-Medium', 'Helvetica Neue', Arial, sans-serif;
+      --font-body:    'HelveticaNowDisplayW01-Rg',  'Helvetica Neue', Arial, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow: hidden; }
+    body { font-family: var(--font-body); background: #000; color: white; }
+    #loader {
+      position: fixed; inset: 0; z-index: 100;
+      background: #000; display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      transition: opacity 0.5s ease-out;
+    }
+    #loader.hidden { opacity: 0; pointer-events: none; }
+    .loader-bar-bg { width: 200px; height: 2px; background: #333; margin-top: 1rem; border-radius: 2px; overflow: hidden; }
+    #loader-bar { width: 0%; height: 100%; background: #fff; transition: width 0.1s linear; }
+    #bg-canvas {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 0; display: block;
+      will-change: contents;
+      image-rendering: high-quality;
+    }
+    @keyframes cursor-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .cursor-blink {
+      display: inline-block; width: 2px; height: 1.1em;
+      background: #000; vertical-align: middle; margin-left: 2px;
+      animation: cursor-pulse 0.8s ease-in-out infinite;
+      will-change: opacity;
+    }
+    .pill-outline {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: transparent; color: white; border: 1px solid white;
+      border-radius: 9999px; font-size: 13px; padding: 0.3em 1rem;
+      margin: 0 0.2em 0.4em; white-space: nowrap; cursor: pointer; gap: 0.5rem;
+      transition: background-color 0.2s, color 0.2s; font-family: var(--font-body);
+    }
+    .pill-outline:hover { background: white; color: black; }
+    .pill-outline:hover .ci { stroke: black; }
+    @media(min-width:640px) { .pill-outline { font-size: 15px; padding: 0.3em 1.25rem; gap: 0.75rem; } }
+    .pills-container {
+      opacity: 0; transform: translateY(8px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      will-change: opacity, transform;
+    }
+    .pills-container.visible { opacity: 1; transform: translateY(0); }
+    .mobile-overlay {
+      position: fixed; inset: 0; background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(4px); z-index: 9;
+      display: flex; flex-direction: column; justify-content: center;
+      align-items: flex-start; padding: 0 2rem; gap: 2rem;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .mobile-overlay.open { opacity: 1; pointer-events: all; }
+    .mobile-overlay a { font-size: 32px; font-weight: 500; color: black; text-decoration: none; font-family: var(--font-body); }
+    .mobile-overlay a.ul { text-decoration: underline; text-underline-offset: 3px; }
+    .hamburger-bar { width: 1.5rem; height: 2px; background: black; transition: transform 0.3s, opacity 0.3s; display: block; }
+    .hamburger.open .bar1 { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open .bar2 { opacity: 0; }
+    .hamburger.open .bar3 { transform: translateY(-7px) rotate(-45deg); }
+    .typewriter-text {
+      color: black; margin-bottom: 1.25rem;
+      font-size: clamp(18px, 4vw, 26px); line-height: 1.35;
+      font-weight: 400; min-height: 54px; font-family: var(--font-body);
+      letter-spacing: -0.01em; will-change: contents;
+    }
+    @media(min-width:640px) { .typewriter-text { margin-bottom: 1.5rem; } }
+    .logo-text { font-family: var(--font-heading); font-size: 21px; letter-spacing: -0.02em; color: black; }
+    @media(min-width:640px) { .logo-text { font-size: 26px; } }
+    .nav-link { font-size: 23px; color: black; text-decoration: none; transition: opacity 0.2s; }
+    .nav-link:hover { opacity: 0.6; }
+    .cta-link { font-size: 23px; color: black; text-decoration: underline; text-underline-offset: 2px; transition: opacity 0.2s; }
+    .cta-link:hover { opacity: 0.6; }
+    .copy-toast {
+      position: fixed; bottom: 2rem; left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: black; color: white; padding: 0.5rem 1.25rem;
+      border-radius: 9999px; font-size: 13px; font-family: var(--font-body);
+      opacity: 0; transition: opacity 0.25s, transform 0.25s;
+      z-index: 100; pointer-events: none;
+    }
+    .copy-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  </style>
+</head>
+<body>
+<div id="loader">
+  <div style="font-family: var(--font-heading); font-size: 18px; letter-spacing: 0.1em; text-transform: uppercase; color: white;">CodersVerse</div>
+  <div class="loader-bar-bg"><div id="loader-bar"></div></div>
+</div>
+<canvas id="bg-canvas"></canvas>
+<nav style="position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1rem 1.25rem;" id="navbar">
+  <div style="display:flex;align-items:center;">
+    <span class="logo-text">CodersVerse</span>
+  </div>
+  <div class="desktop-nav" style="display:none;flex-direction:row;align-items:center;">
+    <a href="#" class="nav-link">Web Development Services</a>
+  </div>
+  <a href="mailto:hello@codersverse.co" class="cta-link desktop-cta" style="display:none;">Get in touch</a>
+  <button class="hamburger mobile-menu-btn" aria-label="Toggle menu"
+    style="background:none;border:none;cursor:pointer;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;padding:4px;">
+    <span class="hamburger-bar bar1"></span>
+    <span class="hamburger-bar bar2"></span>
+    <span class="hamburger-bar bar3"></span>
+  </button>
+</nav>
+<div class="mobile-overlay" id="mobileOverlay">
+  <a href="#">Web Development Services</a>
+  <a href="mailto:hello@codersverse.co" class="ul">Get in touch</a>
+</div>
+<section style="position:relative;z-index:1;height:100vh;display:flex;flex-direction:column;padding:0 1.25rem;overflow:hidden;" id="hero">
+  <div style="max-width:36rem;position:relative;z-index:10;" id="heroContent">
+    <p class="typewriter-text">
+      <span id="typewriterText"></span><span class="cursor-blink" id="cursor"></span>
+    </p>
+    <div class="pills-container" id="pillsContainer" style="display:flex;flex-wrap:wrap;align-items:center;">
+      <button class="pill-outline" onclick="copyEmail()">
+        Reach us: <span style="text-decoration:underline;text-underline-offset:1px;">hello@codersverse.co</span>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0;">
+          <rect x="3.5" y="3.5" width="7" height="7" rx="1" class="ci" stroke="white" stroke-width="1"/>
+          <path d="M1.5 8.5V1.5h7" class="ci" stroke="white" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+<div class="copy-toast" id="copyToast">Copied to clipboard!</div>
+<script>
+(function () {
+  const FRAME_URLS = [
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-001.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-002.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-003.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-004.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-005.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-006.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-007.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-008.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-009.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-010.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-011.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-012.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-013.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-014.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-015.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-016.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-017.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-018.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-019.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-020.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-021.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-022.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-023.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-024.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-025.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-026.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-027.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-028.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-029.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-030.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-031.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-032.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-033.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-034.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-035.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-036.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-037.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-038.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-039.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-040.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-041.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-042.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-043.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-044.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-045.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-046.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-047.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-048.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-049.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-050.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-051.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-052.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-053.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-054.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-055.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-056.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-057.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-058.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-059.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-060.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-061.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-062.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-063.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-064.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-065.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-066.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-067.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-068.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-069.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-070.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-071.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-072.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-073.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-074.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-075.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-076.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-077.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-078.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-079.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-080.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-081.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-082.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-083.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-084.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-085.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-086.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-087.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-088.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-089.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-090.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-091.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-092.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-093.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-094.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-095.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-096.jpg",
+    "https://raw.githubusercontent.com/qwuitty-prog/coders_verse_web/main/HeroImageSequence/ezgif-frame-097.jpg"
+  ];
+
+  const TOTAL_FRAMES = FRAME_URLS.length;
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d', { alpha: false });
+  const loader = document.getElementById('loader');
+  const loaderBar = document.getElementById('loader-bar');
+
+  let frameImages = [];
+  let loadedCount = 0;
+  let currentFrameIdx = -1;
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  function init() {
+    FRAME_URLS.forEach((url, i) => {
+      const img = new Image();
+      img.src = url;
+      img.onload = () => {
+        loadedCount++;
+        loaderBar.style.width = (loadedCount / TOTAL_FRAMES * 100) + '%';
+        if (loadedCount === TOTAL_FRAMES) startApp();
+      };
+      frameImages.push(img);
+    });
+  }
+
+  function startApp() {
+    loader.classList.add('hidden');
+    drawFrame(0);
+    setTimeout(() => {
+      document.getElementById('pillsContainer').classList.add('visible');
+      startTypewriter();
+    }, 400);
+  }
+
+  function drawFrame(idx) {
+    idx = Math.max(0, Math.min(TOTAL_FRAMES - 1, Math.round(idx)));
+    if (idx === currentFrameIdx) return;
+    
+    currentFrameIdx = idx;
+    const img = frameImages[idx];
+    
+    if (img && img.complete) {
+      const cw = canvas.width;
+      const ch = canvas.height;
+      const iw = img.naturalWidth;
+      const ih = img.naturalHeight;
+      
+      const scale = Math.max(cw / iw, ch / ih);
+      const dw = iw * scale;
+      const dh = ih * scale;
+      const dx = (cw - dw) * 0.5;
+      const dy = (ch - dh) * 0.5;
+      
+      ctx.clearRect(0, 0, cw, ch);
+      ctx.drawImage(img, dx, dy, dw, dh);
+    }
+  }
+
+  let targetFrac = 0;
+  let displayFrac = 0;
+  const LERP = 0.04;
+  let rafId = null;
+
+  function lerpLoop() {
+    displayFrac += (targetFrac - displayFrac) * LERP;
+    drawFrame(displayFrac * (TOTAL_FRAMES - 1));
+    if (Math.abs(targetFrac - displayFrac) > 0.0001) {
+      rafId = requestAnimationFrame(lerpLoop);
+    } else {
+      rafId = null;
+    }
+  }
+
+  window.addEventListener('mousemove', (e) => {
+    targetFrac = Math.max(0, Math.min(1, e.clientX / window.innerWidth));
+    if (!rafId) rafId = requestAnimationFrame(lerpLoop);
+  }, { passive: true });
+
+  function startTypewriter() {
+    const text = "Glad you stopped in. Good taste tends to find us. Now, what are we building?";
+    const el = document.getElementById('typewriterText');
+    const cursor = document.getElementById('cursor');
+    let idx = 0;
+    function type() {
+      if (idx < text.length) {
+        idx++;
+        el.textContent = text.slice(0, idx);
+        let delay = 35 + (Math.random() * 10 - 5);
+        if ('.?'.includes(text[idx-1])) delay += 150;
+        else if (text[idx-1] === ',') delay += 80;
+        setTimeout(type, delay);
+      } else {
+        cursor.style.transition = 'opacity 0.5s';
+        cursor.style.opacity = '0';
+      }
+    }
+    type();
+  }
+
+  window.copyEmail = () => {
+    navigator.clipboard.writeText('hello@codersverse.co').then(() => {
+      const t = document.getElementById('copyToast');
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2000);
+    });
+  };
+
+  function applyResponsive() {
+    const w = window.innerWidth;
+    const nav = document.getElementById('navbar');
+    const dNavs = document.querySelectorAll('.desktop-nav,.desktop-cta');
+    const mBtn = document.querySelector('.mobile-menu-btn');
+    const hero = document.getElementById('hero');
+    if (w >= 768) {
+      nav.style.padding = '1.25rem 2rem';
+      dNavs.forEach(el => el.style.display = el.classList.contains('desktop-nav') ? 'flex' : 'block');
+      mBtn.style.display = 'none';
+      hero.style.justifyContent = 'center';
+      hero.style.padding = '0 2.5rem';
+    } else {
+      nav.style.padding = '1rem 1.25rem';
+      dNavs.forEach(el => el.style.display = 'none');
+      mBtn.style.display = 'flex';
+      hero.style.justifyContent = 'flex-end';
+      hero.style.padding = '0 1.25rem 3rem 1.25rem';
+    }
+  }
+
+  let menuBtn = document.querySelector('.mobile-menu-btn');
+  let overlay = document.getElementById('mobileOverlay');
+  let menuOpen = false;
+  menuBtn.addEventListener('click', function(){
+    menuOpen = !menuOpen;
+    menuBtn.classList.toggle('open', menuOpen);
+    overlay.classList.toggle('open', menuOpen);
+  });
+  overlay.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      menuOpen = false;
+      menuBtn.classList.remove('open');
+      overlay.classList.remove('open');
+    });
+  });
+
+  window.addEventListener('resize', applyResponsive);
+  applyResponsive();
+  init();
+})();
+</script>
+</body>
+</html>
