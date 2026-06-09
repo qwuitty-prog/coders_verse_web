@@ -1,948 +1,1024 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KN Developers – Panvel</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cinzel:wght@400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Static Websites — CodersVerse</title>
+  <link rel="stylesheet" href="https://db.onlinewebfonts.com/c/5ac3fe7c6abd2f62067f266d89671492?family=HelveticaNowDisplay-Medium" />
+  <link rel="stylesheet" href="https://db.onlinewebfonts.com/c/1aa3377e489837a26d019bba501e779d?family=HelveticaNowDisplayW01-Rg" />
+  <style>
+    :root {
+      --font-heading: 'HelveticaNowDisplay-Medium', 'Helvetica Neue', Arial, sans-serif;
+      --font-body:    'HelveticaNowDisplayW01-Rg',  'Helvetica Neue', Arial, sans-serif;
+      --white: #ffffff;
+      --black: #000000;
+      --accent: #00c2ff; /* Electric cyan — distinct from landing.html lime */
+      --dim: rgba(255,255,255,0.55);
+      --card-bg: rgba(255,255,255,0.04);
+      --card-border: rgba(255,255,255,0.1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: #000;
+      color: var(--white);
+      overflow-x: hidden;
+    }
 
-  :root {
-    --gold: #C9A84C;
-    --gold-light: #E8D49A;
-    --gold-dark: #8B6914;
-    --gold-deep: #6B4F0A;
-    --ink: #12100D;
-    --cream: #FAF6EF;
-    --warm-white: #FDFAF5;
-    --stone: #7C6E68;
-    --stone-light: #B8AFA6;
-    --border: rgba(201,168,76,0.28);
-    --border-light: rgba(201,168,76,0.15);
-  }
+    /* ── BACKGROUND ── */
+    .bg-grid {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(0,194,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,194,255,0.03) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+    .bg-glow {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background: radial-gradient(ellipse 70% 50% at 50% -10%, rgba(0,194,255,0.1) 0%, transparent 70%);
+    }
 
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Jost', sans-serif;
-    background: var(--warm-white);
-    color: var(--ink);
-    overflow-x: hidden;
-  }
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 1.25rem;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .logo-text {
+      font-family: var(--font-heading);
+      font-size: 21px;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
+    .nav-link {
+      font-size: 14px;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--white); }
+    .nav-cta {
+      font-size: 14px;
+      color: var(--black);
+      background: var(--accent);
+      text-decoration: none;
+      padding: 0.45em 1.2em;
+      border-radius: 9999px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      transition: opacity 0.2s, transform 0.2s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.2rem 4rem;
-    background: transparent;
-    transition: background 0.4s, border-color 0.4s;
-    border-bottom: 1px solid transparent;
-  }
-  nav.scrolled {
-    background: rgba(253,250,245,0.96);
-    backdrop-filter: blur(14px);
-    border-bottom-color: var(--border-light);
-  }
-  .nav-logo {
-    font-family: 'Cinzel', serif;
-    font-size: 1.3rem; font-weight: 600; letter-spacing: 0.08em;
-    color: #fff; text-decoration: none;
-    transition: color 0.4s; line-height: 1.2;
-  }
-  .nav-logo-sub {
-    display: block;
-    font-size: 0.5rem; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--gold-light); font-family: 'Jost', sans-serif; font-weight: 400;
-    margin-top: 1px; transition: color 0.4s;
-  }
-  nav.scrolled .nav-logo { color: var(--ink); }
-  nav.scrolled .nav-logo-sub { color: var(--stone); }
-  .nav-logo .empire { color: var(--gold); }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-  .nav-links a {
-    font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500;
-    color: rgba(255,255,255,0.82); text-decoration: none; transition: color 0.2s;
-  }
-  nav.scrolled .nav-links a { color: var(--stone); }
-  .nav-links a:hover { color: var(--gold); }
-  nav.scrolled .nav-links a:hover { color: var(--gold-deep); }
-  .nav-cta {
-    font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500;
-    border: 1px solid rgba(255,255,255,0.6); color: #fff;
-    padding: 0.6rem 1.5rem; text-decoration: none; transition: all 0.3s;
-  }
-  nav.scrolled .nav-cta { border-color: var(--gold-deep); color: var(--gold-deep); }
-  .nav-cta:hover { background: var(--gold-deep); border-color: var(--gold-deep); color: #fff !important; }
+    .hamburger-btn {
+      background: none; border: none; cursor: pointer;
+      display: none; flex-direction: column; gap: 5px; padding: 4px;
+    }
+    .hbar { width: 22px; height: 2px; background: white; display: block; transition: all 0.3s; }
+    .hamburger-btn.open .hbar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger-btn.open .hbar:nth-child(2) { opacity: 0; }
+    .hamburger-btn.open .hbar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mob-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.97);
+      z-index: 49; display: flex; flex-direction: column;
+      justify-content: center; align-items: flex-start;
+      padding: 0 2rem; gap: 2rem;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .mob-overlay.open { opacity: 1; pointer-events: all; }
+    .mob-overlay a { font-size: 28px; color: white; text-decoration: none; font-family: var(--font-body); }
+    .mob-overlay a.ul { text-decoration: underline; text-underline-offset: 3px; }
 
-  /* HERO */
-  .hero {
-    position: relative; width: 100%; height: 100vh;
-    display: flex; align-items: center; justify-content: center; overflow: hidden;
-  }
-  .hero-video {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    object-fit: cover; z-index: 0;
-  }
-  .hero-overlay {
-    position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(to bottom, rgba(10,4,4,0.45) 0%, rgba(10,4,4,0.62) 50%, rgba(10,4,4,0.88) 100%);
-  }
-  .hero-corner {
-    position: absolute; z-index: 2; width: 80px; height: 80px;
-    border-color: rgba(201,168,76,0.55); border-style: solid;
-  }
-  .hero-corner.tl { top: 6rem; left: 4rem; border-width: 1px 0 0 1px; }
-  .hero-corner.tr { top: 6rem; right: 4rem; border-width: 1px 1px 0 0; }
-  .hero-corner.bl { bottom: 3rem; left: 4rem; border-width: 0 0 1px 1px; }
-  .hero-corner.br { bottom: 3rem; right: 4rem; border-width: 0 1px 1px 0; }
-  .hero-content {
-    position: relative; z-index: 2;
-    text-align: center; display: flex; flex-direction: column; align-items: center;
-    padding: 0 2rem;
-  }
-  .hero-pre {
-    font-size: 0.62rem; letter-spacing: 0.36em; text-transform: uppercase;
-    color: var(--gold-light); font-weight: 400; margin-bottom: 1rem;
-    text-shadow: 0 1px 12px rgba(0,0,0,0.5);
-  }
-  .hero-brand {
-    font-family: 'Cinzel', serif;
-    font-size: clamp(2.8rem, 6vw, 5.2rem);
-    font-weight: 600; line-height: 1.0; color: #fff;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    text-shadow: 0 2px 40px rgba(0,0,0,0.9), 0 1px 8px rgba(0,0,0,0.85);
-  }
-  .hero-brand .empire { color: var(--gold); }
-  .hero-ornament {
-    display: flex; align-items: center; gap: 1rem; margin: 1.4rem 0;
-  }
-  .hero-ornament-line { width: 3.5rem; height: 1px; background: var(--gold); opacity: 0.7; }
-  .hero-ornament-diamond { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); }
-  .hero-brand-tag {
-    font-size: 0.66rem; letter-spacing: 0.28em; text-transform: uppercase;
-    color: rgba(255,255,255,0.5); font-weight: 400;
-    text-shadow: 0 1px 8px rgba(0,0,0,0.5);
-  }
-  .hero-stats {
-    display: flex; gap: 3rem; margin-top: 3rem;
-    padding-top: 2rem; border-top: 1px solid rgba(201,168,76,0.25);
-  }
-  .hero-stat { text-align: center; }
-  .hero-stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem; font-weight: 500; color: var(--gold); line-height: 1;
-  }
-  .hero-stat-label {
-    font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase;
-    color: rgba(255,255,255,0.45); margin-top: 0.35rem;
-  }
+    @media (max-width: 767px) {
+      .nav-right { display: none; }
+      .hamburger-btn { display: flex; }
+    }
+    @media (min-width: 768px) {
+      nav { padding: 1.25rem 2.5rem; }
+      .logo-text { font-size: 26px; }
+    }
 
-  /* MARQUEE */
-  .marquee-wrap {
-    background: var(--gold-deep); overflow: hidden; padding: 0.9rem 0;
-    display: flex; align-items: center;
-  }
-  .marquee-track {
-    display: flex; white-space: nowrap;
-    animation: marquee 26s linear infinite;
-  }
-  .marquee-item {
-    font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500;
-    color: var(--gold-light); padding: 0 2.5rem;
-    display: flex; align-items: center; gap: 1.5rem;
-  }
-  .marquee-dot { width: 4px; height: 4px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
-  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    /* ── MAIN ── */
+    main { position: relative; z-index: 1; }
 
-  /* SHARED */
-  .section-tag {
-    font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600;
-    color: var(--gold-deep); display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem;
-  }
-  .section-tag::before { content: ''; width: 1.5rem; height: 1px; background: var(--gold); }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 3.2vw, 3.2rem);
-    font-weight: 500; line-height: 1.16; color: var(--ink);
-  }
-  .section-title em { font-style: italic; color: var(--gold-deep); }
-  .btn-ghost {
-    color: var(--stone); font-size: 0.78rem; letter-spacing: 0.08em; font-weight: 500;
-    text-decoration: none; border-bottom: 1px solid var(--stone-light);
-    padding-bottom: 2px; transition: all 0.2s;
-  }
-  .btn-ghost:hover { color: var(--gold-deep); border-color: var(--gold-deep); }
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center;
+      padding: 8rem 1.5rem 5rem;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent); font-family: var(--font-body);
+      margin-bottom: 1.5rem;
+    }
+    .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(44px, 9vw, 100px);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.4);
+    }
+    .hero-sub {
+      font-size: clamp(15px, 2.2vw, 19px);
+      line-height: 1.65;
+      color: var(--dim);
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      padding: 0.8em 2em;
+      border-radius: 9999px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+    .btn-ghost {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.25);
+      color: white;
+      padding: 0.8em 2em;
+      border-radius: 9999px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); }
 
-  /* ABOUT */
-  .about {
-    background: var(--cream); padding: 6rem 4rem;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
-  }
-  .about-body {
-    font-size: 0.95rem; line-height: 1.9; color: var(--stone);
-    margin-top: 1.5rem; margin-bottom: 1.5rem; font-weight: 400;
-  }
-  .about-details {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2rem;
-  }
-  .about-detail {
-    padding: 1.1rem; border: 1px solid var(--border);
-    display: flex; flex-direction: column; gap: 0.35rem;
-  }
-  .about-detail-label {
-    font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600;
-    color: var(--stone-light);
-  }
-  .about-detail-val {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem; font-weight: 500; color: var(--ink);
-  }
-  .about-img { position: relative; height: 540px; }
-  .about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .about-img-line {
-    position: absolute; top: -1.5rem; right: -1.5rem;
-    width: 100px; height: 100px; border-top: 2px solid var(--gold); border-right: 2px solid var(--gold);
-  }
-  .about-img-line-2 {
-    position: absolute; bottom: -1.5rem; left: -1.5rem;
-    width: 60px; height: 60px; border-bottom: 1px solid var(--gold); border-left: 1px solid var(--gold);
-  }
+    .stat-strip {
+      display: flex; gap: 3rem; flex-wrap: wrap;
+      margin-top: 4rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .stat-num {
+      font-family: var(--font-heading);
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: -0.03em;
+      color: var(--accent);
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--dim);
+      margin-top: 0.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
 
-  /* ── SERVICES — full redesign ── */
-  .services {
-    background: var(--ink);
-    padding: 6rem 4rem;
-    position: relative;
-    overflow: hidden;
-  }
+    /* ── SECTION COMMON ── */
+    .section {
+      padding: 6rem 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem; font-family: var(--font-body);
+    }
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(28px, 4.5vw, 52px);
+      letter-spacing: -0.025em;
+      font-weight: 500;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .section-body {
+      font-size: 15px; line-height: 1.75; color: var(--dim);
+      max-width: 600px;
+    }
+    hr.divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      margin: 0 1.5rem;
+    }
 
-  .services .section-tag { color: var(--gold-light); }
-  .services .section-tag::before { background: var(--gold); }
-  .services .section-title { color: #fff; }
-  .services .section-title em { color: var(--gold); }
-  .services-header {
-    display: flex; justify-content: space-between; align-items: flex-end;
-    margin-bottom: 4rem;
-  }
-  .services-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-    position: relative; z-index: 1;
-  }
-  .service-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(201,168,76,0.2);
-    padding: 2.8rem 2.2rem;
-    position: relative; overflow: hidden;
-    transition: background 0.35s, border-color 0.35s, transform 0.35s;
-    cursor: default;
-  }
-  .service-card::after {
-    content: '';
-    position: absolute; bottom: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    opacity: 0; transition: opacity 0.35s;
-  }
-  .service-card:hover {
-    background: rgba(201,168,76,0.07);
-    border-color: rgba(201,168,76,0.5);
-    transform: translateY(-6px);
-  }
-  .service-card:hover::after { opacity: 1; }
-  .service-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 4.5rem; font-weight: 400;
-    color: rgba(201,168,76,0.12); line-height: 1;
-    position: absolute; top: 1.2rem; right: 1.5rem;
-    transition: color 0.35s;
-  }
-  .service-card:hover .service-num { color: rgba(201,168,76,0.22); }
+    /* ── WHAT IS A STATIC WEBSITE ── */
+    .explainer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+    .explainer-visual {
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.02);
+    }
+    /* Fake multi-page site mockup */
+    .mock-bar {
+      background: rgba(255,255,255,0.06);
+      padding: 0.6rem 0.75rem;
+      display: flex; align-items: center; gap: 0.4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .mock-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .mock-url { flex: 1; height: 14px; background: rgba(255,255,255,0.06); border-radius: 4px; margin: 0 0.5rem; }
+    .mock-nav-bar {
+      background: rgba(0,194,255,0.06);
+      border-bottom: 1px solid rgba(0,194,255,0.12);
+      padding: 0.5rem 0.75rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .mock-nav-logo { width: 50px; height: 10px; background: rgba(0,194,255,0.4); border-radius: 3px; }
+    .mock-nav-links { display: flex; gap: 0.5rem; margin-left: auto; }
+    .mock-nav-link { width: 28px; height: 8px; background: rgba(255,255,255,0.15); border-radius: 2px; }
+    .mock-pages {
+      display: flex; gap: 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .mock-page-tab {
+      flex: 1; padding: 0.4rem 0; text-align: center;
+      font-size: 8px; color: rgba(255,255,255,0.3); letter-spacing: 0.05em;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      font-family: monospace;
+    }
+    .mock-page-tab:last-child { border-right: none; }
+    .mock-page-tab.active { color: rgba(0,194,255,0.8); background: rgba(0,194,255,0.05); }
+    .mock-body { padding: 1rem 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .mock-hero-block {
+      height: 70px;
+      background: linear-gradient(135deg, rgba(0,194,255,0.1), rgba(0,194,255,0.03));
+      border-radius: 6px;
+      border: 1px solid rgba(0,194,255,0.15);
+      display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 4px;
+    }
+    .mock-line { height: 6px; background: rgba(255,255,255,0.15); border-radius: 3px; }
+    .mock-line.wide { width: 70%; }
+    .mock-line.medium { width: 50%; }
+    .mock-line.short { width: 35%; }
+    .mock-line.accent-line { width: 40%; background: rgba(0,194,255,0.4); }
+    .mock-three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.4rem; margin-top: 0.25rem; }
+    .mock-col { display: flex; flex-direction: column; gap: 4px; padding: 0.5rem; background: rgba(255,255,255,0.03); border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
+    .mock-col-line { height: 5px; background: rgba(255,255,255,0.12); border-radius: 2px; }
+    .mock-section { display: flex; flex-direction: column; gap: 5px; margin-top: 0.25rem; }
+    .mock-cta-row { display: flex; justify-content: center; margin-top: 0.5rem; }
+    .mock-cta { width: 55%; height: 16px; background: rgba(0,194,255,0.25); border-radius: 9999px; border: 1px solid rgba(0,194,255,0.4); }
+    .mock-footer { background: rgba(255,255,255,0.03); border-top: 1px solid rgba(255,255,255,0.06); padding: 0.5rem 0.75rem; display: flex; justify-content: space-between; align-items: center; }
+    .mock-footer-left { display: flex; flex-direction: column; gap: 3px; }
+    .mock-footer-line { height: 4px; border-radius: 2px; background: rgba(255,255,255,0.1); }
 
-  .service-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.55rem; font-weight: 500; color: #fff;
-    margin-bottom: 1rem; line-height: 1.2;
-  }
-  .service-desc {
-    font-size: 0.85rem; line-height: 1.85; color: rgba(250,246,239,0.55); font-weight: 400;
-  }
-  .service-link {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    margin-top: 1.8rem;
-    font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600;
-    color: var(--gold); text-decoration: none;
-    padding-bottom: 3px; border-bottom: 1px solid rgba(201,168,76,0.3);
-    transition: border-color 0.2s;
-  }
-  .service-link:hover { border-color: var(--gold); }
-  .service-link-arrow { transition: transform 0.2s; }
-  .service-link:hover .service-link-arrow { transform: translateX(4px); }
+    .explainer-copy p {
+      font-size: 15px; line-height: 1.75; color: var(--dim); margin-bottom: 1rem;
+    }
+    .explainer-copy p:last-child { margin-bottom: 0; }
+    .explainer-copy strong { color: white; font-weight: 500; }
 
-  /* LISTINGS */
-  .listings { background: var(--cream); padding: 6rem 4rem; }
-  .listings-header {
-    display: flex; justify-content: space-between; align-items: flex-end;
-    margin-bottom: 3rem;
-  }
-  .listings-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-  .listing-card {
-    background: var(--warm-white); overflow: hidden;
-    border: 1px solid var(--border-light);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .listing-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.07); }
-  .listing-img { height: 230px; overflow: hidden; position: relative; }
-  .listing-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-  .listing-card:hover .listing-img img { transform: scale(1.04); }
-  .listing-tag-chip {
-    position: absolute; top: 1rem; left: 1rem;
-    background: var(--gold-deep); color: #fff;
-    font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600;
-    padding: 0.32rem 0.65rem;
-  }
-  .listing-body { padding: 1.5rem; }
-  .listing-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem; font-weight: 500; color: var(--ink); margin-bottom: 0.3rem;
-  }
-  .listing-name { font-size: 0.84rem; color: var(--stone); margin-bottom: 1rem; }
-  .listing-specs {
-    display: flex; gap: 1rem;
-    font-size: 0.76rem; color: var(--stone-light);
-    border-top: 1px solid var(--border-light); padding-top: 1rem;
-  }
+    @media (max-width: 767px) {
+      .explainer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
 
-  /* WHY CHOOSE US STRIP */
-  .why-strip {
-    background: var(--gold-deep);
-    padding: 4rem;
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-  }
-  .why-item {
-    padding: 1.5rem 2rem;
-    border-right: 1px solid rgba(255,255,255,0.12);
-    display: flex; flex-direction: column; gap: 0.5rem;
-  }
-  .why-item:last-child { border-right: none; }
-  .why-icon { font-size: 1.4rem; margin-bottom: 0.5rem; }
-  .why-label {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.25rem; font-weight: 500; color: var(--gold-light); line-height: 1.2;
-  }
-  .why-desc {
-    font-size: 0.78rem; color: rgba(232,212,154,0.6); line-height: 1.6;
-  }
+    /* ── STATIC VS DYNAMIC COMPARISON ── */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .compare-card {
+      border-radius: 12px;
+      padding: 2rem 1.75rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.03);
+    }
+    .compare-card.highlight {
+      border-color: rgba(0,194,255,0.3);
+      background: rgba(0,194,255,0.04);
+    }
+    .compare-header {
+      display: flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .compare-tag {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em;
+      padding: 0.25em 0.75em; border-radius: 9999px;
+      font-family: var(--font-body);
+    }
+    .compare-tag.good { background: rgba(0,194,255,0.15); color: var(--accent); }
+    .compare-tag.neutral { background: rgba(255,255,255,0.08); color: var(--dim); }
+    .compare-title { font-family: var(--font-heading); font-size: 20px; letter-spacing: -0.01em; }
+    .compare-list { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+    .compare-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 13px; color: var(--dim); line-height: 1.5; }
+    .compare-list li svg { flex-shrink: 0; margin-top: 1px; }
 
-  /* TESTIMONIALS */
-  .testimonials { background: var(--warm-white); padding: 6rem 4rem; }
-  .testi-grid {
-    margin-top: 3rem;
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-  }
-  .testi-card {
-    background: var(--cream);
-    border: 1px solid var(--border-light);
-    padding: 2.2rem; position: relative;
-    transition: border-color 0.3s, transform 0.3s;
-  }
-  .testi-card:hover { border-color: var(--border); transform: translateY(-3px); }
-  .testi-card::before {
-    content: '';
-    position: absolute; top: 0; left: 2rem; right: 2rem; height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    opacity: 0; transition: opacity 0.3s;
-  }
-  .testi-card:hover::before { opacity: 1; }
-  .testi-stars { color: var(--gold); font-size: 0.75rem; letter-spacing: 3px; margin-bottom: 1rem; }
-  .testi-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.08rem; line-height: 1.8;
-    color: var(--ink); font-style: italic; font-weight: 400;
-    margin-bottom: 1.5rem;
-  }
-  .testi-author { display: flex; align-items: center; gap: 0.8rem; }
-  .testi-avatar {
-    width: 38px; height: 38px; border-radius: 50%;
-    background: var(--gold-deep);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.68rem; font-weight: 600; color: var(--gold-light); flex-shrink: 0;
-  }
-  .testi-name { font-size: 0.8rem; font-weight: 600; color: var(--ink); letter-spacing: 0.05em; }
-  .testi-role { font-size: 0.7rem; color: var(--stone-light); margin-top: 1px; }
-  .testi-meta {
-    display: flex; align-items: center; justify-content: center; gap: 3rem;
-    margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border-light);
-  }
-  .testi-meta-item { text-align: center; }
-  .testi-meta-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem; font-weight: 400; color: var(--gold-deep); line-height: 1;
-  }
-  .testi-meta-label {
-    font-size: 0.7rem; color: var(--stone-light); letter-spacing: 0.12em;
-    text-transform: uppercase; font-weight: 500; margin-top: 0.4rem;
-  }
+    @media (max-width: 600px) {
+      .compare-grid { grid-template-columns: 1fr; }
+    }
 
-  /* CONTACT */
-  .contact {
-    background: var(--cream); padding: 6rem 4rem;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
-  }
-  .contact-detail {
-    display: flex; align-items: flex-start; gap: 1rem;
-    margin-top: 2rem; padding-top: 2rem;
-    border-top: 1px solid var(--border-light);
-  }
-  .contact-detail:first-of-type { border-top: none; }
-  .contact-detail-icon {
-    width: 2.4rem; height: 2.4rem; border: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--gold-deep); font-size: 0.95rem; flex-shrink: 0;
-  }
-  .contact-detail-label {
-    font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600;
-    color: var(--stone-light); margin-bottom: 0.3rem;
-  }
-  .contact-detail-val { font-size: 0.9rem; color: var(--ink); line-height: 1.6; }
-  .contact-detail-val a { color: var(--ink); text-decoration: none; }
-  .contact-detail-val a:hover { color: var(--gold-deep); }
-  .hours-badge {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: rgba(201,168,76,0.08); border: 1px solid var(--border);
-    padding: 0.35rem 0.75rem; margin-top: 0.5rem;
-    font-size: 0.68rem; color: var(--gold-dark); letter-spacing: 0.06em; font-weight: 500;
-  }
-  .hours-dot { width: 6px; height: 6px; background: #4CAF50; border-radius: 50%; }
-  .contact-form { background: var(--warm-white); padding: 2.5rem; border: 1px solid var(--border-light); }
-  .form-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem; font-weight: 400; color: var(--ink); margin-bottom: 1.8rem;
-  }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
-  .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
-  .form-group label {
-    font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
-    color: var(--stone);
-  }
-  .form-group input, .form-group select, .form-group textarea {
-    background: var(--cream); border: 1px solid var(--border);
-    padding: 0.75rem 1rem;
-    font-family: 'Jost', sans-serif; font-size: 0.88rem; color: var(--ink);
-    outline: none; width: 100%; transition: border-color 0.2s;
-  }
-  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
-  .form-group textarea { resize: vertical; min-height: 100px; }
-  .form-submit {
-    width: 100%; background: var(--gold-deep); color: var(--warm-white);
-    border: none; padding: 1.1rem; cursor: pointer;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600;
-    transition: background 0.3s;
-  }
-  .form-submit:hover { background: var(--gold-dark); }
-  .form-submit:disabled { opacity: 0.65; cursor: not-allowed; }
-  .req { color: #c0392b; margin-left: 2px; }
-  .input-error { border-color: #c0392b !important; }
-  .form-success {
-    display: none; margin-top: 1rem; padding: 1rem 1.2rem;
-    background: rgba(76,175,80,0.08); border: 1px solid rgba(76,175,80,0.35);
-    font-size: 0.84rem; color: #2e7d32; letter-spacing: 0.03em; line-height: 1.6;
-  }
+    /* ── USE CASES ── */
+    .use-cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1px;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 3rem;
+      background: rgba(255,255,255,0.07);
+    }
+    .use-case-card {
+      background: #000;
+      padding: 2rem 1.75rem;
+      transition: background 0.25s;
+    }
+    .use-case-card:hover { background: rgba(0,194,255,0.04); }
+    .uc-icon {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(0,194,255,0.3);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    .uc-title { font-family: var(--font-heading); font-size: 17px; letter-spacing: -0.01em; font-weight: 500; margin-bottom: 0.5rem; }
+    .uc-desc { font-size: 13px; color: var(--dim); line-height: 1.6; }
 
-  /* FOOTER */
-  footer {
-    background: var(--ink); padding: 3rem 4rem;
-    border-top: 1px solid rgba(201,168,76,0.25);
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  .footer-logo {
-    font-family: 'Cinzel', serif;
-    font-size: 1.2rem; font-weight: 600; color: var(--cream); letter-spacing: 0.08em; line-height: 1.3;
-  }
-  .footer-logo .empire { color: var(--gold); }
-  .footer-logo-sub {
-    display: block; font-size: 0.5rem; letter-spacing: 0.2em; color: var(--stone);
-    font-family: 'Jost', sans-serif; font-weight: 400; text-transform: uppercase; margin-top: 2px;
-  }
-  .footer-copy { font-size: 0.75rem; color: var(--stone); }
-  .footer-links { display: flex; gap: 2rem; list-style: none; }
-  .footer-links a {
-    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500;
-    color: var(--stone); text-decoration: none; transition: color 0.2s;
-  }
-  .footer-links a:hover { color: var(--gold); }
-  .footer-credit {
-    background: #0a0808; text-align: center; padding: 0.75rem;
-    font-size: 0.7rem; color: var(--stone); letter-spacing: 0.06em;
-  }
+    /* ── WHAT'S INCLUDED ── */
+    .included-list {
+      list-style: none;
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .included-list li {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1.5rem 1.75rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      background: var(--card-bg);
+      transition: background 0.2s;
+    }
+    .included-list li:hover { background: rgba(0,194,255,0.03); }
+    .included-list li:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.07); }
+    .check-icon { flex-shrink: 0; width: 18px; height: 18px; margin-top: 2px; color: var(--accent); }
+    .incl-title { font-size: 14px; font-weight: 500; color: white; margin-bottom: 0.2rem; }
+    .incl-sub { font-size: 12px; color: var(--dim); line-height: 1.5; }
 
-  /* REVEAL */
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .reveal.visible { opacity: 1; transform: none; }
+    @media (max-width: 600px) {
+      .included-list { grid-template-columns: 1fr; }
+      .included-list li:nth-child(odd) { border-right: none; }
+    }
 
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; }
-    .hero-brand { font-size: clamp(2.4rem, 10vw, 3.6rem); }
-    .hero-corner { display: none; }
-    .hero-stats { gap: 1.5rem; }
-    .about, .contact { padding: 4rem 1.5rem; grid-template-columns: 1fr; gap: 3rem; }
-    .about-img { height: 300px; }
-    .services, .listings, .testimonials { padding: 4rem 1.5rem; }
-    .services-grid, .listings-grid, .testi-grid { grid-template-columns: 1fr; }
-    .why-strip { grid-template-columns: 1fr 1fr; }
-    .why-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); }
-    .form-row { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
-    .services-header, .listings-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-    .testi-meta { flex-direction: column; gap: 1.5rem; }
-  }
-</style>
+    /* ── PROCESS ── */
+    .process-steps { margin-top: 3rem; display: flex; flex-direction: column; gap: 0; }
+    .process-step {
+      display: flex; gap: 2rem; align-items: flex-start;
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .process-step:last-child { border-bottom: none; }
+    .step-num {
+      font-family: var(--font-heading);
+      font-size: 48px; letter-spacing: -0.05em;
+      color: rgba(0,194,255,0.18);
+      line-height: 1;
+      flex-shrink: 0; width: 56px;
+    }
+    .step-title { font-family: var(--font-heading); font-size: 20px; letter-spacing: -0.01em; font-weight: 500; margin-bottom: 0.4rem; }
+    .step-desc { font-size: 14px; color: var(--dim); line-height: 1.65; }
+
+    /* ── PRICING ── */
+    .pricing-card {
+      margin-top: 3rem;
+      border: 1px solid rgba(0,194,255,0.25);
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(0,194,255,0.03);
+    }
+    .pricing-header {
+      padding: 2.5rem 2.5rem 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;
+    }
+    .pricing-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 0.5rem; }
+    .pricing-amount { font-family: var(--font-heading); font-size: clamp(42px, 7vw, 72px); letter-spacing: -0.04em; line-height: 1; }
+    .pricing-from { font-size: 14px; color: var(--dim); }
+    .pricing-note { font-size: 13px; color: var(--dim); max-width: 320px; line-height: 1.6; }
+    .pricing-body { padding: 2rem 2.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .pricing-features { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 2rem; }
+    .pf-item { display: flex; align-items: center; gap: 0.5rem; font-size: 14px; color: var(--dim); }
+    .pf-item svg { flex-shrink: 0; color: var(--accent); }
+    .pricing-cta {
+      display: inline-block;
+      background: var(--accent); color: #000;
+      padding: 0.9em 2.5em;
+      border-radius: 9999px;
+      font-family: var(--font-body); font-size: 15px; font-weight: 600;
+      text-decoration: none;
+      align-self: flex-start;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .pricing-cta:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    @media (max-width: 600px) {
+      .pricing-features { grid-template-columns: 1fr; }
+      .pricing-header { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ── FAQ ── */
+    .faq-list { margin-top: 3rem; }
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 1.5rem 0; cursor: pointer;
+    }
+    .faq-question {
+      font-family: var(--font-heading);
+      font-size: 17px; letter-spacing: -0.01em;
+      display: flex; justify-content: space-between; align-items: center;
+      color: white; gap: 1rem;
+    }
+    .faq-icon { flex-shrink: 0; transition: transform 0.3s; opacity: 0.5; }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease, margin-top 0.3s, opacity 0.3s;
+      opacity: 0; font-size: 14px; line-height: 1.7; color: var(--dim);
+    }
+    .faq-item.open .faq-answer { max-height: 200px; margin-top: 0.75rem; opacity: 1; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); opacity: 1; }
+    @media (hover: hover) { .faq-item:hover .faq-icon { opacity: 1; } }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(0,194,255,0.1) 0%, rgba(0,194,255,0.04) 100%);
+      border: 1px solid rgba(0,194,255,0.2);
+      padding: 3.5rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+      position: relative; z-index: 1;
+      max-width: 1100px; margin: 0 auto 6rem;
+    }
+    .cta-band-title {
+      font-family: var(--font-heading);
+      font-size: clamp(24px, 4vw, 40px);
+      letter-spacing: -0.025em; font-weight: 500; line-height: 1.1;
+    }
+    .cta-band-sub { font-size: 14px; color: var(--dim); margin-top: 0.5rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 2rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+      position: relative; z-index: 1;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .footer-logo { font-family: var(--font-heading); font-size: 18px; letter-spacing: -0.02em; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+
+    /* WhatsApp float */
+    .wa-float {
+      position: fixed; bottom: 2rem; right: 2rem;
+      width: 56px; height: 56px;
+      background: #25d366; color: white; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; z-index: 100;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+    .wa-float:hover { transform: scale(1.08); }
+  </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="mainNav">
-  <a class="nav-logo" href="#">
-    KN <span class="empire">Empire</span>
-    <span class="nav-logo-sub">Developers · Panvel</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#listings">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="tel:08828890990" class="nav-cta">Call Us</a>
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+
+<!-- Nav -->
+<nav id="navbar">
+  <a href="index.html" class="logo-text">CodersVerse</a>
+  <div class="nav-right">
+    <a href="index.html#services" class="nav-link">Services</a>
+    <a href="index.html#faq" class="nav-link">FAQ</a>
+    <a href="index.html#contact" class="nav-cta">Get in touch</a>
+  </div>
+  <button class="hamburger-btn" id="hambtn" aria-label="Toggle menu">
+    <span class="hbar"></span>
+    <span class="hbar"></span>
+    <span class="hbar"></span>
+  </button>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <video class="hero-video" autoplay muted playsinline loop
-    src="https://res.cloudinary.com/dyjafr3do/video/upload/v1779828751/hero_realty_fwrsmj.mp4">
-  </video>
-  <div class="hero-overlay"></div>
-  <div class="hero-corner tl"></div>
-  <div class="hero-corner tr"></div>
-  <div class="hero-corner bl"></div>
-  <div class="hero-corner br"></div>
-  <div class="hero-content">
-    <div class="hero-pre">Est. in Panvel &nbsp;·&nbsp; Quality Homes for Every Family</div>
-    <div class="hero-brand">KN<br><span class="empire">Developers</span></div>
-    <div class="hero-ornament">
-      <div class="hero-ornament-line"></div>
-      <div class="hero-ornament-diamond"></div>
-      <div class="hero-ornament-line"></div>
-    </div>
-    <div class="hero-brand-tag">Developers &nbsp;·&nbsp; Panvel, Maharashtra</div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num">5.0</div>
-        <div class="hero-stat-label">Google Rating</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">100%</div>
-        <div class="hero-stat-label">Transparency</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">✓</div>
-        <div class="hero-stat-label">Budget Homes</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MARQUEE -->
-<div class="marquee-wrap" aria-hidden="true">
-  <div class="marquee-track">
-    <span class="marquee-item"><span class="marquee-dot"></span> Residential Projects</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Top-Notch Build Quality</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Financial Plan Support</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Panvel · Navi Mumbai</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Best Budget Homes</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Trusted by Families</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Exceptional Build Quality</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Residential Projects</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Top-Notch Build Quality</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Financial Plan Support</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Panvel · Navi Mumbai</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Best Budget Homes</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Trusted by Families</span>
-    <span class="marquee-item"><span class="marquee-dot"></span> Exceptional Build Quality</span>
-  </div>
+<div class="mob-overlay" id="mobOverlay">
+  <a href="index.html#services">Services</a>
+  <a href="index.html#faq">FAQ</a>
+  <a href="index.html#contact" class="ul">Get in touch</a>
 </div>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="reveal">
-    <div class="section-tag">Our Story</div>
-    <h2 class="section-title">Built with Care,<br><em>Delivered with Pride</em></h2>
-    <p class="about-body">KN Developers has been building quality homes in Panvel and Navi Mumbai that families are proud to call their own. From the very first consultation to the final handover, our team is committed to transparency, professionalism, and build quality that exceeds expectations.</p>
-    <p class="about-body">We go beyond construction — we support you through financial planning, guide you at every step, and ensure every fitting and finish meets the highest standards. Your dream home is our mission.</p>
-    <div class="about-details">
-      <div class="about-detail">
-        <span class="about-detail-label">Speciality</span>
-        <span class="about-detail-val">Budget Homes</span>
+<main>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow"><span class="eyebrow-dot"></span>Static Websites</div>
+    <h1 class="hero-title">
+      Your business,<br>
+      <em>online properly.</em>
+    </h1>
+    <p class="hero-sub">
+      A static website is your full professional presence on the web — multiple pages, complete information, and a design that builds trust the moment someone lands on it.
+    </p>
+    <div class="hero-actions">
+      <a href="index.html#contact" class="btn-primary">Start My Website</a>
+      <a href="#what-is" class="btn-ghost">Learn more</a>
+    </div>
+
+    <div class="stat-strip">
+      <div class="stat-item">
+        <div class="stat-num">5–7</div>
+        <div class="stat-label">Days avg. delivery</div>
       </div>
-      <div class="about-detail">
-        <span class="about-detail-label">Build Quality</span>
-        <span class="about-detail-val">Top-Notch</span>
+      <div class="stat-item">
+        <div class="stat-num">₹5K</div>
+        <div class="stat-label">Starting price</div>
       </div>
-      <div class="about-detail">
-        <span class="about-detail-label">Phone</span>
-        <span class="about-detail-val">088288 90990</span>
+      <div class="stat-item">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Pages included</div>
       </div>
-      <div class="about-detail">
-        <span class="about-detail-label">Location</span>
-        <span class="about-detail-val">Panvel, MH</span>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Mobile-ready</div>
       </div>
     </div>
   </div>
-  <div class="about-img reveal" style="transition-delay:0.15s">
-    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=700&q=80" alt="KN Developers building">
-    <div class="about-img-line"></div>
-    <div class="about-img-line-2"></div>
-  </div>
-</section>
 
-<!-- SERVICES — dark, prominent -->
-<section class="services" id="services">
-  <div class="services-header reveal">
+  <hr class="divider" />
+
+  <!-- WHAT IS A STATIC WEBSITE -->
+  <section class="section" id="what-is">
+    <div class="section-label">What is it</div>
+    <h2 class="section-title">A complete website,<br>fast and rock solid</h2>
+    <div class="explainer-grid">
+      <div class="explainer-visual">
+        <div class="mock-bar">
+          <span class="mock-dot" style="background:#ff5f57"></span>
+          <span class="mock-dot" style="background:#febc2e"></span>
+          <span class="mock-dot" style="background:#28c840"></span>
+          <div class="mock-url"></div>
+        </div>
+        <div class="mock-nav-bar">
+          <div class="mock-nav-logo"></div>
+          <div class="mock-nav-links">
+            <div class="mock-nav-link"></div>
+            <div class="mock-nav-link"></div>
+            <div class="mock-nav-link"></div>
+            <div class="mock-nav-link" style="width:40px; background: rgba(0,194,255,0.4); border-radius:9999px;"></div>
+          </div>
+        </div>
+        <div class="mock-pages">
+          <div class="mock-page-tab active">HOME</div>
+          <div class="mock-page-tab">ABOUT</div>
+          <div class="mock-page-tab">SERVICES</div>
+          <div class="mock-page-tab">CONTACT</div>
+        </div>
+        <div class="mock-body">
+          <div class="mock-hero-block">
+            <div class="mock-line accent-line"></div>
+            <div class="mock-line medium" style="margin-top:3px;"></div>
+          </div>
+          <div class="mock-three-col">
+            <div class="mock-col">
+              <div class="mock-col-line" style="width:100%"></div>
+              <div class="mock-col-line" style="width:75%"></div>
+              <div class="mock-col-line" style="width:60%"></div>
+            </div>
+            <div class="mock-col">
+              <div class="mock-col-line" style="width:100%"></div>
+              <div class="mock-col-line" style="width:80%"></div>
+              <div class="mock-col-line" style="width:55%"></div>
+            </div>
+            <div class="mock-col">
+              <div class="mock-col-line" style="width:100%"></div>
+              <div class="mock-col-line" style="width:70%"></div>
+              <div class="mock-col-line" style="width:65%"></div>
+            </div>
+          </div>
+          <div class="mock-section">
+            <div class="mock-line wide"></div>
+            <div class="mock-line medium"></div>
+            <div class="mock-line short"></div>
+          </div>
+          <div class="mock-cta-row"><div class="mock-cta"></div></div>
+        </div>
+        <div class="mock-footer">
+          <div class="mock-footer-left">
+            <div class="mock-footer-line" style="width:60px"></div>
+            <div class="mock-footer-line" style="width:90px"></div>
+          </div>
+          <div class="mock-footer-left">
+            <div class="mock-footer-line" style="width:40px"></div>
+            <div class="mock-footer-line" style="width:50px"></div>
+          </div>
+        </div>
+      </div>
+      <div class="explainer-copy">
+        <p>A static website is a <strong>multi-page, fully designed website</strong> — built with clean HTML, CSS, and JavaScript. It's called "static" because it doesn't require a database or server-side logic to function. The result is a website that's <strong>extremely fast, secure, and reliable</strong>.</p>
+        <p>Unlike a CMS like WordPress, there's no admin panel to get hacked, no plugins to update, and no server overhead. Your site simply loads instantly, every time, for every visitor.</p>
+        <p>A static website is ideal for <strong>businesses that need a professional online presence</strong> — an About page, a Services page, a portfolio, a team page, and a Contact page — without the cost and complexity of a dynamic web application.</p>
+        <p>We build static websites from scratch, tailored to your brand. <strong>No templates, no page builders</strong>. Just clean, hand-crafted code that performs perfectly and looks nothing like every other business's site.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- STATIC VS DYNAMIC -->
+  <section class="section" id="comparison">
+    <div class="section-label">Know your options</div>
+    <h2 class="section-title">Is a static website<br>right for you?</h2>
+    <p class="section-body">Most businesses don't need a database-driven web app. Here's an honest comparison to help you choose.</p>
+    <div class="compare-grid">
+      <div class="compare-card highlight">
+        <div class="compare-header">
+          <div class="compare-title">Static Website</div>
+          <span class="compare-tag good">Recommended</span>
+        </div>
+        <ul class="compare-list">
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Loads faster — no database queries on every request
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            More secure — no server-side vulnerabilities to exploit
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Lower cost to build and maintain
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            No software updates, no plugin conflicts
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Hosting included at no extra cost
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Great for: businesses, portfolios, service pages, agencies, real estate
+          </li>
+        </ul>
+      </div>
+      <div class="compare-card">
+        <div class="compare-header">
+          <div class="compare-title">Dynamic Website</div>
+          <span class="compare-tag neutral">When you need more</span>
+        </div>
+        <ul class="compare-list">
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            Higher cost and longer build time
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            Needs ongoing server maintenance
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            More attack surface — databases, APIs, auth systems
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(0,194,255,0.5)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Required for: user logins, dashboards, e-commerce
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(0,194,255,0.5)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Required for: real-time data, bookings, custom apps
+          </li>
+          <li style="color: rgba(255,255,255,0.4); font-size:12px; margin-top:0.25rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            We build these too — <a href="dynamic.html" style="color:var(--accent); text-decoration:none;">see Dynamic Websites →</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- USE CASES -->
+  <section class="section" id="use-cases">
+    <div class="section-label">Who it's for</div>
+    <h2 class="section-title">Built for businesses<br>that mean business</h2>
+    <div class="use-cases-grid">
+      <div class="use-case-card">
+        <div class="uc-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        </div>
+        <div class="uc-title">Real Estate & Builders</div>
+        <div class="uc-desc">Showcase your projects, locations, floor plans, and team with a polished multi-page site that builds buyer confidence.</div>
+      </div>
+      <div class="use-case-card">
+        <div class="uc-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"></path></svg>
+        </div>
+        <div class="uc-title">Agencies & Consultancies</div>
+        <div class="uc-desc">Services, case studies, team, and contact — a complete agency site that positions you as the obvious choice.</div>
+      </div>
+      <div class="use-case-card">
+        <div class="uc-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg>
+        </div>
+        <div class="uc-title">Local Service Businesses</div>
+        <div class="uc-desc">Clinics, salons, tutors, contractors — give customers all the information they need to pick up the phone and call.</div>
+      </div>
+      <div class="use-case-card">
+        <div class="uc-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+        </div>
+        <div class="uc-title">Portfolios</div>
+        <div class="uc-desc">Architects, designers, photographers, developers — a curated portfolio site that presents your work at its best.</div>
+      </div>
+      <div class="use-case-card">
+        <div class="uc-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 00-3-3.87"></path><path d="M16 3.13a4 4 0 010 7.75"></path></svg>
+        </div>
+        <div class="uc-title">NGOs & Institutions</div>
+        <div class="uc-desc">Schools, non-profits, and community organisations that need a trustworthy, informational presence online.</div>
+      </div>
+      <div class="use-case-card">
+        <div class="uc-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"></path></svg>
+        </div>
+        <div class="uc-title">Startups & New Ventures</div>
+        <div class="uc-desc">Get a professional web presence fast while you're still building. Look established from day one without the day-one budget.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="section" id="included">
+    <div class="section-label">What you get</div>
+    <h2 class="section-title">Everything included,<br>nothing to figure out</h2>
+    <ul class="included-list">
+      <li>
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <div>
+          <div class="incl-title">Multi-Page Design (5+ pages)</div>
+          <div class="incl-sub">Home, About, Services, Contact, and any additional pages your business needs.</div>
+        </div>
+      </li>
+      <li>
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <div>
+          <div class="incl-title">Custom Design</div>
+          <div class="incl-sub">Designed from scratch to your brand — colours, fonts, layout. Not a theme, not a template.</div>
+        </div>
+      </li>
+      <li>
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <div>
+          <div class="incl-title">Fully Mobile Responsive</div>
+          <div class="incl-sub">Every page works beautifully across all screen sizes — phones, tablets, and desktops.</div>
+        </div>
+      </li>
+      <li>
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <div>
+          <div class="incl-title">Contact Form + Lead Capture</div>
+          <div class="incl-sub">Enquiries go straight to your email inbox, ready for you to follow up.</div>
+        </div>
+      </li>
+      <li>
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <div>
+          <div class="incl-title">WhatsApp Integration</div>
+          <div class="incl-sub">Floating WhatsApp button lets visitors reach you in one tap — no friction, more conversations.</div>
+        </div>
+      </li>
+      <li>
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <div>
+          <div class="incl-title">Hosting Included</div>
+          <div class="incl-sub">We host everything — no cPanel, no server setup, no extra monthly fees to figure out.</div>
+        </div>
+      </li>
+      <li>
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <div>
+          <div class="incl-title">SEO Basics Setup</div>
+          <div class="incl-sub">Meta titles, descriptions, Open Graph tags, and semantic HTML so search engines can index you properly.</div>
+        </div>
+      </li>
+      <li>
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <div>
+          <div class="incl-title">Fast Load Performance</div>
+          <div class="incl-sub">Optimised assets and clean code — no CMS bloat. Your site loads in under 2 seconds.</div>
+        </div>
+      </li>
+      <li>
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <div>
+          <div class="incl-title">Unlimited Revisions</div>
+          <div class="incl-sub">We refine every page based on your feedback until you're completely happy with the result.</div>
+        </div>
+      </li>
+      <li>
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <div>
+          <div class="incl-title">Source Code Handover</div>
+          <div class="incl-sub">You own everything. Full source files delivered — you're never locked in or dependent on us.</div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PROCESS -->
+  <section class="section" id="process">
+    <div class="section-label">How it works</div>
+    <h2 class="section-title">From brief to live<br>in under a week</h2>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div>
+          <div class="step-title">You share your brief</div>
+          <div class="step-desc">Fill out the project form — your business, what pages you need, any references you like, and your brand assets if you have them. Usually takes 10 minutes.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div>
+          <div class="step-title">We plan the site structure</div>
+          <div class="step-desc">We map out the pages, sections, and content hierarchy. If anything is unclear, we'll reach you on WhatsApp before starting — no guesswork, no wasted effort.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div>
+          <div class="step-title">We design and build every page</div>
+          <div class="step-desc">Each page is hand-crafted in HTML/CSS/JS. No WordPress, no builders. We typically deliver the first full preview within 3–5 days of receiving your brief.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div>
+          <div class="step-title">You review and we refine</div>
+          <div class="step-desc">You get a live preview link and tell us what to change. We revise until every page is exactly as you want it — content, design, layout, everything.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">05</div>
+        <div>
+          <div class="step-title">We go live</div>
+          <div class="step-desc">Once you approve, we deploy on a fast, reliable host and connect your domain. Your full website is live and indexed within hours.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PRICING -->
+  <section class="section" id="pricing">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">Simple, transparent pricing</h2>
+    <div class="pricing-card">
+      <div class="pricing-header">
+        <div>
+          <div class="pricing-label">Static Website</div>
+          <div class="pricing-amount">₹5,000</div>
+          <div class="pricing-from">and up — final price depends on number of pages and complexity</div>
+        </div>
+        <div class="pricing-note">Most static websites fall between ₹5,000–₹15,000. We'll give you an exact quote after your brief — usually within a few hours, no commitment needed.</div>
+      </div>
+      <div class="pricing-body">
+        <div class="pricing-features">
+          <div class="pf-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> 5+ custom pages</div>
+          <div class="pf-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Mobile responsive</div>
+          <div class="pf-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Contact form + lead capture</div>
+          <div class="pf-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> WhatsApp integration</div>
+          <div class="pf-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Hosting included</div>
+          <div class="pf-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> SEO basics setup</div>
+          <div class="pf-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Unlimited revisions</div>
+          <div class="pf-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Source code handover</div>
+        </div>
+        <a href="index.html#contact" class="pricing-cta">Get a Free Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="section-label">Questions</div>
+    <h2 class="section-title">Frequently asked</h2>
+    <div class="faq-list">
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">
+          <span>What's the difference between a static and a WordPress site?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </div>
+        <div class="faq-answer">WordPress is a CMS — it generates pages from a database every time someone visits. Static sites serve pre-built files directly. Static is faster, more secure, and cheaper to maintain. Unless you need clients to log in or content to update itself daily, static is almost always the better choice.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">
+          <span>How many pages are included?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </div>
+        <div class="faq-answer">Our static website packages start with 5 pages. Need more? Just let us know in the brief — additional pages are priced per page, and we'll include it in your quote upfront.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">
+          <span>Can I update the content myself later?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </div>
+        <div class="faq-answer">If you know basic HTML, absolutely — we hand over the source code and you can edit it directly. If not, just message us with the changes and we'll update the site for you. Small updates are usually done same day.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">
+          <span>Do I need to buy a domain separately?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </div>
+        <div class="faq-answer">Hosting is included, but a domain name (like yourbusiness.com) is registered through a domain registrar separately, typically ₹700–₹1,500 per year. We'll guide you through buying one and connecting it — it's straightforward.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">
+          <span>Will it show up on Google?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </div>
+        <div class="faq-answer">Yes. We set up the basic SEO foundations — meta tags, structured headings, sitemap, and fast loading speed. Google typically indexes new sites within a few days of going live. Ranking for competitive keywords takes time and content work, but the technical foundation will be solid.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">
+          <span>Can I start with a landing page and upgrade later?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </div>
+        <div class="faq-answer">Absolutely. Many clients start with a landing page to get online quickly and then upgrade to a full static website once they're ready. We build both, so the transition is seamless.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <div class="cta-band" style="margin: 0 1.5rem 6rem;">
     <div>
-      <div class="section-tag">What We Offer</div>
-      <h2 class="section-title">Our <em>Services</em></h2>
+      <div class="cta-band-title">Ready to get your<br>business online properly?</div>
+      <div class="cta-band-sub">Fill in the brief and we'll get back to you within a few hours.</div>
     </div>
-    <a href="#contact" class="btn-ghost" style="color:rgba(250,246,239,0.45); border-color:rgba(250,246,239,0.2);">Get in touch →</a>
+    <a href="index.html#contact" class="btn-primary" style="font-size:16px; padding: 0.9em 2.5em;">Start My Website →</a>
   </div>
-  <div class="services-grid">
+</main>
 
-    <div class="service-card reveal">
-      <span class="service-num">01</span>
-      <div class="service-name">Residential Development</div>
-      <p class="service-desc">We develop quality residential complexes tailored for families looking for comfort, value, and lasting build quality — all within the best budget in Panvel and Navi Mumbai.</p>
-      <a href="#contact" class="service-link">Enquire <span class="service-link-arrow">→</span></a>
-    </div>
-
-    <div class="service-card reveal" style="transition-delay:0.1s">
-      <span class="service-num">02</span>
-      <div class="service-name">Financial Plan Support</div>
-      <p class="service-desc">Our team helps you navigate home loans, payment plans, and financing options — ensuring your journey to ownership is stress-free and financially sound from day one.</p>
-      <a href="#contact" class="service-link">Enquire <span class="service-link-arrow">→</span></a>
-    </div>
-
-    <div class="service-card reveal" style="transition-delay:0.2s">
-      <span class="service-num">03</span>
-      <div class="service-name">End-to-End Handover</div>
-      <p class="service-desc">From initial consultation to handing you the keys, we manage every stage with full transparency and professionalism — ensuring your new home meets all expectations.</p>
-      <a href="#contact" class="service-link">Enquire <span class="service-link-arrow">→</span></a>
-    </div>
-
-  </div>
-</section>
-
-<!-- WHY US STRIP -->
-<div class="why-strip">
-  <div class="why-item reveal">
-    <div class="why-icon">🏆</div>
-    <div class="why-label">5-Star Rated</div>
-    <div class="why-desc">Consistently rated 5.0 on Google by our homeowners.</div>
-  </div>
-  <div class="why-item reveal" style="transition-delay:0.1s">
-    <div class="why-icon">💼</div>
-    <div class="why-label">Budget-First</div>
-    <div class="why-desc">Best value homes in Panvel without compromising on quality.</div>
-  </div>
-  <div class="why-item reveal" style="transition-delay:0.2s">
-    <div class="why-icon">🤝</div>
-    <div class="why-label">Full Transparency</div>
-    <div class="why-desc">Clear pricing, honest timelines, and open communication throughout.</div>
-  </div>
-  <div class="why-item reveal" style="transition-delay:0.3s">
-    <div class="why-icon">🔑</div>
-    <div class="why-label">Smooth Handover</div>
-    <div class="why-desc">Seamless handover process with zero hassle for the buyer.</div>
-  </div>
-</div>
-
-<!-- LISTINGS / PROJECTS -->
-<section class="listings" id="listings">
-  <div class="listings-header reveal">
-    <div>
-      <div class="section-tag">Our Projects</div>
-      <h2 class="section-title">Featured <em>Properties</em></h2>
-    </div>
-    <a href="#contact" class="btn-ghost">Enquire about projects →</a>
-  </div>
-  <div class="listings-grid">
-    <div class="listing-card reveal">
-      <div class="listing-img">
-        <img src="https://images.unsplash.com/photo-1567496898669-ee935f5f647a?w=500&q=80" alt="1BHK Apartment">
-        <span class="listing-tag-chip">Available</span>
-      </div>
-      <div class="listing-body">
-        <div class="listing-price">Best Budget</div>
-        <div class="listing-name">1 BHK Apartment · Panvel, Navi Mumbai</div>
-        <div class="listing-specs">
-          <span>🛏 1 Bed</span><span>🚿 1 Bath</span><span>🏗️ Quality Fittings</span>
-        </div>
-      </div>
-    </div>
-    <div class="listing-card reveal" style="transition-delay:0.1s">
-      <div class="listing-img">
-        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&q=80" alt="2BHK Apartment">
-        <span class="listing-tag-chip">Available</span>
-      </div>
-      <div class="listing-body">
-        <div class="listing-price">Affordable Price</div>
-        <div class="listing-name">2 BHK Apartment · Panvel, Navi Mumbai</div>
-        <div class="listing-specs">
-          <span>🛏 2 Beds</span><span>🚿 2 Baths</span><span>🏗️ Top-Notch Build</span>
-        </div>
-      </div>
-    </div>
-    <div class="listing-card reveal" style="transition-delay:0.2s">
-      <div class="listing-img">
-        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&q=80" alt="Premium Flat">
-        <span class="listing-tag-chip">Enquire</span>
-      </div>
-      <div class="listing-body">
-        <div class="listing-price">Call for Price</div>
-        <div class="listing-name">Premium Flat · KN Developers Complex</div>
-        <div class="listing-specs">
-          <span>🛏 2+ Beds</span><span>🚿 2 Baths</span><span>🏗️ Premium Finish</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials" id="reviews">
-  <div class="reveal">
-    <div class="section-tag">Client Words</div>
-    <h2 class="section-title">What Our <em>Homeowners</em> Say</h2>
-  </div>
-  <div class="testi-grid">
-    <div class="testi-card reveal" style="transition-delay:0.05s">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"I am really happy with KN Developers Developers! The team provided excellent support with the financial plan and ensured the build quality and fittings were top-notch. It feels great to have a home that meets all our expectations."</p>
-      <div class="testi-author">
-        <div class="testi-avatar">VG</div>
-        <div>
-          <div class="testi-name">Vipul Ghag</div>
-          <div class="testi-role">Homeowner · Panvel</div>
-        </div>
-      </div>
-    </div>
-    <div class="testi-card reveal" style="transition-delay:0.15s">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"From the initial consultation to the final handover, the team demonstrated exceptional professionalism, transparency, and commitment to quality. An absolutely delightful experience. Highly recommended."</p>
-      <div class="testi-author">
-        <div class="testi-avatar">OR</div>
-        <div>
-          <div class="testi-name">Omprakash Rathod</div>
-          <div class="testi-role">Homeowner · Navi Mumbai</div>
-        </div>
-      </div>
-    </div>
-    <div class="testi-card reveal" style="transition-delay:0.25s">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"It's a lovely complex and the builder is very friendly and helpful. Best budget home you can find in Panvel. The team is cooperative and made the entire process smooth and pleasant."</p>
-      <div class="testi-author">
-        <div class="testi-avatar">RB</div>
-        <div>
-          <div class="testi-name">Reena Bandekar</div>
-          <div class="testi-role">Homeowner · Panvel</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="testi-meta reveal">
-    <div class="testi-meta-item">
-      <div class="testi-meta-num">5.0</div>
-      <div class="testi-meta-label">Google Rating</div>
-    </div>
-    <div class="testi-meta-item">
-      <div class="testi-meta-num">100%</div>
-      <div class="testi-meta-label">5-Star Reviews</div>
-    </div>
-    <div class="testi-meta-item">
-      <div class="testi-meta-num">∞</div>
-      <div class="testi-meta-label">Happy Families</div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="contact-info reveal">
-    <div class="section-tag">Get in Touch</div>
-    <h2 class="section-title">Let's Build Your<br><em>Dream Home</em></h2>
-    <div class="contact-detail">
-      <div class="contact-detail-icon">📞</div>
-      <div>
-        <div class="contact-detail-label">Phone</div>
-        <div class="contact-detail-val"><a href="tel:08828890990">088288 90990</a></div>
-      </div>
-    </div>
-    <div class="contact-detail">
-      <div class="contact-detail-icon">📍</div>
-      <div>
-        <div class="contact-detail-label">Location</div>
-        <div class="contact-detail-val">KN Developers Complex,<br>Panvel, Navi Mumbai, Maharashtra</div>
-      </div>
-    </div>
-    <div class="contact-detail">
-      <div class="contact-detail-icon">🕐</div>
-      <div>
-        <div class="contact-detail-label">Working Hours</div>
-        <div class="contact-detail-val">10:00 AM – 7:00 PM</div>
-        <div class="hours-badge"><span class="hours-dot"></span> Open Today</div>
-      </div>
-    </div>
-    <div class="contact-detail">
-      <div class="contact-detail-icon">🗺</div>
-      <div>
-        <div class="contact-detail-label">Area Served</div>
-        <div class="contact-detail-val">Panvel · Navi Mumbai<br>and surrounding regions</div>
-      </div>
-    </div>
-  </div>
-  <div class="contact-form reveal" style="transition-delay:0.15s">
-    <div class="form-title">Send an Enquiry</div>
-    <div class="form-row">
-      <div class="form-group">
-        <label for="fname">First Name <span class="req">*</span></label>
-        <input type="text" id="fname" placeholder="Rahul">
-      </div>
-      <div class="form-group">
-        <label for="lname">Last Name</label>
-        <input type="text" id="lname" placeholder="Sharma">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="phone">Phone Number <span class="req">*</span></label>
-      <input type="tel" id="phone" placeholder="+91 98765 43210">
-    </div>
-    <div class="form-group">
-      <label for="interest">I'm Interested In <span class="req">*</span></label>
-      <select id="interest">
-        <option value="">Select an option</option>
-        <option>Buying a Flat / Apartment</option>
-        <option>1 BHK Unit</option>
-        <option>2 BHK Unit</option>
-        <option>Financial Plan Enquiry</option>
-        <option>General Enquiry</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="msg">Message</label>
-      <textarea id="msg" placeholder="Tell us about your requirements — budget, flat type, location preferences..."></textarea>
-    </div>
-    <!-- botcheck honeypot for SplitForms spam protection -->
-    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-    <button class="form-submit" id="submitBtn" onclick="handleSubmit()">Send Enquiry →</button>
-    <div id="form-error" style="display:none; margin-top:0.8rem; font-size:0.78rem; color:#c0392b; letter-spacing:0.04em;"></div>
-    <div class="form-success" id="form-success">Your form has been submitted successfully. We will contact you shortly.</div>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <div class="footer-logo">
-    KN <span class="empire">Empire</span>
-    <span class="footer-logo-sub">Developers · Panvel</span>
-  </div>
-  <div class="footer-copy">© 2025 KN Developers Developers. All rights reserved.</div>
-  <ul class="footer-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <span class="footer-logo">CodersVerse</span>
+  <span class="footer-copy">&copy; 2026 CodersVerse. All rights reserved.</span>
 </footer>
-<div class="footer-credit">Panvel · Navi Mumbai · Maharashtra</div>
+
+<a href="https://wa.me/919004329806?text=Hi%20CodersVerse,%20I%27m%20interested%20in%20a%20static%20website." class="wa-float" target="_blank" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.43 5.63 1.43h.006c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <script>
-  const nav = document.getElementById('mainNav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
+  const hambtn = document.getElementById('hambtn');
+  const mobOverlay = document.getElementById('mobOverlay');
+  let open = false;
+  hambtn.addEventListener('click', () => {
+    open = !open;
+    hambtn.classList.toggle('open', open);
+    mobOverlay.classList.toggle('open', open);
   });
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  async function handleSubmit() {
-    const fnameEl    = document.getElementById('fname');
-    const phoneEl    = document.getElementById('phone');
-    const interestEl = document.getElementById('interest');
-    const errorEl    = document.getElementById('form-error');
-    const successEl  = document.getElementById('form-success');
-    const submitBtn  = document.getElementById('submitBtn');
-
-    [fnameEl, phoneEl, interestEl].forEach(el => el.classList.remove('input-error'));
-    errorEl.style.display = 'none';
-    successEl.style.display = 'none';
-
-    const fname    = fnameEl.value.trim();
-    const phone    = phoneEl.value.trim();
-    const interest = interestEl.value;
-    const missing  = [];
-    if (!fname)    { fnameEl.classList.add('input-error');    missing.push('First Name'); }
-    if (!phone)    { phoneEl.classList.add('input-error');    missing.push('Phone Number'); }
-    if (!interest) { interestEl.classList.add('input-error'); missing.push('Interested In'); }
-
-    if (missing.length) {
-      errorEl.textContent = `Please fill in: ${missing.join(', ')}`;
-      errorEl.style.display = 'block';
-      return;
-    }
-
-    const lname = document.getElementById('lname').value.trim();
-    const msg   = document.getElementById('msg').value.trim();
-    const name  = [fname, lname].filter(Boolean).join(' ');
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
-
-    try {
-      const response = await fetch('https://splitforms.com/api/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          access_key: 'a5e724b070014506988ff0caea1625c5',
-          name: name,
-          phone: phone,
-          interest: interest,
-          message: msg || 'No message',
-          botcheck: ''
-        })
-      });
-
-      const data = await response.json();
-
-      if (response.ok && data.success !== false) {
-        fnameEl.value = ''; document.getElementById('lname').value = '';
-        phoneEl.value = ''; interestEl.value = ''; document.getElementById('msg').value = '';
-        successEl.style.display = 'block';
-      } else {
-        throw new Error(data.message || 'Submission failed. Please try again.');
-      }
-    } catch (err) {
-      errorEl.textContent = err.message || 'Something went wrong. Please try again.';
-      errorEl.style.display = 'block';
-    } finally {
-      submitBtn.textContent = 'Send Enquiry →';
-      submitBtn.disabled = false;
-    }
-  }
+  mobOverlay.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      open = false;
+      hambtn.classList.remove('open');
+      mobOverlay.classList.remove('open');
+    });
+  });
 </script>
 </body>
 </html>
