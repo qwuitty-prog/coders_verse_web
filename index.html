@@ -542,7 +542,7 @@
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
         <div class="form-group">
           <label class="form-label">YOUR NAME <span class="required">*</span></label>
-          <input type="text" id="fullName" name="fullName" class="form-input" placeholder="John Doe" required>
+          <input type="text" id="fullName" name="fullName" class="form-input" placeholder="Your Name" required>
         </div>
         <div class="form-group">
           <label class="form-label">WHATSAPP NUMBER <span class="required">*</span></label>
@@ -550,18 +550,24 @@
         </div>
       </div>
       
-      <!-- Project Type -->
-      <div class="form-group">
-        <label class="form-label">PROJECT TYPE <span class="required">*</span></label>
-        <select id="projectType" name="projectType" class="form-select" required>
-          <option value="" disabled selected>Select a service...</option>
-          <option value="Static Websites">Static Websites</option>
-          <option value="Landing Page">Landing Page</option>
-          <option value="Dynamic Website">Dynamic Website</option>
-          <option value="Trial Website (Landing Page)">Trial Website (Landing Page)</option>
-          <option value="Trial Website (Multi Page)">Trial Website (Multi Page)</option>
-          <option value="Others">Others</option>
-        </select>
+      <!-- Email and Project Type in one row -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+        <div class="form-group">
+          <label class="form-label">EMAIL ADDRESS</label>
+          <input type="email" id="emailAddress" name="emailAddress" class="form-input" placeholder="example@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">PROJECT TYPE <span class="required">*</span></label>
+          <select id="projectType" name="projectType" class="form-select" required>
+            <option value="" disabled selected>Select a service...</option>
+            <option value="Static Website">Static Website</option>
+            <option value="Landing Page">Landing Page</option>
+            <option value="Dynamic Website">Dynamic Website</option>
+            <option value="Trial Website (Landing Page)">Trial Website (Landing Page)</option>
+            <option value="Trial Website (Multi Page)">Trial Website (Multi Page)</option>
+            <option value="Others">Others</option>
+          </select>
+        </div>
       </div>
       
       <!-- Project Description -->
@@ -917,6 +923,7 @@
     // Get form values
     const fullName = document.getElementById('fullName').value.trim();
     const whatsappNumber = document.getElementById('whatsappNumber').value.trim();
+    const emailAddress = document.getElementById('emailAddress').value.trim();
     const projectType = document.getElementById('projectType').value;
     const projectDescription = document.getElementById('projectDescription').value.trim();
     
@@ -938,6 +945,7 @@
       formData.append('subject', 'New CodersVerse Project Inquiry');
       formData.append('name', fullName);
       formData.append('whatsapp', whatsappNumber);
+      formData.append('email', emailAddress);
       formData.append('project_type', projectType);
       formData.append('message', projectDescription);
       
