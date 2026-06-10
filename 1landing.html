@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Pages — CodersVerse</title>
+  <link rel="stylesheet" href="https://db.onlinewebfonts.com/c/5ac3fe7c6abd2f62067f266d89671492?family=HelveticaNowDisplay-Medium" />
+  <link rel="stylesheet" href="https://db.onlinewebfonts.com/c/1aa3377e489837a26d019bba501e779d?family=HelveticaNowDisplayW01-Rg" />
+  <style>
+    :root {
+      --font-heading: 'HelveticaNowDisplay-Medium', 'Helvetica Neue', Arial, sans-serif;
+      --font-body:    'HelveticaNowDisplayW01-Rg',  'Helvetica Neue', Arial, sans-serif;
+      --white: #ffffff;
+      --black: #000000;
+      --accent: #c8ff00;
+      --dim: rgba(255,255,255,0.55);
+      --card-bg: rgba(255,255,255,0.04);
+      --card-border: rgba(255,255,255,0.1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: #000;
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── BACKGROUND ── */
+    .bg-grid {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(200,255,0,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,255,0,0.035) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+    .bg-glow {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background: radial-gradient(ellipse 70% 50% at 50% -10%, rgba(200,255,0,0.12) 0%, transparent 70%);
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 1.25rem;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .logo-text {
+      font-family: var(--font-heading);
+      font-size: 21px;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
+    .nav-link {
+      font-size: 14px;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--white); }
+
+    /* Back button */
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 13px;
+      color: var(--dim);
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 0.35em 0.9em;
+      border-radius: 9999px;
+      font-family: var(--font-body);
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .nav-back:hover { color: var(--white); border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.05); }
+    .nav-back svg { flex-shrink: 0; }
+
+    .nav-cta {
+      font-size: 14px;
+      color: var(--black);
+      background: var(--accent);
+      text-decoration: none;
+      padding: 0.45em 1.2em;
+      border-radius: 9999px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      transition: opacity 0.2s, transform 0.2s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* Mobile nav */
+    .hamburger-btn {
+      background: none; border: none; cursor: pointer;
+      display: none; flex-direction: column; gap: 5px; padding: 4px;
+    }
+    .hbar { width: 22px; height: 2px; background: white; display: block; transition: all 0.3s; }
+    .hamburger-btn.open .hbar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger-btn.open .hbar:nth-child(2) { opacity: 0; }
+    .hamburger-btn.open .hbar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mob-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.97);
+      z-index: 49; display: flex; flex-direction: column;
+      justify-content: center; align-items: flex-start;
+      padding: 0 2rem; gap: 2rem;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .mob-overlay.open { opacity: 1; pointer-events: all; }
+    .mob-overlay a { font-size: 28px; color: white; text-decoration: none; font-family: var(--font-body); }
+    .mob-overlay a.ul { text-decoration: underline; text-underline-offset: 3px; }
+
+    @media (max-width: 767px) {
+      .nav-right { display: none; }
+      .hamburger-btn { display: flex; }
+    }
+    @media (min-width: 768px) {
+      nav { padding: 1.25rem 2.5rem; }
+      .logo-text { font-size: 26px; }
+    }
+
+    /* ── MAIN ── */
+    main { position: relative; z-index: 1; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center;
+      padding: 8rem 1.5rem 5rem;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent); font-family: var(--font-body);
+      margin-bottom: 1.5rem;
+    }
+    .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(44px, 9vw, 100px);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.4);
+    }
+    .hero-sub {
+      font-size: clamp(15px, 2.2vw, 19px);
+      line-height: 1.65;
+      color: var(--dim);
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      padding: 0.8em 2em;
+      border-radius: 9999px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+    .btn-ghost {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.25);
+      color: white;
+      padding: 0.8em 2em;
+      border-radius: 9999px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); }
+
+    /* stat strip */
+    .stat-strip {
+      display: flex; gap: 3rem; flex-wrap: wrap;
+      margin-top: 4rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .stat-item {}
+    .stat-num {
+      font-family: var(--font-heading);
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: -0.03em;
+      color: var(--accent);
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--dim);
+      margin-top: 0.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── SECTION COMMON ── */
+    .section {
+      padding: 6rem 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem; font-family: var(--font-body);
+    }
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(28px, 4.5vw, 52px);
+      letter-spacing: -0.025em;
+      font-weight: 500;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .section-body {
+      font-size: 15px; line-height: 1.75; color: var(--dim);
+      max-width: 600px;
+    }
+    hr.divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      margin: 0 1.5rem;
+    }
+
+    /* ── WHAT IS A LANDING PAGE ── */
+    .explainer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+    .explainer-visual {
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.02);
+      display: flex; flex-direction: column;
+    }
+    /* Fake browser chrome */
+    .mock-bar {
+      background: rgba(255,255,255,0.06);
+      padding: 0.6rem 0.75rem;
+      display: flex; align-items: center; gap: 0.4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      flex-shrink: 0;
+    }
+    .mock-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .mock-url {
+      flex: 1; height: 14px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 4px; margin: 0 0.5rem;
+    }
+    .mock-body {
+      padding: 1rem 0.75rem 1rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .mock-hero-block {
+      height: 80px;
+      background: linear-gradient(135deg, rgba(200,255,0,0.12), rgba(200,255,0,0.03));
+      border-radius: 6px;
+      border: 1px solid rgba(200,255,0,0.15);
+      display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 4px;
+    }
+    .mock-line { height: 6px; background: rgba(255,255,255,0.15); border-radius: 3px; }
+    .mock-line.wide { width: 70%; }
+    .mock-line.medium { width: 50%; }
+    .mock-line.short { width: 35%; }
+    .mock-line.accent-line { width: 40%; background: rgba(200,255,0,0.4); }
+    .mock-section { display: flex; flex-direction: column; gap: 5px; margin-top: 0.5rem; }
+    .mock-cta-row { display: flex; justify-content: center; margin-top: 0.5rem; }
+    .mock-cta {
+      width: 55%; height: 18px;
+      background: rgba(200,255,0,0.3);
+      border-radius: 9999px;
+      border: 1px solid rgba(200,255,0,0.5);
+    }
+
+    .explainer-copy {}
+    .explainer-copy p {
+      font-size: 15px; line-height: 1.75; color: var(--dim); margin-bottom: 1rem;
+    }
+    .explainer-copy p:last-child { margin-bottom: 0; }
+    .explainer-copy strong { color: white; font-weight: 500; }
+
+    @media (max-width: 767px) {
+      .explainer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    /* ── USE CASES ── */
+    .use-cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1px;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 3rem;
+      background: rgba(255,255,255,0.07);
+    }
+    .use-case-card {
+      background: #000;
+      padding: 2rem 1.75rem;
+      transition: background 0.25s;
+      cursor: default;
+    }
+    .use-case-card:hover { background: rgba(200,255,0,0.04); }
+    .uc-icon {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(200,255,0,0.3);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    .uc-title {
+      font-family: var(--font-heading);
+      font-size: 17px; letter-spacing: -0.01em;
+      font-weight: 500; margin-bottom: 0.5rem;
+    }
+    .uc-desc { font-size: 13px; color: var(--dim); line-height: 1.6; }
+
+    /* ── WHAT'S INCLUDED ── */
+    .included-list {
+      list-style: none;
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .included-list li {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1.5rem 1.75rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      background: var(--card-bg);
+      transition: background 0.2s;
+    }
+    .included-list li:hover { background: rgba(200,255,0,0.03); }
+    .included-list li:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.07); }
+    .check-icon {
+      flex-shrink: 0; width: 18px; height: 18px; margin-top: 2px;
+      color: var(--accent);
+    }
+    .incl-text {}
+    .incl-title { font-size: 14px; font-weight: 500; color: white; margin-bottom: 0.2rem; }
+    .incl-sub { font-size: 12px; color: var(--dim); line-height: 1.5; }
+
+    @media (max-width: 600px) {
+      .included-list { grid-template-columns: 1fr; }
+      .included-list li:nth-child(odd) { border-right: none; }
+    }
+
+    /* ── PROCESS ── */
+    .process-steps {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .process-step {
+      display: flex; gap: 2rem; align-items: flex-start;
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      position: relative;
+    }
+    .process-step:last-child { border-bottom: none; }
+    .step-num {
+      font-family: var(--font-heading);
+      font-size: 48px; letter-spacing: -0.05em;
+      color: rgba(200,255,0,0.18);
+      line-height: 1;
+      flex-shrink: 0; width: 56px;
+    }
+    .step-content {}
+    .step-title {
+      font-family: var(--font-heading);
+      font-size: 20px; letter-spacing: -0.01em;
+      font-weight: 500; margin-bottom: 0.4rem;
+    }
+    .step-desc { font-size: 14px; color: var(--dim); line-height: 1.65; }
+
+    /* ── PRICING ── */
+    .pricing-card {
+      margin-top: 3rem;
+      border: 1px solid rgba(200,255,0,0.25);
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(200,255,0,0.03);
+    }
+    .pricing-header {
+      padding: 2.5rem 2.5rem 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;
+    }
+    .pricing-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 0.5rem; }
+    .pricing-amount {
+      font-family: var(--font-heading);
+      font-size: clamp(42px, 7vw, 72px);
+      letter-spacing: -0.04em; line-height: 1;
+    }
+    .pricing-from { font-size: 14px; color: var(--dim); }
+    .pricing-note { font-size: 13px; color: var(--dim); max-width: 320px; line-height: 1.6; }
+    .pricing-body {
+      padding: 2rem 2.5rem;
+      display: flex; flex-direction: column; gap: 1.5rem;
+    }
+    .pricing-features {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 2rem;
+    }
+    .pf-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 14px; color: var(--dim);
+    }
+    .pf-item svg { flex-shrink: 0; color: var(--accent); }
+    .pricing-cta {
+      display: inline-block;
+      background: var(--accent); color: #000;
+      padding: 0.9em 2.5em;
+      border-radius: 9999px;
+      font-family: var(--font-body); font-size: 15px; font-weight: 600;
+      text-decoration: none;
+      align-self: flex-start;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .pricing-cta:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    @media (max-width: 600px) {
+      .pricing-features { grid-template-columns: 1fr; }
+      .pricing-header { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ── FAQ ── */
+    .faq-list { margin-top: 3rem; }
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 1.5rem 0;
+      cursor: pointer;
+    }
+    .faq-question {
+      font-family: var(--font-heading);
+      font-size: 17px; letter-spacing: -0.01em;
+      display: flex; justify-content: space-between; align-items: center;
+      color: white; gap: 1rem;
+    }
+    .faq-icon { flex-shrink: 0; transition: transform 0.3s; opacity: 0.5; }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease, margin-top 0.3s, opacity 0.3s;
+      opacity: 0; font-size: 14px; line-height: 1.7; color: var(--dim);
+    }
+    .faq-item.open .faq-answer { max-height: 200px; margin-top: 0.75rem; opacity: 1; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); opacity: 1; }
+    @media (hover: hover) {
+      .faq-item:hover .faq-icon { opacity: 1; }
+    }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      margin: 0 1.5rem 6rem;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(200,255,0,0.1) 0%, rgba(200,255,0,0.04) 100%);
+      border: 1px solid rgba(200,255,0,0.2);
+      padding: 3.5rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+      position: relative; z-index: 1; max-width: 1100px; margin-left: auto; margin-right: auto; margin-bottom: 6rem;
+    }
+    .cta-band-title {
+      font-family: var(--font-heading);
+      font-size: clamp(24px, 4vw, 40px);
+      letter-spacing: -0.025em; font-weight: 500; line-height: 1.1;
+    }
+    .cta-band-sub { font-size: 14px; color: var(--dim); margin-top: 0.5rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 2rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+      position: relative; z-index: 1;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .footer-logo { font-family: var(--font-heading); font-size: 18px; letter-spacing: -0.02em; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+
+    /* WhatsApp float */
+    .wa-float {
+      position: fixed; bottom: 2rem; right: 2rem;
+      width: 56px; height: 56px;
+      background: #25d366; color: white; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; z-index: 100;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+    .wa-float:hover { transform: scale(1.08); }
+  </style>
+</head>
+<body>
+
+<!-- Background -->
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+
+<!-- Nav -->
+<nav id="navbar">
+  <a href="index.html" class="logo-text">CodersVerse</a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      Back to Home
+    </a>
+    <a href="index.html#services" class="nav-link">Services</a>
+    <a href="index.html#faq" class="nav-link">FAQ</a>
+    <a href="index.html#contact" class="nav-cta">Get in touch</a>
+  </div>
+  <button class="hamburger-btn" id="hambtn" aria-label="Toggle menu">
+    <span class="hbar"></span>
+    <span class="hbar"></span>
+    <span class="hbar"></span>
+  </button>
+</nav>
+
+<!-- Mobile Overlay -->
+<div class="mob-overlay" id="mobOverlay">
+  <a href="index.html">← Back to Home</a>
+  <a href="index.html#services">Services</a>
+  <a href="index.html#faq">FAQ</a>
+  <a href="index.html#contact" class="ul">Get in touch</a>
+</div>
+
+<main>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow"><span class="eyebrow-dot"></span>Landing Pages</div>
+    <h1 class="hero-title">
+      One page.<br>
+      <em>One goal.</em><br>
+      All results.
+    </h1>
+    <p class="hero-sub">
+      A landing page strips away every distraction and focuses your visitor on a single action — call, enquire, buy. That focus is what makes them convert.
+    </p>
+    <div class="hero-actions">
+      <a href="index.html#contact" class="btn-primary">Start My Landing Page</a>
+      <a href="#what-is" class="btn-ghost">Learn more</a>
+    </div>
+
+    <div class="stat-strip">
+      <div class="stat-item">
+        <div class="stat-num">48h</div>
+        <div class="stat-label">Avg. delivery time</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">₹5K</div>
+        <div class="stat-label">Starting price</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Mobile-ready</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Revisions until perfect</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- WHAT IS A LANDING PAGE -->
+  <section class="section" id="what-is">
+    <div class="section-label">What is it</div>
+    <h2 class="section-title">A website built to convert,<br>not just to look good</h2>
+    <div class="explainer-grid">
+      <div class="explainer-visual">
+        <div class="mock-bar">
+          <span class="mock-dot" style="background:#ff5f57"></span>
+          <span class="mock-dot" style="background:#febc2e"></span>
+          <span class="mock-dot" style="background:#28c840"></span>
+          <div class="mock-url"></div>
+        </div>
+        <div class="mock-body">
+          <div class="mock-hero-block">
+            <div class="mock-line accent-line"></div>
+            <div class="mock-line medium" style="margin-top:3px;"></div>
+          </div>
+          <div class="mock-cta-row"><div class="mock-cta"></div></div>
+          <div class="mock-section">
+            <div class="mock-line wide"></div>
+            <div class="mock-line medium"></div>
+            <div class="mock-line short"></div>
+          </div>
+          <div class="mock-section">
+            <div class="mock-line wide"></div>
+            <div class="mock-line medium"></div>
+          </div>
+          <div class="mock-section">
+            <div class="mock-line wide"></div>
+            <div class="mock-line short"></div>
+          </div>
+          <div class="mock-cta-row" style="margin-top:0.5rem;"><div class="mock-cta"></div></div>
+        </div>
+      </div>
+      <div class="explainer-copy">
+        <p>A landing page is a <strong>single focused webpage</strong> with one clear purpose — get the visitor to take one specific action. No menus pulling them away, no other pages to browse. Just your offer, and a button.</p>
+        <p>Unlike a full website, a landing page is built around a <strong>campaign or goal</strong>: generate phone enquiries, collect WhatsApp leads, promote a new project launch, sell a single product or service.</p>
+        <p>Every element — the headline, the layout, the images, the call-to-action button — is designed to <strong>guide the visitor toward that one action</strong>. That's why landing pages typically convert far better than generic website homepages.</p>
+        <p>We build landing pages that are <strong>fast, mobile-first, and ready to go live within 48 hours</strong>. You provide the details about your business, we handle everything else.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- USE CASES -->
+  <section class="section" id="use-cases">
+    <div class="section-label">Who it's for</div>
+    <h2 class="section-title">Perfect for these use cases</h2>
+    <div class="use-cases-grid">
+      <!-- Card 1 -->
+      <div class="use-case-card">
+        <div class="uc-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        </div>
+        <div class="uc-title">Real Estate Projects</div>
+        <div class="uc-desc">Showcase a new housing or commercial development. Capture buyer enquiries directly with a WhatsApp or call button.</div>
+      </div>
+      <!-- Card 2 -->
+      <div class="use-case-card">
+        <div class="uc-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        </div>
+        <div class="uc-title">Service Businesses</div>
+        <div class="uc-desc">Salons, clinics, tutors, consultants — a clean page listing your services and pricing with a booking or contact form.</div>
+      </div>
+      <!-- Card 3 -->
+      <div class="use-case-card">
+        <div class="uc-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+        </div>
+        <div class="uc-title">Product Launches</div>
+        <div class="uc-desc">Launching something new? A landing page builds hype, captures early interest, and converts curious visitors into paying customers.</div>
+      </div>
+      <!-- Card 4 -->
+      <div class="use-case-card">
+        <div class="uc-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+        </div>
+        <div class="uc-title">Ad Campaigns</div>
+        <div class="uc-desc">Running Google or Instagram ads? Send traffic to a dedicated landing page — not a homepage — for dramatically better ROI.</div>
+      </div>
+      <!-- Card 5 -->
+      <div class="use-case-card">
+        <div class="uc-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 00-3-3.87"></path><path d="M16 3.13a4 4 0 010 7.75"></path></svg>
+        </div>
+        <div class="uc-title">Events &amp; Workshops</div>
+        <div class="uc-desc">Promote seminars, webinars, or offline events. Drive registrations and RSVPs from a single shareable link.</div>
+      </div>
+      <!-- Card 6 -->
+      <div class="use-case-card">
+        <div class="uc-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg>
+        </div>
+        <div class="uc-title">Personal Brand</div>
+        <div class="uc-desc">Coaches, freelancers, speakers — one polished page to establish credibility and funnel visitors toward a booking or inquiry.</div>
+      </div>
+      <!-- Card 7 -->
+      <div class="use-case-card">
+        <div class="uc-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 01-8 0"></path></svg>
+        </div>
+        <div class="uc-title">E-Commerce &amp; Offers</div>
+        <div class="uc-desc">Promote a seasonal sale, flash deal, or single product. A focused page eliminates distraction and drives purchases directly.</div>
+      </div>
+      <!-- Card 8 -->
+      <div class="use-case-card">
+        <div class="uc-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91A16 16 0 0015.1 17.9l1.23-1.23a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
+        </div>
+        <div class="uc-title">Local &amp; Missed-Call Leads</div>
+        <div class="uc-desc">Hyperlocal businesses like clinics, coaching centres, or repair shops — capture phone and WhatsApp leads from your neighbourhood instantly.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="section" id="included">
+    <div class="section-label">What you get</div>
+    <h2 class="section-title">Everything included,<br>nothing to figure out</h2>
+    <ul class="included-list">
+      <li>
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <div class="incl-text">
+          <div class="incl-title">Custom Design</div>
+          <div class="incl-sub">Built specifically for your brand, not a template dropped from a library.</div>
+        </div>
+      </li>
+      <li>
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <div class="incl-text">
+          <div class="incl-title">Mobile Responsive</div>
+          <div class="incl-sub">Looks and works perfectly on every screen size, from phones to desktops.</div>
+        </div>
+      </li>
+      <li>
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <div class="incl-text">
+          <div class="incl-title">Contact / Lead Form</div>
+          <div class="incl-sub">A form that sends enquiries directly to your email so you never miss a lead.</div>
+        </div>
+      </li>
+      <li>
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <div class="incl-text">
+          <div class="incl-title">WhatsApp Integration</div>
+          <div class="incl-sub">One-tap WhatsApp button so interested visitors can message you instantly.</div>
+        </div>
+      </li>
+      <li>
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <div class="incl-text">
+          <div class="incl-title">Hosting Included</div>
+          <div class="incl-sub">We host the page — you don't need to manage servers, cPanel, or any technical setup.</div>
+        </div>
+      </li>
+      <li>
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <div class="incl-text">
+          <div class="incl-title">Fast Load Speed</div>
+          <div class="incl-sub">Optimised HTML/CSS — no bloated CMS, no slow plugins. Pages load in under 2 seconds.</div>
+        </div>
+      </li>
+      <li>
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <div class="incl-text">
+          <div class="incl-title">Revisions Until Perfect</div>
+          <div class="incl-sub">We refine the design based on your feedback until you're completely satisfied.</div>
+        </div>
+      </li>
+      <li>
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <div class="incl-text">
+          <div class="incl-title">Source Code Handover</div>
+          <div class="incl-sub">You own everything. Full source files delivered so you're never locked in.</div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PROCESS -->
+  <section class="section" id="process">
+    <div class="section-label">How it works</div>
+    <h2 class="section-title">From brief to live<br>in under 48 hours</h2>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <div class="step-title">You fill out the brief</div>
+          <div class="step-desc">Tell us your business, what the page is for, any references you like, and your target audience. Takes 5–10 minutes. No calls needed upfront.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <div class="step-title">We design and build</div>
+          <div class="step-desc">Our team designs a custom landing page tailored to your brand and goal. We handle copy, layout, and all technical implementation.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <div class="step-title">You review and request changes</div>
+          <div class="step-desc">We share a preview link. You tell us what to tweak — colours, text, sections. We revise until it's exactly right. No limits on feedback rounds.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <div class="step-title">We go live</div>
+          <div class="step-desc">Once you approve, we deploy the page on a fast, reliable host. Your page is live and ready to receive traffic within hours of approval.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PRICING -->
+  <section class="section" id="pricing">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">Simple, transparent pricing</h2>
+    <div class="pricing-card">
+      <div class="pricing-header">
+        <div>
+          <div class="pricing-label">Landing Page</div>
+          <div class="pricing-amount">₹5,000</div>
+          <div class="pricing-from">and up — final price depends on scope</div>
+        </div>
+        <div class="pricing-note">Most landing pages fall between ₹5,000–₹15,000. We'll give you an exact quote after you share your brief — usually within a few hours.</div>
+      </div>
+      <div class="pricing-body">
+        <div class="pricing-features">
+          <div class="pf-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom design</div>
+          <div class="pf-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Mobile responsive</div>
+          <div class="pf-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Lead / contact form</div>
+          <div class="pf-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> WhatsApp button</div>
+          <div class="pf-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Hosting included</div>
+          <div class="pf-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> 48h delivery</div>
+          <div class="pf-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Unlimited revisions</div>
+          <div class="pf-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Source code handover</div>
+        </div>
+        <a href="index.html#contact" class="pricing-cta">Get a Free Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="section-label">Questions</div>
+    <h2 class="section-title">Frequently asked</h2>
+    <div class="faq-list">
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">
+          <span>How is a landing page different from a normal website?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </div>
+        <div class="faq-answer">A landing page has one page and one goal — get the visitor to take one specific action. A normal website has multiple pages and serves many purposes. Landing pages are purpose-built to convert; websites are built to inform and explore.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">
+          <span>Do I need a domain name before we start?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </div>
+        <div class="faq-answer">No. We can host the page on a subdomain for free, or connect your existing domain if you have one. We'll guide you through the domain setup at no extra charge.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">
+          <span>How long does it actually take?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </div>
+        <div class="faq-answer">Most landing pages are ready for your first review within 24–48 hours of us receiving your brief and content. After revisions, we typically go live within 3–5 days total.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">
+          <span>What do you need from me to get started?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </div>
+        <div class="faq-answer">Just fill out the brief form — your business name, what the page is for, any logo or brand colours you have, and any reference sites you like. We'll handle the rest. If you have photos or product images, share those too.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">
+          <span>Can I update the page content later?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </div>
+        <div class="faq-answer">Yes. You can message us any time with text or image updates and we'll make the changes. For ongoing clients we're usually very quick to turnaround small edits.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">
+          <span>Is this the right option if I'm just starting out?</span>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </div>
+        <div class="faq-answer">Absolutely. A landing page is often the smartest first step — low cost, fast to build, and gives you a professional online presence immediately. You can always expand to a full website later.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <div>
+      <div class="cta-band-title">Ready to get<br>your page live?</div>
+      <div class="cta-band-sub">Fill in the brief and we'll get back to you within a few hours.</div>
+    </div>
+    <a href="index.html#contact" class="btn-primary" style="font-size:16px; padding: 0.9em 2.5em;">Start My Landing Page →</a>
+  </div>
+</main>
+
+<footer>
+  <span class="footer-logo">CodersVerse</span>
+  <span class="footer-copy">&copy; 2026 CodersVerse. All rights reserved.</span>
+</footer>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/919004329806?text=Hi%20CodersVerse,%20I%27m%20interested%20in%20a%20landing%20page." class="wa-float" target="_blank" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.43 5.63 1.43h.006c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // Mobile menu
+  const hambtn = document.getElementById('hambtn');
+  const mobOverlay = document.getElementById('mobOverlay');
+  let open = false;
+  hambtn.addEventListener('click', () => {
+    open = !open;
+    hambtn.classList.toggle('open', open);
+    mobOverlay.classList.toggle('open', open);
+  });
+  mobOverlay.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      open = false;
+      hambtn.classList.remove('open');
+      mobOverlay.classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>
